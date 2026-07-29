@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
+import { Assistant } from "@/components/assistant";
 import { DisclaimerModal } from "@/components/disclaimer-modal";
 import { Providers } from "@/components/providers";
 import { SiteFooter } from "@/components/site-footer";
@@ -61,6 +62,7 @@ export default function RootLayout({
             {children}
           </main>
           <SiteFooter />
+          <Assistant />
           <DisclaimerModal />
         </Providers>
       </body>

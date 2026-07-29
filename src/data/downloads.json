@@ -60,18 +60,6 @@
     "url": "/template/surat-pengajuan-dosen-pembimbing.docx"
   },
   {
-    "id": "kartu-bimbingan",
-    "name": "Kartu Bimbingan Skripsi",
-    "description": "Bukti pertemuan bimbingan. Wajib terisi minimal lima kali pertemuan.",
-    "stage": "bimbingan",
-    "version": "—",
-    "format": "PDF",
-    "size": "—",
-    "status": "menunggu-unggah",
-    "updatedAt": "2026-07-29",
-    "url": null
-  },
-  {
     "id": "template-skripsi",
     "name": "Template Penulisan Skripsi",
     "description": "Format naskah skripsi lengkap: margin, penomoran, sistematika bab, dan gaya sitasi.",
@@ -84,28 +72,16 @@
     "url": null
   },
   {
-    "id": "form-izin-penelitian",
-    "name": "Formulir Permohonan Izin Penelitian",
-    "description": "Permohonan surat izin penelitian ke instansi tujuan melalui Fakultas.",
-    "stage": "bimbingan",
-    "version": "—",
-    "format": "DOCX",
-    "size": "—",
-    "status": "menunggu-unggah",
-    "updatedAt": "2026-07-29",
-    "url": null
-  },
-  {
     "id": "lembar-persetujuan-pembimbing",
-    "name": "Lembar Persetujuan Dosen Pembimbing",
-    "description": "Lembar persetujuan naskah skripsi. Wajib ditandatangani semua pembimbing jika lebih dari satu dosen.",
+    "name": "Lembar Pengesahan Pembimbing",
+    "description": "Lembar persetujuan naskah skripsi oleh dosen pembimbing. Berkas ini contoh yang sudah terisi — ganti judul, nama, NIM, dan nama pembimbing dengan datamu sendiri. Kalau pembimbingmu lebih dari satu, semuanya wajib menyetujui.",
     "stage": "bimbingan",
-    "version": "—",
+    "version": "1.0",
     "format": "DOCX",
-    "size": "—",
-    "status": "menunggu-unggah",
+    "size": "16 KB",
+    "status": "tersedia",
     "updatedAt": "2026-07-29",
-    "url": null
+    "url": "/template/lembar-pengesahan-pembimbing.docx"
   },
   {
     "id": "form-daftar-komprehensif",
@@ -250,18 +226,6 @@
     "status": "perlu-verifikasi",
     "updatedAt": "2026-07-29",
     "url": "https://docs.google.com/forms/d/e/1FAIpQLSf7UTxiPNzYk3KMcCQWHVE6IKMCjW7taqOdt10KKVd9_Ye53g/viewform"
-  },
-  {
-    "id": "form-bebas-pustaka",
-    "name": "Formulir Bebas Pustaka",
-    "description": "Formulir permohonan Surat Keterangan Bebas Pustaka.",
-    "stage": "bebas-pustaka",
-    "version": "—",
-    "format": "DOCX",
-    "size": "—",
-    "status": "menunggu-unggah",
-    "updatedAt": "2026-07-29",
-    "url": null
   },
   {
     "id": "form-yudisium",

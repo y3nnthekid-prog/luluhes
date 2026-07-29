@@ -116,6 +116,37 @@ AA: 4.5:1 untuk teks biasa, 3:1 untuk teks besar.
 Halaman `/tahapan/[slug]` dan roadmap otomatis mengikuti — tidak ada daftar tahapan
 yang di-hardcode di komponen.
 
+## Asisten tanya jawab
+
+Tombol **Tanya** di pojok kanan bawah membuka asisten yang menjawab dari data
+website ini. Mesinnya ada di `src/lib/assistant.ts`.
+
+Cara kerjanya bukan model bahasa, melainkan pencarian berbasis aturan:
+pertanyaan dipecah menjadi kelompok istilah — satu singkatan beserta ekspansinya
+dihitung sebagai satu konsep — lalu dicocokkan ke basis pengetahuan yang dibangun
+otomatis dari seluruh JSON: FAQ, tahapan, syarat, dokumen, langkah, tenggat,
+tips, template, jadwal ujian, dan nomenklatur SKPI.
+
+Pilihan ini disengaja. Untuk panduan administrasi kelulusan, jawaban yang
+dikarang jauh lebih berbahaya daripada jawaban "saya tidak tahu". Asisten hanya
+menyampaikan isi yang benar-benar ada di data, selalu menautkan halaman
+sumbernya, dan mengarahkan ke Prodi kalau tidak menemukan kecocokan.
+
+Tiga aturan yang menjaganya tidak asal menjawab:
+
+1. **Pencocokan per kata, bukan substring.** "kopi" tidak boleh cocok dengan
+   "fotokopi".
+2. **Harus ada kecocokan di judul, atau minimal dua kecocokan.** Satu kata umum
+   yang kebetulan muncul di badan teks tidak cukup.
+3. **Cakupan minimal 40%** dari kelompok istilah pertanyaan.
+
+Menambah pengetahuan berarti menambah data di `src/data` — basis pengetahuannya
+ikut terbarui sendiri. Untuk menambah singkatan baru, isi peta `aliases`.
+
+Kalau suatu saat ingin jawaban yang benar-benar digenerasi model bahasa, itu
+perlu kunci API dan route server tersendiri; konsekuensinya biaya per pertanyaan
+dan risiko halusinasi yang harus ditangani.
+
 ## Progres pengguna
 
 Checklist dan penanda posisi disimpan di **Local Storage** browser pengguna. Tidak

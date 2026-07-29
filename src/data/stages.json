@@ -489,12 +489,7 @@
     "documents": [
       {
         "name": "Kartu bimbingan skripsi",
-        "note": "Bukti minimal lima kali pertemuan. Jangan sampai hilang.",
-        "source": "alumni"
-      },
-      {
-        "name": "Surat izin / permohonan penelitian",
-        "note": "Diperlukan jika penelitianmu mengambil data di lembaga, bank syariah, pengadilan, atau instansi lain.",
+        "note": "Diterbitkan Sekretaris Prodi, bukan kamu yang membuat. Mintakan sejak awal bimbingan dan isi setiap pertemuan.",
         "source": "alumni"
       },
       {
@@ -518,11 +513,6 @@
         "title": "Sepakati rencana bimbingan",
         "detail": "Pada pertemuan pertama, sepakati target per bab dan ritme konsultasi. Ingat, lama bimbingan dibatasi maksimal enam bulan.",
         "actor": "Mahasiswa + Pembimbing"
-      },
-      {
-        "title": "Urus surat izin penelitian",
-        "detail": "Jika penelitianmu membutuhkan data lapangan, ajukan surat permohonan penelitian melalui Fakultas. Proses di instansi tujuan bisa memakan waktu, jadi urus lebih awal.",
-        "actor": "Mahasiswa → Fakultas → Instansi"
       },
       {
         "title": "Kumpulkan dan olah data",
@@ -549,10 +539,6 @@
       {
         "id": "rencana",
         "label": "Rencana dan target bimbingan sudah disepakati"
-      },
-      {
-        "id": "izin",
-        "label": "Surat izin penelitian sudah terbit (jika diperlukan)"
       },
       {
         "id": "data",
@@ -615,9 +601,7 @@
       }
     ],
     "downloads": [
-      "kartu-bimbingan",
       "template-skripsi",
-      "form-izin-penelitian",
       "lembar-persetujuan-pembimbing"
     ],
     "importantLinks": [
@@ -1434,8 +1418,7 @@
     "downloads": [
       "tanda-terima-penyerahan-skripsi",
       "form-validasi-perpus-fsh",
-      "form-validasi-perpus-uin",
-      "form-bebas-pustaka"
+      "form-validasi-perpus-uin"
     ],
     "importantLinks": [
       {
