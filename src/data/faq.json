@@ -1,0 +1,50 @@
+[
+  {
+    "question": "Apakah Lulus HES website resmi kampus?",
+    "answer": "Bukan. Ini inisiatif pribadi alumni untuk membantu adik tingkat. Lulus HES tidak berada di bawah pengelolaan Program Studi, Fakultas, maupun Universitas. Informasi resmi tetap berasal dari Prodi dan Fakultas."
+  },
+  {
+    "question": "Dari mana informasi di website ini berasal?",
+    "answer": "Sebagian besar tenggat dan persyaratan disusun dari Surat Dekan Fakultas Syariah dan Hukum No. B-252/F4/PP.01.1/01/2024 tanggal 23 Januari 2024 tentang Alur Seminar Proposal, Pendaftaran Munaqosah, dan Pendaftaran Ujian Komprehensif. Sisanya berasal dari pengalaman alumni dan praktik umum, dan ditandai secara terpisah di setiap halaman tahapan."
+  },
+  {
+    "question": "Kenapa ada label 'Resmi' dan 'Alumni' di halaman tahapan?",
+    "answer": "Supaya kamu tahu mana yang punya dasar tertulis dan mana yang perlu dikonfirmasi. Label 'Resmi' berarti tertulis dalam Surat Dekan tersebut. Label 'Alumni' berarti praktik umum — tetap berguna, tapi konfirmasikan ke Prodi sebelum kamu mengandalkannya."
+  },
+  {
+    "question": "Apakah data checklist saya aman?",
+    "answer": "Seluruh progres disimpan di Local Storage browsermu sendiri. Tidak ada akun, tidak ada login, dan tidak ada data yang dikirim ke server mana pun. Konsekuensinya: kalau kamu ganti browser, ganti perangkat, atau menghapus data peramban, progresmu ikut hilang."
+  },
+  {
+    "question": "Berapa lama total waktu dari sempro sampai wisuda?",
+    "answer": "Bervariasi. Jika seluruh tenggat resmi dipenuhi tanpa pengulangan, perjalanan dari persiapan proposal sampai wisuda umumnya memakan waktu sekitar 10–18 bulan. Yang paling sering memperlambat adalah revisi yang menggantung dan periode yudisium yang terlewat."
+  },
+  {
+    "question": "Tenggat mana yang paling sering bikin mahasiswa mengulang?",
+    "answer": "Tiga ini: masa perbaikan setelah seminar proposal maksimal 1 bulan, lama bimbingan maksimal 6 bulan, dan masa revisi pasca munaqosyah maksimal 3 bulan. Ketiganya tertulis dalam alur resmi, dan konsekuensi kelewatnya adalah diujikan kembali atau wajib melapor ke Prodi."
+  },
+  {
+    "question": "Urutan mana yang benar: komprehensif dulu atau sidang skripsi dulu?",
+    "answer": "Ujian Komprehensif lebih dulu. Alur resmi pendaftaran munaqosyah menyatakan mahasiswa wajib lulus Ujian Komprehensif dan minimal 138 SKS sebelum mendaftar munaqosyah. SKL Komprehensif juga termasuk berkas wajib pendaftaran."
+  },
+  {
+    "question": "Berapa batas Turnitin untuk skripsi?",
+    "answer": "Maksimal 30%, diperiksa oleh Staff Perpustakaan FSH. Keterangan hasil Turnitin wajib dilampirkan di lembar akhir skripsi."
+  },
+  {
+    "question": "Kapan SKPI harus diisi?",
+    "answer": "Sebelum mendaftar munaqosyah, dan diisi di AIS. Ini tertulis tegas dalam alur resmi — SKPI juga menjadi salah satu dari lima berkas wajib pendaftaran munaqosyah."
+  },
+  {
+    "question": "Berapa jumlah maksimal dosen penguji dan pembimbing?",
+    "answer": "Penguji seminar proposal maksimal 2 orang, penguji munaqosyah maksimal 2 orang, penguji komprehensif maksimal 3 orang, dan dosen pembimbing skripsi maksimal 2 orang."
+  },
+  {
+    "question": "Bagaimana kalau informasi di sini berbeda dengan yang disampaikan Prodi?",
+    "answer": "Ikuti Prodi. Kebijakan administrasi bisa berubah sewaktu-waktu, dan Prodi adalah sumber yang berwenang. Kalau kamu menemukan perbedaan, kabari agar halamannya bisa diperbaiki."
+  },
+  {
+    "question": "Saya menemukan informasi yang sudah tidak berlaku. Bagaimana melaporkannya?",
+    "answer": "Sampaikan lewat kontak di halaman Tentang. Koreksi dari mahasiswa aktif adalah cara utama website ini tetap akurat."
+  }
+]

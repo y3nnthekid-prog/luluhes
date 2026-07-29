@@ -1,0 +1,69 @@
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+
+import { DisclaimerModal } from "@/components/disclaimer-modal";
+import { Providers } from "@/components/providers";
+import { SiteFooter } from "@/components/site-footer";
+import { SiteHeader } from "@/components/site-header";
+import { site } from "@/lib/data";
+import "./globals.css";
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+export const metadata: Metadata = {
+  title: {
+    default: `${site.name} — ${site.tagline}`,
+    template: `%s · ${site.name}`,
+  },
+  description: site.description,
+  applicationName: site.name,
+  keywords: [
+    "Lulus HES",
+    "skripsi HES",
+    "Hukum Ekonomi Syariah",
+    "UIN Jakarta",
+    "seminar proposal",
+    "munaqosyah",
+    "ujian komprehensif",
+    "yudisium",
+  ],
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html
+      lang="id"
+      suppressHydrationWarning
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+    >
+      <body className="flex min-h-full flex-col">
+        <Providers>
+          <a
+            href="#konten"
+            className="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:rounded-lg focus:bg-background focus:px-3 focus:py-2 focus:ring-2 focus:ring-ring"
+          >
+            Lompat ke konten
+          </a>
+          <SiteHeader />
+          <main id="konten" className="flex-1">
+            {children}
+          </main>
+          <SiteFooter />
+          <DisclaimerModal />
+        </Providers>
+      </body>
+    </html>
+  );
+}

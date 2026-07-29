@@ -1,0 +1,68 @@
+{
+  "name": "Lulus HES",
+  "tagline": "Google Maps untuk kelulusanmu",
+  "description": "Navigator kelulusan mahasiswa Hukum Ekonomi Syariah UIN Syarif Hidayatullah Jakarta. Tahu kamu di tahap mana, apa yang harus dilakukan sekarang, dan apa langkah berikutnya.",
+  "program": "Hukum Ekonomi Syariah",
+  "faculty": "Fakultas Syariah dan Hukum",
+  "university": "UIN Syarif Hidayatullah Jakarta",
+  "officialSource": {
+    "title": "Alur Seminar Proposal, Pendaftaran Munaqosah, dan Pendaftaran Ujian Komprehensif",
+    "number": "B-252/F4/PP.01.1/01/2024",
+    "date": "23 Januari 2024",
+    "issuer": "Dekan Fakultas Syariah dan Hukum UIN Syarif Hidayatullah Jakarta"
+  },
+  "driveFolderUrl": null,
+  "disclaimer": {
+    "title": "Sebelum mulai, baca ini dulu",
+    "intro": "Lulus HES dibuat untuk membantu, bukan untuk menggantikan informasi resmi.",
+    "points": [
+      "Website ini bukan website resmi kampus.",
+      "Tidak berada di bawah pengelolaan Program Studi, Fakultas, maupun Universitas.",
+      "Informasi disusun dari pengalaman alumni, pedoman akademik, dan informasi yang berhasil dikumpulkan.",
+      "Kebijakan administrasi dapat berubah sewaktu-waktu.",
+      "Kamu tetap wajib mengonfirmasi ke Sekretaris Program Studi atau unit terkait."
+    ],
+    "consent": "Saya memahami bahwa website ini hanya merupakan panduan."
+  },
+  "contacts": [
+    {
+      "label": "Program Studi Hukum Ekonomi Syariah",
+      "url": "https://fsh.uinjkt.ac.id",
+      "note": "Sumber resmi untuk seluruh pertanyaan administrasi"
+    },
+    {
+      "label": "Fakultas Syariah dan Hukum",
+      "url": "https://fsh.uinjkt.ac.id",
+      "note": "Jl. Ir. H. Juanda No. 95, Ciputat, Tangerang Selatan"
+    },
+    {
+      "label": "AIS UIN Jakarta",
+      "url": "https://ais.uinjkt.ac.id",
+      "note": "Transkrip, KRS, dan pengisian SKPI"
+    },
+    {
+      "label": "Repository UIN Jakarta",
+      "url": "https://repository.uinjkt.ac.id",
+      "note": "Unggah skripsi dan cek duplikasi judul"
+    },
+    {
+      "label": "Perpustakaan UIN Jakarta",
+      "url": "https://perpus.uinjkt.ac.id",
+      "note": "Turnitin dan bebas pustaka"
+    },
+    {
+      "label": "UIN Syarif Hidayatullah Jakarta",
+      "url": "https://www.uinjkt.ac.id",
+      "note": "Informasi wisuda tingkat universitas"
+    }
+  ],
+  "about": {
+    "heading": "Kenapa website ini ada",
+    "paragraphs": [
+      "Setiap tahun, cerita yang sama terulang. Mahasiswa semester akhir kebingungan bukan karena skripsinya sulit, tetapi karena tidak ada satu tempat yang menjelaskan urutan prosesnya. Informasi tersebar di grup WhatsApp, catatan senior, file lama, dan pengumuman yang sudah lewat.",
+      "Akibatnya waktu habis bukan untuk menulis, melainkan untuk mencari tahu. Tenggat satu bulan setelah seminar proposal terlewat karena tidak ada yang memberi tahu bahwa tenggat itu ada. Pendaftaran munaqosyah tertunda karena SKPI baru diisi belakangan, padahal seharusnya sebelum mendaftar.",
+      "Lulus HES menyusun ulang informasi yang sudah ada ke dalam satu alur yang runtut. Tidak menambah aturan baru, tidak menggantikan Prodi. Hanya memastikan kamu selalu tahu empat hal: kamu di mana, apa yang harus dikerjakan sekarang, dokumen apa yang dibutuhkan, dan apa langkah berikutnya.",
+      "Kalau setelah membaca sebuah halaman kamu masih harus bertanya ke senior, berarti halaman itu belum cukup baik. Kabari, biar diperbaiki."
+    ]
+  }
+}

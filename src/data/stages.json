@@ -1,0 +1,1466 @@
+[
+  {
+    "order": 1,
+    "slug": "pra-sempro",
+    "title": "Persiapan Proposal",
+    "shortTitle": "Pra Sempro",
+    "icon": "Lightbulb",
+    "phase": "Proposal",
+    "description": "Titik nol perjalanan skripsi. Di tahap ini kamu memastikan syarat akademik sudah terpenuhi, mengunci topik, menyusun draft proposal, lalu berkonsultasi dengan Dosen Penasihat Akademik sampai proposal disetujui.",
+    "goal": "Mendapatkan ACC proposal dari Dosen PA dan Prodi supaya proposal bisa didaftarkan ke Seminar Proposal.",
+    "estimatedDuration": "1–2 bulan",
+    "requirements": [
+      {
+        "text": "Sudah lulus minimal 100 SKS (umumnya tercapai di semester V).",
+        "source": "resmi"
+      },
+      {
+        "text": "Sudah lulus mata kuliah Metodologi Penelitian Hukum (MPH).",
+        "source": "resmi"
+      },
+      {
+        "text": "Status mahasiswa aktif pada semester berjalan dan tidak sedang cuti.",
+        "source": "alumni"
+      }
+    ],
+    "documents": [
+      {
+        "name": "Draft proposal skripsi",
+        "note": "Umumnya memuat latar belakang, rumusan masalah, tujuan, tinjauan pustaka, dan metode penelitian.",
+        "source": "alumni"
+      },
+      {
+        "name": "Transkrip nilai sementara",
+        "note": "Unduh dari AIS. Dipakai untuk membuktikan 100 SKS dan kelulusan MPH.",
+        "source": "alumni"
+      },
+      {
+        "name": "Kartu konsultasi proposal",
+        "note": "Bukti bimbingan dengan Dosen PA. Minta tanda tangan setiap kali konsultasi.",
+        "source": "alumni"
+      },
+      {
+        "name": "Formulir pengajuan judul",
+        "note": "Ambil di Prodi atau unduh di Download Center.",
+        "source": "alumni"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Cek syarat akademik di AIS",
+        "detail": "Buka transkrip di AIS. Pastikan total SKS lulus sudah minimal 100 dan mata kuliah Metodologi Penelitian Hukum berstatus lulus. Kalau belum, tahap ini belum bisa dimulai.",
+        "actor": "Mahasiswa"
+      },
+      {
+        "title": "Kunci topik penelitian",
+        "detail": "Pilih tema Hukum Ekonomi Syariah yang datanya realistis kamu jangkau. Cek repository UIN dan Google Scholar untuk memastikan judulmu tidak duplikat dengan skripsi yang sudah ada.",
+        "actor": "Mahasiswa"
+      },
+      {
+        "title": "Susun draft proposal",
+        "detail": "Tulis proposal sesuai format yang berlaku: latar belakang, identifikasi dan rumusan masalah, tujuan dan manfaat, tinjauan pustaka / penelitian terdahulu, kerangka teori, metode penelitian, dan sistematika penulisan.",
+        "actor": "Mahasiswa"
+      },
+      {
+        "title": "Konsultasi dengan Dosen PA",
+        "detail": "Jadwalkan pertemuan rutin dan catat setiap masukan di kartu konsultasi. Masa konsultasi ini dibatasi maksimal dua bulan, jadi jangan menunda balasan revisi.",
+        "actor": "Mahasiswa + Dosen PA"
+      },
+      {
+        "title": "Minta ACC Dosen PA dan Prodi",
+        "detail": "Setelah proposal dinilai layak, minta tanda tangan persetujuan Dosen PA, lalu ajukan ke Prodi untuk mendapatkan persetujuan. Proposal yang diajukan wajib mendapat ACC dari Dosen PA dan Prodi.",
+        "actor": "Dosen PA + Prodi"
+      }
+    ],
+    "checklist": [
+      { "id": "sks-100", "label": "Sudah lulus minimal 100 SKS" },
+      { "id": "mph", "label": "Sudah lulus mata kuliah MPH" },
+      { "id": "topik", "label": "Topik dan judul sudah dikunci" },
+      { "id": "cek-duplikat", "label": "Sudah cek duplikasi judul di repository UIN" },
+      { "id": "draft", "label": "Draft proposal selesai ditulis" },
+      { "id": "kartu", "label": "Kartu konsultasi terisi dan ditandatangani" },
+      { "id": "acc-pa", "label": "Proposal sudah di-ACC Dosen PA" },
+      { "id": "acc-prodi", "label": "Proposal sudah disetujui Prodi" }
+    ],
+    "warnings": [
+      {
+        "text": "Proses konsultasi proposal bersama Dosen PA maksimal dua bulan. Jika lewat dari dua bulan, pembimbingan proposal dialihkan ke Prodi.",
+        "source": "resmi"
+      }
+    ],
+    "tips": [
+      "Pilih topik yang datanya bisa kamu ambil. Judul yang keren tapi datanya di luar jangkauan akan menyiksa di tahap penelitian.",
+      "Siapkan tiga alternatif judul saat konsultasi pertama. Dosen PA lebih mudah mengarahkan kalau ada pilihan.",
+      "Foto atau scan kartu konsultasi setiap habis bimbingan. Kartu yang hilang di akhir semester adalah masalah nyata.",
+      "Balas revisi maksimal dalam satu minggu. Batas dua bulan itu cepat habis kalau setiap revisi menunggu dua minggu."
+    ],
+    "faq": [
+      {
+        "question": "Apakah saya bisa mengajukan proposal kalau SKS baru 95?",
+        "answer": "Belum. Syarat minimal 100 SKS dan lulus MPH tertulis dalam alur resmi Fakultas. Selesaikan dulu SKS-nya, sambil menyiapkan draft proposal supaya tidak kehilangan waktu."
+      },
+      {
+        "question": "Dosen PA saya sulit ditemui, bagaimana?",
+        "answer": "Catat setiap upaya menghubungi (tanggal, media, respons). Jika mendekati batas dua bulan belum ada kemajuan, laporkan ke Sekretaris Prodi. Dalam alur resmi, konsultasi yang lewat dua bulan memang dialihkan ke Prodi."
+      },
+      {
+        "question": "Berapa halaman proposal yang ideal?",
+        "answer": "Tidak ada angka baku dalam alur resmi. Praktik umum di FSH berkisar 15–25 halaman. Konfirmasikan ke Dosen PA karena tiap dosen punya preferensi berbeda."
+      }
+    ],
+    "downloads": ["form-pengajuan-judul", "template-proposal", "kartu-konsultasi"],
+    "importantLinks": [
+      { "label": "AIS UIN Jakarta", "url": "https://ais.uinjkt.ac.id", "note": "Cek transkrip dan SKS" },
+      { "label": "Repository UIN Jakarta", "url": "https://repository.uinjkt.ac.id", "note": "Cek duplikasi judul" },
+      { "label": "Website FSH", "url": "https://fsh.uinjkt.ac.id", "note": "Pengumuman resmi Fakultas" }
+    ],
+    "previousStage": null,
+    "nextStage": "sempro"
+  },
+  {
+    "order": 2,
+    "slug": "sempro",
+    "title": "Seminar Proposal",
+    "shortTitle": "Sempro",
+    "icon": "Presentation",
+    "phase": "Proposal",
+    "description": "Proposal yang sudah di-ACC didaftarkan ke Prodi untuk diujikan. Kamu mempresentasikan rencana penelitian di hadapan maksimal dua dosen penguji.",
+    "goal": "Lulus Seminar Proposal supaya berhak melanjutkan ke penunjukan dosen pembimbing.",
+    "estimatedDuration": "2–4 minggu sejak pendaftaran",
+    "requirements": [
+      {
+        "text": "Proposal sudah mendapat ACC (persetujuan) dari Dosen PA dan Prodi.",
+        "source": "resmi"
+      },
+      {
+        "text": "Sudah mendaftarkan proposal ke Prodi untuk diujikan dalam Seminar Proposal.",
+        "source": "resmi"
+      },
+      {
+        "text": "Tidak memiliki tunggakan administrasi pada semester berjalan.",
+        "source": "alumni"
+      }
+    ],
+    "documents": [
+      {
+        "name": "Proposal yang sudah ditandatangani Dosen PA",
+        "note": "Perbanyak sesuai jumlah penguji ditambah satu arsip Prodi.",
+        "source": "alumni"
+      },
+      {
+        "name": "Formulir pendaftaran seminar proposal",
+        "note": "Ambil di Prodi atau unduh di Download Center.",
+        "source": "alumni"
+      },
+      {
+        "name": "Bukti pembayaran / kartu studi semester berjalan",
+        "source": "alumni"
+      },
+      {
+        "name": "Bahan presentasi (slide)",
+        "note": "Biasanya 10–15 slide untuk presentasi 10–15 menit.",
+        "source": "alumni"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Daftarkan proposal ke Prodi",
+        "detail": "Serahkan proposal yang sudah di-ACC beserta berkas pendaftaran ke Prodi. Pendaftaran inilah yang memasukkan namamu ke antrean jadwal seminar.",
+        "actor": "Mahasiswa → Prodi"
+      },
+      {
+        "title": "Tunggu penetapan penguji dan jadwal",
+        "detail": "Prodi menetapkan dosen penguji. Jumlah dosen penguji seminar proposal maksimal dua orang. Pantau pengumuman jadwal secara berkala.",
+        "actor": "Prodi"
+      },
+      {
+        "title": "Siapkan presentasi dan berkas seminar",
+        "detail": "Buat slide ringkas: latar belakang, rumusan masalah, kebaruan penelitian, dan metode. Cetak proposal untuk masing-masing penguji beberapa hari sebelum jadwal.",
+        "actor": "Mahasiswa"
+      },
+      {
+        "title": "Ikuti seminar proposal",
+        "detail": "Presentasikan proposal, lalu jawab pertanyaan penguji. Catat semua masukan — catatan inilah yang jadi pegangan revisi di tahap berikutnya.",
+        "actor": "Mahasiswa + Penguji"
+      },
+      {
+        "title": "Terima hasil seminar",
+        "detail": "Hasilnya lulus dengan perbaikan, atau tidak lulus. Jika tidak lulus, kamu mengikuti prosedur seminar proposal dari awal.",
+        "actor": "Penguji → Prodi"
+      }
+    ],
+    "checklist": [
+      { "id": "berkas", "label": "Berkas pendaftaran lengkap dan diserahkan ke Prodi" },
+      { "id": "jadwal", "label": "Jadwal dan nama penguji sudah diterima" },
+      { "id": "cetak", "label": "Proposal sudah dicetak untuk semua penguji" },
+      { "id": "slide", "label": "Slide presentasi selesai" },
+      { "id": "latihan", "label": "Sudah latihan presentasi minimal sekali" },
+      { "id": "seminar", "label": "Seminar proposal sudah dilaksanakan" },
+      { "id": "catatan", "label": "Catatan revisi dari penguji sudah dicatat lengkap" }
+    ],
+    "warnings": [
+      {
+        "text": "Ujian proposal diujikan oleh maksimal dua dosen penguji.",
+        "source": "resmi"
+      },
+      {
+        "text": "Bagi mahasiswa yang tidak lulus seminar proposal, prosedur seminar proposal diulang dari awal.",
+        "source": "resmi"
+      }
+    ],
+    "tips": [
+      "Rekam sesi tanya jawab (izin dulu ke penguji) atau minta teman mencatat. Catatan revisi yang tidak lengkap bikin tahap revisi berputar-putar.",
+      "Penguji hampir selalu menanyakan kebaruan penelitian dan alasan pemilihan metode. Siapkan jawabannya dalam satu kalimat yang jelas.",
+      "Datang 30 menit lebih awal dan bawa proposal cadangan. Printer kampus tidak selalu bisa diandalkan di hari-H.",
+      "Kenali penelitian terdahulu yang kamu kutip. Pertanyaan 'apa bedanya dengan penelitian X?' itu klasik."
+    ],
+    "faq": [
+      {
+        "question": "Berapa lama presentasi seminar proposal?",
+        "answer": "Alur resmi tidak mengatur durasi. Praktik umumnya 10–15 menit presentasi, sisanya tanya jawab. Konfirmasi ke Prodi menjelang jadwal."
+      },
+      {
+        "question": "Kalau tidak lulus seminar proposal, apakah harus ganti judul?",
+        "answer": "Belum tentu. Yang pasti, alur resmi menyatakan kamu mengikuti prosedur seminar proposal dari awal. Apakah judul perlu diganti tergantung catatan penguji."
+      },
+      {
+        "question": "Apakah pakaian seminar proposal harus formal?",
+        "answer": "Umumnya kemeja putih, bawahan hitam, dan almamater. Ketentuan ini tidak ada di alur resmi, jadi konfirmasikan ke Prodi atau tanya angkatan di atasmu."
+      }
+    ],
+    "downloads": ["form-daftar-sempro", "template-slide-sempro"],
+    "importantLinks": [
+      { "label": "Website FSH", "url": "https://fsh.uinjkt.ac.id", "note": "Pengumuman jadwal seminar" },
+      { "label": "AIS UIN Jakarta", "url": "https://ais.uinjkt.ac.id" }
+    ],
+    "previousStage": "pra-sempro",
+    "nextStage": "revisi-sempro"
+  },
+  {
+    "order": 3,
+    "slug": "revisi-sempro",
+    "title": "Revisi Proposal & Penunjukan Pembimbing",
+    "shortTitle": "Revisi Sempro",
+    "icon": "PenLine",
+    "phase": "Proposal",
+    "description": "Tahap dengan tenggat paling ketat di awal perjalanan. Kamu memperbaiki proposal sesuai catatan penguji, dan setelah perbaikan ditandatangani, Prodi menunjuk dosen pembimbing skripsimu.",
+    "goal": "Mendapatkan tanda tangan perbaikan dari penguji dan surat penunjukan dosen pembimbing dari Prodi.",
+    "estimatedDuration": "Maksimal 1 bulan",
+    "requirements": [
+      {
+        "text": "Dinyatakan lulus seminar proposal.",
+        "source": "resmi"
+      },
+      {
+        "text": "Perbaikan proposal ditandatangani oleh penguji sebelum Prodi menunjuk dosen pembimbing.",
+        "source": "resmi"
+      }
+    ],
+    "documents": [
+      {
+        "name": "Proposal hasil revisi",
+        "note": "Sertakan lembar catatan penguji agar mudah dicocokkan.",
+        "source": "alumni"
+      },
+      {
+        "name": "Lembar pengesahan / persetujuan perbaikan penguji",
+        "note": "Wajib ditandatangani penguji. Inilah pemicu penunjukan pembimbing.",
+        "source": "alumni"
+      },
+      {
+        "name": "Berita acara seminar proposal",
+        "source": "alumni"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Kerjakan revisi sesuai catatan penguji",
+        "detail": "Susun daftar revisi poin per poin, lalu kerjakan dari yang paling berat. Buat kolom 'catatan penguji' dan 'perbaikan yang dilakukan' supaya mudah ditunjukkan saat minta tanda tangan.",
+        "actor": "Mahasiswa"
+      },
+      {
+        "title": "Minta tanda tangan penguji",
+        "detail": "Temui setiap penguji dengan membawa proposal revisi dan daftar perbaikan. Penunjukan dosen pembimbing baru dilakukan setelah perbaikan proposal ditandatangani oleh penguji.",
+        "actor": "Mahasiswa → Penguji"
+      },
+      {
+        "title": "Serahkan proposal final ke Prodi",
+        "detail": "Setelah lengkap ditandatangani, serahkan ke Prodi sebagai dasar penerbitan surat penunjukan pembimbing.",
+        "actor": "Mahasiswa → Prodi"
+      },
+      {
+        "title": "Terima penunjukan dosen pembimbing",
+        "detail": "Prodi menunjuk dosen pembimbing. Jumlah dosen pembimbing maksimal dua orang. Simpan surat penunjukan ini — akan diminta lagi di tahap-tahap berikutnya.",
+        "actor": "Prodi"
+      }
+    ],
+    "checklist": [
+      { "id": "daftar-revisi", "label": "Daftar revisi dari penguji sudah dibuat" },
+      { "id": "revisi-selesai", "label": "Semua revisi sudah dikerjakan" },
+      { "id": "ttd-penguji", "label": "Perbaikan sudah ditandatangani semua penguji" },
+      { "id": "serah-prodi", "label": "Proposal final sudah diserahkan ke Prodi" },
+      { "id": "sk-pembimbing", "label": "Surat penunjukan dosen pembimbing sudah diterima" },
+      { "id": "kontak-pembimbing", "label": "Sudah menghubungi dosen pembimbing" }
+    ],
+    "warnings": [
+      {
+        "text": "Masa perbaikan bagi mahasiswa yang lulus seminar proposal maksimal satu bulan. Jika melebihi satu bulan, proposal akan diujikan kembali.",
+        "source": "resmi"
+      },
+      {
+        "text": "Jumlah dosen pembimbing maksimal dua orang.",
+        "source": "resmi"
+      }
+    ],
+    "tips": [
+      "Ini tenggat paling sering terlewat. Hitung mundur dari tanggal seminar dan pasang pengingat di minggu ketiga.",
+      "Kejar tanda tangan penguji sejak minggu pertama. Dosen bisa sedang tugas luar, dan itu memakan waktu berhari-hari.",
+      "Buat tabel dua kolom: catatan penguji di kiri, perbaikan di kanan. Penguji jauh lebih cepat menandatangani kalau perubahannya terlihat.",
+      "Begitu surat penunjukan terbit, langsung hubungi pembimbing untuk menyepakati ritme bimbingan. Jam bimbingan kamu sudah mulai berjalan."
+    ],
+    "faq": [
+      {
+        "question": "Satu bulan itu dihitung sejak kapan?",
+        "answer": "Alur resmi menyebut 'masa perbaikan maksimal 1 bulan' tanpa merinci titik mulainya. Praktik umumnya dihitung sejak tanggal pelaksanaan seminar. Pastikan ke Sekretaris Prodi agar tidak salah hitung."
+      },
+      {
+        "question": "Kalau lewat satu bulan, apa yang terjadi?",
+        "answer": "Menurut alur resmi, proposal akan diujikan kembali. Artinya kamu mengulang seminar proposal."
+      },
+      {
+        "question": "Bisakah saya memilih dosen pembimbing sendiri?",
+        "answer": "Penunjukan dosen pembimbing dilakukan oleh Prodi. Sebagian mahasiswa mengajukan preferensi, tetapi keputusan akhir ada di Prodi. Tanyakan langsung ke Sekretaris Prodi."
+      }
+    ],
+    "downloads": ["lembar-revisi-sempro", "form-penunjukan-pembimbing"],
+    "importantLinks": [
+      { "label": "Website FSH", "url": "https://fsh.uinjkt.ac.id" }
+    ],
+    "previousStage": "sempro",
+    "nextStage": "bimbingan"
+  },
+  {
+    "order": 4,
+    "slug": "bimbingan",
+    "title": "Bimbingan & Penelitian Skripsi",
+    "shortTitle": "Penelitian",
+    "icon": "BookOpen",
+    "phase": "Skripsi",
+    "description": "Tahap terpanjang. Kamu mengumpulkan data, menulis skripsi bab demi bab, dan berkonsultasi rutin dengan dosen pembimbing sampai naskah disetujui.",
+    "goal": "Menyelesaikan naskah skripsi dan mendapatkan persetujuan dari seluruh dosen pembimbing.",
+    "estimatedDuration": "3–6 bulan",
+    "requirements": [
+      {
+        "text": "Sudah menerima surat penunjukan dosen pembimbing dari Prodi.",
+        "source": "resmi"
+      },
+      {
+        "text": "Minimal lima kali pertemuan bimbingan bersama dosen pembimbing.",
+        "source": "resmi"
+      },
+      {
+        "text": "Kartu bimbingan terisi dan ditandatangani pembimbing setiap pertemuan.",
+        "source": "alumni"
+      }
+    ],
+    "documents": [
+      {
+        "name": "Kartu bimbingan skripsi",
+        "note": "Bukti minimal lima kali pertemuan. Jangan sampai hilang.",
+        "source": "alumni"
+      },
+      {
+        "name": "Surat izin / permohonan penelitian",
+        "note": "Diperlukan jika penelitianmu mengambil data di lembaga, bank syariah, pengadilan, atau instansi lain.",
+        "source": "alumni"
+      },
+      {
+        "name": "Instrumen penelitian",
+        "note": "Pedoman wawancara, kuesioner, atau daftar dokumen yang dianalisis.",
+        "source": "alumni"
+      },
+      {
+        "name": "Naskah skripsi lengkap",
+        "note": "Bab I sampai penutup, daftar pustaka, dan lampiran.",
+        "source": "alumni"
+      },
+      {
+        "name": "Lembar persetujuan pembimbing",
+        "note": "Jika pembimbing lebih dari satu, semuanya wajib menyetujui.",
+        "source": "resmi"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Sepakati rencana bimbingan",
+        "detail": "Pada pertemuan pertama, sepakati target per bab dan ritme konsultasi. Ingat, lama bimbingan dibatasi maksimal enam bulan.",
+        "actor": "Mahasiswa + Pembimbing"
+      },
+      {
+        "title": "Urus surat izin penelitian",
+        "detail": "Jika penelitianmu membutuhkan data lapangan, ajukan surat permohonan penelitian melalui Fakultas. Proses di instansi tujuan bisa memakan waktu, jadi urus lebih awal.",
+        "actor": "Mahasiswa → Fakultas → Instansi"
+      },
+      {
+        "title": "Kumpulkan dan olah data",
+        "detail": "Lakukan wawancara, studi dokumen, atau analisis putusan sesuai metode di proposal. Simpan seluruh bukti data untuk lampiran.",
+        "actor": "Mahasiswa"
+      },
+      {
+        "title": "Tulis dan konsultasikan bab demi bab",
+        "detail": "Setorkan naskah secara bertahap. Setiap pertemuan bimbingan wajib dicatat di kartu bimbingan — minimal lima kali pertemuan.",
+        "actor": "Mahasiswa + Pembimbing"
+      },
+      {
+        "title": "Dapatkan persetujuan pembimbing",
+        "detail": "Setelah naskah lengkap, minta persetujuan tertulis. Jika pembimbing lebih dari satu dosen, persetujuan semua dosen pembimbing wajib diperoleh.",
+        "actor": "Pembimbing"
+      },
+      {
+        "title": "Lapor ke Prodi jika lewat enam bulan",
+        "detail": "Bila dalam enam bulan skripsi belum selesai, kamu wajib melapor ke Prodi. Lapor lebih awal jauh lebih aman daripada menghilang.",
+        "actor": "Mahasiswa → Prodi"
+      }
+    ],
+    "checklist": [
+      { "id": "rencana", "label": "Rencana dan target bimbingan sudah disepakati" },
+      { "id": "izin", "label": "Surat izin penelitian sudah terbit (jika diperlukan)" },
+      { "id": "data", "label": "Pengumpulan data selesai" },
+      { "id": "bab-selesai", "label": "Seluruh bab skripsi selesai ditulis" },
+      { "id": "bimbingan-5", "label": "Sudah bimbingan minimal 5 kali dan tercatat di kartu" },
+      { "id": "kartu-ttd", "label": "Kartu bimbingan ditandatangani pembimbing" },
+      { "id": "acc-pembimbing", "label": "Naskah sudah disetujui SEMUA dosen pembimbing" }
+    ],
+    "warnings": [
+      {
+        "text": "Lama bimbingan maksimal enam bulan dengan minimal lima kali pertemuan bimbingan bersama dosen pembimbing.",
+        "source": "resmi"
+      },
+      {
+        "text": "Bila dalam enam bulan belum selesai, mahasiswa wajib melapor ke Prodi.",
+        "source": "resmi"
+      },
+      {
+        "text": "Jika dosen pembimbing lebih dari satu orang, skripsi wajib mendapat persetujuan semua dosen pembimbing.",
+        "source": "resmi"
+      }
+    ],
+    "tips": [
+      "Jangan menunggu satu bab sempurna baru konsultasi. Setor progres kecil secara rutin — itu yang bikin lima pertemuan terkumpul tanpa terasa.",
+      "Rapikan sitasi sejak awal pakai Mendeley atau Zotero. Merapikan daftar pustaka 60 halaman di minggu terakhir itu mimpi buruk.",
+      "Urus surat izin penelitian sebelum kamu benar-benar butuh. Instansi bisa butuh dua sampai empat minggu untuk membalas.",
+      "Backup naskah di cloud dan versikan per tanggal. Laptop rusak di bulan kelima adalah cerita yang terlalu sering terjadi.",
+      "Cek similarity naskahmu sendiri jauh sebelum mendaftar sidang. Batas Turnitin 30% di tahap berikutnya lebih mudah dikejar kalau ketahuan dari awal."
+    ],
+    "faq": [
+      {
+        "question": "Enam bulan dihitung dari kapan?",
+        "answer": "Umumnya dari terbitnya surat penunjukan dosen pembimbing. Alur resmi hanya menyebut 'lama bimbingan maksimal 6 bulan'. Konfirmasikan titik mulainya ke Sekretaris Prodi."
+      },
+      {
+        "question": "Apakah bimbingan online dihitung?",
+        "answer": "Alur resmi tidak membedakan bimbingan daring dan luring, hanya mensyaratkan minimal lima kali pertemuan. Yang menentukan adalah pencatatan di kartu bimbingan, jadi minta pembimbing memaraf meski bimbingannya daring."
+      },
+      {
+        "question": "Kalau lewat enam bulan, apakah skripsi saya batal?",
+        "answer": "Tidak dinyatakan batal dalam alur resmi. Yang diwajibkan adalah melapor ke Prodi. Segera lapor untuk mendapatkan arahan resmi, jangan menunggu sampai ditanya."
+      },
+      {
+        "question": "Bagaimana kalau dua pembimbing memberi arahan yang bertentangan?",
+        "answer": "Sampaikan secara terbuka bahwa ada dua arahan berbeda dan minta kesepakatan keduanya. Kalau buntu, konsultasikan ke Prodi. Persetujuan keduanya tetap wajib untuk maju ke munaqosyah."
+      }
+    ],
+    "downloads": ["kartu-bimbingan", "template-skripsi", "form-izin-penelitian", "lembar-persetujuan-pembimbing"],
+    "importantLinks": [
+      { "label": "Repository UIN Jakarta", "url": "https://repository.uinjkt.ac.id", "note": "Referensi skripsi terdahulu" },
+      { "label": "Perpustakaan UIN Jakarta", "url": "https://perpus.uinjkt.ac.id" },
+      { "label": "AIS UIN Jakarta", "url": "https://ais.uinjkt.ac.id" }
+    ],
+    "previousStage": "revisi-sempro",
+    "nextStage": "komprehensif"
+  },
+  {
+    "order": 5,
+    "slug": "komprehensif",
+    "title": "Ujian Komprehensif",
+    "shortTitle": "Komprehensif",
+    "icon": "GraduationCap",
+    "phase": "Ujian",
+    "description": "Gerbang wajib sebelum munaqosyah. Ujian menguji penguasaanmu atas keilmuan HES secara menyeluruh melalui ujian tulis, lisan, dan baca kitab.",
+    "goal": "Lulus Ujian Komprehensif dan mendapatkan SKL Komprehensif — dokumen yang wajib dilampirkan saat mendaftar munaqosyah.",
+    "estimatedDuration": "1–2 minggu sejak pendaftaran",
+    "requirements": [
+      {
+        "text": "Sudah lulus semua mata kuliah wajib dengan minimal 138 SKS.",
+        "source": "resmi"
+      },
+      {
+        "text": "Terdaftar pada periode ujian komprehensif yang dibuka Prodi.",
+        "source": "alumni"
+      }
+    ],
+    "documents": [
+      {
+        "name": "Formulir pendaftaran ujian komprehensif",
+        "source": "alumni"
+      },
+      {
+        "name": "Transkrip nilai",
+        "note": "Untuk membuktikan minimal 138 SKS dan seluruh mata kuliah wajib sudah lulus.",
+        "source": "alumni"
+      },
+      {
+        "name": "Bukti lunas biaya kuliah",
+        "source": "alumni"
+      },
+      {
+        "name": "SKL Komprehensif",
+        "note": "Ini output tahap ini. Wajib dilampirkan saat mendaftar munaqosyah.",
+        "source": "resmi"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Pastikan 138 SKS dan semua mata kuliah wajib lulus",
+        "detail": "Cek transkrip di AIS. Kalau masih ada mata kuliah wajib yang belum lulus atau SKS belum mencapai 138, kamu belum bisa mendaftar.",
+        "actor": "Mahasiswa"
+      },
+      {
+        "title": "Daftar ujian komprehensif ke Prodi",
+        "detail": "Serahkan formulir pendaftaran beserta transkrip dan bukti administrasi ke Prodi sesuai periode yang dibuka.",
+        "actor": "Mahasiswa → Prodi"
+      },
+      {
+        "title": "Persiapkan tiga jenis materi ujian",
+        "detail": "Materi ujian komprehensif terdiri dari ujian tulis, ujian lisan, dan ujian baca kitab. Siapkan ketiganya — banyak mahasiswa lengah pada bagian baca kitab.",
+        "actor": "Mahasiswa"
+      },
+      {
+        "title": "Ikuti ujian",
+        "detail": "Ujian dihadiri maksimal tiga dosen penguji komprehensif. Datang lebih awal dan bawa mushaf serta kitab rujukan bila diminta.",
+        "actor": "Mahasiswa + Penguji"
+      },
+      {
+        "title": "Ambil SKL Komprehensif",
+        "detail": "Setelah dinyatakan lulus, urus penerbitan Surat Keterangan Lulus (SKL) Komprehensif di Prodi. Simpan baik-baik, dokumen ini syarat pendaftaran munaqosyah.",
+        "actor": "Prodi"
+      }
+    ],
+    "checklist": [
+      { "id": "sks-138", "label": "Sudah lulus semua mata kuliah wajib, minimal 138 SKS" },
+      { "id": "daftar", "label": "Sudah mendaftar ujian komprehensif" },
+      { "id": "siap-tulis", "label": "Persiapan ujian tulis" },
+      { "id": "siap-lisan", "label": "Persiapan ujian lisan" },
+      { "id": "siap-kitab", "label": "Persiapan ujian baca kitab" },
+      { "id": "ujian", "label": "Ujian komprehensif sudah dilaksanakan" },
+      { "id": "skl", "label": "SKL Komprehensif sudah diterima" }
+    ],
+    "warnings": [
+      {
+        "text": "Mahasiswa wajib lulus semua mata kuliah wajib dengan minimal 138 SKS sebelum mengikuti ujian komprehensif.",
+        "source": "resmi"
+      },
+      {
+        "text": "Jumlah dosen penguji komprehensif maksimal tiga orang.",
+        "source": "resmi"
+      },
+      {
+        "text": "Kelulusan ujian komprehensif adalah syarat mutlak untuk mendaftar munaqosyah.",
+        "source": "resmi"
+      }
+    ],
+    "tips": [
+      "Ambil komprehensif jangan terlalu mepet dengan target sidang. SKL-nya dibutuhkan saat mendaftar munaqosyah, dan penerbitannya butuh waktu.",
+      "Bagian baca kitab paling sering menjatuhkan. Latih membaca kitab gundul secara rutin beberapa minggu sebelumnya, bukan semalam sebelum ujian.",
+      "Pelajari fikih muamalah, ushul fiqh, dan hukum ekonomi syariah kontemporer — tiga area yang paling sering keluar.",
+      "Tanya angkatan di atasmu tentang pola pertanyaan tiap dosen penguji. Ini legal dan sangat membantu."
+    ],
+    "faq": [
+      {
+        "question": "Apakah komprehensif harus sebelum sidang skripsi?",
+        "answer": "Ya. Alur resmi pendaftaran munaqosyah menyatakan mahasiswa wajib lulus ujian komprehensif dan minimal 138 SKS sebelum mendaftar munaqosyah."
+      },
+      {
+        "question": "Bisakah komprehensif dilakukan bersamaan dengan bimbingan skripsi?",
+        "answer": "Bisa, selama syarat 138 SKS dan semua mata kuliah wajib sudah terpenuhi. Banyak mahasiswa mengambilnya saat skripsi masuk tahap akhir agar SKL siap ketika naskah selesai."
+      },
+      {
+        "question": "Kalau tidak lulus komprehensif, apakah bisa mengulang?",
+        "answer": "Mekanisme pengulangan tidak diatur dalam alur resmi ini. Tanyakan langsung ke Sekretaris Prodi mengenai jadwal dan syarat ujian ulang."
+      },
+      {
+        "question": "Kitab apa yang diujikan?",
+        "answer": "Alur resmi hanya menyebut adanya 'ujian baca kitab' tanpa merinci judulnya. Konfirmasikan ke Prodi kitab rujukan yang dipakai pada periodemu."
+      }
+    ],
+    "downloads": ["form-daftar-komprehensif", "kisi-kisi-komprehensif"],
+    "importantLinks": [
+      { "label": "AIS UIN Jakarta", "url": "https://ais.uinjkt.ac.id", "note": "Cek 138 SKS dan mata kuliah wajib" },
+      { "label": "Website FSH", "url": "https://fsh.uinjkt.ac.id" }
+    ],
+    "previousStage": "bimbingan",
+    "nextStage": "munaqosyah"
+  },
+  {
+    "order": 6,
+    "slug": "munaqosyah",
+    "title": "Pendaftaran & Sidang Munaqosyah",
+    "shortTitle": "Sidang Skripsi",
+    "icon": "Gavel",
+    "phase": "Ujian",
+    "description": "Puncak perjalanan skripsi. Tahap ini punya dua bagian: melengkapi seluruh syarat pendaftaran munaqosyah, lalu mempertahankan skripsimu di hadapan maksimal dua dosen penguji.",
+    "goal": "Lulus sidang munaqosyah dan menerima catatan revisi dari penguji.",
+    "estimatedDuration": "3–5 minggu sejak berkas lengkap",
+    "requirements": [
+      {
+        "text": "Sudah lulus Ujian Komprehensif dan minimal 138 SKS dengan menyelesaikan semua mata kuliah wajib.",
+        "source": "resmi"
+      },
+      {
+        "text": "Skripsi sudah mendapat persetujuan dosen pembimbing — persetujuan semua dosen pembimbing jika lebih dari satu dosen.",
+        "source": "resmi"
+      },
+      {
+        "text": "Skripsi wajib lulus Turnitin maksimal 30% oleh Staff Perpustakaan FSH, dan keterangan Turnitin wajib dilampirkan di lembar akhir skripsi.",
+        "source": "resmi"
+      },
+      {
+        "text": "Mahasiswa wajib mengisi SKPI di AIS sebelum mendaftar munaqosyah.",
+        "source": "resmi"
+      }
+    ],
+    "documents": [
+      {
+        "name": "Form pendaftaran munaqosyah",
+        "source": "resmi"
+      },
+      {
+        "name": "Bukti lunas biaya kuliah",
+        "source": "resmi"
+      },
+      {
+        "name": "SKL Komprehensif",
+        "note": "Diterbitkan setelah kamu lulus Ujian Komprehensif.",
+        "source": "resmi"
+      },
+      {
+        "name": "IPK / transkrip yang ditandatangani Akademik Pusat dan Ketua Prodi",
+        "note": "Dua tanda tangan, dua tempat berbeda. Urus lebih awal.",
+        "source": "resmi"
+      },
+      {
+        "name": "SKPI (Surat Keterangan Pendamping Ijazah)",
+        "note": "Diisi lebih dahulu di AIS sebelum mendaftar.",
+        "source": "resmi"
+      },
+      {
+        "name": "Keterangan hasil Turnitin",
+        "note": "Maksimal 30%, dikeluarkan Staff Perpustakaan FSH, dilampirkan di lembar akhir skripsi.",
+        "source": "resmi"
+      },
+      {
+        "name": "Naskah skripsi lengkap yang sudah disetujui pembimbing",
+        "note": "Perbanyak sesuai jumlah penguji dan pembimbing.",
+        "source": "alumni"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Isi SKPI di AIS",
+        "detail": "Lakukan ini lebih dahulu. Alur resmi menegaskan SKPI wajib diisi di AIS sebelum mendaftar munaqosyah. Kumpulkan bukti kegiatan, sertifikat, dan pengalaman organisasimu.",
+        "actor": "Mahasiswa"
+      },
+      {
+        "title": "Ajukan cek Turnitin ke Perpustakaan FSH",
+        "detail": "Serahkan naskah untuk diperiksa Staff Perpustakaan FSH. Hasilnya wajib maksimal 30%. Jika lebih, perbaiki naskah dan ajukan ulang. Lampirkan surat keterangannya di lembar akhir skripsi.",
+        "actor": "Mahasiswa → Perpustakaan FSH"
+      },
+      {
+        "title": "Urus tanda tangan IPK",
+        "detail": "Transkrip / IPK harus ditandatangani Akademik Pusat dan Ketua Prodi. Ini dua lokasi berbeda — sediakan waktu beberapa hari.",
+        "actor": "Akademik Pusat + Ketua Prodi"
+      },
+      {
+        "title": "Lengkapi dan serahkan berkas pendaftaran",
+        "detail": "Berkas wajib: form pendaftaran, bukti lunas biaya kuliah, SKL Komprehensif, IPK bertanda tangan, dan SKPI. Serahkan ke Prodi.",
+        "actor": "Mahasiswa → Prodi"
+      },
+      {
+        "title": "Tunggu jadwal dan penetapan penguji",
+        "detail": "Prodi menetapkan jadwal sidang dan penguji. Jumlah dosen penguji munaqosyah maksimal dua orang.",
+        "actor": "Prodi"
+      },
+      {
+        "title": "Ikuti sidang munaqosyah",
+        "detail": "Presentasikan skripsimu dan pertahankan argumenmu. Catat seluruh masukan penguji — ini jadi dasar revisi yang tenggatnya ketat.",
+        "actor": "Mahasiswa + Penguji"
+      }
+    ],
+    "checklist": [
+      { "id": "lulus-kompre", "label": "Sudah lulus Ujian Komprehensif" },
+      { "id": "sks-138", "label": "Minimal 138 SKS dan semua mata kuliah wajib lulus" },
+      { "id": "acc-semua", "label": "Skripsi disetujui SEMUA dosen pembimbing" },
+      { "id": "turnitin", "label": "Turnitin maksimal 30% oleh Staff Perpustakaan FSH" },
+      { "id": "turnitin-lampir", "label": "Keterangan Turnitin dilampirkan di lembar akhir skripsi" },
+      { "id": "skpi", "label": "SKPI sudah diisi di AIS" },
+      { "id": "form", "label": "Form pendaftaran munaqosyah sudah diisi" },
+      { "id": "lunas", "label": "Bukti lunas biaya kuliah siap" },
+      { "id": "skl-kompre", "label": "SKL Komprehensif siap" },
+      { "id": "ipk-ttd", "label": "IPK ditandatangani Akademik Pusat dan Ketua Prodi" },
+      { "id": "daftar", "label": "Berkas pendaftaran sudah diserahkan ke Prodi" },
+      { "id": "jadwal", "label": "Jadwal sidang sudah diterima" },
+      { "id": "sidang", "label": "Sidang munaqosyah sudah dilaksanakan" }
+    ],
+    "warnings": [
+      {
+        "text": "Skripsi wajib lulus Turnitin maksimal 30%. Pemeriksaan dilakukan oleh Staff Perpustakaan FSH.",
+        "source": "resmi"
+      },
+      {
+        "text": "SKPI wajib diisi di AIS SEBELUM mendaftar munaqosyah, bukan sesudahnya.",
+        "source": "resmi"
+      },
+      {
+        "text": "Jumlah dosen penguji munaqosyah maksimal dua orang.",
+        "source": "resmi"
+      }
+    ],
+    "tips": [
+      "Kerjakan tiga hal ini paralel, jangan berurutan: isi SKPI, ajukan Turnitin, dan kejar tanda tangan IPK. Ketiganya berjalan di jalur berbeda dan sama-sama makan waktu.",
+      "Turunkan similarity sebelum menyerahkan naskah ke perpustakaan. Parafrase kutipan panjang dan pastikan sitasi tertulis benar — bukan menghapus referensi.",
+      "SKPI butuh sertifikat dan bukti kegiatan. Kumpulkan filenya dari sekarang, jangan saat formnya sudah terbuka.",
+      "Tanda tangan IPK ada di dua tempat. Datang pagi, dan tanyakan hari apa pejabatnya biasanya ada di tempat.",
+      "Pelajari kembali metodologi penelitianmu. Pertanyaan penguji paling tajam biasanya soal metode, bukan isi bab pembahasan."
+    ],
+    "faq": [
+      {
+        "question": "Apa saja berkas pendaftaran munaqosyah?",
+        "answer": "Menurut alur resmi ada lima: form pendaftaran, bukti lunas biaya kuliah, SKL Komprehensif, IPK yang ditandatangani Akademik Pusat dan Ketua Prodi, serta SKPI."
+      },
+      {
+        "question": "Bagaimana kalau hasil Turnitin saya di atas 30%?",
+        "answer": "Kamu belum bisa mendaftar. Perbaiki naskah — parafrase, kurangi kutipan langsung yang panjang, dan perbaiki sitasi — lalu ajukan pemeriksaan ulang ke Staff Perpustakaan FSH."
+      },
+      {
+        "question": "SKPI itu apa dan diisi di mana?",
+        "answer": "SKPI adalah Surat Keterangan Pendamping Ijazah, berisi rekam jejak kegiatan dan kompetensimu selama kuliah. Diisi di AIS, dan wajib dilakukan sebelum mendaftar munaqosyah."
+      },
+      {
+        "question": "Berapa penguji sidang munaqosyah?",
+        "answer": "Maksimal dua orang, sesuai alur resmi Fakultas."
+      },
+      {
+        "question": "Kapan nilai sidang keluar?",
+        "answer": "Nilai ujian munaqosyah diserahkan ke Prodi setelah ujian selesai, paling lambat tiga hari."
+      }
+    ],
+    "downloads": ["form-daftar-munaqosyah", "form-turnitin", "template-skripsi", "panduan-skpi"],
+    "importantLinks": [
+      { "label": "AIS UIN Jakarta", "url": "https://ais.uinjkt.ac.id", "note": "Isi SKPI di sini" },
+      { "label": "Perpustakaan UIN Jakarta", "url": "https://perpus.uinjkt.ac.id", "note": "Informasi layanan Turnitin" },
+      { "label": "Website FSH", "url": "https://fsh.uinjkt.ac.id" }
+    ],
+    "previousStage": "komprehensif",
+    "nextStage": "revisi-munaqosyah"
+  },
+  {
+    "order": 7,
+    "slug": "revisi-munaqosyah",
+    "title": "Revisi Pasca Munaqosyah",
+    "shortTitle": "Revisi Sidang",
+    "icon": "FileCheck2",
+    "phase": "Ujian",
+    "description": "Kamu sudah lulus sidang, tapi belum selesai. Revisi dari penguji harus dituntaskan dan disahkan dalam tenggat yang tegas sebelum skripsi bisa dijilid dan diunggah.",
+    "goal": "Menyelesaikan revisi, mendapatkan pengesahan penguji dan pembimbing, lalu menjilid skripsi final.",
+    "estimatedDuration": "2 minggu – maksimal 3 bulan",
+    "requirements": [
+      {
+        "text": "Sudah dinyatakan lulus sidang munaqosyah.",
+        "source": "resmi"
+      },
+      {
+        "text": "Revisi dari dosen penguji tidak melebihi 30%.",
+        "source": "resmi"
+      }
+    ],
+    "documents": [
+      {
+        "name": "Lembar catatan revisi penguji",
+        "note": "Diterima langsung setelah sidang. Jangan sampai hilang.",
+        "source": "alumni"
+      },
+      {
+        "name": "Naskah skripsi hasil revisi",
+        "source": "alumni"
+      },
+      {
+        "name": "Lembar pengesahan skripsi",
+        "note": "Ditandatangani penguji, pembimbing, dan pejabat fakultas.",
+        "source": "alumni"
+      },
+      {
+        "name": "Skripsi hardcover / jilid final",
+        "note": "Jumlah eksemplar mengikuti ketentuan Prodi dan Perpustakaan.",
+        "source": "alumni"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Susun daftar revisi",
+        "detail": "Kumpulkan catatan dari semua penguji ke dalam satu daftar. Tandai mana yang bersifat wajib dan mana yang saran.",
+        "actor": "Mahasiswa"
+      },
+      {
+        "title": "Kerjakan revisi",
+        "detail": "Selesaikan perbaikan naskah. Revisi dari penguji tidak melebihi 30% dari naskah, jadi ini pekerjaan yang seharusnya bisa selesai dalam hitungan minggu, bukan bulan.",
+        "actor": "Mahasiswa"
+      },
+      {
+        "title": "Minta tanda tangan penguji dan pembimbing",
+        "detail": "Temui setiap penguji dengan membawa naskah revisi dan daftar perbaikan. Lanjutkan ke pembimbing untuk pengesahan akhir.",
+        "actor": "Mahasiswa → Penguji + Pembimbing"
+      },
+      {
+        "title": "Lengkapi lembar pengesahan",
+        "detail": "Kejar tanda tangan pada lembar pengesahan sesuai urutan yang berlaku di Fakultas. Ini dokumen yang paling sering menahan proses.",
+        "actor": "Mahasiswa → Fakultas"
+      },
+      {
+        "title": "Jilid skripsi final",
+        "detail": "Cetak dan jilid sesuai ketentuan. Simpan juga versi PDF final — akan dipakai untuk unggah repository dan bebas pustaka.",
+        "actor": "Mahasiswa"
+      }
+    ],
+    "checklist": [
+      { "id": "daftar-revisi", "label": "Daftar revisi dari semua penguji sudah disusun" },
+      { "id": "revisi", "label": "Revisi naskah selesai" },
+      { "id": "ttd-penguji", "label": "Sudah ditandatangani semua penguji" },
+      { "id": "ttd-pembimbing", "label": "Sudah ditandatangani pembimbing" },
+      { "id": "pengesahan", "label": "Lembar pengesahan lengkap" },
+      { "id": "pdf", "label": "PDF final sudah disiapkan" },
+      { "id": "jilid", "label": "Skripsi sudah dijilid" }
+    ],
+    "warnings": [
+      {
+        "text": "Masa waktu revisi skripsi pasca munaqosyah maksimal tiga bulan. Jika lebih dari tiga bulan, skripsi diujikan kembali.",
+        "source": "resmi"
+      },
+      {
+        "text": "Nilai ujian munaqosyah diserahkan ke Prodi setelah ujian selesai, paling lambat tiga hari.",
+        "source": "resmi"
+      },
+      {
+        "text": "Revisi dari dosen penguji tidak melebihi 30%.",
+        "source": "resmi"
+      }
+    ],
+    "tips": [
+      "Ini jebakan terbesar di ujung perjalanan. Banyak yang santai karena merasa 'sudah lulus', lalu tersadar tenggat tiga bulan hampir habis.",
+      "Kerjakan revisi dalam dua minggu pertama selagi ingatan soal sidang masih segar dan penguji masih mudah ditemui.",
+      "Buat tabel perbandingan: catatan penguji, halaman, dan perbaikan yang dilakukan. Tanda tangan jadi jauh lebih cepat.",
+      "Tanya urutan tanda tangan lembar pengesahan sebelum mulai berkeliling. Salah urutan berarti mengulang antrean.",
+      "Simpan PDF final dengan penamaan jelas. File ini akan dipakai berulang kali di tahap repository, bebas pustaka, dan yudisium."
+    ],
+    "faq": [
+      {
+        "question": "Kalau revisi lewat tiga bulan bagaimana?",
+        "answer": "Menurut alur resmi, skripsi diujikan kembali. Artinya kamu mengulang sidang munaqosyah. Ini konsekuensi paling berat di tahap akhir, jadi jaga betul tenggatnya."
+      },
+      {
+        "question": "Apakah saya sudah boleh disebut lulus setelah sidang?",
+        "answer": "Kamu lulus ujian, tetapi status kelulusan resmi baru ditetapkan pada yudisium. Masih ada revisi, repository, bebas pustaka, dan yudisium yang harus dilalui."
+      },
+      {
+        "question": "Berapa eksemplar skripsi yang harus dijilid?",
+        "answer": "Tidak diatur dalam alur resmi ini. Jumlahnya mengikuti ketentuan Prodi dan Perpustakaan. Tanyakan sebelum mencetak agar tidak kurang atau berlebih."
+      }
+    ],
+    "downloads": ["lembar-revisi-munaqosyah", "lembar-pengesahan", "panduan-penjilidan"],
+    "importantLinks": [
+      { "label": "Website FSH", "url": "https://fsh.uinjkt.ac.id" }
+    ],
+    "previousStage": "munaqosyah",
+    "nextStage": "repository"
+  },
+  {
+    "order": 8,
+    "slug": "repository",
+    "title": "Unggah Repository",
+    "shortTitle": "Repository",
+    "icon": "UploadCloud",
+    "phase": "Kelulusan",
+    "description": "Skripsi finalmu diunggah ke repository institusi UIN Jakarta. Bukti unggahnya menjadi salah satu syarat bebas pustaka dan yudisium.",
+    "goal": "Mengunggah skripsi ke repository dan mendapatkan bukti unggah resmi.",
+    "estimatedDuration": "3–7 hari kerja",
+    "requirements": [
+      {
+        "text": "Skripsi sudah direvisi, disahkan, dan berbentuk PDF final.",
+        "source": "alumni"
+      },
+      {
+        "text": "Lembar pengesahan sudah ditandatangani lengkap dan ikut terscan dalam PDF.",
+        "source": "alumni"
+      }
+    ],
+    "documents": [
+      {
+        "name": "PDF skripsi final",
+        "note": "Umumnya dipecah per bab atau digabung sesuai ketentuan repository.",
+        "source": "alumni"
+      },
+      {
+        "name": "Surat pernyataan publikasi / persetujuan unggah",
+        "source": "alumni"
+      },
+      {
+        "name": "Lembar pernyataan keaslian karya",
+        "source": "alumni"
+      },
+      {
+        "name": "Bukti unggah repository",
+        "note": "Output tahap ini. Dibutuhkan untuk bebas pustaka dan yudisium.",
+        "source": "alumni"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Siapkan PDF sesuai ketentuan",
+        "detail": "Pastikan lembar pengesahan yang sudah ditandatangani ikut terscan. Cek ketentuan penamaan file dan pemecahan per bab di panduan repository.",
+        "actor": "Mahasiswa"
+      },
+      {
+        "title": "Buat akun / login repository",
+        "detail": "Akses repository.uinjkt.ac.id dan ikuti prosedur registrasi unggah mandiri yang berlaku.",
+        "actor": "Mahasiswa"
+      },
+      {
+        "title": "Unggah dan isi metadata",
+        "detail": "Isi judul, abstrak, kata kunci, nama pembimbing, dan tahun. Metadata yang rapi bikin skripsimu mudah ditemukan orang lain.",
+        "actor": "Mahasiswa"
+      },
+      {
+        "title": "Tunggu verifikasi pustakawan",
+        "detail": "Unggahan diperiksa sebelum dipublikasikan. Kalau ada yang perlu diperbaiki, kamu akan diminta mengunggah ulang.",
+        "actor": "Perpustakaan"
+      },
+      {
+        "title": "Simpan bukti unggah",
+        "detail": "Simpan tangkapan layar atau surat bukti unggah. Dokumen ini akan diminta saat mengurus bebas pustaka dan yudisium.",
+        "actor": "Mahasiswa"
+      }
+    ],
+    "checklist": [
+      { "id": "pdf-final", "label": "PDF final sudah sesuai ketentuan" },
+      { "id": "pengesahan-scan", "label": "Lembar pengesahan bertanda tangan sudah terscan" },
+      { "id": "akun", "label": "Akun repository sudah aktif" },
+      { "id": "unggah", "label": "Skripsi sudah diunggah" },
+      { "id": "metadata", "label": "Metadata sudah diisi lengkap" },
+      { "id": "verifikasi", "label": "Unggahan sudah diverifikasi" },
+      { "id": "bukti", "label": "Bukti unggah sudah disimpan" }
+    ],
+    "warnings": [
+      {
+        "text": "Tata cara unggah repository tidak diatur dalam Surat Dekan tentang alur seminar proposal, munaqosyah, dan komprehensif. Ikuti panduan resmi Perpustakaan UIN Jakarta yang berlaku saat kamu mengurusnya.",
+        "source": "alumni"
+      }
+    ],
+    "tips": [
+      "Unggah segera setelah pengesahan lengkap. Antrean verifikasi menumpuk menjelang batas yudisium.",
+      "Tulis abstrak dan kata kunci dengan serius. Ini yang membuat skripsimu terbaca oleh adik tingkat nanti.",
+      "Simpan bukti unggah di cloud, bukan hanya di galeri HP.",
+      "Cek ulang apakah file yang kamu unggah benar-benar versi final, bukan draft revisi terakhir yang belum disahkan."
+    ],
+    "faq": [
+      {
+        "question": "Apakah skripsi saya akan bisa dibaca publik?",
+        "answer": "Umumnya bagian tertentu dapat diakses publik, sementara bab tertentu dibatasi. Kebijakan aksesnya ditentukan Perpustakaan — tanyakan saat mengunggah."
+      },
+      {
+        "question": "Bagaimana kalau unggahan saya ditolak?",
+        "answer": "Biasanya karena format file, lembar pengesahan belum terscan, atau metadata kurang lengkap. Perbaiki sesuai catatan verifikator lalu unggah ulang."
+      },
+      {
+        "question": "Berapa lama proses verifikasi?",
+        "answer": "Bervariasi, umumnya beberapa hari kerja. Semakin dekat batas yudisium, semakin panjang antreannya."
+      }
+    ],
+    "downloads": ["surat-pernyataan-publikasi", "lembar-pernyataan-keaslian", "panduan-repository"],
+    "importantLinks": [
+      { "label": "Repository UIN Jakarta", "url": "https://repository.uinjkt.ac.id", "note": "Tempat unggah skripsi" },
+      { "label": "Perpustakaan UIN Jakarta", "url": "https://perpus.uinjkt.ac.id" }
+    ],
+    "previousStage": "revisi-munaqosyah",
+    "nextStage": "bebas-pustaka"
+  },
+  {
+    "order": 9,
+    "slug": "bebas-pustaka",
+    "title": "Bebas Pustaka",
+    "shortTitle": "Bebas Pustaka",
+    "icon": "Library",
+    "phase": "Kelulusan",
+    "description": "Kamu menuntaskan seluruh kewajiban terhadap perpustakaan — mengembalikan pinjaman, menyerahkan skripsi, dan memenuhi ketentuan sumbangan — untuk mendapatkan Surat Keterangan Bebas Pustaka.",
+    "goal": "Mendapatkan Surat Keterangan Bebas Pustaka sebagai syarat yudisium.",
+    "estimatedDuration": "3–7 hari kerja",
+    "requirements": [
+      {
+        "text": "Skripsi sudah diunggah ke repository dan bukti unggahnya tersedia.",
+        "source": "alumni"
+      },
+      {
+        "text": "Tidak ada pinjaman buku atau denda yang tertunggak.",
+        "source": "alumni"
+      }
+    ],
+    "documents": [
+      {
+        "name": "Bukti unggah repository",
+        "source": "alumni"
+      },
+      {
+        "name": "Skripsi jilid / softcopy untuk perpustakaan",
+        "note": "Ketentuan tiap perpustakaan bisa berbeda antara Perpustakaan Utama dan Perpustakaan FSH.",
+        "source": "alumni"
+      },
+      {
+        "name": "Kartu anggota perpustakaan / KTM",
+        "source": "alumni"
+      },
+      {
+        "name": "Surat Keterangan Bebas Pustaka",
+        "note": "Output tahap ini. Wajib untuk yudisium.",
+        "source": "alumni"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Kembalikan semua pinjaman",
+        "detail": "Pastikan tidak ada buku tertinggal dan tidak ada denda di Perpustakaan Utama maupun Perpustakaan FSH.",
+        "actor": "Mahasiswa"
+      },
+      {
+        "title": "Serahkan skripsi ke perpustakaan",
+        "detail": "Serahkan sesuai bentuk yang diminta — jilid, CD, atau softcopy. Konfirmasi dulu formatnya agar tidak bolak-balik.",
+        "actor": "Mahasiswa → Perpustakaan"
+      },
+      {
+        "title": "Penuhi ketentuan sumbangan (jika ada)",
+        "detail": "Sebagian periode mensyaratkan sumbangan buku. Tanyakan ketentuan yang berlaku sebelum membeli apa pun.",
+        "actor": "Mahasiswa"
+      },
+      {
+        "title": "Ajukan surat bebas pustaka",
+        "detail": "Setelah semua kewajiban tuntas, ajukan penerbitan Surat Keterangan Bebas Pustaka.",
+        "actor": "Perpustakaan"
+      }
+    ],
+    "checklist": [
+      { "id": "pinjaman", "label": "Semua pinjaman buku sudah dikembalikan" },
+      { "id": "denda", "label": "Tidak ada denda tertunggak" },
+      { "id": "serah-skripsi", "label": "Skripsi sudah diserahkan ke perpustakaan" },
+      { "id": "sumbangan", "label": "Ketentuan sumbangan sudah dipenuhi (jika ada)" },
+      { "id": "fsh", "label": "Bebas pustaka Perpustakaan FSH selesai" },
+      { "id": "utama", "label": "Bebas pustaka Perpustakaan Utama selesai" },
+      { "id": "surat", "label": "Surat Keterangan Bebas Pustaka sudah diterima" }
+    ],
+    "warnings": [
+      {
+        "text": "Ketentuan bebas pustaka tidak diatur dalam Surat Dekan tentang alur seminar proposal, munaqosyah, dan komprehensif. Konfirmasikan persyaratan terkini ke Perpustakaan sebelum datang.",
+        "source": "alumni"
+      }
+    ],
+    "tips": [
+      "Ada dua perpustakaan yang perlu diurus: Perpustakaan Utama dan Perpustakaan FSH. Jangan berhenti setelah salah satunya.",
+      "Telepon atau cek pengumuman dulu sebelum datang. Format penyerahan skripsi sering berubah antar periode.",
+      "Cek riwayat peminjamanmu sejak semester awal. Buku yang dipinjam dua tahun lalu bisa muncul sebagai tunggakan.",
+      "Urus ini sebelum pendaftaran yudisium dibuka, bukan di hari terakhir."
+    ],
+    "faq": [
+      {
+        "question": "Apakah harus menyumbang buku?",
+        "answer": "Kebijakan sumbangan berbeda antar periode dan antar perpustakaan. Tanyakan dulu ke petugas sebelum membeli buku apa pun."
+      },
+      {
+        "question": "Berapa lama surat bebas pustaka terbit?",
+        "answer": "Umumnya beberapa hari kerja jika seluruh kewajiban sudah tuntas. Semakin dekat batas yudisium, antreannya semakin panjang."
+      },
+      {
+        "question": "Apakah bebas pustaka bisa diwakilkan?",
+        "answer": "Tidak diatur secara resmi. Sebagian layanan mengizinkan dengan surat kuasa. Konfirmasikan langsung ke perpustakaan."
+      }
+    ],
+    "downloads": ["form-bebas-pustaka"],
+    "importantLinks": [
+      { "label": "Perpustakaan UIN Jakarta", "url": "https://perpus.uinjkt.ac.id" },
+      { "label": "Repository UIN Jakarta", "url": "https://repository.uinjkt.ac.id" }
+    ],
+    "previousStage": "repository",
+    "nextStage": "yudisium"
+  },
+  {
+    "order": 10,
+    "slug": "yudisium",
+    "title": "Yudisium",
+    "shortTitle": "Yudisium",
+    "icon": "ScrollText",
+    "phase": "Kelulusan",
+    "description": "Penetapan resmi kelulusanmu. Di tahap inilah tanggal lulus, IPK akhir, dan predikat kelulusan ditetapkan — dan kamu berhak menerima Surat Keterangan Lulus.",
+    "goal": "Ditetapkan lulus secara resmi dan menerima SKL (Surat Keterangan Lulus).",
+    "estimatedDuration": "2–4 minggu, mengikuti periode yudisium",
+    "requirements": [
+      {
+        "text": "Seluruh proses skripsi selesai: sidang munaqosyah lulus dan revisi disahkan.",
+        "source": "resmi"
+      },
+      {
+        "text": "Surat Keterangan Bebas Pustaka sudah diperoleh.",
+        "source": "alumni"
+      },
+      {
+        "text": "Skripsi sudah diunggah ke repository.",
+        "source": "alumni"
+      },
+      {
+        "text": "Tidak ada tunggakan administrasi dan keuangan.",
+        "source": "alumni"
+      }
+    ],
+    "documents": [
+      {
+        "name": "Formulir pendaftaran yudisium",
+        "source": "alumni"
+      },
+      {
+        "name": "Surat Keterangan Bebas Pustaka",
+        "source": "alumni"
+      },
+      {
+        "name": "Bukti unggah repository",
+        "source": "alumni"
+      },
+      {
+        "name": "Transkrip nilai akhir",
+        "source": "alumni"
+      },
+      {
+        "name": "SKPI",
+        "source": "alumni"
+      },
+      {
+        "name": "Lembar pengesahan skripsi",
+        "source": "alumni"
+      },
+      {
+        "name": "Bukti lunas seluruh biaya kuliah",
+        "source": "alumni"
+      },
+      {
+        "name": "Pas foto sesuai ketentuan",
+        "source": "alumni"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Pantau pengumuman periode yudisium",
+        "detail": "Yudisium dibuka dalam periode tertentu. Kalau terlewat, kamu menunggu periode berikutnya — dan itu bisa berarti menunggu berbulan-bulan.",
+        "actor": "Mahasiswa"
+      },
+      {
+        "title": "Lengkapi berkas yudisium",
+        "detail": "Kumpulkan seluruh dokumen: bebas pustaka, bukti repository, transkrip, SKPI, lembar pengesahan, dan bukti lunas biaya kuliah.",
+        "actor": "Mahasiswa"
+      },
+      {
+        "title": "Daftar yudisium",
+        "detail": "Serahkan berkas ke Fakultas sesuai mekanisme yang berlaku pada periodemu.",
+        "actor": "Mahasiswa → Fakultas"
+      },
+      {
+        "title": "Verifikasi berkas",
+        "detail": "Fakultas memverifikasi kelengkapan. Jika ada kekurangan, kamu akan diminta melengkapi — responlah dengan cepat.",
+        "actor": "Fakultas"
+      },
+      {
+        "title": "Ikuti yudisium dan ambil SKL",
+        "detail": "Setelah ditetapkan lulus, ambil Surat Keterangan Lulus. SKL sering dipakai untuk melamar kerja atau mendaftar beasiswa sebelum ijazah terbit.",
+        "actor": "Fakultas"
+      }
+    ],
+    "checklist": [
+      { "id": "periode", "label": "Sudah tahu jadwal periode yudisium" },
+      { "id": "bebas-pustaka", "label": "Surat bebas pustaka siap" },
+      { "id": "bukti-repo", "label": "Bukti unggah repository siap" },
+      { "id": "transkrip", "label": "Transkrip nilai akhir siap" },
+      { "id": "skpi", "label": "SKPI siap" },
+      { "id": "lunas", "label": "Seluruh biaya kuliah lunas" },
+      { "id": "foto", "label": "Pas foto sesuai ketentuan sudah disiapkan" },
+      { "id": "daftar", "label": "Berkas yudisium sudah diserahkan" },
+      { "id": "skl", "label": "SKL sudah diterima" }
+    ],
+    "warnings": [
+      {
+        "text": "Persyaratan dan periode yudisium tidak diatur dalam Surat Dekan tentang alur seminar proposal, munaqosyah, dan komprehensif. Konfirmasikan ke Fakultas untuk daftar berkas dan jadwal terkini.",
+        "source": "alumni"
+      }
+    ],
+    "tips": [
+      "Yudisium berjalan per periode. Telat satu hari bisa berarti mundur satu periode penuh — dan wisuda ikut mundur.",
+      "Siapkan dua map berkas: satu untuk diserahkan, satu untuk arsipmu. Kamu akan butuh salinannya lagi saat wisuda dan pengambilan ijazah.",
+      "SKL bisa dipakai melamar kerja sebelum ijazah asli terbit. Minta beberapa lembar sekaligus jika diperbolehkan.",
+      "Cek ulang penulisan namamu di semua dokumen. Salah satu huruf di tahap ini akan terbawa sampai ijazah."
+    ],
+    "faq": [
+      {
+        "question": "Apa bedanya yudisium dan wisuda?",
+        "answer": "Yudisium adalah penetapan resmi kelulusanmu — di sinilah tanggal lulus dan predikat ditentukan. Wisuda adalah upacara seremonialnya. Kamu sudah sah lulus setelah yudisium, meski belum wisuda."
+      },
+      {
+        "question": "Apakah bisa langsung wisuda tanpa yudisium?",
+        "answer": "Tidak. Yudisium adalah penetapan kelulusan, dan menjadi dasar keikutsertaan wisuda."
+      },
+      {
+        "question": "Kalau terlambat mendaftar yudisium?",
+        "answer": "Kamu menunggu periode berikutnya. Karena itu, urus bebas pustaka dan repository jauh sebelum pendaftaran dibuka."
+      }
+    ],
+    "downloads": ["form-yudisium", "checklist-berkas-yudisium"],
+    "importantLinks": [
+      { "label": "Website FSH", "url": "https://fsh.uinjkt.ac.id", "note": "Pengumuman periode yudisium" },
+      { "label": "AIS UIN Jakarta", "url": "https://ais.uinjkt.ac.id" }
+    ],
+    "previousStage": "bebas-pustaka",
+    "nextStage": "wisuda"
+  },
+  {
+    "order": 11,
+    "slug": "wisuda",
+    "title": "Wisuda",
+    "shortTitle": "Wisuda",
+    "icon": "PartyPopper",
+    "phase": "Kelulusan",
+    "description": "Upacara seremonial kelulusanmu di tingkat universitas. Pendaftaran, pembayaran, pengukuran toga, gladi bersih, sampai hari-H.",
+    "goal": "Terdaftar dan mengikuti upacara wisuda.",
+    "estimatedDuration": "1–3 bulan, mengikuti jadwal universitas",
+    "requirements": [
+      {
+        "text": "Sudah dinyatakan lulus melalui yudisium.",
+        "source": "alumni"
+      },
+      {
+        "text": "Terdaftar pada periode wisuda yang dibuka universitas.",
+        "source": "alumni"
+      }
+    ],
+    "documents": [
+      {
+        "name": "Bukti yudisium / SKL",
+        "source": "alumni"
+      },
+      {
+        "name": "Bukti pendaftaran dan pembayaran wisuda",
+        "source": "alumni"
+      },
+      {
+        "name": "Pas foto resmi",
+        "note": "Ukuran dan latar sesuai ketentuan universitas.",
+        "source": "alumni"
+      },
+      {
+        "name": "Undangan wisuda",
+        "note": "Jumlah pendamping biasanya dibatasi.",
+        "source": "alumni"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Pantau pembukaan pendaftaran wisuda",
+        "detail": "Jadwal ditetapkan universitas, bukan fakultas. Kuota per periode terbatas.",
+        "actor": "Mahasiswa"
+      },
+      {
+        "title": "Daftar dan bayar biaya wisuda",
+        "detail": "Isi pendaftaran daring, unggah dokumen, lalu lakukan pembayaran sesuai instruksi resmi.",
+        "actor": "Mahasiswa"
+      },
+      {
+        "title": "Ukur dan ambil toga",
+        "detail": "Ikuti jadwal pengukuran dan pengambilan toga. Catat juga tanggal pengembaliannya agar tidak kena denda.",
+        "actor": "Mahasiswa"
+      },
+      {
+        "title": "Ikuti gladi bersih",
+        "detail": "Gladi biasanya wajib. Di sinilah kamu tahu nomor kursi, urutan pemanggilan, dan alur prosesi.",
+        "actor": "Mahasiswa"
+      },
+      {
+        "title": "Hadiri hari wisuda",
+        "detail": "Datang lebih awal, bawa undangan, dan pastikan pendamping tahu titik masuknya.",
+        "actor": "Mahasiswa"
+      }
+    ],
+    "checklist": [
+      { "id": "jadwal", "label": "Jadwal periode wisuda sudah diketahui" },
+      { "id": "daftar", "label": "Pendaftaran wisuda sudah dilakukan" },
+      { "id": "bayar", "label": "Biaya wisuda sudah dibayar" },
+      { "id": "toga", "label": "Toga sudah diukur dan diambil" },
+      { "id": "gladi", "label": "Gladi bersih sudah diikuti" },
+      { "id": "undangan", "label": "Undangan untuk keluarga sudah disiapkan" },
+      { "id": "hari-h", "label": "Wisuda sudah dilaksanakan" },
+      { "id": "toga-kembali", "label": "Toga sudah dikembalikan" }
+    ],
+    "warnings": [
+      {
+        "text": "Ketentuan wisuda diatur di tingkat universitas dan tidak tercakup dalam Surat Dekan tentang alur seminar proposal, munaqosyah, dan komprehensif. Ikuti pengumuman resmi UIN Jakarta.",
+        "source": "alumni"
+      }
+    ],
+    "tips": [
+      "Kuota wisuda per periode terbatas. Daftar di hari-hari pertama pendaftaran dibuka.",
+      "Catat tanggal pengembalian toga di kalender. Denda keterlambatan itu nyata.",
+      "Pesan penginapan atau atur transportasi keluarga jauh hari kalau mereka datang dari luar kota.",
+      "Simpan bukti bayar wisuda. Kadang diminta lagi saat pengambilan ijazah."
+    ],
+    "faq": [
+      {
+        "question": "Apakah wisuda wajib?",
+        "answer": "Kelulusanmu sah setelah yudisium. Wisuda adalah seremoni. Namun sebagian prosedur pengambilan ijazah mengaitkan dengan pelaksanaan wisuda — konfirmasikan ke Akademik."
+      },
+      {
+        "question": "Apakah ijazah diberikan saat wisuda?",
+        "answer": "Umumnya yang diberikan saat prosesi adalah map simbolis. Ijazah asli diambil setelahnya di bagian Akademik."
+      },
+      {
+        "question": "Berapa orang yang boleh mendampingi?",
+        "answer": "Dibatasi dan berbeda tiap periode. Cek ketentuan pada pengumuman resmi wisuda."
+      }
+    ],
+    "downloads": ["panduan-wisuda"],
+    "importantLinks": [
+      { "label": "UIN Syarif Hidayatullah Jakarta", "url": "https://www.uinjkt.ac.id", "note": "Pengumuman wisuda" },
+      { "label": "AIS UIN Jakarta", "url": "https://ais.uinjkt.ac.id" }
+    ],
+    "previousStage": "yudisium",
+    "nextStage": "ijazah"
+  },
+  {
+    "order": 12,
+    "slug": "ijazah",
+    "title": "Pengambilan Ijazah",
+    "shortTitle": "Ijazah",
+    "icon": "Award",
+    "phase": "Kelulusan",
+    "description": "Langkah terakhir. Kamu mengambil ijazah, transkrip akhir, dan SKPI — lalu melegalisir salinannya untuk keperluan kerja atau studi lanjut.",
+    "goal": "Menerima ijazah asli beserta transkrip dan SKPI, serta memiliki salinan terlegalisir.",
+    "estimatedDuration": "1–2 bulan setelah wisuda",
+    "requirements": [
+      {
+        "text": "Sudah mengikuti wisuda atau sudah ditetapkan lulus melalui yudisium.",
+        "source": "alumni"
+      },
+      {
+        "text": "Bebas dari seluruh tanggungan administrasi, keuangan, dan perpustakaan.",
+        "source": "alumni"
+      }
+    ],
+    "documents": [
+      {
+        "name": "KTM atau kartu identitas",
+        "source": "alumni"
+      },
+      {
+        "name": "Bukti wisuda / bukti yudisium",
+        "source": "alumni"
+      },
+      {
+        "name": "Surat bebas tanggungan",
+        "source": "alumni"
+      },
+      {
+        "name": "Surat kuasa bermeterai",
+        "note": "Hanya jika pengambilan diwakilkan.",
+        "source": "alumni"
+      },
+      {
+        "name": "Fotokopi ijazah dan transkrip",
+        "note": "Untuk keperluan legalisir.",
+        "source": "alumni"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Pantau pengumuman ijazah terbit",
+        "detail": "Penerbitan ijazah butuh waktu setelah wisuda. Pantau pengumuman Akademik agar tidak bolak-balik datang.",
+        "actor": "Mahasiswa"
+      },
+      {
+        "title": "Lengkapi syarat pengambilan",
+        "detail": "Siapkan KTM, bukti wisuda, dan surat bebas tanggungan. Jika diwakilkan, siapkan surat kuasa bermeterai.",
+        "actor": "Mahasiswa"
+      },
+      {
+        "title": "Ambil ijazah, transkrip, dan SKPI",
+        "detail": "Ambil di bagian Akademik sesuai jadwal layanan. Periksa penulisan nama, tempat dan tanggal lahir, gelar, serta nomor ijazah SEBELUM meninggalkan loket.",
+        "actor": "Akademik"
+      },
+      {
+        "title": "Legalisir salinan",
+        "detail": "Perbanyak fotokopi dan legalisir beberapa lembar sekaligus. Kamu akan membutuhkannya untuk melamar kerja, CPNS, atau studi lanjut.",
+        "actor": "Akademik"
+      },
+      {
+        "title": "Simpan dan digitalkan",
+        "detail": "Scan ijazah, transkrip, dan SKPI. Simpan di cloud dan simpan dokumen aslinya di tempat aman dan kering.",
+        "actor": "Mahasiswa"
+      }
+    ],
+    "checklist": [
+      { "id": "pengumuman", "label": "Sudah tahu ijazah siap diambil" },
+      { "id": "syarat", "label": "Syarat pengambilan sudah lengkap" },
+      { "id": "bebas-tanggungan", "label": "Bebas seluruh tanggungan" },
+      { "id": "ijazah", "label": "Ijazah sudah diambil" },
+      { "id": "transkrip", "label": "Transkrip akhir sudah diterima" },
+      { "id": "skpi", "label": "SKPI sudah diterima" },
+      { "id": "cek-data", "label": "Data pada ijazah sudah dicek dan benar" },
+      { "id": "legalisir", "label": "Sudah legalisir salinan secukupnya" },
+      { "id": "scan", "label": "Semua dokumen sudah discan dan dibackup" }
+    ],
+    "warnings": [
+      {
+        "text": "Prosedur pengambilan ijazah diatur bagian Akademik dan tidak tercakup dalam Surat Dekan tentang alur seminar proposal, munaqosyah, dan komprehensif. Konfirmasikan syarat terkini sebelum datang.",
+        "source": "alumni"
+      }
+    ],
+    "tips": [
+      "Periksa ejaan nama, tempat dan tanggal lahir, serta gelar sebelum meninggalkan loket. Ralat setelah dokumen dibawa pulang jauh lebih rumit.",
+      "Legalisir sekaligus 10–15 lembar. Datang berkali-kali untuk beberapa lembar itu buang waktu.",
+      "Simpan ijazah dalam map keras dan jauh dari lembap. Jangan pernah dilaminating — banyak instansi menolak ijazah yang dilaminating.",
+      "Scan semuanya dan simpan di cloud. Versi digital akan lebih sering kamu pakai daripada aslinya."
+    ],
+    "faq": [
+      {
+        "question": "Berapa lama ijazah terbit setelah wisuda?",
+        "answer": "Bervariasi, umumnya beberapa minggu sampai dua bulan. Pantau pengumuman resmi bagian Akademik."
+      },
+      {
+        "question": "Bisakah ijazah diambil orang lain?",
+        "answer": "Umumnya bisa dengan surat kuasa bermeterai dan fotokopi identitas kedua pihak. Konfirmasikan dulu ke Akademik."
+      },
+      {
+        "question": "Bagaimana kalau ada salah tulis di ijazah?",
+        "answer": "Segera laporkan ke bagian Akademik saat itu juga. Semakin cepat dilaporkan, semakin mudah proses perbaikannya."
+      },
+      {
+        "question": "Apakah SKPI diberikan bersama ijazah?",
+        "answer": "Umumnya ya, bersama transkrip akhir. SKPI berasal dari data yang kamu isi di AIS sebelum mendaftar munaqosyah."
+      }
+    ],
+    "downloads": ["surat-kuasa-ijazah", "panduan-legalisir"],
+    "importantLinks": [
+      { "label": "UIN Syarif Hidayatullah Jakarta", "url": "https://www.uinjkt.ac.id" },
+      { "label": "AIS UIN Jakarta", "url": "https://ais.uinjkt.ac.id" },
+      { "label": "Website FSH", "url": "https://fsh.uinjkt.ac.id" }
+    ],
+    "previousStage": "wisuda",
+    "nextStage": null
+  }
+]

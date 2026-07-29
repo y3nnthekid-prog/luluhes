@@ -1,0 +1,57 @@
+[
+  {
+    "question": "Proposalmu sudah di-ACC Dosen PA dan Prodi?",
+    "hint": "ACC berarti proposal sudah ditandatangani Dosen PA dan disetujui Prodi.",
+    "ifNo": "pra-sempro"
+  },
+  {
+    "question": "Kamu sudah melaksanakan seminar proposal?",
+    "hint": "Sudah presentasi di hadapan dosen penguji, bukan sekadar mendaftar.",
+    "ifNo": "sempro"
+  },
+  {
+    "question": "Dosen pembimbing skripsimu sudah ditunjuk Prodi?",
+    "hint": "Penunjukan baru dilakukan setelah perbaikan proposal ditandatangani penguji.",
+    "ifNo": "revisi-sempro"
+  },
+  {
+    "question": "Naskah skripsimu sudah disetujui semua dosen pembimbing?",
+    "hint": "Kalau pembimbingmu dua orang, keduanya harus setuju.",
+    "ifNo": "bimbingan"
+  },
+  {
+    "question": "Kamu sudah lulus Ujian Komprehensif?",
+    "hint": "Ditandai dengan terbitnya SKL Komprehensif.",
+    "ifNo": "komprehensif"
+  },
+  {
+    "question": "Kamu sudah melaksanakan sidang munaqosyah?",
+    "hint": "Sudah diuji, bukan baru mendaftar.",
+    "ifNo": "munaqosyah"
+  },
+  {
+    "question": "Revisi pasca sidang sudah disahkan dan skripsi sudah dijilid?",
+    "hint": "Lembar pengesahan sudah lengkap ditandatangani.",
+    "ifNo": "revisi-munaqosyah"
+  },
+  {
+    "question": "Skripsimu sudah diunggah ke repository?",
+    "hint": "Sudah punya bukti unggah dari repository UIN.",
+    "ifNo": "repository"
+  },
+  {
+    "question": "Kamu sudah punya Surat Keterangan Bebas Pustaka?",
+    "hint": "Dari Perpustakaan Utama dan Perpustakaan FSH.",
+    "ifNo": "bebas-pustaka"
+  },
+  {
+    "question": "Kamu sudah yudisium?",
+    "hint": "Yudisium adalah penetapan resmi kelulusan, ditandai terbitnya SKL.",
+    "ifNo": "yudisium"
+  },
+  {
+    "question": "Kamu sudah wisuda?",
+    "hint": "Sudah mengikuti upacara wisuda universitas.",
+    "ifNo": "wisuda"
+  }
+]
