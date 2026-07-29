@@ -19,20 +19,20 @@ type PhaseStyle = {
 
 const styles: Record<StagePhase, PhaseStyle> = {
   Proposal: {
-    solid: "bg-phase-proposal text-sun-foreground",
-    soft: "bg-phase-proposal/25 text-sun-foreground dark:text-phase-proposal",
+    solid: "bg-phase-proposal text-blush-foreground",
+    soft: "bg-phase-proposal/25 text-blush-foreground dark:text-blush",
     dot: "bg-phase-proposal",
-    text: "text-sun-foreground dark:text-phase-proposal",
+    text: "text-blush-foreground dark:text-blush",
   },
   Skripsi: {
-    solid: "bg-phase-skripsi text-lime-foreground",
-    soft: "bg-phase-skripsi/25 text-lime-foreground dark:text-phase-skripsi",
+    solid: "bg-phase-skripsi text-pop-foreground",
+    soft: "bg-phase-skripsi/25 text-pop-foreground dark:text-blush",
     dot: "bg-phase-skripsi",
-    text: "text-lime-foreground dark:text-phase-skripsi",
+    text: "text-pop-foreground dark:text-blush",
   },
   Ujian: {
     solid: "bg-phase-ujian text-phase-ujian-foreground",
-    soft: "bg-phase-ujian/25 text-phase-ujian-foreground dark:text-phase-ujian",
+    soft: "bg-phase-ujian/25 text-phase-ujian-foreground dark:text-blush",
     dot: "bg-phase-ujian",
     text: "text-phase-ujian",
   },

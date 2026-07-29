@@ -38,11 +38,6 @@
         "name": "Transkrip nilai sementara",
         "note": "Unduh dari AIS. Dipakai untuk membuktikan 100 SKS dan kelulusan MPH.",
         "source": "alumni"
-      },
-      {
-        "name": "Kartu konsultasi proposal",
-        "note": "Bukti bimbingan dengan Dosen PA. Minta tanda tangan setiap kali konsultasi.",
-        "source": "alumni"
       }
     ],
     "steps": [
@@ -63,7 +58,7 @@
       },
       {
         "title": "Konsultasi dengan Dosen PA",
-        "detail": "Jadwalkan pertemuan rutin dan catat setiap masukan di kartu konsultasi. Masa konsultasi ini dibatasi maksimal dua bulan, jadi jangan menunda balasan revisi.",
+        "detail": "Jadwalkan pertemuan rutin dan catat setiap masukan. Masa konsultasi ini dibatasi maksimal dua bulan, jadi jangan menunda balasan revisi.",
         "actor": "Mahasiswa + Dosen PA"
       },
       {
@@ -94,10 +89,6 @@
         "label": "Draft proposal selesai ditulis"
       },
       {
-        "id": "kartu",
-        "label": "Kartu konsultasi terisi dan ditandatangani"
-      },
-      {
         "id": "acc-pa",
         "label": "Surat Persetujuan Proposal ditandatangani Dosen PA"
       },
@@ -115,7 +106,6 @@
     "tips": [
       "Pilih topik yang datanya bisa kamu ambil. Judul yang keren tapi datanya di luar jangkauan akan menyiksa di tahap penelitian.",
       "Siapkan tiga alternatif judul saat konsultasi pertama. Dosen PA lebih mudah mengarahkan kalau ada pilihan.",
-      "Foto atau scan kartu konsultasi setiap habis bimbingan. Kartu yang hilang di akhir semester adalah masalah nyata.",
       "Balas revisi maksimal dalam satu minggu. Batas dua bulan itu cepat habis kalau setiap revisi menunggu dua minggu."
     ],
     "faq": [
@@ -134,8 +124,7 @@
     ],
     "downloads": [
       "surat-persetujuan-proposal",
-      "template-proposal",
-      "kartu-konsultasi"
+      "template-proposal"
     ],
     "importantLinks": [
       {
@@ -888,9 +877,9 @@
         "source": "resmi"
       },
       {
-        "name": "IPK / transkrip yang ditandatangani Akademik Pusat dan Ketua Prodi",
-        "note": "Dua tanda tangan, dua tempat berbeda. Urus lebih awal.",
-        "source": "resmi"
+        "name": "KRS semester 8 dari AIS, bertanda tangan",
+        "note": "Unduh sendiri di AIS, lalu cetak. Butuh tiga tanda tangan: Ketua Prodi, Dosen Pembimbing Akademik, dan kamu sebagai mahasiswa.",
+        "source": "alumni"
       },
       {
         "name": "SKPI (Surat Keterangan Pendamping Ijazah)",
@@ -920,9 +909,9 @@
         "actor": "Mahasiswa → Perpustakaan FSH"
       },
       {
-        "title": "Urus tanda tangan IPK",
-        "detail": "Transkrip / IPK harus ditandatangani Akademik Pusat dan Ketua Prodi. Ini dua lokasi berbeda — sediakan waktu beberapa hari.",
-        "actor": "Akademik Pusat + Ketua Prodi"
+        "title": "Unduh KRS semester 8 di AIS dan kumpulkan tiga tanda tangan",
+        "detail": "Masuk ke AIS, buka Menu → Mahasiswa → Perkuliahan → Isi KRS, lalu unduh KRS semester 8. Cetak berkasnya, kemudian minta tanda tangan Ketua Prodi dan Dosen Pembimbing Akademik, dan bubuhkan tanda tanganmu sendiri.",
+        "actor": "Mahasiswa → Ketua Prodi + Dosen PA"
       },
       {
         "title": "Lengkapi dan serahkan berkas pendaftaran",
@@ -983,7 +972,7 @@
       },
       {
         "id": "ipk-ttd",
-        "label": "IPK ditandatangani Akademik Pusat dan Ketua Prodi"
+        "label": "KRS semester 8 sudah dicetak dan lengkap 3 tanda tangan"
       },
       {
         "id": "drive-terbuka",
@@ -1035,7 +1024,7 @@
     "faq": [
       {
         "question": "Apa saja berkas pendaftaran munaqosyah?",
-        "answer": "Menurut alur resmi ada lima: form pendaftaran, bukti lunas biaya kuliah, SKL Komprehensif, IPK yang ditandatangani Akademik Pusat dan Ketua Prodi, serta SKPI."
+        "answer": "Menurut alur resmi ada lima: form pendaftaran, bukti lunas biaya kuliah, SKL Komprehensif, transkrip/IPK, dan SKPI. Untuk berkas IPK, praktiknya kamu mengunduh sendiri KRS semester 8 di AIS lalu mencetaknya dan meminta tiga tanda tangan: Ketua Prodi, Dosen Pembimbing Akademik, dan tanda tanganmu sendiri."
       },
       {
         "question": "Bagaimana kalau hasil Turnitin saya di atas 30%?",
@@ -1070,6 +1059,11 @@
     ],
     "importantLinks": [
       {
+        "label": "Unduh KRS di AIS",
+        "url": "https://ais.uinjkt.ac.id/ais/pages/main/main_mahasiswa.zul",
+        "note": "Menu → Mahasiswa → Perkuliahan → Isi KRS"
+      },
+      {
         "label": "AIS UIN Jakarta",
         "url": "https://ais.uinjkt.ac.id",
         "note": "Isi SKPI di sini"
@@ -1085,17 +1079,20 @@
       }
     ],
     "previousStage": "komprehensif",
-    "nextStage": "revisi-munaqosyah"
+    "nextStage": "revisi-munaqosyah",
+    "extras": [
+      "skpi"
+    ]
   },
   {
     "order": 7,
     "slug": "revisi-munaqosyah",
-    "title": "Revisi Pasca Munaqosyah",
+    "title": "Revisi & Pengesahan Skripsi",
     "shortTitle": "Revisi Sidang",
     "icon": "FileCheck2",
     "phase": "Ujian",
-    "description": "Kamu sudah lulus sidang, tapi belum selesai. Revisi dari penguji harus dituntaskan dan disahkan dalam tenggat yang tegas sebelum skripsi bisa dijilid dan diunggah.",
-    "goal": "Menyelesaikan revisi, mendapatkan pengesahan penguji dan pembimbing, lalu menjilid skripsi final.",
+    "description": "Kamu sudah lulus sidang, tapi justru di sini pekerjaannya paling banyak: menuntaskan revisi, mengejar rantai tanda tangan sampai Dekan, merapikan softfile, lalu membuat CD.",
+    "goal": "Menyelesaikan revisi, melengkapi seluruh tanda tangan pengesahan, dan menyiapkan CD skripsi.",
     "estimatedDuration": "2 minggu – maksimal 3 bulan",
     "requirements": [
       {
@@ -1110,79 +1107,112 @@
     "documents": [
       {
         "name": "Lembar catatan revisi penguji",
-        "note": "Diterima langsung setelah sidang. Jangan sampai hilang.",
+        "note": "Diterima langsung setelah sidang.",
         "source": "alumni"
       },
       {
-        "name": "Naskah skripsi hasil revisi",
+        "name": "Naskah skripsi hasil revisi (tercetak)",
+        "note": "Cetak ulang setiap kali maju minta tanda tangan. Banyak dosen minta melihat naskahnya, bukan hanya lembarnya.",
         "source": "alumni"
       },
       {
         "name": "Lembar Pengesahan Panitia Ujian Skripsi",
-        "note": "Disahkan Dekan dan ditandatangani panitia munaqosyah: Ketua, Sekretaris, Pembimbing, Penguji I, dan Penguji II.",
+        "note": "Disahkan Dekan, ditandatangani Ketua, Sekretaris, Pembimbing, Penguji I, dan Penguji II.",
         "source": "alumni"
       },
       {
-        "name": "Skripsi hardcover / jilid final",
-        "note": "Jumlah eksemplar mengikuti ketentuan Prodi dan Perpustakaan.",
+        "name": "Tanda Terima Penyerahan Skripsi",
+        "note": "Bawa bersamaan dengan lembar pengesahan supaya tidak dua kali mengejar orang yang sama.",
+        "source": "alumni"
+      },
+      {
+        "name": "Lembar Pernyataan Keaslian bermeterai",
+        "note": "Ditandatangani di atas meterai, lalu discan untuk disisipkan ke softfile.",
+        "source": "alumni"
+      },
+      {
+        "name": "CD skripsi",
+        "note": "Dibuat di tempat fotokopi yang melayani pembuatan CD. Umumnya selesai 10–20 menit.",
         "source": "alumni"
       }
     ],
     "steps": [
       {
-        "title": "Susun daftar revisi",
-        "detail": "Kumpulkan catatan dari semua penguji ke dalam satu daftar. Tandai mana yang bersifat wajib dan mana yang saran.",
+        "title": "Selesaikan revisi, lalu cetak ulang naskahnya",
+        "detail": "Kerjakan seluruh catatan penguji. Cetak naskah revisinya — kamu akan membawanya berkeliling saat meminta tanda tangan, terutama untuk dosen yang mintanya secara luring.",
         "actor": "Mahasiswa"
       },
       {
-        "title": "Kerjakan revisi",
-        "detail": "Selesaikan perbaikan naskah. Revisi dari penguji tidak melebihi 30% dari naskah, jadi ini pekerjaan yang seharusnya bisa selesai dalam hitungan minggu, bukan bulan.",
+        "title": "Cetak dua lembar sekaligus: Pengesahan Panitia dan Tanda Terima",
+        "detail": "Bawa keduanya setiap kali menemui dosen. Penguji dan pembimbing menandatangani di kedua lembar, jadi sekali temu bisa langsung dua-duanya. Ini menghemat berhari-hari, apalagi kalau pengujimu sibuk.",
         "actor": "Mahasiswa"
       },
       {
-        "title": "Minta tanda tangan penguji dan pembimbing",
-        "detail": "Temui setiap penguji dengan membawa naskah revisi dan daftar perbaikan. Lanjutkan ke pembimbing untuk pengesahan akhir.",
+        "title": "Tanda tangan Penguji I, Penguji II, lalu Pembimbing",
+        "detail": "Mulai dari kedua penguji, baru pembimbing. Setelah tahap ini, Tanda Terima tinggal menyisakan Perpustakaan FSH, Perpustakaan UIN, dan TU FSH. Format yang lazim: lembar pengesahan dijepit di paling depan naskah revisi.",
         "actor": "Mahasiswa → Penguji + Pembimbing"
       },
       {
-        "title": "Lengkapi lembar pengesahan",
-        "detail": "Kejar tanda tangan pada lembar pengesahan sesuai urutan yang berlaku di Fakultas. Ini dokumen yang paling sering menahan proses.",
-        "actor": "Mahasiswa → Fakultas"
+        "title": "Tanda tangan Sekretaris Prodi, lalu Ketua Prodi",
+        "detail": "Di Sekprodi sering muncul koreksi penulisan. Kalau naskahmu belum rapi, tanda tangannya ditahan dulu — rapikan, lalu ajukan lagi dengan format yang sama.",
+        "actor": "Mahasiswa → Sekprodi + Kaprodi"
       },
       {
-        "title": "Jilid skripsi final",
-        "detail": "Cetak dan jilid sesuai ketentuan. Simpan juga versi PDF final — akan dipakai untuk unggah repository dan bebas pustaka.",
+        "title": "Tanda tangan Dekan lewat TU Fakultas",
+        "detail": "Tidak menemui Dekan langsung. Serahkan hardfile beserta lembar pengesahan ke TU, nanti ditandatangani dan dicap. Umumnya menunggu sehari; kalau beruntung selesai hari itu juga. Di akademik fakultas, biasanya Bu Soba yang meneruskan ke Dekan.",
+        "actor": "Mahasiswa → TU Fakultas → Dekan"
+      },
+      {
+        "title": "Rapikan softfile skripsi",
+        "detail": "Sisipkan scan Lembar Pengesahan Panitia tepat setelah Lembar Pengesahan Pembimbing yang sudah ditandatangani, lalu sisipkan scan Lembar Pernyataan Keaslian bermeterai. Tanda tangani juga kata pengantar, dan rapikan kembali daftar isinya.",
+        "actor": "Mahasiswa"
+      },
+      {
+        "title": "Buat CD skripsi",
+        "detail": "Kirim softfile final ke tempat fotokopi yang melayani pembuatan CD. Sambil menunggu, mulai rapikan AIS — banyak yang perlu dilengkapi di sana.",
         "actor": "Mahasiswa"
       }
     ],
     "checklist": [
       {
-        "id": "daftar-revisi",
-        "label": "Daftar revisi dari semua penguji sudah disusun"
-      },
-      {
         "id": "revisi",
         "label": "Revisi naskah selesai"
       },
       {
+        "id": "cetak-2-lembar",
+        "label": "Lembar Pengesahan Panitia dan Tanda Terima sudah dicetak"
+      },
+      {
         "id": "ttd-penguji",
-        "label": "Sudah ditandatangani semua penguji"
+        "label": "Penguji I dan II tanda tangan di KEDUA lembar"
       },
       {
         "id": "ttd-pembimbing",
-        "label": "Sudah ditandatangani pembimbing"
+        "label": "Pembimbing tanda tangan di KEDUA lembar"
       },
       {
-        "id": "pengesahan",
-        "label": "Lembar pengesahan lengkap"
+        "id": "ttd-sekprodi",
+        "label": "Sekretaris Prodi sudah tanda tangan"
       },
       {
-        "id": "pdf",
-        "label": "PDF final sudah disiapkan"
+        "id": "ttd-kaprodi",
+        "label": "Ketua Prodi sudah tanda tangan"
       },
       {
-        "id": "jilid",
-        "label": "Skripsi sudah dijilid"
+        "id": "ttd-dekan",
+        "label": "Dekan sudah tanda tangan dan cap lewat TU"
+      },
+      {
+        "id": "materai",
+        "label": "Lembar Pernyataan Keaslian sudah ditandatangani di atas meterai"
+      },
+      {
+        "id": "softfile",
+        "label": "Softfile dirapikan: scan pengesahan, pernyataan, kata pengantar, daftar isi"
+      },
+      {
+        "id": "cd",
+        "label": "CD skripsi sudah jadi"
       }
     ],
     "warnings": [
@@ -1197,14 +1227,18 @@
       {
         "text": "Revisi dari dosen penguji tidak melebihi 30%.",
         "source": "resmi"
+      },
+      {
+        "text": "Tanda tangan Dekan hanya bisa lewat TU dan wajib membawa hardfile. Kalau Dekan sedang tidak di kampus, prosesnya mundur ke hari berikutnya.",
+        "source": "alumni"
       }
     ],
     "tips": [
-      "Ini jebakan terbesar di ujung perjalanan. Banyak yang santai karena merasa 'sudah lulus', lalu tersadar tenggat tiga bulan hampir habis.",
-      "Kerjakan revisi dalam dua minggu pertama selagi ingatan soal sidang masih segar dan penguji masih mudah ditemui.",
-      "Buat tabel perbandingan: catatan penguji, halaman, dan perbaikan yang dilakukan. Tanda tangan jadi jauh lebih cepat.",
-      "Tanya urutan tanda tangan lembar pengesahan sebelum mulai berkeliling. Salah urutan berarti mengulang antrean.",
-      "Simpan PDF final dengan penamaan jelas. File ini akan dipakai berulang kali di tahap repository, bebas pustaka, dan yudisium."
+      "Bawa Lembar Pengesahan dan Tanda Terima bersamaan, selalu. Penguji yang sibuk itu nyata, dan mengejar orang yang sama dua kali bisa memakan seminggu.",
+      "Ini jebakan terbesar di ujung perjalanan. Banyak yang santai karena merasa sudah lulus, lalu tersadar tenggat tiga bulan hampir habis.",
+      "Kalau Dekan tidak ada di kampus, tanyakan ke staf TU apakah bisa tanda tangan daring. Kalau tidak bisa, kamu tahu harus balik besok.",
+      "Sambil menunggu CD jadi, kerjakan AIS. Dua pekerjaan ini bisa jalan bersamaan dan menghemat berhari-hari.",
+      "Simpan softfile final dengan penamaan jelas. File inilah yang akan diunggah ke Perpustakaan UIN — salah unggah berarti disuruh ulang."
     ],
     "faq": [
       {
@@ -1212,21 +1246,22 @@
         "answer": "Menurut alur resmi, skripsi diujikan kembali. Artinya kamu mengulang sidang munaqosyah. Ini konsekuensi paling berat di tahap akhir, jadi jaga betul tenggatnya."
       },
       {
-        "question": "Apakah saya sudah boleh disebut lulus setelah sidang?",
-        "answer": "Kamu lulus ujian, tetapi status kelulusan resmi baru ditetapkan pada yudisium. Masih ada revisi, repository, bebas pustaka, dan yudisium yang harus dilalui."
+        "question": "Apa urutan tanda tangan yang benar?",
+        "answer": "Penguji I dan Penguji II, lalu Pembimbing, lalu Sekretaris Prodi, lalu Ketua Prodi, terakhir Dekan lewat TU Fakultas. Untuk penguji dan pembimbing, minta sekalian tanda tangan pada Tanda Terima Penyerahan Skripsi."
       },
       {
-        "question": "Berapa eksemplar skripsi yang harus dijilid?",
-        "answer": "Tidak diatur dalam alur resmi ini. Jumlahnya mengikuti ketentuan Prodi dan Perpustakaan. Tanyakan sebelum mencetak agar tidak kurang atau berlebih."
+        "question": "Di mana Lembar Pernyataan Keaslian diletakkan?",
+        "answer": "Pada skripsi versi CD, urutannya: halaman i sampul, ii Lembar Pengesahan Pembimbing, iii Lembar Pengesahan Panitia Ujian Skripsi, iv Lembar Pernyataan Keaslian bermeterai, lalu v abstrak. Semua lembar tanda tangan disisipkan dalam bentuk hasil pindai."
       },
       {
-        "question": "Siapa saja yang menandatangani lembar pengesahan skripsi?",
-        "answer": "Lembar Pengesahan Panitia Ujian Skripsi disahkan oleh Dekan Fakultas Syariah dan Hukum, lalu ditandatangani lima anggota panitia munaqosyah: Ketua, Sekretaris, Pembimbing, Penguji I, dan Penguji II. Tanyakan urutan tanda tangannya ke Prodi sebelum mulai berkeliling."
+        "question": "Apakah masih ada lembar revisi khusus dari penguji?",
+        "answer": "Tidak ada lembar revisi tersendiri. Penguji membubuhkan tanda tangan pada Lembar Pengesahan Panitia Ujian Skripsi dan pada Tanda Terima Penyerahan Skripsi."
       }
     ],
     "downloads": [
-      "lembar-revisi-munaqosyah",
       "lembar-pengesahan-panitia-ujian-skripsi",
+      "tanda-terima-penyerahan-skripsi",
+      "lembar-pernyataan-keaslian",
       "panduan-penjilidan"
     ],
     "importantLinks": [
@@ -1236,163 +1271,25 @@
       }
     ],
     "previousStage": "munaqosyah",
-    "nextStage": "repository"
-  },
-  {
-    "order": 8,
-    "slug": "repository",
-    "title": "Unggah Repository",
-    "shortTitle": "Repository",
-    "icon": "UploadCloud",
-    "phase": "Kelulusan",
-    "description": "Skripsi finalmu diunggah ke repository institusi UIN Jakarta. Bukti unggahnya menjadi salah satu syarat bebas pustaka dan yudisium.",
-    "goal": "Mengunggah skripsi ke repository dan mendapatkan bukti unggah resmi.",
-    "estimatedDuration": "3–7 hari kerja",
-    "requirements": [
-      {
-        "text": "Skripsi sudah direvisi, disahkan, dan berbentuk PDF final.",
-        "source": "alumni"
-      },
-      {
-        "text": "Lembar pengesahan sudah ditandatangani lengkap dan ikut terscan dalam PDF.",
-        "source": "alumni"
-      }
-    ],
-    "documents": [
-      {
-        "name": "PDF skripsi final",
-        "note": "Umumnya dipecah per bab atau digabung sesuai ketentuan repository.",
-        "source": "alumni"
-      },
-      {
-        "name": "Surat pernyataan publikasi / persetujuan unggah",
-        "source": "alumni"
-      },
-      {
-        "name": "Lembar pernyataan keaslian karya",
-        "source": "alumni"
-      },
-      {
-        "name": "Bukti unggah repository",
-        "note": "Output tahap ini. Dibutuhkan untuk bebas pustaka dan yudisium.",
-        "source": "alumni"
-      }
-    ],
-    "steps": [
-      {
-        "title": "Siapkan PDF sesuai ketentuan",
-        "detail": "Pastikan lembar pengesahan yang sudah ditandatangani ikut terscan. Cek ketentuan penamaan file dan pemecahan per bab di panduan repository.",
-        "actor": "Mahasiswa"
-      },
-      {
-        "title": "Buat akun / login repository",
-        "detail": "Akses repository.uinjkt.ac.id dan ikuti prosedur registrasi unggah mandiri yang berlaku.",
-        "actor": "Mahasiswa"
-      },
-      {
-        "title": "Unggah dan isi metadata",
-        "detail": "Isi judul, abstrak, kata kunci, nama pembimbing, dan tahun. Metadata yang rapi bikin skripsimu mudah ditemukan orang lain.",
-        "actor": "Mahasiswa"
-      },
-      {
-        "title": "Tunggu verifikasi pustakawan",
-        "detail": "Unggahan diperiksa sebelum dipublikasikan. Kalau ada yang perlu diperbaiki, kamu akan diminta mengunggah ulang.",
-        "actor": "Perpustakaan"
-      },
-      {
-        "title": "Simpan bukti unggah",
-        "detail": "Simpan tangkapan layar atau surat bukti unggah. Dokumen ini akan diminta saat mengurus bebas pustaka dan yudisium.",
-        "actor": "Mahasiswa"
-      }
-    ],
-    "checklist": [
-      {
-        "id": "pdf-final",
-        "label": "PDF final sudah sesuai ketentuan"
-      },
-      {
-        "id": "pengesahan-scan",
-        "label": "Lembar pengesahan bertanda tangan sudah terscan"
-      },
-      {
-        "id": "akun",
-        "label": "Akun repository sudah aktif"
-      },
-      {
-        "id": "unggah",
-        "label": "Skripsi sudah diunggah"
-      },
-      {
-        "id": "metadata",
-        "label": "Metadata sudah diisi lengkap"
-      },
-      {
-        "id": "verifikasi",
-        "label": "Unggahan sudah diverifikasi"
-      },
-      {
-        "id": "bukti",
-        "label": "Bukti unggah sudah disimpan"
-      }
-    ],
-    "warnings": [
-      {
-        "text": "Tata cara unggah repository tidak diatur dalam Surat Dekan tentang alur seminar proposal, munaqosyah, dan komprehensif. Ikuti panduan resmi Perpustakaan UIN Jakarta yang berlaku saat kamu mengurusnya.",
-        "source": "alumni"
-      }
-    ],
-    "tips": [
-      "Unggah segera setelah pengesahan lengkap. Antrean verifikasi menumpuk menjelang batas yudisium.",
-      "Tulis abstrak dan kata kunci dengan serius. Ini yang membuat skripsimu terbaca oleh adik tingkat nanti.",
-      "Simpan bukti unggah di cloud, bukan hanya di galeri HP.",
-      "Cek ulang apakah file yang kamu unggah benar-benar versi final, bukan draft revisi terakhir yang belum disahkan."
-    ],
-    "faq": [
-      {
-        "question": "Apakah skripsi saya akan bisa dibaca publik?",
-        "answer": "Umumnya bagian tertentu dapat diakses publik, sementara bab tertentu dibatasi. Kebijakan aksesnya ditentukan Perpustakaan — tanyakan saat mengunggah."
-      },
-      {
-        "question": "Bagaimana kalau unggahan saya ditolak?",
-        "answer": "Biasanya karena format file, lembar pengesahan belum terscan, atau metadata kurang lengkap. Perbaiki sesuai catatan verifikator lalu unggah ulang."
-      },
-      {
-        "question": "Berapa lama proses verifikasi?",
-        "answer": "Bervariasi, umumnya beberapa hari kerja. Semakin dekat batas yudisium, semakin panjang antreannya."
-      }
-    ],
-    "downloads": [
-      "surat-pernyataan-publikasi",
-      "lembar-pernyataan-keaslian",
-      "panduan-repository"
-    ],
-    "importantLinks": [
-      {
-        "label": "Repository UIN Jakarta",
-        "url": "https://repository.uinjkt.ac.id",
-        "note": "Tempat unggah skripsi"
-      },
-      {
-        "label": "Perpustakaan UIN Jakarta",
-        "url": "https://perpus.uinjkt.ac.id"
-      }
-    ],
-    "previousStage": "revisi-munaqosyah",
     "nextStage": "bebas-pustaka"
   },
   {
-    "order": 9,
+    "order": 8,
     "slug": "bebas-pustaka",
-    "title": "Bebas Pustaka",
-    "shortTitle": "Bebas Pustaka",
+    "title": "Validasi Berkas & Bebas Pustaka",
+    "shortTitle": "Validasi Berkas",
     "icon": "Library",
     "phase": "Kelulusan",
-    "description": "Kamu menuntaskan seluruh kewajiban terhadap perpustakaan — mengembalikan pinjaman, menyerahkan skripsi, dan memenuhi ketentuan sumbangan — untuk mendapatkan Surat Keterangan Bebas Pustaka.",
-    "goal": "Mendapatkan Surat Keterangan Bebas Pustaka sebagai syarat yudisium.",
-    "estimatedDuration": "3–7 hari kerja",
+    "description": "Perjalanan keliling terakhir. Kamu melengkapi data di AIS, lalu mengumpulkan validasi dari Perpustakaan FSH, Perpustakaan UIN, TU Fakultas, dan bagian keuangan — semuanya terekam di satu Tanda Terima Penyerahan Skripsi.",
+    "goal": "Mendapatkan seluruh validasi di AIS sehingga tombol Daftar Yudisium bisa diklik.",
+    "estimatedDuration": "3–10 hari kerja",
     "requirements": [
       {
-        "text": "Skripsi sudah diunggah ke repository dan bukti unggahnya tersedia.",
+        "text": "Skripsi sudah disahkan sampai tanda tangan Dekan dan CD sudah jadi.",
+        "source": "alumni"
+      },
+      {
+        "text": "Softfile skripsi final sudah lengkap seluruh lembar tanda tangannya.",
         "source": "alumni"
       },
       {
@@ -1402,118 +1299,136 @@
     ],
     "documents": [
       {
-        "name": "Bukti unggah repository",
-        "source": "alumni"
-      },
-      {
         "name": "Tanda Terima Penyerahan Skripsi",
-        "note": "Butuh enam tanda tangan: Pembimbing I dan II, Penguji I dan II, Perpustakaan UIN, dan Perpustakaan FSH. Disahkan Kabag TU Fakultas.",
+        "note": "Sudah berisi tanda tangan Pembimbing dan Penguji dari tahap sebelumnya. Sisanya diisi di tahap ini.",
         "source": "alumni"
       },
       {
-        "name": "Skripsi jilid / softcopy untuk perpustakaan",
-        "note": "Ketentuan tiap perpustakaan bisa berbeda antara Perpustakaan Utama dan Perpustakaan FSH.",
+        "name": "CD skripsi",
+        "note": "Diserahkan ke Perpustakaan FSH.",
+        "source": "alumni"
+      },
+      {
+        "name": "Softfile skripsi final",
+        "note": "Diunggah lewat formulir Perpustakaan UIN. Pastikan yang diunggah versi final berisi seluruh tanda tangan.",
         "source": "alumni"
       },
       {
         "name": "Kartu anggota perpustakaan / KTM",
         "source": "alumni"
-      },
-      {
-        "name": "Surat Keterangan Bebas Pustaka",
-        "note": "Output tahap ini. Wajib untuk yudisium.",
-        "source": "alumni"
       }
     ],
     "steps": [
       {
-        "title": "Kembalikan semua pinjaman",
-        "detail": "Pastikan tidak ada buku tertinggal dan tidak ada denda di Perpustakaan Utama maupun Perpustakaan FSH.",
+        "title": "Rapikan AIS lebih dulu",
+        "detail": "Validasi judul skripsi di menu Sidang/Tesis. Lalu di menu Daftar Sidang: mintakan validasi SKPI, finalisasi biodata agar sama persis dengan ijazah terakhir, dan unggah lembar acc sidang. Setelah ketiganya lengkap, daftar sidang di AIS.",
         "actor": "Mahasiswa"
       },
       {
-        "title": "Serahkan skripsi ke perpustakaan",
-        "detail": "Serahkan sesuai bentuk yang diminta — jilid, CD, atau softcopy. Konfirmasi dulu formatnya agar tidak bolak-balik.",
-        "actor": "Mahasiswa → Perpustakaan"
+        "title": "Minta validasi pendaftaran sidang dan status eligible",
+        "detail": "Di menu Daftar Yudisium, mintakan validasi Status Pendaftaran Sidang dan Status Eligible ke Sekretaris Prodi. Sisanya menyusul dari perpustakaan, keuangan, dan TU.",
+        "actor": "Mahasiswa → Sekretaris Prodi"
       },
       {
-        "title": "Kumpulkan enam tanda tangan pada Tanda Terima Penyerahan Skripsi",
-        "detail": "Lembar ini merekam serah terima skripsimu: Pembimbing I dan II, Penguji I dan II, lalu Perpustakaan UIN dan Perpustakaan FSH. Setelah lengkap, disahkan oleh Kabag TU Fakultas.",
-        "actor": "Mahasiswa → Pembimbing, Penguji, dua perpustakaan"
+        "title": "Validasi Perpustakaan FSH",
+        "detail": "Bawa Tanda Terima Penyerahan Skripsi dan CD. Kamu akan diminta mengisi formulir daring, lalu lembarnya ditandatangani staf. Tunggu 5–15 menit, cek berkala di AIS bagian Daftar Yudisium sampai Perpustakaan FSH tervalidasi.",
+        "actor": "Mahasiswa → Perpustakaan FSH"
       },
       {
-        "title": "Penuhi ketentuan sumbangan (jika ada)",
-        "detail": "Sebagian periode mensyaratkan sumbangan buku. Tanyakan ketentuan yang berlaku sebelum membeli apa pun.",
-        "actor": "Mahasiswa"
+        "title": "Validasi Perpustakaan UIN",
+        "detail": "Naik ke lantai 3. Isi formulir daring dan unggah softfile skripsi final di sana — jangan sampai salah unggah, karena akan disuruh mengulang. Jangan lupa serahkan Tanda Terima untuk ditandatangani, lalu cek lagi AIS.",
+        "actor": "Mahasiswa → Perpustakaan UIN"
       },
       {
-        "title": "Ajukan surat bebas pustaka",
-        "detail": "Setelah semua kewajiban tuntas, ajukan penerbitan Surat Keterangan Bebas Pustaka.",
-        "actor": "Perpustakaan"
+        "title": "Tanda tangan terakhir di TU Fakultas",
+        "detail": "Setelah kolom tabel pada Tanda Terima terisi penuh, kembali ke TU FSH untuk tanda tangan terakhir — posisinya di luar tabel, bagian bawah kanan. Biasanya menunggu 10–30 menit.",
+        "actor": "Mahasiswa → TU Fakultas"
+      },
+      {
+        "title": "Validasi keuangan",
+        "detail": "Bawa lembarnya ke Layanan Keuangan untuk validasi keuangan/UKT, lalu cek lagi statusnya di AIS.",
+        "actor": "Mahasiswa → Layanan Keuangan"
       }
     ],
     "checklist": [
       {
-        "id": "pinjaman",
-        "label": "Semua pinjaman buku sudah dikembalikan"
+        "id": "ais-judul",
+        "label": "Judul skripsi tervalidasi di menu Sidang/Tesis"
       },
       {
-        "id": "denda",
-        "label": "Tidak ada denda tertunggak"
+        "id": "ais-skpi",
+        "label": "SKPI sudah tervalidasi"
       },
       {
-        "id": "serah-skripsi",
-        "label": "Skripsi sudah diserahkan ke perpustakaan"
+        "id": "ais-biodata",
+        "label": "Biodata difinalisasi, sama persis dengan ijazah terakhir"
       },
       {
-        "id": "sumbangan",
-        "label": "Ketentuan sumbangan sudah dipenuhi (jika ada)"
+        "id": "ais-accsidang",
+        "label": "Lembar acc sidang sudah diunggah"
       },
       {
-        "id": "tanda-terima",
-        "label": "Tanda Terima Penyerahan Skripsi lengkap enam tanda tangan"
+        "id": "ais-daftar-sidang",
+        "label": "Sudah daftar sidang di AIS"
+      },
+      {
+        "id": "ais-eligible",
+        "label": "Status Pendaftaran Sidang dan Eligible tervalidasi"
       },
       {
         "id": "fsh",
-        "label": "Bebas pustaka Perpustakaan FSH selesai"
+        "label": "Perpustakaan FSH tervalidasi (CD + gform + TTD)"
       },
       {
-        "id": "utama",
-        "label": "Bebas pustaka Perpustakaan Utama selesai"
+        "id": "uin",
+        "label": "Perpustakaan UIN tervalidasi (softfile + gform + TTD)"
       },
       {
-        "id": "surat",
-        "label": "Surat Keterangan Bebas Pustaka sudah diterima"
+        "id": "tu",
+        "label": "TU Fakultas tanda tangan terakhir di Tanda Terima"
+      },
+      {
+        "id": "keuangan",
+        "label": "Validasi keuangan/UKT selesai"
+      },
+      {
+        "id": "semua-hijau",
+        "label": "Semua syarat Daftar Yudisium sudah tervalidasi di AIS"
       }
     ],
     "warnings": [
       {
-        "text": "Ketentuan bebas pustaka tidak diatur dalam Surat Dekan tentang alur seminar proposal, munaqosyah, dan komprehensif. Konfirmasikan persyaratan terkini ke Perpustakaan sebelum datang.",
+        "text": "Softfile yang diunggah ke Perpustakaan UIN harus versi final yang sudah lengkap seluruh tanda tangannya. Salah unggah berarti disuruh mengulang.",
+        "source": "alumni"
+      },
+      {
+        "text": "Finalisasi biodata di AIS harus sama persis dengan ijazah terakhir. Selisih satu huruf akan terbawa sampai ijazah.",
+        "source": "alumni"
+      },
+      {
+        "text": "Ketentuan layanan perpustakaan tidak diatur dalam Surat Dekan tentang alur seminar proposal, munaqosyah, dan komprehensif. Konfirmasikan sebelum datang.",
         "source": "alumni"
       }
     ],
     "tips": [
-      "Ada dua perpustakaan yang perlu diurus: Perpustakaan Utama dan Perpustakaan FSH. Jangan berhenti setelah salah satunya.",
-      "Telepon atau cek pengumuman dulu sebelum datang. Format penyerahan skripsi sering berubah antar periode.",
-      "Cek riwayat peminjamanmu sejak semester awal. Buku yang dipinjam dua tahun lalu bisa muncul sebagai tunggakan.",
-      "Urus ini sebelum pendaftaran yudisium dibuka, bukan di hari terakhir."
+      "Kerjakan AIS sambil menunggu CD jadi. Dua-duanya tidak saling menunggu.",
+      "Urutannya mengikuti Tanda Terima: Perpustakaan FSH dulu, lalu Perpustakaan UIN, baru TU Fakultas, terakhir keuangan.",
+      "Setiap selesai satu loket, cek AIS. Validasi yang belum masuk lebih mudah ditanyakan saat kamu masih di tempat.",
+      "Simpan softfile final di ponsel juga. Formulir Perpustakaan UIN meminta unggahan di tempat.",
+      "Cek riwayat peminjamanmu sejak semester awal. Buku yang dipinjam dua tahun lalu bisa muncul sebagai tunggakan."
     ],
     "faq": [
       {
-        "question": "Berapa tanda tangan yang dibutuhkan untuk penyerahan skripsi?",
-        "answer": "Enam: Pembimbing I, Pembimbing II, Penguji I, Penguji II, Perpustakaan UIN, dan Perpustakaan FSH. Semuanya direkam dalam satu lembar Tanda Terima Penyerahan Skripsi yang kemudian disahkan Kabag TU Fakultas."
+        "question": "Berapa tanda tangan yang dibutuhkan pada Tanda Terima Penyerahan Skripsi?",
+        "answer": "Enam di dalam tabel — Pembimbing I, Pembimbing II, Penguji I, Penguji II, Perpustakaan UIN, dan Perpustakaan FSH — ditambah satu tanda tangan Kabag TU Fakultas di luar tabel, bagian bawah kanan."
       },
       {
-        "question": "Apakah harus menyumbang buku?",
-        "answer": "Kebijakan sumbangan berbeda antar periode dan antar perpustakaan. Tanyakan dulu ke petugas sebelum membeli buku apa pun."
+        "question": "Apa bedanya validasi Perpustakaan FSH dan Perpustakaan UIN?",
+        "answer": "Perpustakaan FSH meminta CD skripsi, Perpustakaan UIN meminta unggahan softfile lewat formulir daring. Keduanya punya formulir sendiri dan keduanya menandatangani Tanda Terima."
       },
       {
-        "question": "Berapa lama surat bebas pustaka terbit?",
-        "answer": "Umumnya beberapa hari kerja jika seluruh kewajiban sudah tuntas. Semakin dekat batas yudisium, antreannya semakin panjang."
-      },
-      {
-        "question": "Apakah bebas pustaka bisa diwakilkan?",
-        "answer": "Tidak diatur secara resmi. Sebagian layanan mengizinkan dengan surat kuasa. Konfirmasikan langsung ke perpustakaan."
+        "question": "Bagaimana kalau validasi di AIS belum muncul?",
+        "answer": "Tunggu beberapa menit lalu muat ulang. Kalau setelah beberapa jam masih kosong, tanyakan langsung ke loket yang bersangkutan selagi kamu masih ingat siapa yang melayani."
       }
     ],
     "downloads": [
@@ -1522,39 +1437,42 @@
     ],
     "importantLinks": [
       {
-        "label": "Perpustakaan UIN Jakarta",
-        "url": "https://perpus.uinjkt.ac.id"
+        "label": "Formulir validasi Perpustakaan Utama (UIN)",
+        "url": "https://docs.google.com/forms/d/e/1FAIpQLSeSVMkrlOeT8XrDFF7oMIPOIBpWckPQ20y9LHvMz3wFtMzkWg/viewform",
+        "note": "Unggah softfile skripsi final di sini"
       },
       {
-        "label": "Repository UIN Jakarta",
-        "url": "https://repository.uinjkt.ac.id"
+        "label": "Formulir validasi Perpustakaan Fakultas (FSH)",
+        "url": "https://docs.google.com/forms/d/e/1FAIpQLSc9tnRHzBIv1tNNP6I6C5tXU2Pc_Xg_nenja3sWgwYU_ssnEw/viewform",
+        "note": "Diisi saat menyerahkan CD"
+      },
+      {
+        "label": "AIS UIN Jakarta",
+        "url": "https://ais.uinjkt.ac.id",
+        "note": "Pantau status Daftar Yudisium"
       }
     ],
-    "previousStage": "repository",
+    "previousStage": "revisi-munaqosyah",
     "nextStage": "yudisium"
   },
   {
-    "order": 10,
+    "order": 9,
     "slug": "yudisium",
     "title": "Yudisium",
     "shortTitle": "Yudisium",
     "icon": "ScrollText",
     "phase": "Kelulusan",
-    "description": "Penetapan resmi kelulusanmu. Di tahap inilah tanggal lulus, IPK akhir, dan predikat kelulusan ditetapkan — dan kamu berhak menerima Surat Keterangan Lulus.",
+    "description": "Penetapan resmi kelulusanmu. Begitu seluruh syarat di AIS tervalidasi, tombol Daftar Yudisium terbuka dan kamu tinggal mengekliknya.",
     "goal": "Ditetapkan lulus secara resmi dan menerima SKL (Surat Keterangan Lulus).",
-    "estimatedDuration": "2–4 minggu, mengikuti periode yudisium",
+    "estimatedDuration": "Beberapa hari kerja setelah semua validasi hijau",
     "requirements": [
       {
-        "text": "Seluruh proses skripsi selesai: sidang munaqosyah lulus dan revisi disahkan.",
+        "text": "Seluruh syarat Daftar Yudisium di AIS sudah tervalidasi, termasuk status eligible PDDIKTI.",
+        "source": "alumni"
+      },
+      {
+        "text": "Seluruh proses skripsi selesai: sidang lulus dan revisi disahkan.",
         "source": "resmi"
-      },
-      {
-        "text": "Surat Keterangan Bebas Pustaka sudah diperoleh.",
-        "source": "alumni"
-      },
-      {
-        "text": "Skripsi sudah diunggah ke repository.",
-        "source": "alumni"
       },
       {
         "text": "Tidak ada tunggakan administrasi dan keuangan.",
@@ -1563,15 +1481,7 @@
     ],
     "documents": [
       {
-        "name": "Formulir pendaftaran yudisium",
-        "source": "alumni"
-      },
-      {
-        "name": "Surat Keterangan Bebas Pustaka",
-        "source": "alumni"
-      },
-      {
-        "name": "Bukti unggah repository",
+        "name": "Tanda Terima Penyerahan Skripsi lengkap",
         "source": "alumni"
       },
       {
@@ -1579,11 +1489,7 @@
         "source": "alumni"
       },
       {
-        "name": "SKPI",
-        "source": "alumni"
-      },
-      {
-        "name": "Lembar pengesahan skripsi",
+        "name": "SKPI yang sudah tervalidasi",
         "source": "alumni"
       },
       {
@@ -1597,63 +1503,50 @@
     ],
     "steps": [
       {
-        "title": "Pantau pengumuman periode yudisium",
-        "detail": "Yudisium dibuka dalam periode tertentu. Kalau terlewat, kamu menunggu periode berikutnya — dan itu bisa berarti menunggu berbulan-bulan.",
+        "title": "Pastikan semua validasi sudah hijau",
+        "detail": "Buka menu Daftar Yudisium di AIS. Perpustakaan, keuangan, TU, pendaftaran sidang, dan status eligible PDDIKTI harus tervalidasi semua.",
         "actor": "Mahasiswa"
       },
       {
-        "title": "Lengkapi berkas yudisium",
-        "detail": "Kumpulkan seluruh dokumen: bebas pustaka, bukti repository, transkrip, SKPI, lembar pengesahan, dan bukti lunas biaya kuliah.",
+        "title": "Klik Daftar Yudisium",
+        "detail": "Kalau semua syarat sudah terpenuhi, tombol daftarnya aktif. Klik dan selesaikan pendaftarannya.",
         "actor": "Mahasiswa"
       },
       {
-        "title": "Daftar yudisium",
-        "detail": "Serahkan berkas ke Fakultas sesuai mekanisme yang berlaku pada periodemu.",
-        "actor": "Mahasiswa → Fakultas"
+        "title": "Tunggu validasi yudisium",
+        "detail": "Umumnya divalidasi pada hari kerja berikutnya, kadang hari itu juga. Kalau waktumu benar-benar mepet, datangi TU FSH untuk meminta validasi lebih cepat — kalau tidak mendesak, tidak perlu.",
+        "actor": "TU Fakultas"
       },
       {
-        "title": "Verifikasi berkas",
-        "detail": "Fakultas memverifikasi kelengkapan. Jika ada kekurangan, kamu akan diminta melengkapi — responlah dengan cepat.",
-        "actor": "Fakultas"
-      },
-      {
-        "title": "Ikuti yudisium dan ambil SKL",
-        "detail": "Setelah ditetapkan lulus, ambil Surat Keterangan Lulus. SKL sering dipakai untuk melamar kerja atau mendaftar beasiswa sebelum ijazah terbit.",
+        "title": "Ambil SKL setelah ditetapkan lulus",
+        "detail": "SKL sering dipakai melamar kerja atau mendaftar beasiswa sebelum ijazah terbit. Minta beberapa lembar sekaligus bila diperbolehkan.",
         "actor": "Fakultas"
       }
     ],
     "checklist": [
       {
-        "id": "periode",
-        "label": "Sudah tahu jadwal periode yudisium"
+        "id": "validasi-perpus",
+        "label": "Validasi perpustakaan hijau di AIS"
       },
       {
-        "id": "bebas-pustaka",
-        "label": "Surat bebas pustaka siap"
+        "id": "validasi-keuangan",
+        "label": "Validasi keuangan hijau di AIS"
       },
       {
-        "id": "bukti-repo",
-        "label": "Bukti unggah repository siap"
+        "id": "validasi-tu",
+        "label": "Validasi TU hijau di AIS"
       },
       {
-        "id": "transkrip",
-        "label": "Transkrip nilai akhir siap"
-      },
-      {
-        "id": "skpi",
-        "label": "SKPI siap"
-      },
-      {
-        "id": "lunas",
-        "label": "Seluruh biaya kuliah lunas"
-      },
-      {
-        "id": "foto",
-        "label": "Pas foto sesuai ketentuan sudah disiapkan"
+        "id": "eligible",
+        "label": "Status eligible PDDIKTI sudah tervalidasi"
       },
       {
         "id": "daftar",
-        "label": "Berkas yudisium sudah diserahkan"
+        "label": "Sudah klik Daftar Yudisium di AIS"
+      },
+      {
+        "id": "validasi-yudisium",
+        "label": "Yudisium sudah tervalidasi"
       },
       {
         "id": "skl",
@@ -1662,28 +1555,27 @@
     ],
     "warnings": [
       {
-        "text": "Persyaratan dan periode yudisium tidak diatur dalam Surat Dekan tentang alur seminar proposal, munaqosyah, dan komprehensif. Konfirmasikan ke Fakultas untuk daftar berkas dan jadwal terkini.",
+        "text": "Tombol Daftar Yudisium baru terbuka setelah SELURUH syarat tervalidasi. Satu validasi tertinggal berarti kamu belum bisa mendaftar.",
         "source": "alumni"
       }
     ],
     "tips": [
-      "Yudisium berjalan per periode. Telat satu hari bisa berarti mundur satu periode penuh — dan wisuda ikut mundur.",
-      "Siapkan dua map berkas: satu untuk diserahkan, satu untuk arsipmu. Kamu akan butuh salinannya lagi saat wisuda dan pengambilan ijazah.",
-      "SKL bisa dipakai melamar kerja sebelum ijazah asli terbit. Minta beberapa lembar sekaligus jika diperbolehkan.",
-      "Cek ulang penulisan namamu di semua dokumen. Salah satu huruf di tahap ini akan terbawa sampai ijazah."
+      "Cek AIS setiap kali selesai satu loket. Menemukan validasi yang tertinggal di hari terakhir itu yang bikin mundur satu periode.",
+      "SKL bisa dipakai melamar kerja sebelum ijazah asli terbit. Minta beberapa lembar sekaligus.",
+      "Cek ulang penulisan namamu. Salah satu huruf di tahap ini akan terbawa sampai ijazah."
     ],
     "faq": [
       {
         "question": "Apa bedanya yudisium dan wisuda?",
-        "answer": "Yudisium adalah penetapan resmi kelulusanmu — di sinilah tanggal lulus dan predikat ditentukan. Wisuda adalah upacara seremonialnya. Kamu sudah sah lulus setelah yudisium, meski belum wisuda."
+        "answer": "Yudisium adalah penetapan resmi kelulusanmu — di sinilah tanggal lulus dan predikat ditentukan. Wisuda adalah upacara seremonialnya. Kamu sudah sah lulus setelah yudisium."
       },
       {
-        "question": "Apakah bisa langsung wisuda tanpa yudisium?",
-        "answer": "Tidak. Yudisium adalah penetapan kelulusan, dan menjadi dasar keikutsertaan wisuda."
+        "question": "Kenapa tombol Daftar Yudisium saya belum bisa diklik?",
+        "answer": "Berarti masih ada syarat yang belum tervalidasi. Buka menu Daftar Yudisium di AIS dan lihat baris mana yang belum hijau, lalu selesaikan yang itu."
       },
       {
-        "question": "Kalau terlambat mendaftar yudisium?",
-        "answer": "Kamu menunggu periode berikutnya. Karena itu, urus bebas pustaka dan repository jauh sebelum pendaftaran dibuka."
+        "question": "Berapa lama yudisium divalidasi?",
+        "answer": "Umumnya hari kerja berikutnya, kadang hari itu juga. Kalau mendesak, kamu bisa meminta percepatan lewat TU FSH."
       }
     ],
     "downloads": [
@@ -1705,7 +1597,7 @@
     "nextStage": "wisuda"
   },
   {
-    "order": 11,
+    "order": 10,
     "slug": "wisuda",
     "title": "Wisuda",
     "shortTitle": "Wisuda",
@@ -1716,7 +1608,7 @@
     "estimatedDuration": "1–3 bulan, mengikuti jadwal universitas",
     "requirements": [
       {
-        "text": "Sudah dinyatakan lulus melalui yudisium.",
+        "text": "Yudisium sudah tervalidasi di AIS.",
         "source": "alumni"
       },
       {
@@ -1726,21 +1618,25 @@
     ],
     "documents": [
       {
-        "name": "Bukti yudisium / SKL",
+        "name": "Ukuran toga",
+        "note": "Diisi saat mendaftar wisuda di AIS.",
         "source": "alumni"
       },
       {
-        "name": "Bukti pendaftaran dan pembayaran wisuda",
+        "name": "Scan ijazah terakhir",
         "source": "alumni"
       },
       {
-        "name": "Pas foto resmi",
-        "note": "Ukuran dan latar sesuai ketentuan universitas.",
+        "name": "Scan KTP",
         "source": "alumni"
       },
       {
-        "name": "Undangan wisuda",
-        "note": "Jumlah pendamping biasanya dibatasi.",
+        "name": "Pas foto untuk ijazah",
+        "note": "Ikuti ketentuan ukuran dan latar.",
+        "source": "alumni"
+      },
+      {
+        "name": "Bukti pembayaran wisuda",
         "source": "alumni"
       }
     ],
@@ -1751,8 +1647,8 @@
         "actor": "Mahasiswa"
       },
       {
-        "title": "Daftar dan bayar biaya wisuda",
-        "detail": "Isi pendaftaran daring, unggah dokumen, lalu lakukan pembayaran sesuai instruksi resmi.",
+        "title": "Daftar wisuda di AIS",
+        "detail": "Begitu yudisium tervalidasi, pendaftaran wisuda terbuka di AIS. Siapkan ukuran toga, scan ijazah terakhir, scan KTP, dan pas foto untuk ijazah.",
         "actor": "Mahasiswa"
       },
       {
@@ -1773,36 +1669,40 @@
     ],
     "checklist": [
       {
-        "id": "jadwal",
-        "label": "Jadwal periode wisuda sudah diketahui"
+        "id": "yudisium-valid",
+        "label": "Yudisium sudah tervalidasi"
+      },
+      {
+        "id": "ukuran-toga",
+        "label": "Ukuran toga sudah diisi di AIS"
+      },
+      {
+        "id": "scan-ijazah",
+        "label": "Scan ijazah terakhir siap"
+      },
+      {
+        "id": "scan-ktp",
+        "label": "Scan KTP siap"
+      },
+      {
+        "id": "pas-foto",
+        "label": "Pas foto untuk ijazah siap"
       },
       {
         "id": "daftar",
-        "label": "Pendaftaran wisuda sudah dilakukan"
+        "label": "Sudah mendaftar wisuda di AIS"
       },
       {
         "id": "bayar",
         "label": "Biaya wisuda sudah dibayar"
       },
       {
-        "id": "toga",
-        "label": "Toga sudah diukur dan diambil"
-      },
-      {
         "id": "gladi",
         "label": "Gladi bersih sudah diikuti"
       },
       {
-        "id": "undangan",
-        "label": "Undangan untuk keluarga sudah disiapkan"
-      },
-      {
         "id": "hari-h",
         "label": "Wisuda sudah dilaksanakan"
-      },
-      {
-        "id": "toga-kembali",
-        "label": "Toga sudah dikembalikan"
       }
     ],
     "warnings": [
@@ -1849,7 +1749,7 @@
     "nextStage": "ijazah"
   },
   {
-    "order": 12,
+    "order": 11,
     "slug": "ijazah",
     "title": "Pengambilan Ijazah",
     "shortTitle": "Ijazah",

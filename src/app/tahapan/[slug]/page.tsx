@@ -16,6 +16,7 @@ import { DownloadCard } from "@/components/download-card";
 import { PositionCard } from "@/components/position-card";
 import { SourceBadge } from "@/components/source-badge";
 import { StageChecklist } from "@/components/stage-checklist";
+import { SkpiTable } from "@/components/skpi-table";
 import { StageJumpLinks } from "@/components/stage-jump-links";
 import { StagePinButton } from "@/components/stage-pin-button";
 import {
@@ -278,6 +279,8 @@ export default async function StagePage({ params }: StageParams) {
             </section>
           )}
 
+          {stage.extras?.includes("skpi") && <SkpiTable />}
+
           {/* Tips alumni */}
           <section id="tips" aria-labelledby="tips-heading">
             <h2
@@ -409,7 +412,10 @@ export default async function StagePage({ params }: StageParams) {
 
         <aside className="space-y-4 lg:sticky lg:top-20">
           <PositionCard />
-          <StageJumpLinks hasTemplates={templates.length > 0} />
+          <StageJumpLinks
+            hasTemplates={templates.length > 0}
+            hasSkpi={stage.extras?.includes("skpi") ?? false}
+          />
         </aside>
       </div>
     </div>

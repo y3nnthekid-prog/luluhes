@@ -4,6 +4,7 @@ const links = [
   { href: "#dokumen", label: "Dokumen" },
   { href: "#checklist", label: "Checklist" },
   { href: "#template", label: "Template", needsTemplates: true },
+  { href: "#skpi", label: "Nomenklatur SKPI", needsSkpi: true },
   { href: "#tips", label: "Tips alumni" },
   { href: "#faq", label: "FAQ" },
   { href: "#link", label: "Link penting" },
@@ -11,7 +12,13 @@ const links = [
 ];
 
 /** Daftar isi halaman tahapan. Disembunyikan di layar kecil agar tidak menambah keramaian. */
-export function StageJumpLinks({ hasTemplates }: { hasTemplates: boolean }) {
+export function StageJumpLinks({
+  hasTemplates,
+  hasSkpi,
+}: {
+  hasTemplates: boolean;
+  hasSkpi: boolean;
+}) {
   return (
     <nav
       aria-label="Daftar isi halaman"
@@ -20,7 +27,11 @@ export function StageJumpLinks({ hasTemplates }: { hasTemplates: boolean }) {
       <p className="font-heading text-sm font-medium">Di halaman ini</p>
       <ul className="mt-3 space-y-1.5">
         {links
-          .filter((link) => !link.needsTemplates || hasTemplates)
+          .filter(
+            (link) =>
+              (!link.needsTemplates || hasTemplates) &&
+              (!link.needsSkpi || hasSkpi),
+          )
           .map((link) => (
             <li key={link.href}>
               <a

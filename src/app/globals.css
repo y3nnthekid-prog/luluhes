@@ -14,13 +14,14 @@
   --color-brand-foreground: var(--brand-foreground);
   --color-brand-soft: var(--brand-soft);
   --color-brand-deep: var(--brand-deep);
-  --color-lime: var(--lime);
-  --color-lime-foreground: var(--lime-foreground);
-  --color-sun: var(--sun);
-  --color-sun-foreground: var(--sun-foreground);
+  --color-surface-accent: var(--surface-accent);
+  --color-pop: var(--pop);
+  --color-pop-foreground: var(--pop-foreground);
+  --color-blush: var(--blush);
+  --color-blush-foreground: var(--blush-foreground);
   --color-warn: var(--warn);
   --color-warn-muted: var(--warn-muted);
-  /* Warna fase perjalanan: kuning → limau → hijau → hijau tua. */
+  /* Warna fase perjalanan: blush → pink → magenta → magenta tua. */
   --color-phase-proposal: var(--phase-proposal);
   --color-phase-skripsi: var(--phase-skripsi);
   --color-phase-ujian: var(--phase-ujian);
@@ -71,7 +72,7 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: #1e6310;
+  --primary: #9c0f50;
   --primary-foreground: #ffffff;
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
@@ -82,7 +83,7 @@
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
-  --ring: #3d8a28;
+  --ring: #d63384;
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
@@ -90,27 +91,29 @@
   --chart-5: oklch(0.269 0 0);
   --radius: 0.75rem;
 
-  /* Palet inti. Hijau untuk aksi dan progres, limau dan kuning untuk sorotan. */
-  --brand: #1e6310;
+  /* Palet pink. Magenta tua untuk aksi dan teks, pink terang untuk sorotan. */
+  --brand: #9c0f50;
   --brand-foreground: #ffffff;
-  --brand-deep: #123c09;
-  --brand-soft: #eaf6e4;
-  --lime: #cded15;
-  /* Limau dan kuning sangat terang — teksnya selalu gelap, tidak pernah putih. */
-  --lime-foreground: #1a2c07;
-  --sun: #ffe329;
-  --sun-foreground: #2e2404;
+  --brand-deep: #6d0d3a;
+  --brand-soft: #fdeaf3;
+  /* Dipakai untuk teks aksen di atas .surface-brand; sengaja tidak dibalik di mode gelap. */
+  --surface-accent: #9c0f50;
+  --pop: #ff4fa3;
+  /* Pink terang dan blush sangat cerah — teksnya selalu gelap, tidak pernah putih. */
+  --pop-foreground: #46062a;
+  --blush: #ffc2de;
+  --blush-foreground: #4a0b2c;
 
   /* Warna peringatan tenggat administrasi. */
-  --warn: #a35a00;
-  --warn-muted: #fff6e0;
+  --warn: #b03030;
+  --warn-muted: #fdecec;
 
-  /* Empat fase, dibaca sebagai satu gradasi pematangan. */
-  --phase-proposal: #ffe329;
-  --phase-skripsi: #cded15;
-  --phase-ujian: #5aa832;
-  --phase-ujian-foreground: #0f2606;
-  --phase-kelulusan: #1e6310;
+  /* Empat fase, dibaca sebagai satu gradasi pink yang makin pekat. */
+  --phase-proposal: #ffc2de;
+  --phase-skripsi: #ff8ac4;
+  --phase-ujian: #f0459a;
+  --phase-ujian-foreground: #3d0522;
+  --phase-kelulusan: #9c0f50;
 
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
@@ -129,8 +132,8 @@
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: #8ed36a;
-  --primary-foreground: #0e2408;
+  --primary: #ff8ac4;
+  --primary-foreground: #3d0522;
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
@@ -140,26 +143,26 @@
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: #8ed36a;
+  --ring: #ff8ac4;
 
-  /* Di latar gelap hijau tua tidak terbaca — dinaikkan terangnya. */
-  --brand: #8ed36a;
-  --brand-foreground: #0e2408;
-  --brand-deep: #b6e79c;
-  --brand-soft: #1b2c14;
-  --lime: #cded15;
-  --lime-foreground: #1a2c07;
-  --sun: #ffe329;
-  --sun-foreground: #2e2404;
+  /* Di latar gelap magenta tua tidak terbaca — dinaikkan terangnya. */
+  --brand: #ff8ac4;
+  --brand-foreground: #3d0522;
+  --brand-deep: #ffc2de;
+  --brand-soft: #2e1220;
+  --pop: #ff4fa3;
+  --pop-foreground: #46062a;
+  --blush: #ffc2de;
+  --blush-foreground: #4a0b2c;
 
-  --warn: #f0b95c;
-  --warn-muted: #2e2308;
+  --warn: #f08a8a;
+  --warn-muted: #2e1414;
 
-  --phase-proposal: #ffe329;
-  --phase-skripsi: #cded15;
-  --phase-ujian: #7cc74e;
-  --phase-ujian-foreground: #0f2606;
-  --phase-kelulusan: #8ed36a;
+  --phase-proposal: #ffc2de;
+  --phase-skripsi: #ff8ac4;
+  --phase-ujian: #ff4fa3;
+  --phase-ujian-foreground: #3d0522;
+  --phase-kelulusan: #ff8ac4;
 
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
@@ -199,25 +202,28 @@
     @apply -mx-4 overflow-x-auto px-4;
   }
 
-  /* Bidang hijau dengan dua sorotan warna — dipakai di hero dan blok ajakan. */
+  /* Bidang pink dengan dua sorotan — dipakai di hero dan blok ajakan. */
   .surface-brand {
-    background-color: var(--brand-deep);
+    /* Blush dan pop bernilai sama di mode terang maupun gelap, jadi bidang ini
+       tampil konsisten dan teks plumnya selalu kontras — tidak seperti versi
+       sebelumnya yang memakai putih di atas latar terang. */
+    background-color: var(--blush);
     background-image:
       radial-gradient(
-        70% 90% at 88% 6%,
-        color-mix(in srgb, var(--lime) 42%, transparent),
-        transparent 62%
-      ),
-      radial-gradient(
-        60% 80% at 4% 96%,
-        color-mix(in srgb, var(--sun) 26%, transparent),
+        68% 88% at 86% 4%,
+        color-mix(in srgb, var(--pop) 58%, transparent),
         transparent 60%
       ),
-      linear-gradient(150deg, var(--brand) 0%, var(--brand-deep) 78%);
-    color: #ffffff;
+      radial-gradient(
+        58% 78% at 2% 98%,
+        color-mix(in srgb, #ffffff 70%, transparent),
+        transparent 62%
+      ),
+      linear-gradient(148deg, #ffdcec 0%, var(--blush) 55%, #ffa6d1 100%);
+    color: var(--pop-foreground);
   }
 
-  /* Pita gradasi tipis: kuning → limau → hijau, membaca sebagai perjalanan. */
+  /* Pita gradasi tipis dari blush ke magenta, membaca sebagai perjalanan. */
   .journey-bar {
     background-image: linear-gradient(
       90deg,

@@ -1,0 +1,42 @@
+{
+  "heading": "Nomenklatur SKPI di AIS",
+  "intro": "Penulisan SKPI harus persis, termasuk huruf kapitalnya. Salah ketik berarti bolak-balik pembatalan validasi dari akademik dan Prodi — proses yang jauh lebih repot daripada menulisnya benar sejak awal.",
+  "rules": [
+    "Tanggal SKPI adalah tanggal yang tertera pada sertifikat, bukan tanggal kamu menginputnya.",
+    "Ukuran foto sertifikat maksimal 300 KB.",
+    "Perhatikan betul kolom yang kamu pilih dan penulisan huruf kapitalnya."
+  ],
+  "entries": [
+    {
+      "nama": "TOEFL",
+      "kategori": "Bahasa Internasional",
+      "jenis": "B.Inggris",
+      "tingkat": "Internasional"
+    },
+    {
+      "nama": "TOAFL",
+      "kategori": "Bahasa Internasional",
+      "jenis": "B.Arab",
+      "tingkat": "Internasional"
+    },
+    {
+      "nama": "Kuliah Kerja Nyata (KKN)",
+      "kategori": "Tugas Akhir",
+      "jenis": "Spesifikasi Pengabdian Masyarakat",
+      "tingkat": "Lokal"
+    },
+    {
+      "nama": "BIMBINGAN TEKNIS MEDIASI",
+      "kategori": "Sertifikat Keahlian",
+      "jenis": "Sertifikat Keahlian",
+      "tingkat": "Lokal"
+    },
+    {
+      "nama": "BIMBINGAN TEKNIS LITIGASI",
+      "kategori": "Sertifikat Keahlian",
+      "jenis": "Sertifikat Keahlian",
+      "tingkat": "Lokal"
+    }
+  ],
+  "note": "Sertifikat lain — magang, kejuaraan, keaktifan organisasi — juga diinput, dengan kehati-hatian yang sama pada penulisan dan penempatannya."
+}

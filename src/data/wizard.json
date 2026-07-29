@@ -30,18 +30,13 @@
     "ifNo": "munaqosyah"
   },
   {
-    "question": "Revisi pasca sidang sudah disahkan dan skripsi sudah dijilid?",
-    "hint": "Lembar pengesahan sudah lengkap ditandatangani.",
+    "question": "Lembar pengesahan sudah lengkap sampai tanda tangan Dekan?",
+    "hint": "Termasuk Penguji, Pembimbing, Sekprodi, Kaprodi, lalu Dekan lewat TU.",
     "ifNo": "revisi-munaqosyah"
   },
   {
-    "question": "Skripsimu sudah diunggah ke repository?",
-    "hint": "Sudah punya bukti unggah dari repository UIN.",
-    "ifNo": "repository"
-  },
-  {
-    "question": "Kamu sudah punya Surat Keterangan Bebas Pustaka?",
-    "hint": "Dari Perpustakaan Utama dan Perpustakaan FSH.",
+    "question": "Semua validasi di AIS sudah hijau — perpustakaan, keuangan, dan TU?",
+    "hint": "Cek menu Daftar Yudisium di AIS; semua barisnya harus tervalidasi.",
     "ifNo": "bebas-pustaka"
   },
   {

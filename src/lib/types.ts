@@ -77,6 +77,8 @@ export type Stage = {
   importantLinks: ImportantLink[];
   previousStage: string | null;
   nextStage: string | null;
+  /** Modul tambahan yang dirender di halaman tahapan, misalnya "skpi". */
+  extras?: string[];
 };
 
 export type DownloadStatus =
@@ -123,6 +125,21 @@ export type ScheduleConfig = {
   warning: string;
   exams: ExamCycle[];
   reminders: string[];
+};
+
+export type SkpiEntry = {
+  nama: string;
+  kategori: string;
+  jenis: string;
+  tingkat: string;
+};
+
+export type SkpiConfig = {
+  heading: string;
+  intro: string;
+  rules: string[];
+  entries: SkpiEntry[];
+  note: string;
 };
 
 export type SiteConfig = {

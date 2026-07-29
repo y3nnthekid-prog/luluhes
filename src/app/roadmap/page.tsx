@@ -9,7 +9,7 @@ import { phases, getStagesByPhase, totalStages } from "@/lib/data";
 export const metadata: Metadata = {
   title: "Roadmap",
   description:
-    "Peta lengkap 12 tahap kelulusan mahasiswa Hukum Ekonomi Syariah UIN Jakarta, dari persiapan proposal sampai pengambilan ijazah.",
+    "Peta lengkap tahapan kelulusan mahasiswa Hukum Ekonomi Syariah UIN Jakarta, dari persiapan proposal sampai pengambilan ijazah.",
 };
 
 export default function RoadmapPage() {

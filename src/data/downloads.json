@@ -24,18 +24,6 @@
     "url": null
   },
   {
-    "id": "kartu-konsultasi",
-    "name": "Kartu Konsultasi Proposal",
-    "description": "Lembar bukti konsultasi proposal bersama Dosen Pembimbing Akademik.",
-    "stage": "pra-sempro",
-    "version": "—",
-    "format": "PDF",
-    "size": "—",
-    "status": "menunggu-unggah",
-    "updatedAt": "2026-07-29",
-    "url": null
-  },
-  {
     "id": "form-daftar-sempro",
     "name": "Formulir Pendaftaran Seminar Proposal",
     "description": "Pendaftaran seminar proposal dilakukan lewat Google Form yang dibagikan Prodi setiap bulan. Lihat tautan pendaftaran di halaman tahapan.",
@@ -192,18 +180,6 @@
     "url": null
   },
   {
-    "id": "lembar-revisi-munaqosyah",
-    "name": "Lembar Revisi Penguji Munaqosyah",
-    "description": "Lembar catatan revisi penguji sidang sekaligus bukti perbaikan telah disetujui.",
-    "stage": "revisi-munaqosyah",
-    "version": "—",
-    "format": "DOCX",
-    "size": "—",
-    "status": "menunggu-unggah",
-    "updatedAt": "2026-07-29",
-    "url": null
-  },
-  {
     "id": "lembar-pengesahan-panitia-ujian-skripsi",
     "name": "Lembar Pengesahan Panitia Ujian Skripsi",
     "description": "Lembar pengesahan skripsi yang disahkan Dekan dan ditandatangani panitia munaqosyah: Ketua, Sekretaris, Pembimbing, Penguji I, dan Penguji II.",
@@ -228,38 +204,14 @@
     "url": null
   },
   {
-    "id": "surat-pernyataan-publikasi",
-    "name": "Surat Pernyataan Persetujuan Publikasi",
-    "description": "Pernyataan persetujuan unggah skripsi ke repository institusi.",
-    "stage": "repository",
-    "version": "—",
-    "format": "DOCX",
-    "size": "—",
-    "status": "menunggu-unggah",
-    "updatedAt": "2026-07-29",
-    "url": null
-  },
-  {
     "id": "lembar-pernyataan-keaslian",
     "name": "Lembar Pernyataan Keaslian Karya",
-    "description": "Pernyataan bahwa skripsi merupakan karya sendiri dan bebas plagiarisme.",
-    "stage": "repository",
+    "description": "Pernyataan keaslian karya, ditandatangani di atas meterai. Discan dan diletakkan pada halaman iv skripsi versi CD.",
+    "stage": "revisi-munaqosyah",
     "version": "—",
     "format": "DOCX",
     "size": "—",
     "status": "menunggu-unggah",
-    "updatedAt": "2026-07-29",
-    "url": null
-  },
-  {
-    "id": "panduan-repository",
-    "name": "Panduan Unggah Repository",
-    "description": "Langkah unggah mandiri, ketentuan penamaan file, dan pengisian metadata.",
-    "stage": "repository",
-    "version": "—",
-    "format": "PDF",
-    "size": "—",
-    "status": "perlu-verifikasi",
     "updatedAt": "2026-07-29",
     "url": null
   },

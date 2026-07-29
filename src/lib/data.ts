@@ -3,6 +3,7 @@ import downloadsJson from "@/data/downloads.json";
 import faqJson from "@/data/faq.json";
 import siteJson from "@/data/site.json";
 import scheduleJson from "@/data/schedule.json";
+import skpiJson from "@/data/skpi.json";
 
 import type {
   DownloadItem,
@@ -10,6 +11,7 @@ import type {
   FaqItem,
   ScheduleConfig,
   SiteConfig,
+  SkpiConfig,
   Stage,
   StagePhase,
 } from "@/lib/types";
@@ -17,6 +19,8 @@ import type {
 export const site = siteJson as SiteConfig;
 
 export const schedule = scheduleJson as ScheduleConfig;
+
+export const skpi = skpiJson as SkpiConfig;
 
 /** Ujian bulanan yang mengurus sebuah tahapan, bila ada. */
 export function getExamForStage(slug: string): ExamCycle | undefined {

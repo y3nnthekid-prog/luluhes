@@ -31,7 +31,7 @@ const questions = [
     icon: MapPin,
     question: "Saya di mana?",
     answer:
-      "Roadmap dan kartu posisi menunjukkan tahap kamu sekarang dari 12 tahap.",
+      `Roadmap dan kartu posisi menunjukkan tahap kamu sekarang dari ${totalStages} tahap.`,
   },
   {
     icon: ListChecks,
@@ -58,27 +58,27 @@ export default function HomePage() {
       {/* Hero */}
       <section className="px-4 pt-4">
         <div className="grain relative mx-auto max-w-5xl overflow-hidden rounded-3xl px-6 py-11 surface-brand sm:px-10 sm:py-20">
-          <p className="relative z-1 inline-flex items-center gap-2 rounded-full bg-white/12 px-3 py-1 text-xs font-medium text-white/90 ring-1 ring-white/20">
-            <span className="size-1.5 rounded-full bg-lime" aria-hidden />
+          <p className="relative z-1 inline-flex items-center gap-2 rounded-full bg-white/55 px-3 py-1 text-xs font-medium ring-1 ring-black/5">
+            <span className="size-1.5 rounded-full bg-surface-accent" aria-hidden />
             {site.program} · {site.faculty}
           </p>
 
-          <h1 className="relative z-1 mt-5 max-w-2xl font-heading text-4xl leading-[1.05] font-bold tracking-tight text-balance sm:text-6xl">
+          <h1 className="relative z-1 mt-5 font-heading text-[clamp(2.1rem,6.4vw,4.75rem)] leading-[1.02] font-bold tracking-tight text-pretty">
             Berhenti menebak-nebak alur kelulusanmu.
           </h1>
 
-          <p className="relative z-1 mt-5 max-w-lg text-base text-white/80 text-pretty sm:text-lg">
+          <p className="relative z-1 mt-5 max-w-2xl text-base text-pop-foreground/75 text-pretty sm:text-lg">
             Dari persiapan proposal sampai ijazah di tangan — satu alur runtut,
             lengkap dengan tenggat resmi yang paling sering bikin mahasiswa
             mengulang.
           </p>
 
           <div className="relative z-1 mt-8 flex flex-col gap-2.5 sm:flex-row">
-            <WizardDialog className="bg-lime text-lime-foreground hover:bg-lime/85" />
+            <WizardDialog className="bg-surface-accent text-white hover:bg-surface-accent/85" />
             <LinkButton
               href="/roadmap"
               size="lg"
-              className="border-white/25 bg-white/10 text-white hover:bg-white/20"
+              className="border-black/10 bg-white/60 text-pop-foreground hover:bg-white/85"
               variant="outline"
             >
               Lihat roadmap
@@ -98,7 +98,7 @@ export default function HomePage() {
                 <dd className="font-heading text-3xl leading-none font-bold tabular-nums">
                   {stat.value}
                 </dd>
-                <dt className="mt-1 text-xs text-white/70">{stat.label}</dt>
+                <dt className="mt-1 text-xs text-pop-foreground/85">{stat.label}</dt>
               </div>
             ))}
           </dl>
@@ -141,7 +141,7 @@ export default function HomePage() {
         {/* Siklus ujian bulanan */}
         <section className="border-t py-14">
           <div className="flex items-center gap-2.5">
-            <span className="flex size-9 items-center justify-center rounded-xl bg-sun text-sun-foreground">
+            <span className="flex size-9 items-center justify-center rounded-xl bg-blush text-blush-foreground">
               <CalendarClock className="size-4.5" aria-hidden />
             </span>
             <div>
@@ -167,7 +167,7 @@ export default function HomePage() {
                 <p className="mt-2 flex-1 text-sm text-muted-foreground">
                   {exam.schedulePattern}
                 </p>
-                <p className="mt-3 rounded-lg bg-sun/20 px-2.5 py-1.5 text-xs font-medium text-sun-foreground dark:text-sun">
+                <p className="mt-3 rounded-lg bg-blush/20 px-2.5 py-1.5 text-xs font-medium text-blush-foreground dark:text-blush">
                   Tenggat: {exam.deadlinePattern}
                 </p>
                 <a
@@ -256,31 +256,31 @@ export default function HomePage() {
         {/* Dasar informasi */}
         <section className="border-t py-14">
           <div className="grain relative overflow-hidden rounded-3xl p-6 surface-brand sm:p-8">
-            <span className="relative z-1 flex size-10 items-center justify-center rounded-xl bg-white/15 text-lime">
+            <span className="relative z-1 flex size-10 items-center justify-center rounded-xl bg-white/60 text-surface-accent">
               <ShieldCheck className="size-5" aria-hidden />
             </span>
             <h2 className="relative z-1 mt-4 font-heading text-lg font-semibold">
               Dasar informasi di website ini
             </h2>
-            <p className="relative z-1 mt-2 max-w-2xl text-sm text-white/80">
-              Persyaratan berlabel <strong className="text-lime">Resmi</strong>{" "}
+            <p className="relative z-1 mt-2 max-w-2xl text-sm text-pop-foreground/80">
+              Persyaratan berlabel <strong className="text-surface-accent">Resmi</strong>{" "}
               mengacu pada Surat {site.officialSource.issuer} No.{" "}
               {site.officialSource.number} tanggal {site.officialSource.date}.
-              Selebihnya berlabel <strong className="text-lime">Alumni</strong> —
+              Selebihnya berlabel <strong className="text-surface-accent">Alumni</strong> —
               praktik umum yang tetap perlu kamu konfirmasi ke Prodi.
             </p>
             <div className="relative z-1 mt-5 flex flex-wrap gap-2">
               <LinkButton
                 href="/tentang"
                 size="sm"
-                className="bg-lime text-lime-foreground hover:bg-lime/85"
+                className="bg-surface-accent text-white hover:bg-surface-accent/85"
               >
                 <FileText aria-hidden />
                 Tentang website ini
               </LinkButton>
               <Link
                 href="/download"
-                className="inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-sm font-medium text-white/85 hover:text-white"
+                className="inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-sm font-medium text-pop-foreground/80 hover:text-pop-foreground"
               >
                 <FolderDown className="size-4" aria-hidden />
                 Download Center

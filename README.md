@@ -38,12 +38,13 @@ ditulis langsung di komponen — mengubah konten berarti mengubah JSON, bukan JS
 
 | File | Isi |
 | --- | --- |
-| `src/data/stages.json` | 12 tahapan: syarat, dokumen, langkah, checklist, tenggat, tips, FAQ, link |
+| `src/data/stages.json` | 11 tahapan: syarat, dokumen, langkah, checklist, tenggat, tips, FAQ, link |
 | `src/data/downloads.json` | Metadata template beserta tautannya |
 | `src/data/schedule.json` | Siklus ujian bulanan, pola tenggat, dan tautan Google Form |
 | `src/data/faq.json` | FAQ umum (FAQ per tahapan ada di `stages.json`) |
 | `src/data/wizard.json` | Pertanyaan wizard "Saya sedang di tahap mana?" |
 | `src/data/site.json` | Nama, disclaimer, kontak, sumber resmi, folder Drive |
+| `src/data/skpi.json` | Nomenklatur SKPI untuk diinput ke AIS |
 
 Tipe datanya ada di `src/lib/types.ts`. Menambah field berarti menambahkannya di
 tipe tersebut lebih dulu.
@@ -81,17 +82,29 @@ baru. Entri dengan `format: "Google Form"` tombolnya berbunyi "Buka form".
 
 ## Sistem warna
 
-Palet inti: hijau `#1E6310`, limau `#CDED15`, kuning `#FFE329`, putih. Semua
-didefinisikan sebagai variabel CSS di `src/app/globals.css`.
+Palet pink. Token intinya di `src/app/globals.css`:
 
-Empat fase perjalanan punya warna sendiri yang dibaca sebagai satu gradasi
-pematangan — kuning → limau → hijau → hijau tua. Pemetaannya ada di
-`src/lib/phase.ts`, bukan disebar di komponen.
+| Token | Peran |
+| --- | --- |
+| `--brand` | Magenta tua `#9C0F50` untuk tombol, tautan, dan progres |
+| `--pop` | Pink terang `#FF4FA3` untuk sorotan |
+| `--blush` | Pink lembut `#FFC2DE` untuk bidang besar |
+| `--surface-accent` | Aksen tetap di atas `.surface-brand`, **tidak dibalik** di mode gelap |
 
-Limau dan kuning sangat terang, jadi **teks di atasnya selalu gelap, tidak pernah
-putih**. Aturan ini sudah dikodekan pada token `*-foreground` masing-masing;
-ikuti pola itu kalau menambah warna baru, lalu cek ulang rasio kontrasnya
-terhadap ambang WCAG AA (4.5:1 untuk teks biasa, 3:1 untuk teks besar).
+Empat fase dibaca sebagai satu gradasi yang makin pekat — blush → pink → magenta
+→ magenta tua. Pemetaannya di `src/lib/phase.ts`, bukan disebar di komponen.
+
+Dua aturan yang menjaga keterbacaan:
+
+1. **Pink terang selalu berpasangan dengan teks gelap**, tidak pernah putih.
+   Sudah dikodekan pada token `*-foreground` masing-masing.
+2. **`.surface-brand` tampil sama di mode terang maupun gelap.** Bidang itu
+   selalu pink cerah, jadi teks di atasnya memakai `--pop-foreground` dan
+   `--surface-accent` yang tidak ikut membalik. Memakai `--brand` di sana akan
+   membuatnya hilang di mode gelap.
+
+Setiap menambah kombinasi warna baru, cek rasio kontrasnya terhadap ambang WCAG
+AA: 4.5:1 untuk teks biasa, 3:1 untuk teks besar.
 
 ### Menambah tahapan
 

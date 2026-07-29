@@ -46,6 +46,16 @@
       "note": "Unggah skripsi dan cek duplikasi judul"
     },
     {
+      "label": "Validasi Perpustakaan Utama (UIN)",
+      "url": "https://docs.google.com/forms/d/e/1FAIpQLSeSVMkrlOeT8XrDFF7oMIPOIBpWckPQ20y9LHvMz3wFtMzkWg/viewform",
+      "note": "Formulir unggah softfile skripsi final"
+    },
+    {
+      "label": "Validasi Perpustakaan Fakultas (FSH)",
+      "url": "https://docs.google.com/forms/d/e/1FAIpQLSc9tnRHzBIv1tNNP6I6C5tXU2Pc_Xg_nenja3sWgwYU_ssnEw/viewform",
+      "note": "Formulir saat menyerahkan CD. Narahubung: Ibu Dewi"
+    },
+    {
       "label": "Perpustakaan UIN Jakarta",
       "url": "https://perpus.uinjkt.ac.id",
       "note": "Turnitin dan bebas pustaka"

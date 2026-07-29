@@ -23,7 +23,7 @@ const statusLabel: Record<DownloadItem["status"], string> = {
 const statusStyle: Record<DownloadItem["status"], string> = {
   tersedia: "bg-brand-soft text-brand",
   "menunggu-unggah": "bg-muted text-muted-foreground",
-  "perlu-verifikasi": "bg-sun/25 text-sun-foreground dark:text-sun",
+  "perlu-verifikasi": "bg-blush/25 text-blush-foreground dark:text-blush",
 };
 
 export function DownloadCard({
