@@ -905,7 +905,7 @@
       },
       {
         "title": "Ajukan cek Turnitin ke Perpustakaan FSH",
-        "detail": "Serahkan naskah untuk diperiksa Staff Perpustakaan FSH. Hasilnya wajib maksimal 30%. Jika lebih, perbaiki naskah dan ajukan ulang. Lampirkan surat keterangannya di lembar akhir skripsi.",
+        "detail": "Ajukan pemeriksaan lewat formulir layanan Turnitin Perpustakaan FSH. Hasilnya wajib maksimal 30%. Jika lebih, perbaiki naskah dan ajukan ulang. Mintakan stempel basah pada lembar keterangannya, lalu lampirkan di lembar akhir skripsi.",
         "actor": "Mahasiswa → Perpustakaan FSH"
       },
       {
@@ -1069,9 +1069,9 @@
         "note": "Isi SKPI di sini"
       },
       {
-        "label": "Perpustakaan UIN Jakarta",
-        "url": "https://perpus.uinjkt.ac.id",
-        "note": "Informasi layanan Turnitin"
+        "label": "Formulir layanan Turnitin (Perpustakaan FSH)",
+        "url": "https://docs.google.com/forms/d/e/1FAIpQLSc9tnRHzBIv1tNNP6I6C5tXU2Pc_Xg_nenja3sWgwYU_ssnEw/viewform",
+        "note": "Narahubung: Ibu Dewi"
       },
       {
         "label": "Website FSH",
@@ -1433,18 +1433,20 @@
     ],
     "downloads": [
       "tanda-terima-penyerahan-skripsi",
+      "form-validasi-perpus-fsh",
+      "form-validasi-perpus-uin",
       "form-bebas-pustaka"
     ],
     "importantLinks": [
       {
-        "label": "Formulir validasi Perpustakaan Utama (UIN)",
+        "label": "Formulir validasi Perpustakaan Fakultas (FSH)",
         "url": "https://docs.google.com/forms/d/e/1FAIpQLSeSVMkrlOeT8XrDFF7oMIPOIBpWckPQ20y9LHvMz3wFtMzkWg/viewform",
-        "note": "Unggah softfile skripsi final di sini"
+        "note": "Diisi saat menyerahkan CD"
       },
       {
-        "label": "Formulir validasi Perpustakaan Fakultas (FSH)",
-        "url": "https://docs.google.com/forms/d/e/1FAIpQLSc9tnRHzBIv1tNNP6I6C5tXU2Pc_Xg_nenja3sWgwYU_ssnEw/viewform",
-        "note": "Diisi saat menyerahkan CD"
+        "label": "Formulir validasi Perpustakaan Universitas (UIN)",
+        "url": "https://docs.google.com/forms/d/e/1FAIpQLSf7UTxiPNzYk3KMcCQWHVE6IKMCjW7taqOdt10KKVd9_Ye53g/viewform",
+        "note": "Unggah softfile skripsi final di sini"
       },
       {
         "label": "AIS UIN Jakarta",

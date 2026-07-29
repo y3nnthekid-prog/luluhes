@@ -157,15 +157,15 @@
   },
   {
     "id": "form-turnitin",
-    "name": "Formulir Permohonan Cek Turnitin",
-    "description": "Permohonan pemeriksaan similarity ke Perpustakaan Fakultas. Maksimal 30% dan hasilnya wajib berstempel basah.",
+    "name": "Formulir Layanan Turnitin (Perpustakaan FSH)",
+    "description": "Ajukan pemeriksaan similarity ke Perpustakaan Fakultas lewat formulir ini. Maksimal 30% dan hasilnya wajib berstempel basah. Narahubung: Ibu Dewi.",
     "stage": "munaqosyah",
     "version": "—",
-    "format": "DOCX",
+    "format": "Google Form",
     "size": "—",
-    "status": "menunggu-unggah",
+    "status": "perlu-verifikasi",
     "updatedAt": "2026-07-29",
-    "url": null
+    "url": "https://docs.google.com/forms/d/e/1FAIpQLSc9tnRHzBIv1tNNP6I6C5tXU2Pc_Xg_nenja3sWgwYU_ssnEw/viewform"
   },
   {
     "id": "panduan-skpi",
@@ -226,6 +226,30 @@
     "status": "tersedia",
     "updatedAt": "2026-07-29",
     "url": "/template/tanda-terima-penyerahan-skripsi.docx"
+  },
+  {
+    "id": "form-validasi-perpus-fsh",
+    "name": "Formulir Validasi Perpustakaan Fakultas (FSH)",
+    "description": "Diisi saat menyerahkan CD skripsi ke Perpustakaan FSH, sebelum lembar Tanda Terima ditandatangani staf.",
+    "stage": "bebas-pustaka",
+    "version": "—",
+    "format": "Google Form",
+    "size": "—",
+    "status": "perlu-verifikasi",
+    "updatedAt": "2026-07-29",
+    "url": "https://docs.google.com/forms/d/e/1FAIpQLSeSVMkrlOeT8XrDFF7oMIPOIBpWckPQ20y9LHvMz3wFtMzkWg/viewform"
+  },
+  {
+    "id": "form-validasi-perpus-uin",
+    "name": "Formulir Validasi Perpustakaan Universitas (UIN)",
+    "description": "Diisi di Perpustakaan Utama lantai 3. Di sinilah softfile skripsi final diunggah — pastikan versinya sudah lengkap seluruh tanda tangan.",
+    "stage": "bebas-pustaka",
+    "version": "—",
+    "format": "Google Form",
+    "size": "—",
+    "status": "perlu-verifikasi",
+    "updatedAt": "2026-07-29",
+    "url": "https://docs.google.com/forms/d/e/1FAIpQLSf7UTxiPNzYk3KMcCQWHVE6IKMCjW7taqOdt10KKVd9_Ye53g/viewform"
   },
   {
     "id": "form-bebas-pustaka",
