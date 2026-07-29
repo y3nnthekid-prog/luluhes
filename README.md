@@ -39,7 +39,8 @@ ditulis langsung di komponen — mengubah konten berarti mengubah JSON, bukan JS
 | File | Isi |
 | --- | --- |
 | `src/data/stages.json` | 12 tahapan: syarat, dokumen, langkah, checklist, tenggat, tips, FAQ, link |
-| `src/data/downloads.json` | Metadata template dan tautan Google Drive |
+| `src/data/downloads.json` | Metadata template beserta tautannya |
+| `src/data/schedule.json` | Siklus ujian bulanan, pola tenggat, dan tautan Google Form |
 | `src/data/faq.json` | FAQ umum (FAQ per tahapan ada di `stages.json`) |
 | `src/data/wizard.json` | Pertanyaan wizard "Saya sedang di tahap mana?" |
 | `src/data/site.json` | Nama, disclaimer, kontak, sumber resmi, folder Drive |
@@ -47,10 +48,16 @@ ditulis langsung di komponen — mengubah konten berarti mengubah JSON, bukan JS
 Tipe datanya ada di `src/lib/types.ts`. Menambah field berarti menambahkannya di
 tipe tersebut lebih dulu.
 
-### Mengaktifkan tombol unduh
+### Dua cara menyajikan berkas
 
-File template **tidak disimpan di repository ini** — hanya metadatanya. Unggah file
-ke Google Drive, lalu:
+**1. Dari dalam website (`public/template/`).** Tujuh dokumen resmi dari Prodi
+disimpan langsung di sini dan tombol unduhnya sudah aktif. Ini menyimpang dari
+rencana awal yang menyebut semua berkas ditaruh di Google Drive — dilakukan
+supaya Download Center langsung berguna tanpa menunggu proses unggah. Ukurannya
+kecil (total di bawah 1 MB). Kalau kamu lebih suka pola Drive-only, pindahkan
+filenya ke Drive lalu ganti `url`-nya.
+
+**2. Dari Google Drive.** Untuk sisanya. Unggah file ke Drive, lalu:
 
 1. Isi `url` pada entri terkait di `src/data/downloads.json` dengan tautan Drive,
    dan ubah `status` menjadi `"tersedia"`.
@@ -64,9 +71,27 @@ tetapi belum bisa diunduh.
 
 Nilai `status` yang tersedia:
 
-- `tersedia` — file sudah diunggah, tombol unduh aktif
+- `tersedia` — file sudah ada, tombol unduh aktif
 - `menunggu-unggah` — metadata sudah ada, file belum diunggah
 - `perlu-verifikasi` — ada, tetapi kemungkinan sudah berubah
+
+Kartu unduhan menyesuaikan diri sendiri: `url` yang diawali `/` diperlakukan
+sebagai berkas lokal dan diunduh langsung, sedangkan tautan lain dibuka di tab
+baru. Entri dengan `format: "Google Form"` tombolnya berbunyi "Buka form".
+
+## Sistem warna
+
+Palet inti: hijau `#1E6310`, limau `#CDED15`, kuning `#FFE329`, putih. Semua
+didefinisikan sebagai variabel CSS di `src/app/globals.css`.
+
+Empat fase perjalanan punya warna sendiri yang dibaca sebagai satu gradasi
+pematangan — kuning → limau → hijau → hijau tua. Pemetaannya ada di
+`src/lib/phase.ts`, bukan disebar di komponen.
+
+Limau dan kuning sangat terang, jadi **teks di atasnya selalu gelap, tidak pernah
+putih**. Aturan ini sudah dikodekan pada token `*-foreground` masing-masing;
+ikuti pola itu kalau menambah warna baru, lalu cek ulang rasio kontrasnya
+terhadap ambang WCAG AA (4.5:1 untuk teks biasa, 3:1 untuk teks besar).
 
 ### Menambah tahapan
 

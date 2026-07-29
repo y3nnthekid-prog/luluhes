@@ -3,10 +3,11 @@ import Link from "next/link";
 import { ChevronRight, Clock } from "lucide-react";
 
 import { Breadcrumb } from "@/components/breadcrumb";
-import { StageStatusDot } from "@/components/stage-status-dot";
-import { Badge } from "@/components/ui/badge";
-import { getStagesByPhase, phases, totalStages } from "@/lib/data";
 import { StageIcon } from "@/components/stage-icon";
+import { StageStatusDot } from "@/components/stage-status-dot";
+import { getStagesByPhase, phases, totalStages } from "@/lib/data";
+import { phaseStyle, phaseSummary } from "@/lib/phase";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Tahapan",
@@ -20,69 +21,91 @@ export default function TahapanPage() {
       <Breadcrumb items={[{ label: "Tahapan" }]} />
 
       <header className="mt-4">
-        <h1 className="font-heading text-2xl font-semibold tracking-tight sm:text-3xl">
+        <h1 className="font-heading text-3xl font-bold tracking-tight sm:text-4xl">
           Semua tahapan
         </h1>
-        <p className="mt-2 max-w-xl text-muted-foreground">
-          {totalStages} tahap dikelompokkan ke dalam empat fase. Setiap halaman
-          tahapan memuat persyaratan, dokumen, langkah, checklist, tenggat, tips
-          alumni, dan template.
+        <p className="mt-3 max-w-xl text-muted-foreground">
+          {totalStages} tahap dalam empat fase. Setiap halaman memuat
+          persyaratan, dokumen, langkah, checklist, tenggat, tips alumni, dan
+          template.
         </p>
+        <div className="journey-bar mt-6 h-2 w-full rounded-full" aria-hidden />
       </header>
 
-      <div className="mt-10 space-y-10">
-        {phases.map((phase) => (
-          <section key={phase}>
-            <h2 className="flex items-center gap-2 font-heading text-sm font-medium tracking-wide text-muted-foreground uppercase">
-              {phase}
-            </h2>
+      <div className="mt-10 space-y-12">
+        {phases.map((phase) => {
+          const style = phaseStyle(phase);
+          const inPhase = getStagesByPhase(phase);
 
-            <ul className="mt-4 grid gap-3 sm:grid-cols-2">
-              {getStagesByPhase(phase).map((stage) => {
-                return (
+          return (
+            <section key={phase}>
+              <div className="flex flex-wrap items-center gap-2.5">
+                <span
+                  className={cn(
+                    "rounded-full px-2.5 py-1 font-heading text-xs font-bold tracking-wide uppercase",
+                    style.solid,
+                  )}
+                >
+                  {phase}
+                </span>
+                <p className="text-sm text-muted-foreground">
+                  {phaseSummary[phase]}
+                </p>
+              </div>
+
+              <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+                {inPhase.map((stage) => (
                   <li key={stage.slug}>
                     <Link
                       href={`/tahapan/${stage.slug}`}
-                      className="group flex h-full flex-col rounded-xl border p-4 transition-colors hover:bg-muted/50"
+                      className="card-lift group relative flex h-full flex-col overflow-hidden rounded-2xl border bg-card p-4"
                     >
+                      <span
+                        className={cn("absolute inset-x-0 top-0 h-1", style.dot)}
+                        aria-hidden
+                      />
+
                       <div className="flex items-center gap-2.5">
-                        <span className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-muted text-muted-foreground">
-                          <StageIcon name={stage.icon} className="size-4" />
+                        <span
+                          className={cn(
+                            "flex size-9 shrink-0 items-center justify-center rounded-xl",
+                            style.soft,
+                          )}
+                        >
+                          <StageIcon name={stage.icon} className="size-4.5" />
                         </span>
-                        <span className="text-xs text-muted-foreground tabular-nums">
+                        <span className="text-xs font-medium text-muted-foreground tabular-nums">
                           Tahap {stage.order}
                         </span>
                         <StageStatusDot slug={stage.slug} className="ml-auto" />
                       </div>
 
-                      <h3 className="mt-3 flex items-center gap-1 font-heading font-medium">
+                      <h2 className="mt-3 flex items-center gap-1 font-heading text-base font-semibold">
                         {stage.title}
                         <ChevronRight
-                          className="size-4 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100"
+                          className="size-4 text-muted-foreground transition-transform group-hover:translate-x-0.5"
                           aria-hidden
                         />
-                      </h3>
+                      </h2>
 
                       <p className="mt-1.5 line-clamp-2 flex-1 text-sm text-muted-foreground">
                         {stage.description}
                       </p>
 
-                      <div className="mt-3 flex flex-wrap items-center gap-2">
-                        <Badge variant="outline" className="gap-1">
-                          <Clock aria-hidden />
+                      <div className="mt-3 flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
+                        <span className="inline-flex items-center gap-1 rounded-md bg-muted px-1.5 py-0.5">
+                          <Clock className="size-3" aria-hidden />
                           {stage.estimatedDuration}
-                        </Badge>
-                        <Badge variant="ghost" className="text-muted-foreground">
-                          {stage.checklist.length} langkah
-                        </Badge>
+                        </span>
+                        <span>{stage.checklist.length} langkah</span>
                       </div>
                     </Link>
                   </li>
-                );
-              })}
-            </ul>
-          </section>
-        ))}
+                ))}
+              </ul>
+            </section>
+          );
+        })}
       </div>
     </div>
   );

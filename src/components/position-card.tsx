@@ -3,12 +3,13 @@
 import Link from "next/link";
 import { ArrowRight, MapPin } from "lucide-react";
 
-import { WizardDialog } from "@/components/wizard-dialog";
-import { Badge } from "@/components/ui/badge";
 import { LinkButton } from "@/components/link-button";
+import { ProgressRing } from "@/components/progress-ring";
+import { StageIcon } from "@/components/stage-icon";
+import { WizardDialog } from "@/components/wizard-dialog";
 import { Card, CardContent } from "@/components/ui/card";
 import { getStage, totalStages } from "@/lib/data";
-import { StageIcon } from "@/components/stage-icon";
+import { phaseStyle } from "@/lib/phase";
 import { useProgress } from "@/lib/progress";
 import { cn } from "@/lib/utils";
 
@@ -25,79 +26,68 @@ export function PositionCard({ className }: { className?: string }) {
     // Placeholder setinggi kartu asli supaya layout tidak melompat saat hidrasi.
     return (
       <Card className={cn("animate-pulse", className)}>
-        <CardContent className="h-40" />
+        <CardContent className="h-52" />
       </Card>
     );
   }
 
   const progress = stageProgress(currentStage.slug);
+  const phase = phaseStyle(currentStage.phase);
   const next = currentStage.nextStage ? getStage(currentStage.nextStage) : null;
   const remaining = totalStages - currentStage.order;
 
   return (
-    <Card className={className}>
+    <Card className={cn("relative overflow-hidden pt-0", className)}>
+      {/* Pita fase di tepi atas kartu */}
+      <div className={cn("h-1.5 w-full", phase.dot)} aria-hidden />
+
       <CardContent className="space-y-4">
-        <div className="flex items-start gap-3">
-          <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-brand/10 text-brand">
-            <StageIcon name={currentStage.icon} className="size-5" />
-          </span>
+        <div className="flex items-start gap-4">
           <div className="min-w-0 flex-1">
-            <p className="flex items-center gap-1.5 text-xs text-muted-foreground">
+            <p className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground">
               <MapPin className="size-3.5" aria-hidden />
               Posisi kamu
             </p>
-            <h2 className="mt-0.5 font-heading text-base font-medium">
+
+            <h2 className="mt-1.5 font-heading text-lg leading-tight font-semibold text-balance">
               <Link
                 href={`/tahapan/${currentStage.slug}`}
-                className="hover:underline underline-offset-4"
+                className="underline-offset-4 hover:underline"
               >
                 {currentStage.title}
               </Link>
             </h2>
-            <p className="mt-0.5 text-xs text-muted-foreground">
-              Tahap {currentStage.order} dari {totalStages} ·{" "}
-              {currentStage.estimatedDuration}
-            </p>
+
+            <div className="mt-2 flex flex-wrap items-center gap-1.5">
+              <span
+                className={cn(
+                  "inline-flex items-center gap-1.5 rounded-full px-2 py-0.5 text-xs font-medium",
+                  phase.soft,
+                )}
+              >
+                <StageIcon name={currentStage.icon} className="size-3" />
+                {currentStage.phase}
+              </span>
+              <span className="text-xs text-muted-foreground">
+                Tahap {currentStage.order}/{totalStages}
+              </span>
+            </div>
           </div>
-          <Badge variant="outline" className="shrink-0 tabular-nums">
-            {overall.percent}%
-          </Badge>
+
+          <ProgressRing
+            percent={overall.percent}
+            label={`${progress.done}/${progress.total}`}
+          />
         </div>
 
-        <div>
-          <div
-            className="h-1.5 w-full overflow-hidden rounded-full bg-muted"
-            role="progressbar"
-            aria-valuenow={overall.percent}
-            aria-valuemin={0}
-            aria-valuemax={100}
-            aria-label="Progres keseluruhan"
-          >
-            <div
-              className="h-full rounded-full bg-brand transition-all duration-500"
-              style={{ width: `${overall.percent}%` }}
-            />
-          </div>
-          <div className="mt-1.5 flex justify-between text-xs text-muted-foreground">
-            <span className="tabular-nums">
-              {progress.done}/{progress.total} langkah di tahap ini
-            </span>
-            <span>
-              {remaining === 0
-                ? "Tahap terakhir"
-                : `${remaining} tahap lagi menuju selesai`}
-            </span>
-          </div>
-        </div>
-
-        <div className="rounded-lg border bg-muted/40 p-3">
-          <p className="text-xs text-muted-foreground">
+        <div className="rounded-xl bg-brand-soft p-3">
+          <p className="text-xs font-medium text-muted-foreground">
             Yang harus kamu lakukan sekarang
           </p>
-          <p className="mt-1 text-sm font-medium">
+          <p className="mt-1 text-sm font-medium text-balance">
             {nextAction
               ? nextAction.label
-              : `Semua langkah di tahap ini sudah selesai. Lanjut ke ${
+              : `Semua langkah tahap ini selesai. Lanjut ke ${
                   next ? next.title : "pengambilan ijazah"
                 }.`}
           </p>
@@ -120,17 +110,21 @@ export function PositionCard({ className }: { className?: string }) {
           />
         </div>
 
-        {next && (
-          <p className="text-xs text-muted-foreground">
-            Setelah ini:{" "}
-            <Link
-              href={`/tahapan/${next.slug}`}
-              className="underline underline-offset-3 hover:text-foreground"
-            >
-              {next.title}
-            </Link>
-          </p>
-        )}
+        <p className="text-xs text-muted-foreground">
+          {remaining === 0 || !next ? (
+            "Ini tahap terakhir."
+          ) : (
+            <>
+              {remaining} tahap lagi. Setelah ini:{" "}
+              <Link
+                href={`/tahapan/${next.slug}`}
+                className="font-medium underline underline-offset-3 hover:text-foreground"
+              >
+                {next.title}
+              </Link>
+            </>
+          )}
+        </p>
       </CardContent>
     </Card>
   );

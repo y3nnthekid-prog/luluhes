@@ -54,20 +54,20 @@ export default function DownloadPage() {
       </header>
 
       {/* Status file */}
-      <div className="mt-8 flex gap-3 rounded-xl border bg-muted/40 p-4">
-        <Info className="mt-0.5 size-4 shrink-0 text-muted-foreground" aria-hidden />
+      <div className="mt-8 flex gap-3 rounded-2xl border border-brand/25 bg-brand-soft p-4">
+        <Info className="mt-0.5 size-4 shrink-0 text-brand" aria-hidden />
         <div className="text-sm text-muted-foreground">
           <p>
             <strong className="font-medium text-foreground">
-              {available.length} dari {downloads.length} file
+              {available.length} dari {downloads.length} berkas
             </strong>{" "}
-            sudah tersedia untuk diunduh. Sisanya sudah terdaftar di sini, tetapi
-            filenya belum diunggah.
+            sudah bisa dibuka sekarang — sebagian dokumen resmi dari Prodi,
+            sebagian tautan Google Form pendaftaran. Sisanya sudah terdaftar di
+            sini tetapi filenya belum diunggah.
           </p>
           <p className="mt-1.5">
-            File disimpan di Google Drive, bukan di dalam website ini. Untuk
-            mengaktifkan tombol unduh, isi <code>url</code> pada{" "}
-            <code>src/data/downloads.json</code> dan{" "}
+            Untuk mengaktifkan sisanya, unggah file ke Google Drive lalu isi{" "}
+            <code>url</code> pada <code>src/data/downloads.json</code> dan{" "}
             <code>driveFolderUrl</code> pada <code>src/data/site.json</code>.
           </p>
         </div>

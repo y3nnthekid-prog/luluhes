@@ -4,15 +4,16 @@ import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { Check, ChevronRight, MapPin } from "lucide-react";
 
-import { Badge } from "@/components/ui/badge";
-import { stages } from "@/lib/data";
 import { StageIcon } from "@/components/stage-icon";
+import { stages } from "@/lib/data";
+import { phaseStyle } from "@/lib/phase";
 import { useProgress } from "@/lib/progress";
 import { cn } from "@/lib/utils";
 
 /**
  * Peta perjalanan kelulusan. Setiap node bisa diklik, node aktif disorot,
- * dan node yang checklist-nya tuntas ditandai selesai.
+ * dan node yang checklist-nya tuntas ditandai selesai. Warna node mengikuti
+ * fase, sehingga perjalanan terbaca sebagai gradasi dari kuning ke hijau tua.
  */
 export function Roadmap({ compact = false }: { compact?: boolean }) {
   const { hydrated, currentStage, stageProgress } = useProgress();
@@ -25,94 +26,110 @@ export function Roadmap({ compact = false }: { compact?: boolean }) {
         const isCurrent = hydrated && stage.slug === currentStage.slug;
         const isDone = hydrated && progress.status === "selesai";
         const isLast = i === stages.length - 1;
+        const phase = phaseStyle(stage.phase);
+        const showPhaseLabel = i === 0 || stages[i - 1].phase !== stage.phase;
 
         return (
           <motion.li
             key={stage.slug}
-            initial={reduceMotion ? false : { opacity: 0, y: 8 }}
+            initial={reduceMotion ? false : { opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.25, delay: Math.min(i * 0.03, 0.3) }}
-            className="relative pl-11 sm:pl-14"
+            transition={{ duration: 0.28, delay: Math.min(i * 0.03, 0.3) }}
+            className="relative pl-13 sm:pl-16"
           >
             {/* Rel penghubung antar node */}
             {!isLast && (
               <span
                 aria-hidden
                 className={cn(
-                  "absolute top-9 bottom-0 left-[15px] w-px sm:left-[19px]",
-                  isDone ? "bg-brand/40" : "bg-border",
+                  "absolute top-11 bottom-0 left-[19px] w-0.5 rounded-full sm:left-[23px]",
+                  isDone ? phase.dot : "bg-border",
                 )}
               />
+            )}
+
+            {/* Penanda pergantian fase */}
+            {showPhaseLabel && (
+              <p
+                className={cn(
+                  "mb-2 inline-flex items-center gap-1.5 rounded-full px-2 py-0.5 text-[11px] font-semibold tracking-wide uppercase",
+                  phase.soft,
+                )}
+              >
+                Fase {stage.phase}
+              </p>
             )}
 
             <span
               aria-hidden
               className={cn(
-                "absolute top-2 left-0 flex size-8 items-center justify-center rounded-full border text-xs font-medium transition-colors sm:size-10",
-                isDone && "border-brand bg-brand text-brand-foreground",
+                "absolute left-0 flex size-10 items-center justify-center rounded-2xl border-2 transition-all sm:size-12",
+                showPhaseLabel ? "top-9" : "top-1",
+                isDone && cn(phase.dot, "border-transparent text-white shadow-sm"),
                 isCurrent &&
                   !isDone &&
-                  "border-brand bg-brand/10 text-brand ring-4 ring-brand/15",
-                !isDone && !isCurrent && "border-border bg-background text-muted-foreground",
+                  cn(
+                    "border-transparent shadow-md ring-4 ring-brand/20",
+                    phase.solid,
+                  ),
+                !isDone &&
+                  !isCurrent &&
+                  "border-border bg-card text-muted-foreground",
               )}
             >
               {isDone ? (
-                <Check className="size-4" />
+                <Check className="size-5" strokeWidth={3} />
               ) : (
-                <StageIcon name={stage.icon} className="size-4" />
+                <StageIcon name={stage.icon} className="size-5" />
               )}
             </span>
 
             <Link
               href={`/tahapan/${stage.slug}`}
               className={cn(
-                "group -mx-2 mb-1 block rounded-xl px-2 py-2 transition-colors hover:bg-muted/60",
-                isLast ? "pb-2" : compact ? "pb-4" : "pb-6",
+                "group -mx-3 block rounded-2xl px-3 py-2.5 transition-colors hover:bg-muted/70",
+                isLast ? "mb-0" : compact ? "mb-3" : "mb-5",
               )}
             >
               <div className="flex items-center gap-2">
-                <span className="text-xs text-muted-foreground tabular-nums">
+                <span className="text-xs font-medium text-muted-foreground tabular-nums">
                   Tahap {stage.order}
                 </span>
-                <span className="text-xs text-muted-foreground">·</span>
-                <span className="text-xs text-muted-foreground">
-                  {stage.phase}
-                </span>
                 {isCurrent && (
-                  <Badge className="ml-1 gap-1 bg-brand text-brand-foreground">
-                    <MapPin aria-hidden />
+                  <span className="inline-flex items-center gap-1 rounded-full bg-brand px-2 py-0.5 text-[11px] font-semibold text-brand-foreground">
+                    <MapPin className="size-3" aria-hidden />
                     Posisi kamu
-                  </Badge>
+                  </span>
+                )}
+                {isDone && !isCurrent && (
+                  <span className={cn("text-xs font-semibold", phase.text)}>
+                    Selesai
+                  </span>
                 )}
               </div>
 
-              <h3 className="mt-0.5 flex items-center gap-1.5 font-heading font-medium">
+              <h3 className="mt-0.5 flex items-center gap-1.5 font-heading text-base font-semibold">
                 {stage.title}
                 <ChevronRight
-                  className="size-4 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100"
+                  className="size-4 text-muted-foreground transition-transform group-hover:translate-x-0.5"
                   aria-hidden
                 />
               </h3>
 
               {!compact && (
-                <p className="mt-1 line-clamp-2 text-sm text-muted-foreground">
+                <p className="mt-1 line-clamp-2 max-w-prose text-sm text-muted-foreground">
                   {stage.description}
                 </p>
               )}
 
-              <div className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted-foreground">
-                <span>{stage.estimatedDuration}</span>
-                {hydrated && progress.done > 0 && (
-                  <span
-                    className={cn(
-                      "tabular-nums",
-                      isDone && "font-medium text-brand",
-                    )}
-                  >
-                    {isDone
-                      ? "Selesai"
-                      : `${progress.done}/${progress.total} langkah`}
+              <div className="mt-2 flex flex-wrap items-center gap-2 text-xs">
+                <span className="rounded-md bg-muted px-1.5 py-0.5 text-muted-foreground">
+                  {stage.estimatedDuration}
+                </span>
+                {hydrated && progress.done > 0 && !isDone && (
+                  <span className="text-muted-foreground tabular-nums">
+                    {progress.done}/{progress.total} langkah
                   </span>
                 )}
               </div>

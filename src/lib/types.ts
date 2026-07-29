@@ -103,6 +103,28 @@ export type DownloadItem = {
   url: string | null;
 };
 
+/** Satu jenis ujian dalam siklus bulanan Prodi. */
+export type ExamCycle = {
+  id: string;
+  /** Slug tahapan yang diurus oleh ujian ini. */
+  stage: string;
+  name: string;
+  schedulePattern: string;
+  deadlinePattern: string;
+  /** Contoh tanggal dari satu periode nyata, untuk memberi gambaran. */
+  example: string;
+  registrationUrl: string;
+  requirement: string;
+};
+
+export type ScheduleConfig = {
+  heading: string;
+  intro: string;
+  warning: string;
+  exams: ExamCycle[];
+  reminders: string[];
+};
+
 export type SiteConfig = {
   name: string;
   tagline: string;

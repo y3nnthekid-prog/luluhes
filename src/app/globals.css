@@ -12,9 +12,20 @@
   --font-heading: var(--font-geist-sans);
   --color-brand: var(--brand);
   --color-brand-foreground: var(--brand-foreground);
-  --color-brand-muted: var(--brand-muted);
+  --color-brand-soft: var(--brand-soft);
+  --color-brand-deep: var(--brand-deep);
+  --color-lime: var(--lime);
+  --color-lime-foreground: var(--lime-foreground);
+  --color-sun: var(--sun);
+  --color-sun-foreground: var(--sun-foreground);
   --color-warn: var(--warn);
   --color-warn-muted: var(--warn-muted);
+  /* Warna fase perjalanan: kuning → limau → hijau → hijau tua. */
+  --color-phase-proposal: var(--phase-proposal);
+  --color-phase-skripsi: var(--phase-skripsi);
+  --color-phase-ujian: var(--phase-ujian);
+  --color-phase-ujian-foreground: var(--phase-ujian-foreground);
+  --color-phase-kelulusan: var(--phase-kelulusan);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -60,31 +71,47 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
+  --primary: #1e6310;
+  --primary-foreground: #ffffff;
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
+  --muted-foreground: oklch(0.49 0 0);
   --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --ring: #3d8a28;
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
   --chart-4: oklch(0.371 0 0);
   --chart-5: oklch(0.269 0 0);
-  --radius: 0.625rem;
-  /* Satu warna aksen untuk seluruh website: penanda progres dan tahap aktif. */
-  --brand: oklch(0.47 0.1 172);
-  --brand-foreground: oklch(0.99 0 0);
-  --brand-muted: oklch(0.95 0.03 172);
+  --radius: 0.75rem;
+
+  /* Palet inti. Hijau untuk aksi dan progres, limau dan kuning untuk sorotan. */
+  --brand: #1e6310;
+  --brand-foreground: #ffffff;
+  --brand-deep: #123c09;
+  --brand-soft: #eaf6e4;
+  --lime: #cded15;
+  /* Limau dan kuning sangat terang — teksnya selalu gelap, tidak pernah putih. */
+  --lime-foreground: #1a2c07;
+  --sun: #ffe329;
+  --sun-foreground: #2e2404;
+
   /* Warna peringatan tenggat administrasi. */
-  --warn: oklch(0.55 0.13 55);
-  --warn-muted: oklch(0.96 0.04 75);
+  --warn: #a35a00;
+  --warn-muted: #fff6e0;
+
+  /* Empat fase, dibaca sebagai satu gradasi pematangan. */
+  --phase-proposal: #ffe329;
+  --phase-skripsi: #cded15;
+  --phase-ujian: #5aa832;
+  --phase-ujian-foreground: #0f2606;
+  --phase-kelulusan: #1e6310;
+
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
@@ -102,8 +129,8 @@
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
+  --primary: #8ed36a;
+  --primary-foreground: #0e2408;
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
@@ -113,12 +140,27 @@
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --brand: oklch(0.72 0.12 172);
-  --brand-foreground: oklch(0.16 0.02 172);
-  --brand-muted: oklch(0.28 0.04 172);
-  --warn: oklch(0.78 0.12 65);
-  --warn-muted: oklch(0.3 0.045 65);
+  --ring: #8ed36a;
+
+  /* Di latar gelap hijau tua tidak terbaca — dinaikkan terangnya. */
+  --brand: #8ed36a;
+  --brand-foreground: #0e2408;
+  --brand-deep: #b6e79c;
+  --brand-soft: #1b2c14;
+  --lime: #cded15;
+  --lime-foreground: #1a2c07;
+  --sun: #ffe329;
+  --sun-foreground: #2e2404;
+
+  --warn: #f0b95c;
+  --warn-muted: #2e2308;
+
+  --phase-proposal: #ffe329;
+  --phase-skripsi: #cded15;
+  --phase-ujian: #7cc74e;
+  --phase-ujian-foreground: #0f2606;
+  --phase-kelulusan: #8ed36a;
+
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
@@ -155,6 +197,66 @@
   /* Bungkus tabel dan blok lebar agar halaman tidak pernah geser horizontal. */
   .scroll-x {
     @apply -mx-4 overflow-x-auto px-4;
+  }
+
+  /* Bidang hijau dengan dua sorotan warna — dipakai di hero dan blok ajakan. */
+  .surface-brand {
+    background-color: var(--brand-deep);
+    background-image:
+      radial-gradient(
+        70% 90% at 88% 6%,
+        color-mix(in srgb, var(--lime) 42%, transparent),
+        transparent 62%
+      ),
+      radial-gradient(
+        60% 80% at 4% 96%,
+        color-mix(in srgb, var(--sun) 26%, transparent),
+        transparent 60%
+      ),
+      linear-gradient(150deg, var(--brand) 0%, var(--brand-deep) 78%);
+    color: #ffffff;
+  }
+
+  /* Pita gradasi tipis: kuning → limau → hijau, membaca sebagai perjalanan. */
+  .journey-bar {
+    background-image: linear-gradient(
+      90deg,
+      var(--phase-proposal) 0%,
+      var(--phase-skripsi) 34%,
+      var(--phase-ujian) 68%,
+      var(--phase-kelulusan) 100%
+    );
+  }
+
+  /* Kartu yang sedikit terangkat saat disentuh, bukan sekadar berubah warna. */
+  .card-lift {
+    transition:
+      transform 180ms ease,
+      box-shadow 180ms ease,
+      border-color 180ms ease;
+  }
+  .card-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px -12px color-mix(in srgb, var(--brand) 38%, transparent);
+  }
+
+  /* Butiran halus agar bidang warna besar tidak terasa datar. */
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.5;
+    mix-blend-mode: soft-light;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-lift,
+  .card-lift:hover {
+    transition: none;
+    transform: none;
   }
 }
 

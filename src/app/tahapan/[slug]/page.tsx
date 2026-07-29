@@ -24,9 +24,17 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Badge } from "@/components/ui/badge";
 import { LinkButton } from "@/components/link-button";
-import { getStage, getStageDownloads, stages, totalStages } from "@/lib/data";
+import { ExamScheduleCard } from "@/components/exam-schedule-card";
+import {
+  getExamForStage,
+  getStage,
+  getStageDownloads,
+  stages,
+  totalStages,
+} from "@/lib/data";
+import { phaseStyle } from "@/lib/phase";
+import { cn } from "@/lib/utils";
 import { StageIcon } from "@/components/stage-icon";
 
 export function generateStaticParams() {
@@ -55,6 +63,8 @@ export default async function StagePage({ params }: StageParams) {
   const previous = stage.previousStage ? getStage(stage.previousStage) : null;
   const next = stage.nextStage ? getStage(stage.nextStage) : null;
   const templates = getStageDownloads(stage);
+  const exam = getExamForStage(stage.slug);
+  const phase = phaseStyle(stage.phase);
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-8">
@@ -65,16 +75,26 @@ export default async function StagePage({ params }: StageParams) {
         ]}
       />
 
-      <header className="mt-4">
-        <div className="flex items-center gap-2.5">
-          <span className="flex size-9 items-center justify-center rounded-lg bg-brand/10 text-brand">
-            <StageIcon name={stage.icon} className="size-4.5" />
+      <header className="relative mt-4 overflow-hidden rounded-3xl border bg-card p-5 sm:p-7">
+        <span
+          className={cn('absolute inset-x-0 top-0 h-1.5', phase.dot)}
+          aria-hidden
+        />
+
+        <div className="flex items-start gap-3.5">
+          <span
+            className={cn(
+              'flex size-12 shrink-0 items-center justify-center rounded-2xl',
+              phase.solid,
+            )}
+          >
+            <StageIcon name={stage.icon} className="size-6" />
           </span>
-          <div>
-            <p className="text-xs text-muted-foreground">
-              Tahap {stage.order} dari {totalStages} · {stage.phase}
+          <div className="min-w-0">
+            <p className="text-xs font-medium text-muted-foreground">
+              Tahap {stage.order} dari {totalStages} · Fase {stage.phase}
             </p>
-            <h1 className="font-heading text-2xl font-semibold tracking-tight sm:text-3xl">
+            <h1 className="mt-1 font-heading text-2xl leading-tight font-bold tracking-tight text-balance sm:text-4xl">
               {stage.title}
             </h1>
           </div>
@@ -85,19 +105,21 @@ export default async function StagePage({ params }: StageParams) {
         </p>
 
         <div className="mt-4 flex flex-wrap items-center gap-2">
-          <Badge variant="outline" className="gap-1">
-            <Clock aria-hidden />
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-muted px-2.5 py-1 text-xs font-medium">
+            <Clock className="size-3.5" aria-hidden />
             {stage.estimatedDuration}
-          </Badge>
-          <Badge variant="ghost" className="text-muted-foreground">
-            {stage.checklist.length} langkah checklist
-          </Badge>
+          </span>
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-muted px-2.5 py-1 text-xs font-medium">
+            {stage.checklist.length} langkah
+          </span>
           <StagePinButton slug={stage.slug} />
         </div>
       </header>
 
       <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_19rem] lg:items-start">
         <div className="min-w-0 space-y-12">
+          {exam && <ExamScheduleCard exam={exam} />}
+
           {/* Tujuan */}
           <section aria-labelledby="tujuan">
             <div className="flex gap-3 rounded-xl border bg-muted/40 p-4">

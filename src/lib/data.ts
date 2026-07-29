@@ -2,16 +2,26 @@ import stagesJson from "@/data/stages.json";
 import downloadsJson from "@/data/downloads.json";
 import faqJson from "@/data/faq.json";
 import siteJson from "@/data/site.json";
+import scheduleJson from "@/data/schedule.json";
 
 import type {
   DownloadItem,
+  ExamCycle,
   FaqItem,
+  ScheduleConfig,
   SiteConfig,
   Stage,
   StagePhase,
 } from "@/lib/types";
 
 export const site = siteJson as SiteConfig;
+
+export const schedule = scheduleJson as ScheduleConfig;
+
+/** Ujian bulanan yang mengurus sebuah tahapan, bila ada. */
+export function getExamForStage(slug: string): ExamCycle | undefined {
+  return schedule.exams.find((exam) => exam.stage === slug);
+}
 
 export const stages = (stagesJson as Stage[])
   .slice()

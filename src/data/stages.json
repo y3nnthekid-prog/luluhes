@@ -30,6 +30,11 @@
         "source": "alumni"
       },
       {
+        "name": "Surat Persetujuan Proposal Skripsi",
+        "note": "Surat kepada Ketua Prodi HES berisi judul proposalmu, ditandatangani kamu dan Dosen Pembimbing Akademik. Tersedia di Download Center.",
+        "source": "alumni"
+      },
+      {
         "name": "Transkrip nilai sementara",
         "note": "Unduh dari AIS. Dipakai untuk membuktikan 100 SKS dan kelulusan MPH.",
         "source": "alumni"
@@ -37,11 +42,6 @@
       {
         "name": "Kartu konsultasi proposal",
         "note": "Bukti bimbingan dengan Dosen PA. Minta tanda tangan setiap kali konsultasi.",
-        "source": "alumni"
-      },
-      {
-        "name": "Formulir pengajuan judul",
-        "note": "Ambil di Prodi atau unduh di Download Center.",
         "source": "alumni"
       }
     ],
@@ -67,20 +67,44 @@
         "actor": "Mahasiswa + Dosen PA"
       },
       {
-        "title": "Minta ACC Dosen PA dan Prodi",
-        "detail": "Setelah proposal dinilai layak, minta tanda tangan persetujuan Dosen PA, lalu ajukan ke Prodi untuk mendapatkan persetujuan. Proposal yang diajukan wajib mendapat ACC dari Dosen PA dan Prodi.",
-        "actor": "Dosen PA + Prodi"
+        "title": "Minta tanda tangan Dosen PA pada Surat Persetujuan Proposal",
+        "detail": "Setelah proposal dinilai layak, isi Surat Persetujuan Proposal Skripsi dengan judul finalmu, lalu minta tanda tangan Dosen Pembimbing Akademik. Surat inilah yang kamu ajukan ke Ketua Prodi sebagai dasar mengikuti seminar proposal.",
+        "actor": "Mahasiswa + Dosen PA"
       }
     ],
     "checklist": [
-      { "id": "sks-100", "label": "Sudah lulus minimal 100 SKS" },
-      { "id": "mph", "label": "Sudah lulus mata kuliah MPH" },
-      { "id": "topik", "label": "Topik dan judul sudah dikunci" },
-      { "id": "cek-duplikat", "label": "Sudah cek duplikasi judul di repository UIN" },
-      { "id": "draft", "label": "Draft proposal selesai ditulis" },
-      { "id": "kartu", "label": "Kartu konsultasi terisi dan ditandatangani" },
-      { "id": "acc-pa", "label": "Proposal sudah di-ACC Dosen PA" },
-      { "id": "acc-prodi", "label": "Proposal sudah disetujui Prodi" }
+      {
+        "id": "sks-100",
+        "label": "Sudah lulus minimal 100 SKS"
+      },
+      {
+        "id": "mph",
+        "label": "Sudah lulus mata kuliah MPH"
+      },
+      {
+        "id": "topik",
+        "label": "Topik dan judul sudah dikunci"
+      },
+      {
+        "id": "cek-duplikat",
+        "label": "Sudah cek duplikasi judul di repository UIN"
+      },
+      {
+        "id": "draft",
+        "label": "Draft proposal selesai ditulis"
+      },
+      {
+        "id": "kartu",
+        "label": "Kartu konsultasi terisi dan ditandatangani"
+      },
+      {
+        "id": "acc-pa",
+        "label": "Surat Persetujuan Proposal ditandatangani Dosen PA"
+      },
+      {
+        "id": "acc-prodi",
+        "label": "Proposal sudah disetujui Prodi"
+      }
     ],
     "warnings": [
       {
@@ -108,11 +132,27 @@
         "answer": "Tidak ada angka baku dalam alur resmi. Praktik umum di FSH berkisar 15–25 halaman. Konfirmasikan ke Dosen PA karena tiap dosen punya preferensi berbeda."
       }
     ],
-    "downloads": ["form-pengajuan-judul", "template-proposal", "kartu-konsultasi"],
+    "downloads": [
+      "surat-persetujuan-proposal",
+      "template-proposal",
+      "kartu-konsultasi"
+    ],
     "importantLinks": [
-      { "label": "AIS UIN Jakarta", "url": "https://ais.uinjkt.ac.id", "note": "Cek transkrip dan SKS" },
-      { "label": "Repository UIN Jakarta", "url": "https://repository.uinjkt.ac.id", "note": "Cek duplikasi judul" },
-      { "label": "Website FSH", "url": "https://fsh.uinjkt.ac.id", "note": "Pengumuman resmi Fakultas" }
+      {
+        "label": "AIS UIN Jakarta",
+        "url": "https://ais.uinjkt.ac.id",
+        "note": "Cek transkrip dan SKS"
+      },
+      {
+        "label": "Repository UIN Jakarta",
+        "url": "https://repository.uinjkt.ac.id",
+        "note": "Cek duplikasi judul"
+      },
+      {
+        "label": "Website FSH",
+        "url": "https://fsh.uinjkt.ac.id",
+        "note": "Pengumuman resmi Fakultas"
+      }
     ],
     "previousStage": null,
     "nextStage": "sempro"
@@ -124,9 +164,9 @@
     "shortTitle": "Sempro",
     "icon": "Presentation",
     "phase": "Proposal",
-    "description": "Proposal yang sudah di-ACC didaftarkan ke Prodi untuk diujikan. Kamu mempresentasikan rencana penelitian di hadapan maksimal dua dosen penguji.",
+    "description": "Proposal yang sudah disetujui didaftarkan ke Prodi lewat Google Form untuk diujikan. Prodi menggelar seminar proposal setiap bulan, dan kamu mempresentasikan rencana penelitian di hadapan maksimal dua dosen penguji.",
     "goal": "Lulus Seminar Proposal supaya berhak melanjutkan ke penunjukan dosen pembimbing.",
-    "estimatedDuration": "2–4 minggu sejak pendaftaran",
+    "estimatedDuration": "Ujian bulanan · daftar ±6 hari sebelumnya",
     "requirements": [
       {
         "text": "Proposal sudah mendapat ACC (persetujuan) dari Dosen PA dan Prodi.",
@@ -137,50 +177,59 @@
         "source": "resmi"
       },
       {
+        "text": "Mendaftar lewat Google Form resmi Prodi sebelum tenggat, pukul 16.00 WIB.",
+        "source": "alumni"
+      },
+      {
         "text": "Tidak memiliki tunggakan administrasi pada semester berjalan.",
         "source": "alumni"
       }
     ],
     "documents": [
       {
-        "name": "Proposal yang sudah ditandatangani Dosen PA",
+        "name": "Surat Persetujuan Proposal Skripsi",
+        "note": "Sudah ditandatangani Dosen Pembimbing Akademik.",
+        "source": "alumni"
+      },
+      {
+        "name": "Proposal skripsi lengkap",
         "note": "Perbanyak sesuai jumlah penguji ditambah satu arsip Prodi.",
         "source": "alumni"
       },
       {
-        "name": "Formulir pendaftaran seminar proposal",
-        "note": "Ambil di Prodi atau unduh di Download Center.",
+        "name": "Berkas unggahan pada Google Form",
+        "note": "Siapkan dalam bentuk PDF di Google Drive. Pastikan tautannya tidak terkunci.",
         "source": "alumni"
       },
       {
         "name": "Bukti pembayaran / kartu studi semester berjalan",
         "source": "alumni"
-      },
-      {
-        "name": "Bahan presentasi (slide)",
-        "note": "Biasanya 10–15 slide untuk presentasi 10–15 menit.",
-        "source": "alumni"
       }
     ],
     "steps": [
       {
-        "title": "Daftarkan proposal ke Prodi",
-        "detail": "Serahkan proposal yang sudah di-ACC beserta berkas pendaftaran ke Prodi. Pendaftaran inilah yang memasukkan namamu ke antrean jadwal seminar.",
+        "title": "Pantau broadcast jadwal dari Prodi",
+        "detail": "Prodi mengumumkan jadwal seminar proposal beserta tenggat pendaftarannya setiap bulan. Catat tanggalnya begitu broadcast masuk — tenggatnya lebih cepat dari yang kamu kira.",
+        "actor": "Mahasiswa"
+      },
+      {
+        "title": "Siapkan berkas dalam bentuk digital",
+        "detail": "Scan atau ekspor proposal dan surat persetujuan menjadi PDF, lalu unggah ke Google Drive. Buka aksesnya agar Prodi bisa membuka berkasmu.",
+        "actor": "Mahasiswa"
+      },
+      {
+        "title": "Daftar lewat Google Form Prodi",
+        "detail": "Isi form pendaftaran seminar proposal sebelum tenggat, pukul 16.00 WIB. Form biasanya hanya bisa dibuka dengan akun kampus, jadi login lebih dulu.",
         "actor": "Mahasiswa → Prodi"
       },
       {
         "title": "Tunggu penetapan penguji dan jadwal",
-        "detail": "Prodi menetapkan dosen penguji. Jumlah dosen penguji seminar proposal maksimal dua orang. Pantau pengumuman jadwal secara berkala.",
+        "detail": "Prodi menetapkan dosen penguji. Jumlah dosen penguji seminar proposal maksimal dua orang.",
         "actor": "Prodi"
       },
       {
-        "title": "Siapkan presentasi dan berkas seminar",
-        "detail": "Buat slide ringkas: latar belakang, rumusan masalah, kebaruan penelitian, dan metode. Cetak proposal untuk masing-masing penguji beberapa hari sebelum jadwal.",
-        "actor": "Mahasiswa"
-      },
-      {
         "title": "Ikuti seminar proposal",
-        "detail": "Presentasikan proposal, lalu jawab pertanyaan penguji. Catat semua masukan — catatan inilah yang jadi pegangan revisi di tahap berikutnya.",
+        "detail": "Presentasikan rencana penelitianmu, lalu jawab pertanyaan penguji. Catat semua masukan — catatan inilah yang jadi pegangan revisi di tahap berikutnya.",
         "actor": "Mahasiswa + Penguji"
       },
       {
@@ -190,13 +239,38 @@
       }
     ],
     "checklist": [
-      { "id": "berkas", "label": "Berkas pendaftaran lengkap dan diserahkan ke Prodi" },
-      { "id": "jadwal", "label": "Jadwal dan nama penguji sudah diterima" },
-      { "id": "cetak", "label": "Proposal sudah dicetak untuk semua penguji" },
-      { "id": "slide", "label": "Slide presentasi selesai" },
-      { "id": "latihan", "label": "Sudah latihan presentasi minimal sekali" },
-      { "id": "seminar", "label": "Seminar proposal sudah dilaksanakan" },
-      { "id": "catatan", "label": "Catatan revisi dari penguji sudah dicatat lengkap" }
+      {
+        "id": "jadwal-broadcast",
+        "label": "Sudah tahu tanggal ujian dan tenggat daftar bulan ini"
+      },
+      {
+        "id": "berkas-pdf",
+        "label": "Berkas sudah dalam bentuk PDF dan terunggah ke Drive"
+      },
+      {
+        "id": "drive-terbuka",
+        "label": "Tautan Google Drive tidak terkunci"
+      },
+      {
+        "id": "daftar-form",
+        "label": "Sudah mendaftar lewat Google Form sebelum pukul 16.00 WIB"
+      },
+      {
+        "id": "jadwal",
+        "label": "Jadwal dan nama penguji sudah diterima"
+      },
+      {
+        "id": "cetak",
+        "label": "Proposal sudah dicetak untuk semua penguji"
+      },
+      {
+        "id": "seminar",
+        "label": "Seminar proposal sudah dilaksanakan"
+      },
+      {
+        "id": "catatan",
+        "label": "Catatan revisi dari penguji sudah dicatat lengkap"
+      }
     ],
     "warnings": [
       {
@@ -206,18 +280,31 @@
       {
         "text": "Bagi mahasiswa yang tidak lulus seminar proposal, prosedur seminar proposal diulang dari awal.",
         "source": "resmi"
+      },
+      {
+        "text": "Tenggat pendaftaran pukul 16.00 WIB, bukan tengah malam. Lewat satu menit berarti menunggu periode bulan berikutnya.",
+        "source": "alumni"
+      },
+      {
+        "text": "Pastikan Google Drive tidak terkunci. Berkas yang tidak bisa dibuka Prodi dianggap belum masuk.",
+        "source": "alumni"
       }
     ],
     "tips": [
+      "Begitu broadcast jadwal masuk grup, langsung catat dua tanggal: tenggat daftar dan hari ujian. Yang bikin tertinggal biasanya tenggat daftarnya, bukan ujiannya.",
+      "Cek sekali lagi setelan berbagi Google Drive-mu dengan membukanya di mode penyamaran. Kalau kamu sendiri tidak bisa membukanya, Prodi juga tidak bisa.",
       "Rekam sesi tanya jawab (izin dulu ke penguji) atau minta teman mencatat. Catatan revisi yang tidak lengkap bikin tahap revisi berputar-putar.",
       "Penguji hampir selalu menanyakan kebaruan penelitian dan alasan pemilihan metode. Siapkan jawabannya dalam satu kalimat yang jelas.",
-      "Datang 30 menit lebih awal dan bawa proposal cadangan. Printer kampus tidak selalu bisa diandalkan di hari-H.",
       "Kenali penelitian terdahulu yang kamu kutip. Pertanyaan 'apa bedanya dengan penelitian X?' itu klasik."
     ],
     "faq": [
       {
-        "question": "Berapa lama presentasi seminar proposal?",
-        "answer": "Alur resmi tidak mengatur durasi. Praktik umumnya 10–15 menit presentasi, sisanya tanya jawab. Konfirmasi ke Prodi menjelang jadwal."
+        "question": "Apakah saya wajib membuat slide presentasi?",
+        "answer": "Tidak selalu. Sebagian dosen tidak meminta slide dan cukup dengan naskah proposal. Tanyakan ke penguji atau Prodi sebelum kamu menghabiskan waktu membuatnya."
+      },
+      {
+        "question": "Kapan pendaftaran seminar proposal dibuka?",
+        "answer": "Prodi membuka pendaftaran setiap bulan lewat broadcast resmi berisi tautan Google Form. Tenggatnya sekitar enam hari sebelum hari ujian, pukul 16.00 WIB."
       },
       {
         "question": "Kalau tidak lulus seminar proposal, apakah harus ganti judul?",
@@ -228,10 +315,19 @@
         "answer": "Umumnya kemeja putih, bawahan hitam, dan almamater. Ketentuan ini tidak ada di alur resmi, jadi konfirmasikan ke Prodi atau tanya angkatan di atasmu."
       }
     ],
-    "downloads": ["form-daftar-sempro", "template-slide-sempro"],
+    "downloads": [
+      "form-daftar-sempro"
+    ],
     "importantLinks": [
-      { "label": "Website FSH", "url": "https://fsh.uinjkt.ac.id", "note": "Pengumuman jadwal seminar" },
-      { "label": "AIS UIN Jakarta", "url": "https://ais.uinjkt.ac.id" }
+      {
+        "label": "Website FSH",
+        "url": "https://fsh.uinjkt.ac.id",
+        "note": "Pengumuman jadwal seminar"
+      },
+      {
+        "label": "AIS UIN Jakarta",
+        "url": "https://ais.uinjkt.ac.id"
+      }
     ],
     "previousStage": "pra-sempro",
     "nextStage": "revisi-sempro"
@@ -263,12 +359,13 @@
         "source": "alumni"
       },
       {
-        "name": "Lembar pengesahan / persetujuan perbaikan penguji",
-        "note": "Wajib ditandatangani penguji. Inilah pemicu penunjukan pembimbing.",
+        "name": "Lembar Pengesahan Proposal Skripsi",
+        "note": "Ditandatangani Penguji I, Penguji II, dan Ketua Prodi HES. Inilah pemicu penunjukan pembimbing.",
         "source": "alumni"
       },
       {
-        "name": "Berita acara seminar proposal",
+        "name": "Surat Pengajuan Dosen Pembimbing",
+        "note": "Berisi tiga nama calon dosen pembimbing yang kamu usulkan kepada Ketua Prodi.",
         "source": "alumni"
       }
     ],
@@ -279,28 +376,55 @@
         "actor": "Mahasiswa"
       },
       {
-        "title": "Minta tanda tangan penguji",
-        "detail": "Temui setiap penguji dengan membawa proposal revisi dan daftar perbaikan. Penunjukan dosen pembimbing baru dilakukan setelah perbaikan proposal ditandatangani oleh penguji.",
+        "title": "Minta tanda tangan pada Lembar Pengesahan Proposal",
+        "detail": "Temui Penguji I dan Penguji II dengan membawa proposal revisi dan daftar perbaikan. Penunjukan dosen pembimbing baru dilakukan setelah perbaikan proposal ditandatangani oleh penguji.",
         "actor": "Mahasiswa → Penguji"
       },
       {
-        "title": "Serahkan proposal final ke Prodi",
-        "detail": "Setelah lengkap ditandatangani, serahkan ke Prodi sebagai dasar penerbitan surat penunjukan pembimbing.",
+        "title": "Ajukan tiga nama calon dosen pembimbing",
+        "detail": "Isi Surat Pengajuan Dosen Pembimbing dengan tiga nama pilihanmu, lalu serahkan ke Ketua Prodi. Pilih dosen yang bidang keahliannya paling dekat dengan topikmu.",
+        "actor": "Mahasiswa → Ketua Prodi"
+      },
+      {
+        "title": "Serahkan berkas final ke Prodi",
+        "detail": "Serahkan proposal yang sudah disahkan beserta surat pengajuan pembimbing sebagai dasar penerbitan surat penunjukan.",
         "actor": "Mahasiswa → Prodi"
       },
       {
         "title": "Terima penunjukan dosen pembimbing",
-        "detail": "Prodi menunjuk dosen pembimbing. Jumlah dosen pembimbing maksimal dua orang. Simpan surat penunjukan ini — akan diminta lagi di tahap-tahap berikutnya.",
+        "detail": "Prodi menetapkan dosen pembimbing — belum tentu sama persis dengan usulanmu. Jumlah dosen pembimbing maksimal dua orang. Simpan surat penunjukan ini, akan diminta lagi di tahap berikutnya.",
         "actor": "Prodi"
       }
     ],
     "checklist": [
-      { "id": "daftar-revisi", "label": "Daftar revisi dari penguji sudah dibuat" },
-      { "id": "revisi-selesai", "label": "Semua revisi sudah dikerjakan" },
-      { "id": "ttd-penguji", "label": "Perbaikan sudah ditandatangani semua penguji" },
-      { "id": "serah-prodi", "label": "Proposal final sudah diserahkan ke Prodi" },
-      { "id": "sk-pembimbing", "label": "Surat penunjukan dosen pembimbing sudah diterima" },
-      { "id": "kontak-pembimbing", "label": "Sudah menghubungi dosen pembimbing" }
+      {
+        "id": "daftar-revisi",
+        "label": "Daftar revisi dari penguji sudah dibuat"
+      },
+      {
+        "id": "revisi-selesai",
+        "label": "Semua revisi sudah dikerjakan"
+      },
+      {
+        "id": "ttd-penguji",
+        "label": "Lembar pengesahan ditandatangani Penguji I dan II"
+      },
+      {
+        "id": "ttd-kaprodi",
+        "label": "Lembar pengesahan ditandatangani Ketua Prodi"
+      },
+      {
+        "id": "usul-pembimbing",
+        "label": "Surat Pengajuan Dosen Pembimbing (3 nama) sudah diserahkan"
+      },
+      {
+        "id": "sk-pembimbing",
+        "label": "Surat penunjukan dosen pembimbing sudah diterima"
+      },
+      {
+        "id": "kontak-pembimbing",
+        "label": "Sudah menghubungi dosen pembimbing"
+      }
     ],
     "warnings": [
       {
@@ -329,12 +453,22 @@
       },
       {
         "question": "Bisakah saya memilih dosen pembimbing sendiri?",
-        "answer": "Penunjukan dosen pembimbing dilakukan oleh Prodi. Sebagian mahasiswa mengajukan preferensi, tetapi keputusan akhir ada di Prodi. Tanyakan langsung ke Sekretaris Prodi."
+        "answer": "Kamu bisa mengusulkan. Ada Surat Pengajuan Dosen Pembimbing tempat kamu menuliskan tiga nama calon kepada Ketua Prodi. Keputusan akhir tetap di Prodi, jadi urutkan ketiganya sesuai prioritasmu dan pilih yang bidangnya sesuai topikmu."
+      },
+      {
+        "question": "Siapa saja yang menandatangani lembar pengesahan proposal?",
+        "answer": "Penguji I, Penguji II, dan Ketua Program Studi Hukum Ekonomi Syariah. Kejar tanda tangan penguji lebih dulu, baru ke Ketua Prodi."
       }
     ],
-    "downloads": ["lembar-revisi-sempro", "form-penunjukan-pembimbing"],
+    "downloads": [
+      "lembar-pengesahan-proposal",
+      "surat-pengajuan-dosen-pembimbing"
+    ],
     "importantLinks": [
-      { "label": "Website FSH", "url": "https://fsh.uinjkt.ac.id" }
+      {
+        "label": "Website FSH",
+        "url": "https://fsh.uinjkt.ac.id"
+      }
     ],
     "previousStage": "sempro",
     "nextStage": "bimbingan"
@@ -423,13 +557,34 @@
       }
     ],
     "checklist": [
-      { "id": "rencana", "label": "Rencana dan target bimbingan sudah disepakati" },
-      { "id": "izin", "label": "Surat izin penelitian sudah terbit (jika diperlukan)" },
-      { "id": "data", "label": "Pengumpulan data selesai" },
-      { "id": "bab-selesai", "label": "Seluruh bab skripsi selesai ditulis" },
-      { "id": "bimbingan-5", "label": "Sudah bimbingan minimal 5 kali dan tercatat di kartu" },
-      { "id": "kartu-ttd", "label": "Kartu bimbingan ditandatangani pembimbing" },
-      { "id": "acc-pembimbing", "label": "Naskah sudah disetujui SEMUA dosen pembimbing" }
+      {
+        "id": "rencana",
+        "label": "Rencana dan target bimbingan sudah disepakati"
+      },
+      {
+        "id": "izin",
+        "label": "Surat izin penelitian sudah terbit (jika diperlukan)"
+      },
+      {
+        "id": "data",
+        "label": "Pengumpulan data selesai"
+      },
+      {
+        "id": "bab-selesai",
+        "label": "Seluruh bab skripsi selesai ditulis"
+      },
+      {
+        "id": "bimbingan-5",
+        "label": "Sudah bimbingan minimal 5 kali dan tercatat di kartu"
+      },
+      {
+        "id": "kartu-ttd",
+        "label": "Kartu bimbingan ditandatangani pembimbing"
+      },
+      {
+        "id": "acc-pembimbing",
+        "label": "Naskah sudah disetujui SEMUA dosen pembimbing"
+      }
     ],
     "warnings": [
       {
@@ -470,11 +625,26 @@
         "answer": "Sampaikan secara terbuka bahwa ada dua arahan berbeda dan minta kesepakatan keduanya. Kalau buntu, konsultasikan ke Prodi. Persetujuan keduanya tetap wajib untuk maju ke munaqosyah."
       }
     ],
-    "downloads": ["kartu-bimbingan", "template-skripsi", "form-izin-penelitian", "lembar-persetujuan-pembimbing"],
+    "downloads": [
+      "kartu-bimbingan",
+      "template-skripsi",
+      "form-izin-penelitian",
+      "lembar-persetujuan-pembimbing"
+    ],
     "importantLinks": [
-      { "label": "Repository UIN Jakarta", "url": "https://repository.uinjkt.ac.id", "note": "Referensi skripsi terdahulu" },
-      { "label": "Perpustakaan UIN Jakarta", "url": "https://perpus.uinjkt.ac.id" },
-      { "label": "AIS UIN Jakarta", "url": "https://ais.uinjkt.ac.id" }
+      {
+        "label": "Repository UIN Jakarta",
+        "url": "https://repository.uinjkt.ac.id",
+        "note": "Referensi skripsi terdahulu"
+      },
+      {
+        "label": "Perpustakaan UIN Jakarta",
+        "url": "https://perpus.uinjkt.ac.id"
+      },
+      {
+        "label": "AIS UIN Jakarta",
+        "url": "https://ais.uinjkt.ac.id"
+      }
     ],
     "previousStage": "revisi-sempro",
     "nextStage": "komprehensif"
@@ -486,16 +656,16 @@
     "shortTitle": "Komprehensif",
     "icon": "GraduationCap",
     "phase": "Ujian",
-    "description": "Gerbang wajib sebelum munaqosyah. Ujian menguji penguasaanmu atas keilmuan HES secara menyeluruh melalui ujian tulis, lisan, dan baca kitab.",
+    "description": "Gerbang wajib sebelum munaqosyah. Ujian digelar dua hari berurutan: ujian tulis lebih dulu, lalu ujian lisan dan baca kitab keesokan harinya. Semuanya menguji penguasaanmu atas keilmuan HES secara menyeluruh.",
     "goal": "Lulus Ujian Komprehensif dan mendapatkan SKL Komprehensif — dokumen yang wajib dilampirkan saat mendaftar munaqosyah.",
-    "estimatedDuration": "1–2 minggu sejak pendaftaran",
+    "estimatedDuration": "Ujian bulanan · 2 hari berurutan",
     "requirements": [
       {
         "text": "Sudah lulus semua mata kuliah wajib dengan minimal 138 SKS.",
         "source": "resmi"
       },
       {
-        "text": "Terdaftar pada periode ujian komprehensif yang dibuka Prodi.",
+        "text": "Mendaftar lewat Google Form resmi Prodi sebelum tenggat, pukul 16.00 WIB.",
         "source": "alumni"
       }
     ],
@@ -526,18 +696,23 @@
         "actor": "Mahasiswa"
       },
       {
-        "title": "Daftar ujian komprehensif ke Prodi",
-        "detail": "Serahkan formulir pendaftaran beserta transkrip dan bukti administrasi ke Prodi sesuai periode yang dibuka.",
+        "title": "Daftar lewat Google Form sebelum tenggat",
+        "detail": "Prodi membagikan tautan pendaftaran lewat broadcast bulanan. Tenggatnya sekitar empat hari sebelum ujian tulis, pukul 16.00 WIB.",
         "actor": "Mahasiswa → Prodi"
       },
       {
-        "title": "Persiapkan tiga jenis materi ujian",
-        "detail": "Materi ujian komprehensif terdiri dari ujian tulis, ujian lisan, dan ujian baca kitab. Siapkan ketiganya — banyak mahasiswa lengah pada bagian baca kitab.",
+        "title": "Siapkan lima area materi ujian tulis",
+        "detail": "Berdasarkan berkas soal periode sebelumnya, ujian tulis mencakup ayat-ayat hukum ekonomi syariah, qawaid fiqhiyah, akad-akad muamalah, fatwa DSN-MUI terbaru, dan hukum acara peradilan agama.",
         "actor": "Mahasiswa"
       },
       {
-        "title": "Ikuti ujian",
-        "detail": "Ujian dihadiri maksimal tiga dosen penguji komprehensif. Datang lebih awal dan bawa mushaf serta kitab rujukan bila diminta.",
+        "title": "Kerjakan ujian tulis",
+        "detail": "Ujian tulis bersifat buka literatur. Jawaban ditulis tangan lalu dipindai, dikumpulkan melalui ketua kelompok, dan diserahkan ke Prodi HES sesuai tenggat yang ditentukan.",
+        "actor": "Mahasiswa → Ketua kelompok → Prodi"
+      },
+      {
+        "title": "Ikuti ujian lisan dan baca kitab",
+        "detail": "Keesokan harinya, jawaban tulismu diujikan secara lisan bersama ujian qiraatul kutub. Materi baca kitabnya sudah diterbitkan Prodi dan bisa kamu unduh di halaman ini.",
         "actor": "Mahasiswa + Penguji"
       },
       {
@@ -547,13 +722,50 @@
       }
     ],
     "checklist": [
-      { "id": "sks-138", "label": "Sudah lulus semua mata kuliah wajib, minimal 138 SKS" },
-      { "id": "daftar", "label": "Sudah mendaftar ujian komprehensif" },
-      { "id": "siap-tulis", "label": "Persiapan ujian tulis" },
-      { "id": "siap-lisan", "label": "Persiapan ujian lisan" },
-      { "id": "siap-kitab", "label": "Persiapan ujian baca kitab" },
-      { "id": "ujian", "label": "Ujian komprehensif sudah dilaksanakan" },
-      { "id": "skl", "label": "SKL Komprehensif sudah diterima" }
+      {
+        "id": "sks-138",
+        "label": "Sudah lulus semua mata kuliah wajib, minimal 138 SKS"
+      },
+      {
+        "id": "daftar",
+        "label": "Sudah mendaftar lewat Google Form sebelum pukul 16.00 WIB"
+      },
+      {
+        "id": "materi-ayat",
+        "label": "Siap materi: ayat hukum ekonomi syariah dan riba"
+      },
+      {
+        "id": "materi-qawaid",
+        "label": "Siap materi: qawaid fiqhiyah muamalah"
+      },
+      {
+        "id": "materi-akad",
+        "label": "Siap materi: akad-akad muamalah dan penerapannya di LKS"
+      },
+      {
+        "id": "materi-fatwa",
+        "label": "Siap materi: fatwa DSN-MUI terbaru"
+      },
+      {
+        "id": "materi-acara",
+        "label": "Siap materi: hukum acara peradilan agama"
+      },
+      {
+        "id": "siap-kitab",
+        "label": "Sudah berlatih dengan materi qiraatul kutub"
+      },
+      {
+        "id": "ujian-tulis",
+        "label": "Ujian tulis sudah dikerjakan dan dikumpulkan"
+      },
+      {
+        "id": "ujian-lisan",
+        "label": "Ujian lisan dan baca kitab sudah dilaksanakan"
+      },
+      {
+        "id": "skl",
+        "label": "SKL Komprehensif sudah diterima"
+      }
     ],
     "warnings": [
       {
@@ -567,36 +779,60 @@
       {
         "text": "Kelulusan ujian komprehensif adalah syarat mutlak untuk mendaftar munaqosyah.",
         "source": "resmi"
+      },
+      {
+        "text": "Jawaban ujian tulis dikumpulkan lewat ketua kelompok, bukan diserahkan sendiri-sendiri. Pastikan kamu tahu siapa ketua kelompokmu dan tenggat penyerahannya.",
+        "source": "alumni"
       }
     ],
     "tips": [
-      "Ambil komprehensif jangan terlalu mepet dengan target sidang. SKL-nya dibutuhkan saat mendaftar munaqosyah, dan penerbitannya butuh waktu.",
-      "Bagian baca kitab paling sering menjatuhkan. Latih membaca kitab gundul secara rutin beberapa minggu sebelumnya, bukan semalam sebelum ujian.",
-      "Pelajari fikih muamalah, ushul fiqh, dan hukum ekonomi syariah kontemporer — tiga area yang paling sering keluar.",
-      "Tanya angkatan di atasmu tentang pola pertanyaan tiap dosen penguji. Ini legal dan sangat membantu."
+      "Ujian tulisnya buka literatur, jadi yang diuji bukan hafalan melainkan kemampuan menjelaskan dan memberi contoh penerapan. Siapkan contoh kasus di lembaga keuangan syariah untuk tiap akad.",
+      "Jawaban tulismu akan ditanyakan ulang saat ujian lisan. Jangan menyalin mentah-mentah sesuatu yang tidak bisa kamu jelaskan.",
+      "Bagian baca kitab paling sering menjatuhkan. Materi qiraatul kutub resmi bisa diunduh di halaman ini — latih membacanya rutin, bukan semalam sebelum ujian.",
+      "Perbarui daftar fatwa DSN-MUI ke nomor terbaru. Soal biasanya menanyakan fatwa yang terbit paling anyar, bukan yang lama.",
+      "Ambil komprehensif jangan terlalu mepet dengan target sidang. SKL-nya dibutuhkan saat mendaftar munaqosyah, dan penerbitannya butuh waktu."
     ],
     "faq": [
+      {
+        "question": "Ujian komprehensif terdiri dari apa saja?",
+        "answer": "Tiga bagian: ujian tulis, ujian lisan, dan ujian baca kitab (qiraatul kutub). Ujian tulis digelar lebih dulu, lalu ujian lisan dan baca kitab keesokan harinya."
+      },
+      {
+        "question": "Apakah ujian tulisnya boleh buka buku?",
+        "answer": "Ya. Pada berkas soal periode sebelumnya tertulis peserta diperkenankan membuka literatur yang dibutuhkan. Jawaban ditulis, dipindai, lalu dikumpulkan melalui ketua kelompok ke Prodi."
+      },
+      {
+        "question": "Materi apa saja yang keluar di ujian tulis?",
+        "answer": "Berdasarkan berkas soal periode sebelumnya: ayat-ayat pelarangan riba dan korelasinya, qawaid fiqhiyah muamalah, akad-akad muamalah beserta penerapannya di lembaga keuangan syariah, fatwa DSN-MUI terbaru, serta hukum acara peradilan agama seperti kompetensi pengadilan, jenis-jenis putusan, dan jenis-jenis sita."
+      },
+      {
+        "question": "Kitab apa yang diujikan saat baca kitab?",
+        "answer": "Prodi menerbitkan materi resmi berjudul Materi Ujian Qiraatul Kutub, berisi prinsip-prinsip umum muamalah dalam fiqh Islam. Berkasnya bisa kamu unduh di halaman ini."
+      },
       {
         "question": "Apakah komprehensif harus sebelum sidang skripsi?",
         "answer": "Ya. Alur resmi pendaftaran munaqosyah menyatakan mahasiswa wajib lulus ujian komprehensif dan minimal 138 SKS sebelum mendaftar munaqosyah."
       },
       {
-        "question": "Bisakah komprehensif dilakukan bersamaan dengan bimbingan skripsi?",
-        "answer": "Bisa, selama syarat 138 SKS dan semua mata kuliah wajib sudah terpenuhi. Banyak mahasiswa mengambilnya saat skripsi masuk tahap akhir agar SKL siap ketika naskah selesai."
-      },
-      {
         "question": "Kalau tidak lulus komprehensif, apakah bisa mengulang?",
-        "answer": "Mekanisme pengulangan tidak diatur dalam alur resmi ini. Tanyakan langsung ke Sekretaris Prodi mengenai jadwal dan syarat ujian ulang."
-      },
-      {
-        "question": "Kitab apa yang diujikan?",
-        "answer": "Alur resmi hanya menyebut adanya 'ujian baca kitab' tanpa merinci judulnya. Konfirmasikan ke Prodi kitab rujukan yang dipakai pada periodemu."
+        "answer": "Mekanisme pengulangan tidak diatur dalam alur resmi. Karena ujian digelar setiap bulan, umumnya kamu bisa mendaftar lagi pada periode berikutnya. Konfirmasikan ke Sekretaris Prodi."
       }
     ],
-    "downloads": ["form-daftar-komprehensif", "kisi-kisi-komprehensif"],
+    "downloads": [
+      "form-daftar-komprehensif",
+      "materi-qiraatul-kutub",
+      "contoh-soal-komprehensif"
+    ],
     "importantLinks": [
-      { "label": "AIS UIN Jakarta", "url": "https://ais.uinjkt.ac.id", "note": "Cek 138 SKS dan mata kuliah wajib" },
-      { "label": "Website FSH", "url": "https://fsh.uinjkt.ac.id" }
+      {
+        "label": "AIS UIN Jakarta",
+        "url": "https://ais.uinjkt.ac.id",
+        "note": "Cek 138 SKS dan mata kuliah wajib"
+      },
+      {
+        "label": "Website FSH",
+        "url": "https://fsh.uinjkt.ac.id"
+      }
     ],
     "previousStage": "bimbingan",
     "nextStage": "munaqosyah"
@@ -610,7 +846,7 @@
     "phase": "Ujian",
     "description": "Puncak perjalanan skripsi. Tahap ini punya dua bagian: melengkapi seluruh syarat pendaftaran munaqosyah, lalu mempertahankan skripsimu di hadapan maksimal dua dosen penguji.",
     "goal": "Lulus sidang munaqosyah dan menerima catatan revisi dari penguji.",
-    "estimatedDuration": "3–5 minggu sejak berkas lengkap",
+    "estimatedDuration": "Ujian bulanan · daftar ±1 minggu sebelumnya",
     "requirements": [
       {
         "text": "Sudah lulus Ujian Komprehensif dan minimal 138 SKS dengan menyelesaikan semua mata kuliah wajib.",
@@ -627,6 +863,14 @@
       {
         "text": "Mahasiswa wajib mengisi SKPI di AIS sebelum mendaftar munaqosyah.",
         "source": "resmi"
+      },
+      {
+        "text": "Hasil cek plagiasi wajib mendapat stempel basah dari Perpustakaan Fakultas.",
+        "source": "alumni"
+      },
+      {
+        "text": "Mendaftar lewat Google Form resmi Prodi sebelum tenggat, pukul 16.00 WIB.",
+        "source": "alumni"
       }
     ],
     "documents": [
@@ -654,8 +898,8 @@
         "source": "resmi"
       },
       {
-        "name": "Keterangan hasil Turnitin",
-        "note": "Maksimal 30%, dikeluarkan Staff Perpustakaan FSH, dilampirkan di lembar akhir skripsi.",
+        "name": "Keterangan hasil Turnitin berstempel basah",
+        "note": "Maksimal 30%, dikeluarkan Perpustakaan Fakultas, dilampirkan di lembar akhir skripsi. Stempelnya harus basah, bukan hasil pindai.",
         "source": "resmi"
       },
       {
@@ -697,24 +941,75 @@
       }
     ],
     "checklist": [
-      { "id": "lulus-kompre", "label": "Sudah lulus Ujian Komprehensif" },
-      { "id": "sks-138", "label": "Minimal 138 SKS dan semua mata kuliah wajib lulus" },
-      { "id": "acc-semua", "label": "Skripsi disetujui SEMUA dosen pembimbing" },
-      { "id": "turnitin", "label": "Turnitin maksimal 30% oleh Staff Perpustakaan FSH" },
-      { "id": "turnitin-lampir", "label": "Keterangan Turnitin dilampirkan di lembar akhir skripsi" },
-      { "id": "skpi", "label": "SKPI sudah diisi di AIS" },
-      { "id": "form", "label": "Form pendaftaran munaqosyah sudah diisi" },
-      { "id": "lunas", "label": "Bukti lunas biaya kuliah siap" },
-      { "id": "skl-kompre", "label": "SKL Komprehensif siap" },
-      { "id": "ipk-ttd", "label": "IPK ditandatangani Akademik Pusat dan Ketua Prodi" },
-      { "id": "daftar", "label": "Berkas pendaftaran sudah diserahkan ke Prodi" },
-      { "id": "jadwal", "label": "Jadwal sidang sudah diterima" },
-      { "id": "sidang", "label": "Sidang munaqosyah sudah dilaksanakan" }
+      {
+        "id": "lulus-kompre",
+        "label": "Sudah lulus Ujian Komprehensif"
+      },
+      {
+        "id": "sks-138",
+        "label": "Minimal 138 SKS dan semua mata kuliah wajib lulus"
+      },
+      {
+        "id": "acc-semua",
+        "label": "Skripsi disetujui SEMUA dosen pembimbing"
+      },
+      {
+        "id": "turnitin",
+        "label": "Turnitin maksimal 30% oleh Staff Perpustakaan FSH"
+      },
+      {
+        "id": "stempel-basah",
+        "label": "Hasil Turnitin sudah distempel basah Perpustakaan Fakultas"
+      },
+      {
+        "id": "turnitin-lampir",
+        "label": "Keterangan Turnitin dilampirkan di lembar akhir skripsi"
+      },
+      {
+        "id": "skpi",
+        "label": "SKPI sudah diisi di AIS"
+      },
+      {
+        "id": "form",
+        "label": "Form pendaftaran munaqosyah sudah diisi"
+      },
+      {
+        "id": "lunas",
+        "label": "Bukti lunas biaya kuliah siap"
+      },
+      {
+        "id": "skl-kompre",
+        "label": "SKL Komprehensif siap"
+      },
+      {
+        "id": "ipk-ttd",
+        "label": "IPK ditandatangani Akademik Pusat dan Ketua Prodi"
+      },
+      {
+        "id": "drive-terbuka",
+        "label": "Berkas di Google Drive tidak terkunci"
+      },
+      {
+        "id": "daftar",
+        "label": "Berkas pendaftaran sudah diserahkan ke Prodi"
+      },
+      {
+        "id": "jadwal",
+        "label": "Jadwal sidang sudah diterima"
+      },
+      {
+        "id": "sidang",
+        "label": "Sidang munaqosyah sudah dilaksanakan"
+      }
     ],
     "warnings": [
       {
         "text": "Skripsi wajib lulus Turnitin maksimal 30%. Pemeriksaan dilakukan oleh Staff Perpustakaan FSH.",
         "source": "resmi"
+      },
+      {
+        "text": "Hasil Turnitin harus berstempel basah dari Perpustakaan Fakultas. Tangkapan layar atau PDF tanpa stempel tidak diterima.",
+        "source": "alumni"
       },
       {
         "text": "SKPI wajib diisi di AIS SEBELUM mendaftar munaqosyah, bukan sesudahnya.",
@@ -723,9 +1018,14 @@
       {
         "text": "Jumlah dosen penguji munaqosyah maksimal dua orang.",
         "source": "resmi"
+      },
+      {
+        "text": "Tenggat pendaftaran sekitar satu minggu sebelum ujian, pukul 16.00 WIB. Terlambat berarti menunggu periode bulan berikutnya.",
+        "source": "alumni"
       }
     ],
     "tips": [
+      "Urus stempel basah Turnitin jauh sebelum tenggat. Perpustakaan punya jam layanan terbatas, dan ini sering jadi berkas terakhir yang bikin mahasiswa gagal mendaftar.",
       "Kerjakan tiga hal ini paralel, jangan berurutan: isi SKPI, ajukan Turnitin, dan kejar tanda tangan IPK. Ketiganya berjalan di jalur berbeda dan sama-sama makan waktu.",
       "Turunkan similarity sebelum menyerahkan naskah ke perpustakaan. Parafrase kutipan panjang dan pastikan sitasi tertulis benar — bukan menghapus referensi.",
       "SKPI butuh sertifikat dan bukti kegiatan. Kumpulkan filenya dari sekarang, jangan saat formnya sudah terbuka.",
@@ -742,6 +1042,10 @@
         "answer": "Kamu belum bisa mendaftar. Perbaiki naskah — parafrase, kurangi kutipan langsung yang panjang, dan perbaiki sitasi — lalu ajukan pemeriksaan ulang ke Staff Perpustakaan FSH."
       },
       {
+        "question": "Apa maksud hasil Turnitin harus berstempel basah?",
+        "answer": "Stempel basah berarti stempel asli yang dibubuhkan langsung oleh Perpustakaan Fakultas pada lembar hasil Turnitin, bukan gambar stempel hasil pindai atau tempelan. Ini yang membedakannya dari sekadar tangkapan layar hasil cek."
+      },
+      {
         "question": "SKPI itu apa dan diisi di mana?",
         "answer": "SKPI adalah Surat Keterangan Pendamping Ijazah, berisi rekam jejak kegiatan dan kompetensimu selama kuliah. Diisi di AIS, dan wajib dilakukan sebelum mendaftar munaqosyah."
       },
@@ -752,13 +1056,33 @@
       {
         "question": "Kapan nilai sidang keluar?",
         "answer": "Nilai ujian munaqosyah diserahkan ke Prodi setelah ujian selesai, paling lambat tiga hari."
+      },
+      {
+        "question": "Kapan pendaftaran ujian skripsi dibuka?",
+        "answer": "Prodi membuka pendaftaran setiap bulan lewat broadcast resmi berisi tautan Google Form. Tenggatnya sekitar satu minggu sebelum hari ujian, pukul 16.00 WIB."
       }
     ],
-    "downloads": ["form-daftar-munaqosyah", "form-turnitin", "template-skripsi", "panduan-skpi"],
+    "downloads": [
+      "form-daftar-munaqosyah",
+      "form-turnitin",
+      "template-skripsi",
+      "panduan-skpi"
+    ],
     "importantLinks": [
-      { "label": "AIS UIN Jakarta", "url": "https://ais.uinjkt.ac.id", "note": "Isi SKPI di sini" },
-      { "label": "Perpustakaan UIN Jakarta", "url": "https://perpus.uinjkt.ac.id", "note": "Informasi layanan Turnitin" },
-      { "label": "Website FSH", "url": "https://fsh.uinjkt.ac.id" }
+      {
+        "label": "AIS UIN Jakarta",
+        "url": "https://ais.uinjkt.ac.id",
+        "note": "Isi SKPI di sini"
+      },
+      {
+        "label": "Perpustakaan UIN Jakarta",
+        "url": "https://perpus.uinjkt.ac.id",
+        "note": "Informasi layanan Turnitin"
+      },
+      {
+        "label": "Website FSH",
+        "url": "https://fsh.uinjkt.ac.id"
+      }
     ],
     "previousStage": "komprehensif",
     "nextStage": "revisi-munaqosyah"
@@ -794,8 +1118,8 @@
         "source": "alumni"
       },
       {
-        "name": "Lembar pengesahan skripsi",
-        "note": "Ditandatangani penguji, pembimbing, dan pejabat fakultas.",
+        "name": "Lembar Pengesahan Panitia Ujian Skripsi",
+        "note": "Disahkan Dekan dan ditandatangani panitia munaqosyah: Ketua, Sekretaris, Pembimbing, Penguji I, dan Penguji II.",
         "source": "alumni"
       },
       {
@@ -832,13 +1156,34 @@
       }
     ],
     "checklist": [
-      { "id": "daftar-revisi", "label": "Daftar revisi dari semua penguji sudah disusun" },
-      { "id": "revisi", "label": "Revisi naskah selesai" },
-      { "id": "ttd-penguji", "label": "Sudah ditandatangani semua penguji" },
-      { "id": "ttd-pembimbing", "label": "Sudah ditandatangani pembimbing" },
-      { "id": "pengesahan", "label": "Lembar pengesahan lengkap" },
-      { "id": "pdf", "label": "PDF final sudah disiapkan" },
-      { "id": "jilid", "label": "Skripsi sudah dijilid" }
+      {
+        "id": "daftar-revisi",
+        "label": "Daftar revisi dari semua penguji sudah disusun"
+      },
+      {
+        "id": "revisi",
+        "label": "Revisi naskah selesai"
+      },
+      {
+        "id": "ttd-penguji",
+        "label": "Sudah ditandatangani semua penguji"
+      },
+      {
+        "id": "ttd-pembimbing",
+        "label": "Sudah ditandatangani pembimbing"
+      },
+      {
+        "id": "pengesahan",
+        "label": "Lembar pengesahan lengkap"
+      },
+      {
+        "id": "pdf",
+        "label": "PDF final sudah disiapkan"
+      },
+      {
+        "id": "jilid",
+        "label": "Skripsi sudah dijilid"
+      }
     ],
     "warnings": [
       {
@@ -873,11 +1218,22 @@
       {
         "question": "Berapa eksemplar skripsi yang harus dijilid?",
         "answer": "Tidak diatur dalam alur resmi ini. Jumlahnya mengikuti ketentuan Prodi dan Perpustakaan. Tanyakan sebelum mencetak agar tidak kurang atau berlebih."
+      },
+      {
+        "question": "Siapa saja yang menandatangani lembar pengesahan skripsi?",
+        "answer": "Lembar Pengesahan Panitia Ujian Skripsi disahkan oleh Dekan Fakultas Syariah dan Hukum, lalu ditandatangani lima anggota panitia munaqosyah: Ketua, Sekretaris, Pembimbing, Penguji I, dan Penguji II. Tanyakan urutan tanda tangannya ke Prodi sebelum mulai berkeliling."
       }
     ],
-    "downloads": ["lembar-revisi-munaqosyah", "lembar-pengesahan", "panduan-penjilidan"],
+    "downloads": [
+      "lembar-revisi-munaqosyah",
+      "lembar-pengesahan-panitia-ujian-skripsi",
+      "panduan-penjilidan"
+    ],
     "importantLinks": [
-      { "label": "Website FSH", "url": "https://fsh.uinjkt.ac.id" }
+      {
+        "label": "Website FSH",
+        "url": "https://fsh.uinjkt.ac.id"
+      }
     ],
     "previousStage": "munaqosyah",
     "nextStage": "repository"
@@ -950,13 +1306,34 @@
       }
     ],
     "checklist": [
-      { "id": "pdf-final", "label": "PDF final sudah sesuai ketentuan" },
-      { "id": "pengesahan-scan", "label": "Lembar pengesahan bertanda tangan sudah terscan" },
-      { "id": "akun", "label": "Akun repository sudah aktif" },
-      { "id": "unggah", "label": "Skripsi sudah diunggah" },
-      { "id": "metadata", "label": "Metadata sudah diisi lengkap" },
-      { "id": "verifikasi", "label": "Unggahan sudah diverifikasi" },
-      { "id": "bukti", "label": "Bukti unggah sudah disimpan" }
+      {
+        "id": "pdf-final",
+        "label": "PDF final sudah sesuai ketentuan"
+      },
+      {
+        "id": "pengesahan-scan",
+        "label": "Lembar pengesahan bertanda tangan sudah terscan"
+      },
+      {
+        "id": "akun",
+        "label": "Akun repository sudah aktif"
+      },
+      {
+        "id": "unggah",
+        "label": "Skripsi sudah diunggah"
+      },
+      {
+        "id": "metadata",
+        "label": "Metadata sudah diisi lengkap"
+      },
+      {
+        "id": "verifikasi",
+        "label": "Unggahan sudah diverifikasi"
+      },
+      {
+        "id": "bukti",
+        "label": "Bukti unggah sudah disimpan"
+      }
     ],
     "warnings": [
       {
@@ -984,10 +1361,21 @@
         "answer": "Bervariasi, umumnya beberapa hari kerja. Semakin dekat batas yudisium, semakin panjang antreannya."
       }
     ],
-    "downloads": ["surat-pernyataan-publikasi", "lembar-pernyataan-keaslian", "panduan-repository"],
+    "downloads": [
+      "surat-pernyataan-publikasi",
+      "lembar-pernyataan-keaslian",
+      "panduan-repository"
+    ],
     "importantLinks": [
-      { "label": "Repository UIN Jakarta", "url": "https://repository.uinjkt.ac.id", "note": "Tempat unggah skripsi" },
-      { "label": "Perpustakaan UIN Jakarta", "url": "https://perpus.uinjkt.ac.id" }
+      {
+        "label": "Repository UIN Jakarta",
+        "url": "https://repository.uinjkt.ac.id",
+        "note": "Tempat unggah skripsi"
+      },
+      {
+        "label": "Perpustakaan UIN Jakarta",
+        "url": "https://perpus.uinjkt.ac.id"
+      }
     ],
     "previousStage": "revisi-munaqosyah",
     "nextStage": "bebas-pustaka"
@@ -1018,6 +1406,11 @@
         "source": "alumni"
       },
       {
+        "name": "Tanda Terima Penyerahan Skripsi",
+        "note": "Butuh enam tanda tangan: Pembimbing I dan II, Penguji I dan II, Perpustakaan UIN, dan Perpustakaan FSH. Disahkan Kabag TU Fakultas.",
+        "source": "alumni"
+      },
+      {
         "name": "Skripsi jilid / softcopy untuk perpustakaan",
         "note": "Ketentuan tiap perpustakaan bisa berbeda antara Perpustakaan Utama dan Perpustakaan FSH.",
         "source": "alumni"
@@ -1044,6 +1437,11 @@
         "actor": "Mahasiswa → Perpustakaan"
       },
       {
+        "title": "Kumpulkan enam tanda tangan pada Tanda Terima Penyerahan Skripsi",
+        "detail": "Lembar ini merekam serah terima skripsimu: Pembimbing I dan II, Penguji I dan II, lalu Perpustakaan UIN dan Perpustakaan FSH. Setelah lengkap, disahkan oleh Kabag TU Fakultas.",
+        "actor": "Mahasiswa → Pembimbing, Penguji, dua perpustakaan"
+      },
+      {
         "title": "Penuhi ketentuan sumbangan (jika ada)",
         "detail": "Sebagian periode mensyaratkan sumbangan buku. Tanyakan ketentuan yang berlaku sebelum membeli apa pun.",
         "actor": "Mahasiswa"
@@ -1055,13 +1453,38 @@
       }
     ],
     "checklist": [
-      { "id": "pinjaman", "label": "Semua pinjaman buku sudah dikembalikan" },
-      { "id": "denda", "label": "Tidak ada denda tertunggak" },
-      { "id": "serah-skripsi", "label": "Skripsi sudah diserahkan ke perpustakaan" },
-      { "id": "sumbangan", "label": "Ketentuan sumbangan sudah dipenuhi (jika ada)" },
-      { "id": "fsh", "label": "Bebas pustaka Perpustakaan FSH selesai" },
-      { "id": "utama", "label": "Bebas pustaka Perpustakaan Utama selesai" },
-      { "id": "surat", "label": "Surat Keterangan Bebas Pustaka sudah diterima" }
+      {
+        "id": "pinjaman",
+        "label": "Semua pinjaman buku sudah dikembalikan"
+      },
+      {
+        "id": "denda",
+        "label": "Tidak ada denda tertunggak"
+      },
+      {
+        "id": "serah-skripsi",
+        "label": "Skripsi sudah diserahkan ke perpustakaan"
+      },
+      {
+        "id": "sumbangan",
+        "label": "Ketentuan sumbangan sudah dipenuhi (jika ada)"
+      },
+      {
+        "id": "tanda-terima",
+        "label": "Tanda Terima Penyerahan Skripsi lengkap enam tanda tangan"
+      },
+      {
+        "id": "fsh",
+        "label": "Bebas pustaka Perpustakaan FSH selesai"
+      },
+      {
+        "id": "utama",
+        "label": "Bebas pustaka Perpustakaan Utama selesai"
+      },
+      {
+        "id": "surat",
+        "label": "Surat Keterangan Bebas Pustaka sudah diterima"
+      }
     ],
     "warnings": [
       {
@@ -1077,6 +1500,10 @@
     ],
     "faq": [
       {
+        "question": "Berapa tanda tangan yang dibutuhkan untuk penyerahan skripsi?",
+        "answer": "Enam: Pembimbing I, Pembimbing II, Penguji I, Penguji II, Perpustakaan UIN, dan Perpustakaan FSH. Semuanya direkam dalam satu lembar Tanda Terima Penyerahan Skripsi yang kemudian disahkan Kabag TU Fakultas."
+      },
+      {
         "question": "Apakah harus menyumbang buku?",
         "answer": "Kebijakan sumbangan berbeda antar periode dan antar perpustakaan. Tanyakan dulu ke petugas sebelum membeli buku apa pun."
       },
@@ -1089,10 +1516,19 @@
         "answer": "Tidak diatur secara resmi. Sebagian layanan mengizinkan dengan surat kuasa. Konfirmasikan langsung ke perpustakaan."
       }
     ],
-    "downloads": ["form-bebas-pustaka"],
+    "downloads": [
+      "tanda-terima-penyerahan-skripsi",
+      "form-bebas-pustaka"
+    ],
     "importantLinks": [
-      { "label": "Perpustakaan UIN Jakarta", "url": "https://perpus.uinjkt.ac.id" },
-      { "label": "Repository UIN Jakarta", "url": "https://repository.uinjkt.ac.id" }
+      {
+        "label": "Perpustakaan UIN Jakarta",
+        "url": "https://perpus.uinjkt.ac.id"
+      },
+      {
+        "label": "Repository UIN Jakarta",
+        "url": "https://repository.uinjkt.ac.id"
+      }
     ],
     "previousStage": "repository",
     "nextStage": "yudisium"
@@ -1187,15 +1623,42 @@
       }
     ],
     "checklist": [
-      { "id": "periode", "label": "Sudah tahu jadwal periode yudisium" },
-      { "id": "bebas-pustaka", "label": "Surat bebas pustaka siap" },
-      { "id": "bukti-repo", "label": "Bukti unggah repository siap" },
-      { "id": "transkrip", "label": "Transkrip nilai akhir siap" },
-      { "id": "skpi", "label": "SKPI siap" },
-      { "id": "lunas", "label": "Seluruh biaya kuliah lunas" },
-      { "id": "foto", "label": "Pas foto sesuai ketentuan sudah disiapkan" },
-      { "id": "daftar", "label": "Berkas yudisium sudah diserahkan" },
-      { "id": "skl", "label": "SKL sudah diterima" }
+      {
+        "id": "periode",
+        "label": "Sudah tahu jadwal periode yudisium"
+      },
+      {
+        "id": "bebas-pustaka",
+        "label": "Surat bebas pustaka siap"
+      },
+      {
+        "id": "bukti-repo",
+        "label": "Bukti unggah repository siap"
+      },
+      {
+        "id": "transkrip",
+        "label": "Transkrip nilai akhir siap"
+      },
+      {
+        "id": "skpi",
+        "label": "SKPI siap"
+      },
+      {
+        "id": "lunas",
+        "label": "Seluruh biaya kuliah lunas"
+      },
+      {
+        "id": "foto",
+        "label": "Pas foto sesuai ketentuan sudah disiapkan"
+      },
+      {
+        "id": "daftar",
+        "label": "Berkas yudisium sudah diserahkan"
+      },
+      {
+        "id": "skl",
+        "label": "SKL sudah diterima"
+      }
     ],
     "warnings": [
       {
@@ -1223,10 +1686,20 @@
         "answer": "Kamu menunggu periode berikutnya. Karena itu, urus bebas pustaka dan repository jauh sebelum pendaftaran dibuka."
       }
     ],
-    "downloads": ["form-yudisium", "checklist-berkas-yudisium"],
+    "downloads": [
+      "form-yudisium",
+      "checklist-berkas-yudisium"
+    ],
     "importantLinks": [
-      { "label": "Website FSH", "url": "https://fsh.uinjkt.ac.id", "note": "Pengumuman periode yudisium" },
-      { "label": "AIS UIN Jakarta", "url": "https://ais.uinjkt.ac.id" }
+      {
+        "label": "Website FSH",
+        "url": "https://fsh.uinjkt.ac.id",
+        "note": "Pengumuman periode yudisium"
+      },
+      {
+        "label": "AIS UIN Jakarta",
+        "url": "https://ais.uinjkt.ac.id"
+      }
     ],
     "previousStage": "bebas-pustaka",
     "nextStage": "wisuda"
@@ -1299,14 +1772,38 @@
       }
     ],
     "checklist": [
-      { "id": "jadwal", "label": "Jadwal periode wisuda sudah diketahui" },
-      { "id": "daftar", "label": "Pendaftaran wisuda sudah dilakukan" },
-      { "id": "bayar", "label": "Biaya wisuda sudah dibayar" },
-      { "id": "toga", "label": "Toga sudah diukur dan diambil" },
-      { "id": "gladi", "label": "Gladi bersih sudah diikuti" },
-      { "id": "undangan", "label": "Undangan untuk keluarga sudah disiapkan" },
-      { "id": "hari-h", "label": "Wisuda sudah dilaksanakan" },
-      { "id": "toga-kembali", "label": "Toga sudah dikembalikan" }
+      {
+        "id": "jadwal",
+        "label": "Jadwal periode wisuda sudah diketahui"
+      },
+      {
+        "id": "daftar",
+        "label": "Pendaftaran wisuda sudah dilakukan"
+      },
+      {
+        "id": "bayar",
+        "label": "Biaya wisuda sudah dibayar"
+      },
+      {
+        "id": "toga",
+        "label": "Toga sudah diukur dan diambil"
+      },
+      {
+        "id": "gladi",
+        "label": "Gladi bersih sudah diikuti"
+      },
+      {
+        "id": "undangan",
+        "label": "Undangan untuk keluarga sudah disiapkan"
+      },
+      {
+        "id": "hari-h",
+        "label": "Wisuda sudah dilaksanakan"
+      },
+      {
+        "id": "toga-kembali",
+        "label": "Toga sudah dikembalikan"
+      }
     ],
     "warnings": [
       {
@@ -1334,10 +1831,19 @@
         "answer": "Dibatasi dan berbeda tiap periode. Cek ketentuan pada pengumuman resmi wisuda."
       }
     ],
-    "downloads": ["panduan-wisuda"],
+    "downloads": [
+      "panduan-wisuda"
+    ],
     "importantLinks": [
-      { "label": "UIN Syarif Hidayatullah Jakarta", "url": "https://www.uinjkt.ac.id", "note": "Pengumuman wisuda" },
-      { "label": "AIS UIN Jakarta", "url": "https://ais.uinjkt.ac.id" }
+      {
+        "label": "UIN Syarif Hidayatullah Jakarta",
+        "url": "https://www.uinjkt.ac.id",
+        "note": "Pengumuman wisuda"
+      },
+      {
+        "label": "AIS UIN Jakarta",
+        "url": "https://ais.uinjkt.ac.id"
+      }
     ],
     "previousStage": "yudisium",
     "nextStage": "ijazah"
@@ -1414,15 +1920,42 @@
       }
     ],
     "checklist": [
-      { "id": "pengumuman", "label": "Sudah tahu ijazah siap diambil" },
-      { "id": "syarat", "label": "Syarat pengambilan sudah lengkap" },
-      { "id": "bebas-tanggungan", "label": "Bebas seluruh tanggungan" },
-      { "id": "ijazah", "label": "Ijazah sudah diambil" },
-      { "id": "transkrip", "label": "Transkrip akhir sudah diterima" },
-      { "id": "skpi", "label": "SKPI sudah diterima" },
-      { "id": "cek-data", "label": "Data pada ijazah sudah dicek dan benar" },
-      { "id": "legalisir", "label": "Sudah legalisir salinan secukupnya" },
-      { "id": "scan", "label": "Semua dokumen sudah discan dan dibackup" }
+      {
+        "id": "pengumuman",
+        "label": "Sudah tahu ijazah siap diambil"
+      },
+      {
+        "id": "syarat",
+        "label": "Syarat pengambilan sudah lengkap"
+      },
+      {
+        "id": "bebas-tanggungan",
+        "label": "Bebas seluruh tanggungan"
+      },
+      {
+        "id": "ijazah",
+        "label": "Ijazah sudah diambil"
+      },
+      {
+        "id": "transkrip",
+        "label": "Transkrip akhir sudah diterima"
+      },
+      {
+        "id": "skpi",
+        "label": "SKPI sudah diterima"
+      },
+      {
+        "id": "cek-data",
+        "label": "Data pada ijazah sudah dicek dan benar"
+      },
+      {
+        "id": "legalisir",
+        "label": "Sudah legalisir salinan secukupnya"
+      },
+      {
+        "id": "scan",
+        "label": "Semua dokumen sudah discan dan dibackup"
+      }
     ],
     "warnings": [
       {
@@ -1454,11 +1987,23 @@
         "answer": "Umumnya ya, bersama transkrip akhir. SKPI berasal dari data yang kamu isi di AIS sebelum mendaftar munaqosyah."
       }
     ],
-    "downloads": ["surat-kuasa-ijazah", "panduan-legalisir"],
+    "downloads": [
+      "surat-kuasa-ijazah",
+      "panduan-legalisir"
+    ],
     "importantLinks": [
-      { "label": "UIN Syarif Hidayatullah Jakarta", "url": "https://www.uinjkt.ac.id" },
-      { "label": "AIS UIN Jakarta", "url": "https://ais.uinjkt.ac.id" },
-      { "label": "Website FSH", "url": "https://fsh.uinjkt.ac.id" }
+      {
+        "label": "UIN Syarif Hidayatullah Jakarta",
+        "url": "https://www.uinjkt.ac.id"
+      },
+      {
+        "label": "AIS UIN Jakarta",
+        "url": "https://ais.uinjkt.ac.id"
+      },
+      {
+        "label": "Website FSH",
+        "url": "https://fsh.uinjkt.ac.id"
+      }
     ],
     "previousStage": "wisuda",
     "nextStage": null

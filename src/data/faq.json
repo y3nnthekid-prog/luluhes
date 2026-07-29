@@ -28,8 +28,16 @@
     "answer": "Ujian Komprehensif lebih dulu. Alur resmi pendaftaran munaqosyah menyatakan mahasiswa wajib lulus Ujian Komprehensif dan minimal 138 SKS sebelum mendaftar munaqosyah. SKL Komprehensif juga termasuk berkas wajib pendaftaran."
   },
   {
+    "question": "Kapan ujian digelar dan bagaimana cara mendaftar?",
+    "answer": "Prodi HES menggelar seminar proposal, ujian komprehensif, dan ujian skripsi setiap bulan. Jadwal dan tautan pendaftarannya diumumkan lewat broadcast resmi Prodi, dan pendaftaran dilakukan lewat Google Form. Tenggatnya selalu pukul 16.00 WIB pada hari yang ditentukan — bukan tengah malam."
+  },
+  {
     "question": "Berapa batas Turnitin untuk skripsi?",
-    "answer": "Maksimal 30%, diperiksa oleh Staff Perpustakaan FSH. Keterangan hasil Turnitin wajib dilampirkan di lembar akhir skripsi."
+    "answer": "Maksimal 30%, diperiksa oleh Staff Perpustakaan FSH. Keterangan hasil Turnitin wajib dilampirkan di lembar akhir skripsi, dan hasilnya harus mendapat stempel basah dari Perpustakaan Fakultas — bukan sekadar tangkapan layar."
+  },
+  {
+    "question": "Kenapa berkas saya ditolak padahal sudah mendaftar?",
+    "answer": "Penyebab paling sering adalah Google Drive yang masih terkunci, sehingga Prodi tidak bisa membuka berkasmu. Buka setelan berbagi ke publik atau ke siapa saja yang memiliki tautan, lalu uji sendiri tautannya lewat mode penyamaran sebelum mengirim form."
   },
   {
     "question": "Kapan SKPI harus diisi?",

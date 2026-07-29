@@ -1,0 +1,43 @@
+{
+  "heading": "Siklus ujian bulanan",
+  "intro": "Prodi HES membuka ujian setiap bulan dan mengumumkannya lewat broadcast resmi. Tanggalnya berganti tiap periode, tetapi polanya konsisten: pendaftaran lewat Google Form, dan tenggatnya selalu pukul 16.00 WIB.",
+  "warning": "Tanggal di bawah hanya contoh dari satu periode. Selalu ikuti broadcast terbaru dari Prodi untuk tanggal yang berlaku.",
+  "exams": [
+    {
+      "id": "sempro",
+      "stage": "sempro",
+      "name": "Ujian Seminar Proposal",
+      "schedulePattern": "Satu hari, biasanya di pekan terakhir bulan.",
+      "deadlinePattern": "Sekitar 6 hari sebelum ujian, pukul 16.00 WIB.",
+      "example": "Periode September 2025: ujian Kamis 25 September, tenggat daftar Jumat 19 September pukul 16.00 WIB.",
+      "registrationUrl": "https://forms.gle/YMngHRqoEpDkH42b6",
+      "requirement": "Proposal sudah disetujui Dosen Pembimbing Akademik dan Prodi."
+    },
+    {
+      "id": "komprehensif",
+      "stage": "komprehensif",
+      "name": "Ujian Komprehensif",
+      "schedulePattern": "Dua hari berurutan: ujian tulis lebih dulu, lalu ujian lisan dan baca kitab keesokan harinya.",
+      "deadlinePattern": "Sekitar 4 hari sebelum ujian tulis, pukul 16.00 WIB.",
+      "example": "Periode September 2025: ujian tulis 18 September, ujian lisan dan baca kitab 19 September, tenggat daftar 14 September pukul 16.00 WIB.",
+      "registrationUrl": "https://forms.gle/71uutfAEimsJ9UXS6",
+      "requirement": "Sudah lulus minimal 138 SKS."
+    },
+    {
+      "id": "munaqosyah",
+      "stage": "munaqosyah",
+      "name": "Ujian Skripsi (Munaqosyah)",
+      "schedulePattern": "Satu hari, biasanya di pekan keempat bulan.",
+      "deadlinePattern": "Sekitar satu minggu sebelum ujian, pukul 16.00 WIB.",
+      "example": "Periode September 2025: ujian Selasa 23 September, tenggat daftar 16 September pukul 16.00 WIB.",
+      "registrationUrl": "https://forms.gle/StCUL4XeMv5Ti4A8A",
+      "requirement": "Skripsi melampirkan hasil cek plagiasi maksimal 30% dari Perpustakaan Fakultas, berstempel basah."
+    }
+  ],
+  "reminders": [
+    "Tenggat pendaftaran selalu pukul 16.00 WIB, bukan tengah malam. Jangan mendaftar di menit terakhir.",
+    "Pastikan Google Drive kamu tidak terkunci sebelum mengirim form. Berkas yang tidak bisa dibuka Prodi dianggap belum masuk.",
+    "Hasil Turnitin wajib berstempel basah dari Perpustakaan Fakultas. Tangkapan layar atau PDF tanpa stempel tidak diterima.",
+    "Form pendaftaran biasanya hanya bisa dibuka dengan akun kampus. Login lebih dulu sebelum mengeklik tautannya."
+  ]
+}

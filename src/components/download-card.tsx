@@ -1,17 +1,29 @@
 import Link from "next/link";
-import { Clock, Download, FileText } from "lucide-react";
+import {
+  Clock,
+  Download,
+  ExternalLink,
+  FileText,
+  FileType2,
+  Hourglass,
+  SquareArrowOutUpRight,
+} from "lucide-react";
 
-import { Badge } from "@/components/ui/badge";
-import { LinkButton } from "@/components/link-button";
 import { Button } from "@/components/ui/button";
 import { getStage } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import type { DownloadItem } from "@/lib/types";
 
 const statusLabel: Record<DownloadItem["status"], string> = {
-  tersedia: "Tersedia",
+  tersedia: "Siap unduh",
   "menunggu-unggah": "Belum diunggah",
-  "perlu-verifikasi": "Perlu verifikasi",
+  "perlu-verifikasi": "Cek ke Prodi",
+};
+
+const statusStyle: Record<DownloadItem["status"], string> = {
+  tersedia: "bg-brand-soft text-brand",
+  "menunggu-unggah": "bg-muted text-muted-foreground",
+  "perlu-verifikasi": "bg-sun/25 text-sun-foreground dark:text-sun",
 };
 
 export function DownloadCard({
@@ -22,40 +34,53 @@ export function DownloadCard({
   showStage?: boolean;
 }) {
   const stage = getStage(item.stage);
-  const available = item.status === "tersedia" && item.url !== null;
+  const isForm = item.format === "Google Form";
+  // Berkas lokal disajikan langsung dari website; sisanya tautan keluar.
+  const isLocalFile = item.url?.startsWith("/") ?? false;
+  const available = item.url !== null;
+
+  const Icon = isForm ? SquareArrowOutUpRight : available ? FileType2 : FileText;
 
   return (
     <div
       id={item.id}
-      className="flex flex-col gap-3 rounded-xl border p-4 transition-colors hover:bg-muted/40 sm:flex-row sm:items-center"
+      className={cn(
+        "card-lift flex flex-col gap-3 rounded-2xl border bg-card p-4 sm:flex-row sm:items-center",
+        available && "border-brand/25",
+      )}
     >
-      <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-muted text-muted-foreground">
-        <FileText className="size-4" aria-hidden />
+      <span
+        className={cn(
+          "flex size-10 shrink-0 items-center justify-center rounded-xl",
+          available
+            ? "bg-brand-soft text-brand"
+            : "bg-muted text-muted-foreground",
+        )}
+      >
+        <Icon className="size-4.5" aria-hidden />
       </span>
 
       <div className="min-w-0 flex-1">
         <div className="flex flex-wrap items-center gap-2">
-          <h3 className="font-heading text-sm font-medium">{item.name}</h3>
-          <Badge
-            variant="outline"
+          <h3 className="font-heading text-sm font-semibold">{item.name}</h3>
+          <span
             className={cn(
-              available
-                ? "border-brand/30 bg-brand/10 text-brand"
-                : "text-muted-foreground",
+              "rounded-full px-2 py-0.5 text-[11px] font-medium",
+              statusStyle[item.status],
             )}
           >
             {statusLabel[item.status]}
-          </Badge>
+          </span>
         </div>
 
-        <p className="mt-0.5 text-sm text-muted-foreground">
-          {item.description}
-        </p>
+        <p className="mt-1 text-sm text-muted-foreground">{item.description}</p>
 
-        <div className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted-foreground">
-          <span>{item.format}</span>
-          <span>Versi {item.version}</span>
-          <span>{item.size}</span>
+        <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted-foreground">
+          <span className="rounded-md bg-muted px-1.5 py-0.5 font-medium">
+            {item.format}
+          </span>
+          {item.version !== "—" && <span>Versi {item.version}</span>}
+          {item.size !== "—" && <span>{item.size}</span>}
           <span className="flex items-center gap-1">
             <Clock className="size-3" aria-hidden />
             {item.updatedAt}
@@ -72,20 +97,30 @@ export function DownloadCard({
       </div>
 
       {available ? (
-        <LinkButton
+        <a
           href={item.url!}
-          external
-          size="sm"
-          variant="outline"
-          className="shrink-0"
+          // Berkas lokal langsung diunduh; form dibuka di tab baru.
+          {...(isLocalFile
+            ? { download: "" }
+            : { target: "_blank", rel: "noopener noreferrer" })}
+          className="inline-flex h-8 shrink-0 items-center justify-center gap-1.5 rounded-lg bg-brand px-3 text-sm font-medium text-brand-foreground transition-colors hover:bg-brand/85"
         >
-          <Download aria-hidden />
-          Unduh
-        </LinkButton>
+          {isForm ? (
+            <>
+              <ExternalLink className="size-4" aria-hidden />
+              Buka form
+            </>
+          ) : (
+            <>
+              <Download className="size-4" aria-hidden />
+              Unduh
+            </>
+          )}
+        </a>
       ) : (
         <Button size="sm" variant="outline" className="shrink-0" disabled>
-          <Download aria-hidden />
-          Belum tersedia
+          <Hourglass aria-hidden />
+          Belum ada
         </Button>
       )}
     </div>

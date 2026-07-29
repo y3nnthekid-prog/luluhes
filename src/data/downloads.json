@@ -1,15 +1,15 @@
 [
   {
-    "id": "form-pengajuan-judul",
-    "name": "Formulir Pengajuan Judul Skripsi",
-    "description": "Formulir untuk mengajukan judul dan topik penelitian kepada Dosen PA dan Prodi.",
+    "id": "surat-persetujuan-proposal",
+    "name": "Surat Persetujuan Proposal Skripsi",
+    "description": "Surat pengajuan judul proposal kepada Ketua Prodi HES, ditandatangani kamu dan Dosen Pembimbing Akademik.",
     "stage": "pra-sempro",
-    "version": "—",
+    "version": "1.0",
     "format": "DOCX",
-    "size": "—",
-    "status": "menunggu-unggah",
+    "size": "19 KB",
+    "status": "tersedia",
     "updatedAt": "2026-07-29",
-    "url": null
+    "url": "/template/surat-persetujuan-proposal.docx"
   },
   {
     "id": "template-proposal",
@@ -26,7 +26,7 @@
   {
     "id": "kartu-konsultasi",
     "name": "Kartu Konsultasi Proposal",
-    "description": "Lembar bukti konsultasi proposal bersama Dosen Penasihat Akademik.",
+    "description": "Lembar bukti konsultasi proposal bersama Dosen Pembimbing Akademik.",
     "stage": "pra-sempro",
     "version": "—",
     "format": "PDF",
@@ -38,50 +38,38 @@
   {
     "id": "form-daftar-sempro",
     "name": "Formulir Pendaftaran Seminar Proposal",
-    "description": "Formulir pendaftaran proposal ke Prodi untuk diujikan dalam seminar proposal.",
+    "description": "Pendaftaran seminar proposal dilakukan lewat Google Form yang dibagikan Prodi setiap bulan. Lihat tautan pendaftaran di halaman tahapan.",
     "stage": "sempro",
     "version": "—",
-    "format": "DOCX",
+    "format": "Google Form",
     "size": "—",
-    "status": "menunggu-unggah",
+    "status": "perlu-verifikasi",
     "updatedAt": "2026-07-29",
-    "url": null
+    "url": "https://forms.gle/YMngHRqoEpDkH42b6"
   },
   {
-    "id": "template-slide-sempro",
-    "name": "Template Slide Seminar Proposal",
-    "description": "Kerangka presentasi 10–15 slide: latar belakang, rumusan masalah, kebaruan, dan metode.",
-    "stage": "sempro",
-    "version": "—",
-    "format": "PPTX",
-    "size": "—",
-    "status": "menunggu-unggah",
-    "updatedAt": "2026-07-29",
-    "url": null
-  },
-  {
-    "id": "lembar-revisi-sempro",
-    "name": "Lembar Revisi & Persetujuan Penguji Seminar Proposal",
-    "description": "Lembar catatan revisi penguji sekaligus bukti perbaikan proposal telah ditandatangani.",
+    "id": "lembar-pengesahan-proposal",
+    "name": "Lembar Pengesahan Proposal Skripsi",
+    "description": "Lembar pengesahan tim penguji proposal: ditandatangani Penguji I, Penguji II, dan Ketua Prodi HES.",
     "stage": "revisi-sempro",
-    "version": "—",
+    "version": "1.0",
     "format": "DOCX",
-    "size": "—",
-    "status": "menunggu-unggah",
+    "size": "8,8 KB",
+    "status": "tersedia",
     "updatedAt": "2026-07-29",
-    "url": null
+    "url": "/template/lembar-pengesahan-proposal.docx"
   },
   {
-    "id": "form-penunjukan-pembimbing",
-    "name": "Formulir Penunjukan Dosen Pembimbing",
-    "description": "Formulir usulan dan penetapan dosen pembimbing skripsi oleh Prodi.",
+    "id": "surat-pengajuan-dosen-pembimbing",
+    "name": "Surat Pengajuan Dosen Pembimbing",
+    "description": "Surat kepada Ketua Prodi untuk mengajukan tiga nama calon dosen pembimbing skripsi.",
     "stage": "revisi-sempro",
-    "version": "—",
+    "version": "1.0",
     "format": "DOCX",
-    "size": "—",
-    "status": "menunggu-unggah",
+    "size": "37 KB",
+    "status": "tersedia",
     "updatedAt": "2026-07-29",
-    "url": null
+    "url": "/template/surat-pengajuan-dosen-pembimbing.docx"
   },
   {
     "id": "kartu-bimbingan",
@@ -134,43 +122,55 @@
   {
     "id": "form-daftar-komprehensif",
     "name": "Formulir Pendaftaran Ujian Komprehensif",
-    "description": "Formulir pendaftaran ujian komprehensif beserta daftar lampiran yang diminta.",
+    "description": "Pendaftaran ujian komprehensif dilakukan lewat Google Form yang dibagikan Prodi setiap bulan.",
     "stage": "komprehensif",
     "version": "—",
-    "format": "DOCX",
-    "size": "—",
-    "status": "menunggu-unggah",
-    "updatedAt": "2026-07-29",
-    "url": null
-  },
-  {
-    "id": "kisi-kisi-komprehensif",
-    "name": "Kisi-Kisi Ujian Komprehensif",
-    "description": "Rangkuman cakupan ujian tulis, ujian lisan, dan ujian baca kitab.",
-    "stage": "komprehensif",
-    "version": "—",
-    "format": "PDF",
+    "format": "Google Form",
     "size": "—",
     "status": "perlu-verifikasi",
     "updatedAt": "2026-07-29",
-    "url": null
+    "url": "https://forms.gle/71uutfAEimsJ9UXS6"
+  },
+  {
+    "id": "materi-qiraatul-kutub",
+    "name": "Materi Ujian Qiraatul Kutub",
+    "description": "Materi resmi baca kitab Prodi HES: prinsip-prinsip umum muamalah dalam fiqh Islam, berbahasa Arab, 18 halaman.",
+    "stage": "komprehensif",
+    "version": "1441 H / 2020 M",
+    "format": "PDF",
+    "size": "543 KB",
+    "status": "tersedia",
+    "updatedAt": "2026-07-29",
+    "url": "/template/materi-qiraatul-kutub.pdf"
+  },
+  {
+    "id": "contoh-soal-komprehensif",
+    "name": "Contoh Soal Ujian Komprehensif",
+    "description": "Berkas soal ujian tulis komprehensif periode sebelumnya, lengkap dengan ketentuan pengerjaan. Berguna untuk mengenali pola soal.",
+    "stage": "komprehensif",
+    "version": "Des 2025",
+    "format": "DOCX",
+    "size": "43 KB",
+    "status": "tersedia",
+    "updatedAt": "2026-07-29",
+    "url": "/template/contoh-soal-komprehensif.docx"
   },
   {
     "id": "form-daftar-munaqosyah",
-    "name": "Formulir Pendaftaran Munaqosyah",
-    "description": "Formulir pendaftaran sidang munaqosyah beserta daftar lima berkas wajib.",
+    "name": "Formulir Pendaftaran Ujian Skripsi (Munaqosyah)",
+    "description": "Pendaftaran ujian skripsi dilakukan lewat Google Form yang dibagikan Prodi setiap bulan.",
     "stage": "munaqosyah",
     "version": "—",
-    "format": "DOCX",
+    "format": "Google Form",
     "size": "—",
-    "status": "menunggu-unggah",
+    "status": "perlu-verifikasi",
     "updatedAt": "2026-07-29",
-    "url": null
+    "url": "https://forms.gle/StCUL4XeMv5Ti4A8A"
   },
   {
     "id": "form-turnitin",
     "name": "Formulir Permohonan Cek Turnitin",
-    "description": "Permohonan pemeriksaan similarity ke Staff Perpustakaan FSH. Batas maksimal 30%.",
+    "description": "Permohonan pemeriksaan similarity ke Perpustakaan Fakultas. Maksimal 30% dan hasilnya wajib berstempel basah.",
     "stage": "munaqosyah",
     "version": "—",
     "format": "DOCX",
@@ -204,16 +204,16 @@
     "url": null
   },
   {
-    "id": "lembar-pengesahan",
-    "name": "Lembar Pengesahan Skripsi",
-    "description": "Lembar pengesahan yang ditandatangani penguji, pembimbing, dan pejabat fakultas.",
+    "id": "lembar-pengesahan-panitia-ujian-skripsi",
+    "name": "Lembar Pengesahan Panitia Ujian Skripsi",
+    "description": "Lembar pengesahan skripsi yang disahkan Dekan dan ditandatangani panitia munaqosyah: Ketua, Sekretaris, Pembimbing, Penguji I, dan Penguji II.",
     "stage": "revisi-munaqosyah",
-    "version": "—",
+    "version": "1.0",
     "format": "DOCX",
-    "size": "—",
-    "status": "menunggu-unggah",
+    "size": "11 KB",
+    "status": "tersedia",
     "updatedAt": "2026-07-29",
-    "url": null
+    "url": "/template/lembar-pengesahan-panitia-ujian-skripsi.docx"
   },
   {
     "id": "panduan-penjilidan",
@@ -262,6 +262,18 @@
     "status": "perlu-verifikasi",
     "updatedAt": "2026-07-29",
     "url": null
+  },
+  {
+    "id": "tanda-terima-penyerahan-skripsi",
+    "name": "Tanda Terima Penyerahan Skripsi",
+    "description": "Lembar tanda terima dengan enam tanda tangan: Pembimbing I dan II, Penguji I dan II, Perpustakaan UIN, dan Perpustakaan FSH. Disahkan Kabag TU Fakultas.",
+    "stage": "bebas-pustaka",
+    "version": "1.0",
+    "format": "DOCX",
+    "size": "94 KB",
+    "status": "tersedia",
+    "updatedAt": "2026-07-29",
+    "url": "/template/tanda-terima-penyerahan-skripsi.docx"
   },
   {
     "id": "form-bebas-pustaka",
