@@ -182,14 +182,14 @@
   {
     "id": "lembar-pernyataan-keaslian",
     "name": "Lembar Pernyataan Keaslian Karya",
-    "description": "Pernyataan keaslian karya, ditandatangani di atas meterai. Discan dan diletakkan pada halaman iv skripsi versi CD.",
+    "description": "Pernyataan bahwa skripsi adalah karya asli sendiri, memuat empat butir: keaslian karya, pencantuman sumber, tanggung jawab atas isi, dan kesediaan menerima sanksi. Isi nama, NIM, kota, dan tanggalnya, lalu tanda tangani di atas meterai. Discan dan diletakkan pada halaman iv skripsi versi CD.",
     "stage": "revisi-munaqosyah",
-    "version": "—",
+    "version": "1.0",
     "format": "DOCX",
-    "size": "—",
-    "status": "menunggu-unggah",
-    "updatedAt": "2026-07-29",
-    "url": null
+    "size": "16 KB",
+    "status": "tersedia",
+    "updatedAt": "2026-07-30",
+    "url": "/template/lembar-pernyataan-keaslian.docx"
   },
   {
     "id": "tanda-terima-penyerahan-skripsi",
