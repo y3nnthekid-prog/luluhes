@@ -24,6 +24,9 @@
 .DS_Store
 *.pem
 
+# berkas kunci sementara Word (muncul saat template dibuka)
+~$*
+
 # debug
 npm-debug.log*
 yarn-debug.log*

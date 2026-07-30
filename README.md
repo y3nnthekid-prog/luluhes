@@ -52,11 +52,37 @@ tipe tersebut lebih dulu.
 ### Dua cara menyajikan berkas
 
 **1. Dari dalam website (`public/template/`).** Tujuh dokumen resmi dari Prodi
-disimpan langsung di sini dan tombol unduhnya sudah aktif. Ini menyimpang dari
-rencana awal yang menyebut semua berkas ditaruh di Google Drive — dilakukan
-supaya Download Center langsung berguna tanpa menunggu proses unggah. Ukurannya
-kecil (total di bawah 1 MB). Kalau kamu lebih suka pola Drive-only, pindahkan
-filenya ke Drive lalu ganti `url`-nya.
+plus dua template penulisan buatan sendiri disimpan langsung di sini dan tombol
+unduhnya sudah aktif. Ini menyimpang dari rencana awal yang menyebut semua berkas
+ditaruh di Google Drive — dilakukan supaya Download Center langsung berguna tanpa
+menunggu proses unggah. Ukurannya kecil (total di bawah 1,5 MB). Kalau kamu lebih
+suka pola Drive-only, pindahkan filenya ke Drive lalu ganti `url`-nya.
+
+Dua berkas yang dibuat sendiri, bukan dokumen resmi Prodi:
+
+| Berkas | Isi |
+| --- | --- |
+| `template-proposal-skripsi.docx` | Kerangka proposal, sebelas komponen wajib menurut Pedoman FSH 2017 Bab II A |
+| `template-penulisan-skripsi.docx` | Kerangka naskah skripsi, sampul sampai lampiran, format menurut Pedoman FSH 2017 Bab III |
+
+Keduanya disetel pada kertas kuarto 21,5 × 28 cm, margin 4/3/4/3 cm, Times New
+Roman 12, spasi 1,5, dan dua skema penomoran halaman (Romawi kecil tengah bawah
+untuk bagian awal; angka Arab kanan atas untuk bagian isi, kecuali halaman
+berjudul bab yang nomornya di tengah bawah). Penomoran bab dan sub bab memakai
+daftar bertingkat bawaan Word — `BAB I` → `A.` → `1.` → `a.` → `1)` → `a)` —
+dengan satu instance daftar per bab supaya huruf `A.` kembali dari awal di setiap
+bab. Tidak ada nomor yang diketik tangan.
+
+Setiap bagian memuat blok petunjuk berisi penjelasan singkat apa yang seharusnya
+tertulis di sana beserta rujukan pasal pedomannya. Blok itu dimaksudkan untuk
+dihapus mahasiswa sebelum naskah diserahkan.
+
+Lembar persetujuan pembimbing, pengesahan panitia ujian, dan pernyataan keaslian
+**tidak** disertakan di dalam template. Berkasnya sudah ada tersendiri di folder
+ini dan baru digabungkan setelah skripsi selesai, jadi memasukkannya ke template
+hanya akan menggandakan dokumen yang sama. Karena bagian awal template memakai
+penomoran yang melanjutkan section sebelumnya, nomor halaman menyesuaikan sendiri
+begitu lembar-lembar itu disisipkan.
 
 **2. Dari Google Drive.** Untuk sisanya. Unggah file ke Drive, lalu:
 

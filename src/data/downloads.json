@@ -14,14 +14,14 @@
   {
     "id": "template-proposal",
     "name": "Template Proposal Skripsi",
-    "description": "Kerangka proposal: latar belakang, rumusan masalah, tinjauan pustaka, kerangka teori, dan metode penelitian.",
+    "description": "Kerangka proposal berisi sebelas komponen wajib menurut Pedoman Penulisan Skripsi FSH 2017, dari latar belakang sampai rancangan sistematika. Kertas kuarto, margin 4/3/4/3, Times New Roman 12, spasi 1,5, dan penomoran halaman sudah terpasang. Penomoran bagian A → 1. → a. dibuat Word sendiri, jadi menyisipkan bagian baru tidak membuatnya kacau. Setiap bagian disertai penjelasan singkat apa yang seharusnya tertulis di sana beserta rujukan pasal pedomannya.",
     "stage": "pra-sempro",
-    "version": "—",
+    "version": "1.1",
     "format": "DOCX",
-    "size": "—",
-    "status": "menunggu-unggah",
-    "updatedAt": "2026-07-29",
-    "url": null
+    "size": "191 KB",
+    "status": "tersedia",
+    "updatedAt": "2026-07-30",
+    "url": "/template/template-proposal-skripsi.docx"
   },
   {
     "id": "form-daftar-sempro",
@@ -62,14 +62,14 @@
   {
     "id": "template-skripsi",
     "name": "Template Penulisan Skripsi",
-    "description": "Format naskah skripsi lengkap: margin, penomoran, sistematika bab, dan gaya sitasi.",
+    "description": "Kerangka naskah skripsi dari sampul sampai lampiran, disetel sesuai Pedoman Penulisan Skripsi FSH 2017: kertas kuarto, margin 4/3/4/3, Times New Roman 12, spasi 1,5, nomor halaman Romawi di tengah bawah untuk bagian awal dan angka Arab di kanan atas untuk bagian isi, serta catatan kaki yang dimulai ulang tiap bab. Nomor bab dan sub bab dibuat Word sendiri. Lembar persetujuan, pengesahan, dan pernyataan keaslian tidak disertakan karena berkasnya terpisah di halaman ini — sisipkan setelah sampul saat skripsi sudah selesai.",
     "stage": "bimbingan",
-    "version": "—",
+    "version": "1.1",
     "format": "DOCX",
-    "size": "—",
-    "status": "menunggu-unggah",
-    "updatedAt": "2026-07-29",
-    "url": null
+    "size": "218 KB",
+    "status": "tersedia",
+    "updatedAt": "2026-07-30",
+    "url": "/template/template-penulisan-skripsi.docx"
   },
   {
     "id": "lembar-persetujuan-pembimbing",
