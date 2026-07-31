@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ExternalLink, ShieldCheck } from "lucide-react";
 
 import { Breadcrumb } from "@/components/breadcrumb";
+import { Reveal } from "@/components/reveal";
 import { ResetProgressButton } from "@/components/reset-progress-button";
 import { site } from "@/lib/data";
 
@@ -16,22 +17,22 @@ export default function TentangPage() {
     <div className="mx-auto max-w-3xl px-4 py-8">
       <Breadcrumb items={[{ label: "Tentang" }]} />
 
-      <header className="mt-4">
+      <Reveal as="section" className="mt-4">
         <h1 className="font-heading text-2xl font-semibold tracking-tight sm:text-3xl">
           {site.about.heading}
         </h1>
-      </header>
+      </Reveal>
 
-      <div className="mt-6 space-y-4">
+      <Reveal delay={80} className="mt-6 space-y-4">
         {site.about.paragraphs.map((paragraph) => (
           <p key={paragraph} className="text-muted-foreground text-pretty">
             {paragraph}
           </p>
         ))}
-      </div>
+      </Reveal>
 
       {/* Disclaimer */}
-      <section className="mt-12 rounded-xl border p-5">
+      <Reveal as="section" delay={120} className="mt-12 rounded-xl border p-5">
         <h2 className="font-heading text-base font-medium">
           {site.disclaimer.title}
         </h2>
@@ -49,7 +50,7 @@ export default function TentangPage() {
             </li>
           ))}
         </ul>
-      </section>
+      </Reveal>
 
       {/* Sumber resmi */}
       <section className="mt-8">

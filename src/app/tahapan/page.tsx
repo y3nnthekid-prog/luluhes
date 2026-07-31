@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ChevronRight, Clock } from "lucide-react";
 
 import { Breadcrumb } from "@/components/breadcrumb";
+import { Reveal } from "@/components/reveal";
 import { StageIcon } from "@/components/stage-icon";
 import { StageStatusDot } from "@/components/stage-status-dot";
 import { getStagesByPhase, phases, totalStages } from "@/lib/data";
@@ -20,7 +21,7 @@ export default function TahapanPage() {
     <div className="mx-auto max-w-5xl px-4 py-8">
       <Breadcrumb items={[{ label: "Tahapan" }]} />
 
-      <header className="mt-4">
+      <Reveal as="section" className="mt-4">
         <h1 className="font-heading text-3xl font-bold tracking-tight sm:text-4xl">
           Semua tahapan
         </h1>
@@ -30,15 +31,15 @@ export default function TahapanPage() {
           template.
         </p>
         <div className="journey-bar mt-6 h-2 w-full rounded-full" aria-hidden />
-      </header>
+      </Reveal>
 
       <div className="mt-10 space-y-12">
-        {phases.map((phase) => {
+        {phases.map((phase, iFase) => {
           const style = phaseStyle(phase);
           const inPhase = getStagesByPhase(phase);
 
           return (
-            <section key={phase}>
+            <Reveal as="section" key={phase} delay={iFase * 60}>
               <div className="flex flex-wrap items-center gap-2.5">
                 <span
                   className={cn(
@@ -103,7 +104,7 @@ export default function TahapanPage() {
                   </li>
                 ))}
               </ul>
-            </section>
+            </Reveal>
           );
         })}
       </div>

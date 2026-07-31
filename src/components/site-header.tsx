@@ -3,7 +3,17 @@
 import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Compass, Menu } from "lucide-react";
+import {
+  Compass,
+  FolderDown,
+  HelpCircle,
+  Info,
+  ListChecks,
+  Map,
+  Menu,
+  Sparkles,
+  X,
+} from "lucide-react";
 
 import { SearchDialog } from "@/components/search-dialog";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -20,12 +30,13 @@ import { useProgress } from "@/lib/progress";
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { href: "/", label: "Home" },
-  { href: "/roadmap", label: "Roadmap" },
-  { href: "/tahapan", label: "Tahapan" },
-  { href: "/download", label: "Download" },
-  { href: "/faq", label: "FAQ" },
-  { href: "/tentang", label: "Tentang" },
+  { href: "/", label: "Home", icon: Compass },
+  { href: "/roadmap", label: "Roadmap", icon: Map },
+  { href: "/tahapan", label: "Tahapan", icon: ListChecks },
+  { href: "/download", label: "Download", icon: FolderDown },
+  { href: "/main", label: "Main", icon: Sparkles },
+  { href: "/faq", label: "FAQ", icon: HelpCircle },
+  { href: "/tentang", label: "Tentang", icon: Info },
 ];
 
 function isActive(pathname: string, href: string) {
@@ -39,30 +50,47 @@ export function SiteHeader() {
   const { hydrated, overall } = useProgress();
 
   return (
-    <header className="sticky top-0 z-40 border-b bg-background/80 backdrop-blur-md">
-      <div className="mx-auto flex h-14 max-w-5xl items-center gap-3 px-4">
-        <Link href="/" className="flex items-center gap-2 font-medium">
-          <span className="flex size-7 items-center justify-center rounded-lg bg-brand text-brand-foreground">
-            <Compass className="size-4" aria-hidden />
+    <header className="sticky top-0 z-40 border-b bg-background/85 backdrop-blur-xl">
+      <div className="mx-auto flex h-16 max-w-5xl items-center gap-3 px-4">
+        <Link
+          href="/"
+          className="flex shrink-0 items-center gap-2 font-medium transition-transform hover:scale-[1.03]"
+        >
+          <span className="flex size-8 items-center justify-center rounded-xl bg-brand text-brand-foreground shadow-sm shadow-brand/30">
+            <Compass className="size-4.5" aria-hidden />
           </span>
-          <span className="font-heading">{site.name}</span>
+          <span className="font-heading text-base">{site.name}</span>
         </Link>
 
-        <nav className="ml-4 hidden items-center gap-1 md:flex">
-          {navItems.slice(1).map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={cn(
-                "rounded-lg px-2.5 py-1.5 text-sm transition-colors",
-                isActive(pathname, item.href)
-                  ? "bg-muted font-medium text-foreground"
-                  : "text-muted-foreground hover:text-foreground",
-              )}
-            >
-              {item.label}
-            </Link>
-          ))}
+        {/* Navigasi layar lebar. Tautannya diperbesar dan diberi garis bawah
+            yang melebar saat aktif, supaya halaman yang sedang dibuka kelihatan
+            tanpa perlu membaca. */}
+        <nav className="ml-3 hidden items-center gap-0.5 md:flex">
+          {navItems.slice(1).map((item) => {
+            const aktif = isActive(pathname, item.href);
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                aria-current={aktif ? "page" : undefined}
+                className={cn(
+                  "relative rounded-lg px-3 py-2 text-[0.95rem] transition-colors",
+                  aktif
+                    ? "font-semibold text-brand"
+                    : "text-muted-foreground hover:bg-brand-soft/70 hover:text-foreground",
+                )}
+              >
+                {item.label}
+                <span
+                  className={cn(
+                    "absolute inset-x-3 -bottom-0.5 h-0.5 rounded-full bg-brand transition-transform duration-300",
+                    aktif ? "scale-x-100" : "scale-x-0",
+                  )}
+                  aria-hidden
+                />
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="ml-auto flex items-center gap-1.5">
@@ -73,40 +101,69 @@ export function SiteHeader() {
             <SheetTrigger
               render={
                 <Button
-                  variant="ghost"
-                  size="icon-sm"
-                  className="md:hidden"
-                  aria-label="Buka menu"
+                  size="sm"
+                  className="gap-1.5 bg-brand px-3 text-brand-foreground shadow-sm shadow-brand/30 hover:bg-brand/90 md:hidden"
+                  aria-label={menuOpen ? "Tutup menu" : "Buka menu"}
                 />
               }
             >
               <Menu aria-hidden />
+              Menu
             </SheetTrigger>
-            <SheetContent side="right" className="w-72">
-              <SheetHeader>
-                <SheetTitle>Menu</SheetTitle>
+
+            <SheetContent side="right" className="w-[19rem]">
+              <SheetHeader className="flex-row items-center justify-between">
+                <SheetTitle className="text-lg">Menu</SheetTitle>
+                <Button
+                  variant="ghost"
+                  size="icon-sm"
+                  onClick={() => setMenuOpen(false)}
+                  aria-label="Tutup menu"
+                >
+                  <X aria-hidden />
+                </Button>
               </SheetHeader>
-              <nav className="flex flex-col gap-1 px-4">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    onClick={() => setMenuOpen(false)}
-                    className={cn(
-                      "rounded-lg px-3 py-2 text-sm transition-colors",
-                      isActive(pathname, item.href)
-                        ? "bg-muted font-medium"
-                        : "text-muted-foreground hover:bg-muted/60",
-                    )}
-                  >
-                    {item.label}
-                  </Link>
-                ))}
+
+              {/* Sasaran sentuh dibesarkan ke 48px dan diberi ikon. Versi
+                  sebelumnya berupa teks kecil satu warna, dan itu yang bikin
+                  menunya susah dilihat di layar ponsel. */}
+              <nav className="flex flex-col gap-1 px-3">
+                {navItems.map((item) => {
+                  const aktif = isActive(pathname, item.href);
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setMenuOpen(false)}
+                      aria-current={aktif ? "page" : undefined}
+                      className={cn(
+                        "flex min-h-12 items-center gap-3 rounded-xl px-3 text-base transition-colors",
+                        aktif
+                          ? "bg-brand text-brand-foreground font-semibold shadow-sm shadow-brand/25"
+                          : "text-foreground hover:bg-brand-soft",
+                      )}
+                    >
+                      <span
+                        className={cn(
+                          "flex size-8 items-center justify-center rounded-lg",
+                          aktif ? "bg-white/20" : "bg-brand-soft text-brand",
+                        )}
+                      >
+                        {React.createElement(item.icon, {
+                          className: "size-4",
+                          "aria-hidden": true,
+                        })}
+                      </span>
+                      {item.label}
+                    </Link>
+                  );
+                })}
               </nav>
+
               {hydrated && overall.done > 0 && (
-                <div className="mt-auto border-t px-4 py-4 text-sm text-muted-foreground">
+                <div className="mt-auto border-t px-5 py-4 text-sm text-muted-foreground">
                   Progres kamu:{" "}
-                  <span className="font-medium text-foreground">
+                  <span className="font-semibold text-brand">
                     {overall.percent}%
                   </span>{" "}
                   ({overall.done}/{overall.total} langkah)

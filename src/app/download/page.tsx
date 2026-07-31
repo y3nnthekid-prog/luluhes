@@ -3,6 +3,7 @@ import Link from "next/link";
 import { FolderDown, Info } from "lucide-react";
 
 import { Breadcrumb } from "@/components/breadcrumb";
+import { Reveal } from "@/components/reveal";
 import { DownloadCard } from "@/components/download-card";
 import { LinkButton } from "@/components/link-button";
 import { Button } from "@/components/ui/button";
@@ -26,7 +27,7 @@ export default function DownloadPage() {
     <div className="mx-auto max-w-5xl px-4 py-8">
       <Breadcrumb items={[{ label: "Download Center" }]} />
 
-      <header className="mt-4">
+      <Reveal as="section" className="mt-4">
         <h1 className="font-heading text-2xl font-semibold tracking-tight sm:text-3xl">
           Download Center
         </h1>
@@ -51,7 +52,7 @@ export default function DownloadPage() {
             Lihat roadmap
           </LinkButton>
         </div>
-      </header>
+      </Reveal>
 
       {/* Status file */}
       <div className="mt-8 flex gap-3 rounded-2xl border border-brand/25 bg-brand-soft p-4">

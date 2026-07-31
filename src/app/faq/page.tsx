@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { Breadcrumb } from "@/components/breadcrumb";
+import { Reveal } from "@/components/reveal";
 import {
   Accordion,
   AccordionContent,
@@ -23,7 +24,7 @@ export default function FaqPage() {
     <div className="mx-auto max-w-3xl px-4 py-8">
       <Breadcrumb items={[{ label: "FAQ" }]} />
 
-      <header className="mt-4">
+      <Reveal as="section" className="mt-4">
         <h1 className="font-heading text-2xl font-semibold tracking-tight sm:text-3xl">
           Pertanyaan yang sering muncul
         </h1>
@@ -31,9 +32,9 @@ export default function FaqPage() {
           Pertanyaan umum lebih dulu, lalu pertanyaan yang khusus muncul di tiap
           tahapan.
         </p>
-      </header>
+      </Reveal>
 
-      <section className="mt-10">
+      <Reveal as="section" delay={80} className="mt-10">
         <h2 className="font-heading text-sm font-medium tracking-wide text-muted-foreground uppercase">
           Umum
         </h2>
@@ -47,7 +48,7 @@ export default function FaqPage() {
             </AccordionItem>
           ))}
         </Accordion>
-      </section>
+      </Reveal>
 
       <div className="mt-12 space-y-10">
         {stagesWithFaq.map((stage) => (

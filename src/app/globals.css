@@ -66,29 +66,33 @@
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
+  /* Pink bukan sekadar aksen di atas netral abu — ia meresap ke setiap
+     permukaan. Latar, kartu, garis, dan bahkan teks redup semuanya bernada
+     plum, sehingga tidak ada satu pun bidang abu netral yang tersisa. */
+  --background: #fff6fb;
+  --foreground: #2a0716;
+  --card: #ffffff;
+  --card-foreground: #2a0716;
+  --popover: #ffffff;
+  --popover-foreground: #2a0716;
   --primary: #9c0f50;
   --primary-foreground: #ffffff;
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.49 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  --secondary: #fde6f1;
+  --secondary-foreground: #6d0d3a;
+  --muted: #fbe4ef;
+  /* Plum redup, bukan abu. Kontras 5.3:1 di atas --background. */
+  --muted-foreground: #7d5065;
+  --accent: #fde6f1;
+  --accent-foreground: #6d0d3a;
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
+  --border: #f6d3e4;
+  --input: #f2c9dd;
   --ring: #d63384;
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
+  --chart-1: #ffc2de;
+  --chart-2: #ff8ac4;
+  --chart-3: #ff4fa3;
+  --chart-4: #d1226f;
+  --chart-5: #9c0f50;
   --radius: 0.75rem;
 
   /* Palet pink. Magenta tua untuk aksi dan teks, pink terang untuk sorotan. */
@@ -115,34 +119,36 @@
   --phase-ujian-foreground: #3d0522;
   --phase-kelulusan: #9c0f50;
 
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar: #fff6fb;
+  --sidebar-foreground: #2a0716;
+  --sidebar-primary: #9c0f50;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #fde6f1;
+  --sidebar-accent-foreground: #6d0d3a;
+  --sidebar-border: #f6d3e4;
+  --sidebar-ring: #d63384;
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
+  /* Mode gelap tetap berona plum, bukan hitam netral. */
+  --background: #180510;
+  --foreground: #ffeef6;
+  --card: #260c1a;
+  --card-foreground: #ffeef6;
+  --popover: #260c1a;
+  --popover-foreground: #ffeef6;
   --primary: #ff8ac4;
   --primary-foreground: #3d0522;
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
+  --secondary: #321222;
+  --secondary-foreground: #ffeef6;
+  --muted: #321222;
+  /* Pink pucat teredam. Kontras 6.4:1 di atas --card. */
+  --muted-foreground: #cf9fb8;
+  --accent: #3a1628;
+  --accent-foreground: #ffeef6;
   --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
+  --border: #ff8ac41f;
+  --input: #ff8ac42e;
   --ring: #ff8ac4;
 
   /* Di latar gelap magenta tua tidak terbaca — dinaikkan terangnya. */
@@ -164,19 +170,19 @@
   --phase-ujian-foreground: #3d0522;
   --phase-kelulusan: #ff8ac4;
 
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --chart-1: #ffc2de;
+  --chart-2: #ff8ac4;
+  --chart-3: #ff4fa3;
+  --chart-4: #d1226f;
+  --chart-5: #9c0f50;
+  --sidebar: #260c1a;
+  --sidebar-foreground: #ffeef6;
+  --sidebar-primary: #ff8ac4;
+  --sidebar-primary-foreground: #3d0522;
+  --sidebar-accent: #3a1628;
+  --sidebar-accent-foreground: #ffeef6;
+  --sidebar-border: #ff8ac41f;
+  --sidebar-ring: #ff8ac4;
 }
 
 @layer base {
@@ -246,6 +252,129 @@
     box-shadow: 0 10px 24px -12px color-mix(in srgb, var(--brand) 38%, transparent);
   }
 
+  /* ---------------------------------------------------------------- */
+  /* Animasi                                                           */
+  /* ---------------------------------------------------------------- */
+
+  /*
+   * Muncul saat tergulir ke layar.
+   *
+   * Keadaan tersembunyinya sengaja dikunci di balik `.js-reveal` pada elemen
+   * <html>, yang dipasang skrip kecil di layout. Kalau JavaScript mati, gagal
+   * dimuat, atau IntersectionObserver tidak tersedia, aturan ini tidak pernah
+   * aktif dan isinya tampil apa adanya. Animasi tidak boleh sampai menyembunyikan
+   * isi website — itu kegagalan yang jauh lebih buruk daripada tampil datar.
+   */
+  .js-reveal [data-reveal] {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  .js-reveal [data-reveal][data-shown="true"] {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity 620ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 620ms cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  /* Aurora pink yang bergerak pelan di belakang hero. */
+  .aurora::before,
+  .aurora::after {
+    content: "";
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(56px);
+    pointer-events: none;
+    opacity: 0.75;
+  }
+  .aurora::before {
+    inset: -30% 40% 30% -20%;
+    background: radial-gradient(circle, var(--pop), transparent 68%);
+    animation: aurora-a 17s ease-in-out infinite;
+  }
+  .aurora::after {
+    inset: 25% -25% -35% 45%;
+    background: radial-gradient(circle, #ffe1ef, transparent 66%);
+    animation: aurora-b 21s ease-in-out infinite;
+  }
+
+  @keyframes aurora-a {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+    50% { transform: translate3d(14%, 10%, 0) scale(1.18); }
+  }
+  @keyframes aurora-b {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1.05); }
+    50% { transform: translate3d(-12%, -12%, 0) scale(0.9); }
+  }
+
+  /* Kata judul yang naik satu per satu. */
+  .word-rise {
+    display: inline-block;
+    animation: word-rise 760ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  @keyframes word-rise {
+    from { opacity: 0; transform: translateY(0.5em) rotate(2deg); }
+    to { opacity: 1; transform: none; }
+  }
+
+  /* Garis perjalanan yang menggambar dirinya sendiri. */
+  .draw-line {
+    stroke-dasharray: var(--len, 1000);
+    stroke-dashoffset: var(--len, 1000);
+    animation: draw 2.4s cubic-bezier(0.65, 0, 0.35, 1) 320ms forwards;
+  }
+  @keyframes draw {
+    to { stroke-dashoffset: 0; }
+  }
+
+  /* Ikon tahap yang mengambang pelan, tiap ikon beda ritme. */
+  .float-soft {
+    animation: float-soft var(--dur, 6s) ease-in-out var(--delay, 0s) infinite;
+  }
+  @keyframes float-soft {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-7px); }
+  }
+
+  /* Denyut lembut untuk penanda posisi sekarang. */
+  .pulse-ring::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--pop) 62%, transparent);
+    animation: pulse-ring 2.4s ease-out infinite;
+  }
+  @keyframes pulse-ring {
+    to { box-shadow: 0 0 0 14px transparent; }
+  }
+
+  /* Goyangan singkat untuk jawaban yang keliru. */
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-5px); }
+    40% { transform: translateX(5px); }
+    60% { transform: translateX(-3px); }
+    80% { transform: translateX(3px); }
+  }
+
+  /* Kilau yang menyapu sekali saat kartu jawaban benar. */
+  .sheen {
+    background-image: linear-gradient(
+      100deg,
+      transparent 30%,
+      color-mix(in srgb, #ffffff 70%, transparent) 48%,
+      transparent 66%
+    );
+    background-size: 260% 100%;
+    animation: sheen 900ms ease-out;
+  }
+  @keyframes sheen {
+    from { background-position: 180% 0; }
+    to { background-position: -60% 0; }
+  }
+
   /* Butiran halus agar bidang warna besar tidak terasa datar. */
   .grain::after {
     content: "";
@@ -258,16 +387,45 @@
   }
 }
 
+/*
+ * Hormati pengguna yang meminta gerak dikurangi.
+ *
+ * Semua isi tetap tampil penuh — yang dimatikan hanya geraknya. Ini bukan
+ * versi seadanya, melainkan versi yang sama tanpa animasi.
+ */
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   .card-lift,
   .card-lift:hover {
     transition: none;
     transform: none;
   }
-}
 
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
+  .js-reveal [data-reveal],
+  .js-reveal [data-reveal][data-shown="true"] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .aurora::before,
+  .aurora::after,
+  .word-rise,
+  .draw-line,
+  .float-soft,
+  .pulse-ring::after,
+  .sheen {
+    animation: none;
+  }
+
+  .word-rise {
+    opacity: 1;
+  }
+
+  .draw-line {
+    stroke-dashoffset: 0;
   }
 }

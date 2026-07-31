@@ -49,6 +49,19 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+        {/*
+          Menyalakan animasi muncul-saat-tergulir. Keadaan tersembunyinya di CSS
+          dikunci di balik kelas ini, jadi kalau JavaScript mati atau gagal
+          dimuat, seluruh isi website tetap tampil apa adanya. Dijalankan di
+          <head> supaya tidak ada kedipan sebelum gaya sempat berlaku.
+        */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `document.documentElement.classList.add('js-reveal')`,
+          }}
+        />
+      </head>
       <body className="flex min-h-full flex-col">
         <Providers>
           <a

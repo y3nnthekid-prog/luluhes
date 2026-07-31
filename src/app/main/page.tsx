@@ -1,0 +1,88 @@
+import type { Metadata } from "next";
+import { Gamepad2, ListOrdered, Puzzle } from "lucide-react";
+
+import { Breadcrumb } from "@/components/breadcrumb";
+import { TebakTahap } from "@/components/games/tebak-tahap";
+import { UrutkanAlur } from "@/components/games/urutkan-alur";
+import { Reveal } from "@/components/reveal";
+import { bankSoal } from "@/lib/games";
+import { totalStages } from "@/lib/data";
+
+export const metadata: Metadata = {
+  title: "Ruang Main",
+  description:
+    "Dua mini game untuk menguji hafalan alur kelulusan HES: menyusun urutan tahapan dan menebak asal sebuah syarat.",
+};
+
+export default function MainPage() {
+  return (
+    <div className="mx-auto max-w-3xl px-4 py-8">
+      <Breadcrumb items={[{ label: "Ruang Main" }]} />
+
+      <Reveal>
+        <div className="mt-4 flex items-center gap-3">
+          <span className="flex size-11 items-center justify-center rounded-2xl bg-brand text-brand-foreground shadow-sm shadow-brand/30">
+            <Gamepad2 className="size-5.5" aria-hidden />
+          </span>
+          <div>
+            <h1 className="font-heading text-2xl font-bold sm:text-3xl">
+              Ruang Main
+            </h1>
+            <p className="text-sm text-muted-foreground">
+              Cara paling cepat tahu bagian mana yang belum kamu hafal.
+            </p>
+          </div>
+        </div>
+
+        <p className="mt-4 max-w-2xl text-sm text-muted-foreground">
+          Kedua permainan ini merakit soalnya dari data yang sama dengan halaman
+          tahapan — {totalStages} tahap dan {bankSoal.length} potongan syarat,
+          dokumen, serta peringatan. Jadi kalau kamu menang di sini, kamu memang
+          hafal alurnya, bukan hafal soalnya.
+        </p>
+      </Reveal>
+
+      <Reveal delay={90} as="section" className="mt-10">
+        <div className="flex items-center gap-2.5">
+          <span className="flex size-9 items-center justify-center rounded-xl bg-blush text-blush-foreground">
+            <ListOrdered className="size-4.5" aria-hidden />
+          </span>
+          <div>
+            <h2 className="font-heading text-lg font-semibold">Susun Alur</h2>
+            <p className="text-xs text-muted-foreground">
+              Urutkan {totalStages} tahap dari awal sampai ijazah
+            </p>
+          </div>
+        </div>
+        <div className="mt-4">
+          <UrutkanAlur />
+        </div>
+      </Reveal>
+
+      <Reveal delay={90} as="section" className="mt-12 border-t pt-10">
+        <div className="flex items-center gap-2.5">
+          <span className="flex size-9 items-center justify-center rounded-xl bg-blush text-blush-foreground">
+            <Puzzle className="size-4.5" aria-hidden />
+          </span>
+          <div>
+            <h2 className="font-heading text-lg font-semibold">Tebak Tahap</h2>
+            <p className="text-xs text-muted-foreground">
+              Delapan potongan acak, tebak asalnya
+            </p>
+          </div>
+        </div>
+        <div className="mt-4">
+          <TebakTahap />
+        </div>
+      </Reveal>
+
+      <Reveal delay={120}>
+        <p className="mt-10 rounded-xl border bg-muted/50 p-3 text-xs text-muted-foreground">
+          Skor di sini tidak disimpan ke mana pun dan tidak dikirim ke server.
+          Begitu halaman ditutup, hitungannya hilang — permainan ini untuk
+          latihan, bukan penilaian.
+        </p>
+      </Reveal>
+    </div>
+  );
+}
