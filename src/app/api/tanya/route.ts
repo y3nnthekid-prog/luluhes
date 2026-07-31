@@ -11,7 +11,7 @@ import {
   claimBudget,
   refundBudget,
 } from "@/lib/ai/guard";
-import type { Answer } from "@/lib/assistant";
+import type { Answer, Jawaban } from "@/lib/assistant";
 
 export const runtime = "nodejs";
 
@@ -23,9 +23,6 @@ const MAX_OUTPUT_TOKENS = 400;
 
 const MAX_QUESTION_CHARS = 300;
 
-const NOT_FOUND_TEXT =
-  "Maaf, aku belum punya jawabannya. Aku hanya menjawab dari data yang ada di website ini dan tidak mau menebak untuk urusan administrasi. Coba tanyakan dengan kata lain, atau tanyakan langsung ke Sekretaris Program Studi.";
-
 /** Bentuk jawaban yang dikirim ke panel chat. */
 type Reply = {
   text: string;
@@ -36,6 +33,8 @@ type Reply = {
     "id" | "kind" | "title" | "href" | "hrefLabel" | "source"
   >;
   related?: { id: string; title: string }[];
+  /** Topik terdekat yang bisa dicoba, saat pertanyaannya tidak ketemu. */
+  saran?: string[];
 };
 
 function slim(answer: Answer): NonNullable<Reply["answer"]> {
@@ -46,6 +45,17 @@ function slim(answer: Answer): NonNullable<Reply["answer"]> {
     href: answer.href,
     hrefLabel: answer.hrefLabel,
     source: answer.source,
+  };
+}
+
+/** Menjadikan jawaban rakitan mesin pencari sebagai balasan siap kirim. */
+function dariData(jawaban: Jawaban, via: Reply["via"] = "data"): Reply {
+  return {
+    text: jawaban.teks,
+    via,
+    answer: jawaban.utama ? slim(jawaban.utama) : undefined,
+    related: jawaban.terkait,
+    saran: jawaban.saran,
   };
 }
 
@@ -91,28 +101,19 @@ export async function POST(request: Request) {
   const plan = planAnswer(question);
 
   if (plan.route === "tidak-tahu") {
-    const reply: Reply = { text: NOT_FOUND_TEXT, via: "tidak-tahu" };
+    const reply = dariData(plan.jawaban, "tidak-tahu");
     cacheSet(key, reply);
     return json(reply);
   }
 
   if (plan.route === "langsung") {
-    const reply: Reply = {
-      text: plan.answer.body,
-      via: "data",
-      answer: slim(plan.answer),
-    };
+    const reply = dariData(plan.jawaban);
     cacheSet(key, reply);
     return json(reply);
   }
 
-  // 5. Perlu model. Kalau tidak tersedia, sajikan potongan terbaik apa adanya.
-  const fallback: Reply = {
-    text: plan.snippets[0].body,
-    via: "data",
-    answer: slim(plan.snippets[0]),
-    related: plan.snippets.slice(1, 3).map((s) => ({ id: s.id, title: s.title })),
-  };
+  // 5. Perlu model. Kalau tidak tersedia, sajikan rakitan mesin pencari.
+  const fallback = dariData(plan.cadangan);
 
   const apiKey = process.env.ANTHROPIC_API_KEY;
   if (!apiKey) return json(fallback);
@@ -148,12 +149,7 @@ export async function POST(request: Request) {
 
     if (!text) return json(fallback);
 
-    const reply: Reply = {
-      text,
-      via: "model",
-      answer: slim(plan.snippets[0]),
-      related: plan.snippets.slice(1, 3).map((s) => ({ id: s.id, title: s.title })),
-    };
+    const reply: Reply = { ...fallback, text, via: "model" };
     cacheSet(key, reply);
     return json(reply);
   } catch {

@@ -6,7 +6,7 @@ import { ArrowRight, MessageCircle, Send, Sparkles, X } from "lucide-react";
 
 import { SourceBadge } from "@/components/source-badge";
 import { Button } from "@/components/ui/button";
-import { findAnswers, starterQuestions, type Answer } from "@/lib/assistant";
+import { starterQuestions, susunJawaban, type Answer } from "@/lib/assistant";
 import { cn } from "@/lib/utils";
 
 /** Rujukan halaman sumber yang ditempelkan di bawah jawaban. */
@@ -14,21 +14,20 @@ type Cite = Pick<Answer, "id" | "kind" | "title" | "href" | "hrefLabel" | "sourc
 
 type Related = { id: string; title: string };
 
-type Message =
-  | { id: string; role: "user"; text: string }
-  | {
-      id: string;
-      role: "bot";
-      text: string;
-      answer?: Cite;
-      related?: Related[];
-    };
-
-type ApiReply = {
+type Balasan = {
   text: string;
-  via: "cache" | "data" | "model" | "tidak-tahu";
   answer?: Cite;
   related?: Related[];
+  /** Topik terdekat saat pertanyaannya tidak ketemu. */
+  saran?: string[];
+};
+
+type Message =
+  | { id: string; role: "user"; text: string }
+  | ({ id: string; role: "bot" } & Balasan);
+
+type ApiReply = Balasan & {
+  via: "cache" | "data" | "model" | "tidak-tahu";
 };
 
 const greeting: Message = {
@@ -37,30 +36,35 @@ const greeting: Message = {
   text: "Halo! Tanya apa saja soal alur kelulusan HES. Aku menjawab dari data yang ada di website ini — kalau aku tidak tahu, aku bilang tidak tahu.",
 };
 
-const NOT_FOUND_TEXT =
-  "Maaf, aku belum punya jawabannya. Aku hanya menjawab dari data yang ada di website ini, dan tidak mau menebak untuk urusan administrasi. Coba tanyakan dengan kata lain, atau tanyakan langsung ke Sekretaris Prodi.";
-
 let counter = 0;
 const nextId = () => `m${++counter}`;
 
 /**
  * Jawaban cadangan yang dihitung di browser.
  *
- * Dipakai kalau route server tidak bisa dihubungi. Mesin pencarinya sama
+ * Dipakai kalau route server tidak bisa dihubungi. Penyusunnya sama persis
  * dengan yang dipakai server, jadi asisten tetap menjawab benar walau tanpa
  * jaringan — hanya kalimatnya apa adanya, tidak dirapikan model.
  */
-function localAnswer(question: string): Omit<Message & { role: "bot" }, "id" | "role"> {
-  const results = findAnswers(question, 3);
-  if (results.length === 0) return { text: NOT_FOUND_TEXT };
-
-  const [best, ...rest] = results;
+function localAnswer(question: string): Balasan {
+  const jawaban = susunJawaban(question);
   return {
-    text: best.answer.body,
-    answer: best.answer,
-    related: rest.map((r) => ({ id: r.answer.id, title: r.answer.title })),
+    text: jawaban.teks,
+    answer: jawaban.utama,
+    related: jawaban.terkait,
+    saran: jawaban.saran,
   };
 }
+
+/**
+ * Pertanyaan sambungan yang tidak menyebut topiknya sama sekali.
+ *
+ * Diketik orang yang sedang membaca jawaban sebelumnya, jadi rujukannya ada
+ * di layar, bukan di kalimatnya. Tanpa penanganan ini "terus?" selalu berakhir
+ * dengan "aku belum punya jawabannya".
+ */
+const POLA_SAMBUNGAN =
+  /^(terus|trus|lalu|habis itu|abis itu|setelah itu|sesudah itu|next|lanjut|lanjutnya|terus apa|abis gitu)\s*\??$/;
 
 export function Assistant() {
   const [open, setOpen] = React.useState(false);
@@ -70,6 +74,8 @@ export function Assistant() {
 
   const listRef = React.useRef<HTMLDivElement>(null);
   const inputRef = React.useRef<HTMLInputElement>(null);
+  /** Judul entri terakhir yang dijawab, untuk menyambung "terus?". */
+  const terakhirRef = React.useRef<string | null>(null);
 
   // Gulirkan ke pesan terbaru setiap kali percakapan bertambah.
   React.useEffect(() => {
@@ -90,12 +96,20 @@ export function Assistant() {
       setPending(true);
       inputRef.current?.focus();
 
-      let reply: Omit<Message & { role: "bot" }, "id" | "role">;
+      // Pertanyaan sambungan dilengkapi dulu dengan topik yang barusan
+      // dibahas, supaya mesin punya bahan untuk dicari.
+      const sebelumnya = terakhirRef.current;
+      const dikirim =
+        sebelumnya && POLA_SAMBUNGAN.test(trimmed.toLowerCase())
+          ? `Setelah ${sebelumnya}, apa langkah berikutnya?`
+          : trimmed;
+
+      let reply: Balasan;
       try {
         const response = await fetch("/api/tanya", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ question: trimmed }),
+          body: JSON.stringify({ question: dikirim }),
         });
 
         if (response.status === 429) {
@@ -106,19 +120,22 @@ export function Assistant() {
               "Terlalu banyak pertanyaan dalam waktu singkat. Coba lagi sebentar lagi.",
           };
         } else if (!response.ok) {
-          reply = localAnswer(trimmed);
+          reply = localAnswer(dikirim);
         } else {
           const body = (await response.json()) as ApiReply;
           reply = {
             text: body.text,
             answer: body.answer,
             related: body.related,
+            saran: body.saran,
           };
         }
       } catch {
         // Jaringan putus atau route belum ada — hitung sendiri di browser.
-        reply = localAnswer(trimmed);
+        reply = localAnswer(dikirim);
       }
+
+      if (reply.answer) terakhirRef.current = reply.answer.title;
 
       setMessages((prev) => [...prev, { id: nextId(), role: "bot", ...reply }]);
       setPending(false);
@@ -254,6 +271,26 @@ export function Assistant() {
                           {rel.title}
                         </button>
                       ))}
+                    </div>
+                  )}
+
+                  {message.saran && message.saran.length > 0 && (
+                    <div className="mt-2">
+                      <p className="mb-1.5 text-xs text-muted-foreground">
+                        Mungkin yang kamu cari:
+                      </p>
+                      <div className="flex flex-wrap gap-1.5">
+                        {message.saran.map((s) => (
+                          <button
+                            key={s}
+                            type="button"
+                            onClick={() => ask(s)}
+                            className="rounded-full border border-brand/25 bg-brand-soft px-2.5 py-1 text-left text-xs font-medium text-brand transition-colors hover:bg-brand/12"
+                          >
+                            {s}
+                          </button>
+                        ))}
+                      </div>
                     </div>
                   )}
                 </div>

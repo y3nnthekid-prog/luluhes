@@ -150,21 +150,66 @@ website ini. Ada dua lapis: mesin pencari berbasis aturan di
 
 ### Mesin pencarinya
 
-Pertanyaan dipecah menjadi kelompok istilah — satu singkatan beserta ekspansinya
+Pertanyaan dipecah menjadi kelompok istilah — satu singkatan beserta bentangannya
 dihitung sebagai **satu** konsep — lalu dicocokkan ke basis pengetahuan yang
 dibangun otomatis dari seluruh JSON: FAQ, tahapan, syarat, dokumen, langkah,
-tenggat, tips, template, jadwal ujian, dan nomenklatur SKPI. Total 211 entri.
+tenggat, tips, template, jadwal ujian, dan nomenklatur SKPI. Sekitar 230 entri.
 
-Tiga aturan yang menjaganya tidak asal menjawab:
+Yang dipahaminya, di luar kata kunci lurus:
+
+| Kemampuan | Contoh |
+| --- | --- |
+| Salah ketik | "turnitn", "yudisum", "komprehensip", "propsal" |
+| Singkatan dan bahasa gaul | "kompre", "dosbing", "ttd", "kpn sempro dibuka" |
+| Imbuhan akhir | "pendaftarannya", "ujiannya", "syaratnya" |
+| Maksud pertanyaan | "kapan …" mengutamakan Jadwal, "dokumen apa …" mengutamakan Dokumen |
+| Urutan tahap | "habis sidang ngapain", "sebelum sempro harus apa" |
+| Pertanyaan sambungan | "terus?" menyambung ke topik yang barusan dijawab |
+
+Enam aturan yang menjaganya tidak asal menjawab:
 
 1. **Pencocokan per kata, bukan substring.** "kopi" tidak boleh cocok dengan
    "fotokopi".
-2. **Harus ada kecocokan di judul, atau minimal dua kecocokan.** Satu kata umum
+2. **Tiga tingkat keyakinan.** Ejaan persis bernilai penuh, bentangan singkatan
+   0,6, tebakan salah ketik 0,45.
+3. **Bentangan singkatan berupa frasa harus cocok seluruhnya.** "SKPI" menjadi
+   "surat keterangan pendamping ijazah"; entri yang cuma menyebut "ijazah"
+   tidak boleh dianggap menjawab pertanyaan tentang SKPI.
+4. **Tebakan salah ketik tidak pernah berdiri sendiri.** Harus ada kecocokan
+   lain yang bukan tebakan, atau kecocokan itu ada di judul.
+5. **Harus ada kecocokan di judul, atau minimal dua kecocokan.** Satu kata umum
    yang kebetulan muncul di badan teks tidak cukup.
-3. **Cakupan minimal 40%** dari kelompok istilah pertanyaan.
+6. **Cakupan minimal 40%** dari kelompok istilah pertanyaan.
+
+Pembetulan salah ketik sengaja dibuat pelit — huruf pertama wajib sama, selisih
+panjang dibatasi, kata di bawah lima huruf tidak dibetulkan sama sekali.
+Pembetulan yang murah hati membuat pertanyaan di luar topik ikut terjawab, dan
+itu kesalahan yang paling merugikan di sini.
 
 Menambah pengetahuan berarti menambah data di `src/data` — basis pengetahuannya
 ikut terbarui sendiri. Untuk menambah singkatan baru, isi peta `aliases`.
+
+### Mengukur mutunya
+
+```bash
+npm test
+```
+
+`src/lib/assistant.test.ts` berisi 64 pertanyaan berlabel yang ditulis meniru
+cara mahasiswa benar-benar mengetik, dibagi enam kelompok: pertanyaan langsung,
+salah ketik, singkatan, maksud tersirat, urutan tahap, dan di luar topik.
+
+Dua kelompok terakhir yang paling penting:
+
+- **Di luar topik tapi memakai kata pemicu** — "syarat bikin sim c", "download
+  film gratis", "jadwal kereta jakarta bandung". Memakai kata yang sama dengan
+  pertanyaan sah, tetapi wajib **ditolak**.
+- **Uji lepas** — ditulis setelah mesinnya selesai disetel dan tidak dipakai
+  menyetel, supaya ketahuan kalau perbaikannya cuma hafalan.
+
+Skor saat ini **64/64**. Sebelum perbaikan: 31/46. Kalau menyentuh mesinnya,
+jalankan tes ini dulu — beberapa aturan di sana dipasang justru karena satu
+perbaikan sempat merusak jawaban yang tadinya sudah benar.
 
 ### Empat jalur jawaban
 
@@ -184,6 +229,13 @@ juga jalur termurah.
 
 Diuji dengan 16 pertanyaan campuran: 3 dijawab langsung, 3 ditolak, 10 ke model.
 **37% pertanyaan tidak berbiaya sama sekali.**
+
+Jalur `langsung` dan `tidak-tahu` tidak sekadar mengembalikan potongan data
+mentah. `susunJawaban` di `src/lib/assistant.ts` merangkainya: isi entri yang
+paling cocok, ditutup satu baris "Setelah ini: Tahap N — …" bila entrinya
+berasal dari sebuah tahap, ditambah dua topik terkait yang judulnya dipastikan
+tidak kembar. Kalau tidak ada yang cocok sama sekali, penolakannya disertai
+tawaran topik terdekat, bukan jalan buntu.
 
 ### Kenapa retrieval, bukan seluruh data
 

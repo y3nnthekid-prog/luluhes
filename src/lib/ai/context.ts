@@ -1,4 +1,9 @@
-import { findAnswers, type Answer } from "@/lib/assistant";
+import {
+  findAnswers,
+  susunJawaban,
+  type Answer,
+  type Jawaban,
+} from "@/lib/assistant";
 import { site } from "@/lib/data";
 
 /**
@@ -30,11 +35,11 @@ const DIRECT_ANSWER_KINDS = new Set(["FAQ", "Tenggat"]);
 
 export type Plan =
   /** Jawab langsung dari data. Tanpa biaya. */
-  | { route: "langsung"; answer: Answer }
+  | { route: "langsung"; jawaban: Jawaban }
   /** Perlu model untuk merangkai jawaban dari potongan-potongan ini. */
-  | { route: "model"; snippets: Answer[]; context: string }
+  | { route: "model"; snippets: Answer[]; context: string; cadangan: Jawaban }
   /** Tidak ada bahan sama sekali — jangan panggil model. */
-  | { route: "tidak-tahu" };
+  | { route: "tidak-tahu"; jawaban: Jawaban };
 
 function trim(text: string): string {
   const clean = text.replace(/\s+/g, " ").trim();
@@ -54,7 +59,9 @@ function trim(text: string): string {
  */
 export function planAnswer(question: string): Plan {
   const results = findAnswers(question, MAX_SNIPPETS);
-  if (results.length === 0) return { route: "tidak-tahu" };
+  const jawaban = susunJawaban(question);
+
+  if (results.length === 0) return { route: "tidak-tahu", jawaban };
 
   const [best, second] = results;
   const clearWinner = !second || best.score >= second.score * 1.6;
@@ -64,7 +71,7 @@ export function planAnswer(question: string): Plan {
     best.score >= DIRECT_ANSWER_SCORE &&
     DIRECT_ANSWER_KINDS.has(best.answer.kind)
   ) {
-    return { route: "langsung", answer: best.answer };
+    return { route: "langsung", jawaban };
   }
 
   const snippets = results.map((r) => r.answer);
@@ -75,7 +82,7 @@ export function planAnswer(question: string): Plan {
     })
     .join("\n\n");
 
-  return { route: "model", snippets, context };
+  return { route: "model", snippets, context, cadangan: jawaban };
 }
 
 /**
