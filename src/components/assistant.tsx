@@ -9,15 +9,27 @@ import { Button } from "@/components/ui/button";
 import { findAnswers, starterQuestions, type Answer } from "@/lib/assistant";
 import { cn } from "@/lib/utils";
 
+/** Rujukan halaman sumber yang ditempelkan di bawah jawaban. */
+type Cite = Pick<Answer, "id" | "kind" | "title" | "href" | "hrefLabel" | "source">;
+
+type Related = { id: string; title: string };
+
 type Message =
   | { id: string; role: "user"; text: string }
   | {
       id: string;
       role: "bot";
       text: string;
-      answer?: Answer;
-      related?: Answer[];
+      answer?: Cite;
+      related?: Related[];
     };
+
+type ApiReply = {
+  text: string;
+  via: "cache" | "data" | "model" | "tidak-tahu";
+  answer?: Cite;
+  related?: Related[];
+};
 
 const greeting: Message = {
   id: "greet",
@@ -25,27 +37,28 @@ const greeting: Message = {
   text: "Halo! Tanya apa saja soal alur kelulusan HES. Aku menjawab dari data yang ada di website ini — kalau aku tidak tahu, aku bilang tidak tahu.",
 };
 
+const NOT_FOUND_TEXT =
+  "Maaf, aku belum punya jawabannya. Aku hanya menjawab dari data yang ada di website ini, dan tidak mau menebak untuk urusan administrasi. Coba tanyakan dengan kata lain, atau tanyakan langsung ke Sekretaris Prodi.";
+
 let counter = 0;
 const nextId = () => `m${++counter}`;
 
-function answerFor(question: string): Message {
+/**
+ * Jawaban cadangan yang dihitung di browser.
+ *
+ * Dipakai kalau route server tidak bisa dihubungi. Mesin pencarinya sama
+ * dengan yang dipakai server, jadi asisten tetap menjawab benar walau tanpa
+ * jaringan — hanya kalimatnya apa adanya, tidak dirapikan model.
+ */
+function localAnswer(question: string): Omit<Message & { role: "bot" }, "id" | "role"> {
   const results = findAnswers(question, 3);
-
-  if (results.length === 0) {
-    return {
-      id: nextId(),
-      role: "bot",
-      text: "Maaf, aku belum punya jawabannya. Aku hanya menjawab dari data yang ada di website ini, dan tidak mau menebak untuk urusan administrasi. Coba tanyakan dengan kata lain, atau tanyakan langsung ke Sekretaris Prodi.",
-    };
-  }
+  if (results.length === 0) return { text: NOT_FOUND_TEXT };
 
   const [best, ...rest] = results;
   return {
-    id: nextId(),
-    role: "bot",
     text: best.answer.body,
     answer: best.answer,
-    related: rest.map((r) => r.answer),
+    related: rest.map((r) => ({ id: r.answer.id, title: r.answer.title })),
   };
 }
 
@@ -53,6 +66,7 @@ export function Assistant() {
   const [open, setOpen] = React.useState(false);
   const [input, setInput] = React.useState("");
   const [messages, setMessages] = React.useState<Message[]>([greeting]);
+  const [pending, setPending] = React.useState(false);
 
   const listRef = React.useRef<HTMLDivElement>(null);
   const inputRef = React.useRef<HTMLInputElement>(null);
@@ -61,19 +75,56 @@ export function Assistant() {
   React.useEffect(() => {
     const list = listRef.current;
     if (list) list.scrollTop = list.scrollHeight;
-  }, [messages, open]);
+  }, [messages, open, pending]);
 
-  function ask(question: string) {
-    const trimmed = question.trim();
-    if (!trimmed) return;
-    setMessages((prev) => [
-      ...prev,
-      { id: nextId(), role: "user", text: trimmed },
-      answerFor(trimmed),
-    ]);
-    setInput("");
-    inputRef.current?.focus();
-  }
+  const ask = React.useCallback(
+    async (question: string) => {
+      const trimmed = question.trim();
+      if (!trimmed || pending) return;
+
+      setMessages((prev) => [
+        ...prev,
+        { id: nextId(), role: "user", text: trimmed },
+      ]);
+      setInput("");
+      setPending(true);
+      inputRef.current?.focus();
+
+      let reply: Omit<Message & { role: "bot" }, "id" | "role">;
+      try {
+        const response = await fetch("/api/tanya", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ question: trimmed }),
+        });
+
+        if (response.status === 429) {
+          const body = (await response.json()) as { error?: string };
+          reply = {
+            text:
+              body.error ??
+              "Terlalu banyak pertanyaan dalam waktu singkat. Coba lagi sebentar lagi.",
+          };
+        } else if (!response.ok) {
+          reply = localAnswer(trimmed);
+        } else {
+          const body = (await response.json()) as ApiReply;
+          reply = {
+            text: body.text,
+            answer: body.answer,
+            related: body.related,
+          };
+        }
+      } catch {
+        // Jaringan putus atau route belum ada — hitung sendiri di browser.
+        reply = localAnswer(trimmed);
+      }
+
+      setMessages((prev) => [...prev, { id: nextId(), role: "bot", ...reply }]);
+      setPending(false);
+    },
+    [pending],
+  );
 
   function onKeyDown(event: React.KeyboardEvent) {
     if (event.key === "Escape") setOpen(false);
@@ -209,7 +260,20 @@ export function Assistant() {
               ),
             )}
 
-            {messages.length === 1 && (
+            {pending && (
+              <p
+                className="w-fit rounded-2xl rounded-bl-sm bg-muted px-3 py-2.5 text-sm text-muted-foreground"
+                aria-label="Sedang menyiapkan jawaban"
+              >
+                <span className="inline-flex gap-1">
+                  <span className="size-1.5 animate-bounce rounded-full bg-brand [animation-delay:-0.3s]" />
+                  <span className="size-1.5 animate-bounce rounded-full bg-brand [animation-delay:-0.15s]" />
+                  <span className="size-1.5 animate-bounce rounded-full bg-brand" />
+                </span>
+              </p>
+            )}
+
+            {messages.length === 1 && !pending && (
               <div className="flex flex-wrap gap-1.5 pt-1">
                 {starterQuestions.map((q) => (
                   <button
@@ -229,7 +293,7 @@ export function Assistant() {
           <form
             onSubmit={(event) => {
               event.preventDefault();
-              ask(input);
+              void ask(input);
             }}
             className="flex items-center gap-2 border-t p-2.5"
           >
@@ -240,12 +304,13 @@ export function Assistant() {
               placeholder="Tulis pertanyaanmu…"
               aria-label="Pertanyaan"
               autoComplete="off"
+              maxLength={300}
               className="h-9 min-w-0 flex-1 rounded-lg border bg-transparent px-3 text-sm outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
             />
             <Button
               type="submit"
               size="icon"
-              disabled={!input.trim()}
+              disabled={!input.trim() || pending}
               aria-label="Kirim pertanyaan"
             >
               <Send aria-hidden />
