@@ -4,6 +4,7 @@ import * as React from "react";
 import { RotateCcw, Sparkles } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { bunyikan } from "@/lib/suara";
 import {
   UKURAN,
   indeks,
@@ -78,10 +79,17 @@ export function BlastBerkas({
     const sesudah = langkah(k, pilih, baris, kolom);
     if (sesudah === k) {
       // Langkah tidak sah — beri isyarat, jangan diam saja.
+      bunyikan("kena");
       setGoyang(true);
       window.setTimeout(() => setGoyang(false), 420);
       return;
     }
+
+    // Garis yang lenyap dapat nada tersendiri; menaruh biasa cukup ketukan.
+    const adaLedakan =
+      sesudah.baruBersih.baris.length + sesudah.baruBersih.kolom.length > 0;
+    bunyikan(adaLedakan ? "ledak" : "taruh");
+    if (sesudah.selesai) window.setTimeout(() => bunyikan("selesai"), 260);
 
     setK(sesudah);
     setSorot([]);
@@ -179,7 +187,10 @@ export function BlastBerkas({
             key={slot}
             type="button"
             disabled={!bentuk || k.selesai}
-            onClick={() => setPilih(slot)}
+            onClick={() => {
+              setPilih(slot);
+              bunyikan("pilih");
+            }}
             aria-pressed={pilih === slot}
             className={cn(
               "flex min-h-24 flex-col items-center justify-center gap-1.5 rounded-xl border p-2 transition-colors",

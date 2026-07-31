@@ -28,6 +28,32 @@ export function penyimpananSiap(): boolean {
   return kredensial() !== null;
 }
 
+/**
+ * Variabel lingkungan mana yang terpasang.
+ *
+ * Hanya NAMA dan status terisi/kosong — nilainya tidak pernah ikut. Ini yang
+ * dipakai memastikan integrasi Upstash benar-benar tersambung tanpa perlu
+ * membocorkan token ke mana pun.
+ */
+export function diagnosaPenyimpanan(): Record<string, boolean> {
+  const nama = [
+    "KV_REST_API_URL",
+    "KV_REST_API_TOKEN",
+    "UPSTASH_REDIS_REST_URL",
+    "UPSTASH_REDIS_REST_TOKEN",
+    "REDIS_URL",
+    "KV_URL",
+  ];
+  const hasil: Record<string, boolean> = {};
+  for (const n of nama) hasil[n] = Boolean(process.env[n]);
+  return hasil;
+}
+
+/** Memastikan Redis benar-benar menjawab, bukan sekadar kredensialnya ada. */
+export async function ujiKoneksi(): Promise<boolean> {
+  return (await perintah(["PING"])) !== null;
+}
+
 /** Menjalankan satu perintah Redis. Mengembalikan null bila gagal. */
 async function perintah(args: (string | number)[]): Promise<unknown | null> {
   const k = kredensial();

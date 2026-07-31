@@ -1,6 +1,12 @@
 import { callerIp, checkRate } from "@/lib/ai/guard";
 import { BATAS_PAPAN, rapikanNama } from "@/lib/papan-skor";
-import { ambilSkor, penyimpananSiap, simpanSkor } from "@/lib/redis";
+import {
+  ambilSkor,
+  diagnosaPenyimpanan,
+  penyimpananSiap,
+  simpanSkor,
+  ujiKoneksi,
+} from "@/lib/redis";
 
 export const runtime = "nodejs";
 
@@ -31,6 +37,17 @@ function json(isi: Balasan | { error: string }, init?: ResponseInit) {
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
+
+  // Alat bantu pemasangan: menyebutkan variabel mana yang terpasang dan
+  // apakah Redis benar-benar menjawab. Tidak pernah menyertakan nilainya.
+  if (searchParams.get("diagnosa") === "1") {
+    return Response.json({
+      variabel: diagnosaPenyimpanan(),
+      kredensialLengkap: penyimpananSiap(),
+      redisMenjawab: penyimpananSiap() ? await ujiKoneksi() : false,
+    });
+  }
+
   const kunci = PERMAINAN[searchParams.get("game") ?? ""];
   if (!kunci) return json({ error: "Permainan tidak dikenal." }, { status: 400 });
 

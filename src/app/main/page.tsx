@@ -6,6 +6,7 @@ import { BlastPanel } from "@/components/games/blast-panel";
 import { LariWisuda } from "@/components/games/lari-wisuda";
 import { TebakTahap } from "@/components/games/tebak-tahap";
 import { UrutkanAlur } from "@/components/games/urutkan-alur";
+import { TombolSuara } from "@/components/games/tombol-suara";
 import { Reveal } from "@/components/reveal";
 import { bankSoal } from "@/lib/games";
 import { totalStages } from "@/lib/data";
@@ -34,6 +35,10 @@ export default function MainPage() {
               Cara paling cepat tahu bagian mana yang belum kamu hafal.
             </p>
           </div>
+        </div>
+
+        <div className="mt-4">
+          <TombolSuara />
         </div>
 
         <p className="mt-4 max-w-2xl text-sm text-muted-foreground">

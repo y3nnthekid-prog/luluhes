@@ -30,6 +30,7 @@ import {
   peringkatUntuk,
   rapikanNama,
 } from "@/lib/papan-skor";
+import { bunyikan } from "@/lib/suara";
 import {
   PEMAIN_LEBAR,
   PEMAIN_TINGGI,
@@ -135,8 +136,12 @@ export function LariWisuda() {
       terakhir = kini;
 
       const lebar = arenaRef.current?.clientWidth ?? 640;
-      const k = langkah(keadaanRef.current, dt, aksiRef.current, Math.random, lebar);
+      const keadaanSebelum = keadaanRef.current;
+      const k = langkah(keadaanSebelum, dt, aksiRef.current, Math.random, lebar);
       keadaanRef.current = k;
+
+      // Berangkat melompat: kemarin masih menapak, sekarang sudah naik.
+      if (keadaanSebelum.y <= 0 && k.y > 0) bunyikan("lompat");
 
       const p = pemainRef.current;
       if (p) {
@@ -176,6 +181,7 @@ export function LariWisuda() {
       }
 
       if (k.selesai) {
+        bunyikan("kena");
         const nilai = skor(k);
         setAngka(nilai);
         setPenabrak(k.penabrak);
