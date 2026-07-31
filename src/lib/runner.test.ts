@@ -176,6 +176,15 @@ describe("katalog rintangan", () => {
     }
   });
 
+  test("setiap rintangan punya ikon, karena di arena tidak ada teks", () => {
+    // Label sempat digambar di dalam arena dan tidak terbaca begitu larinya
+    // cepat. Sekarang yang tampil ikon; teksnya hanya muncul di layar kalah.
+    for (const r of KATALOG) {
+      expect(r.ikon, r.label).toBeTruthy();
+    }
+    expect(new Set(KATALOG.map((r) => r.ikon)).size).toBe(KATALOG.length);
+  });
+
   test("rintangan tanah bisa dilompati, yang terbang bisa ditunduki", () => {
     // Tinggi puncak lompatan ± 126 px; rintangan tanah harus di bawah itu.
     for (const r of KATALOG.filter((x) => !x.terbang)) {

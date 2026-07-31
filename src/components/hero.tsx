@@ -1,3 +1,4 @@
+import * as React from "react";
 import { ArrowRight } from "lucide-react";
 
 import { CountUp } from "@/components/count-up";
@@ -78,14 +79,18 @@ export function Hero() {
           {kata.map((k, i) => {
             const terakhir = i === kata.length - 1;
             return (
-              <span
-                key={`${k}-${i}`}
-                className="word-rise"
-                style={{ animationDelay: `${i * 90}ms` }}
-              >
-                {/* Kata terakhir disorot setelah seluruh kalimat naik. */}
-                {terakhir ? <span className="sorot-kata">{k}</span> : `${k} `}
-              </span>
+              // Spasinya sengaja di LUAR span. Span-nya `inline-block`, dan
+              // spasi di dalam kotak inline-block dipangkas saat tata letak —
+              // itu yang membuat judulnya sempat terbaca "Berhentimenebak".
+              <React.Fragment key={`${k}-${i}`}>
+                <span
+                  className="word-rise"
+                  style={{ animationDelay: `${i * 90}ms` }}
+                >
+                  {terakhir ? <span className="sorot-kata">{k}</span> : k}
+                </span>
+                {terakhir ? null : " "}
+              </React.Fragment>
             );
           })}
         </h1>

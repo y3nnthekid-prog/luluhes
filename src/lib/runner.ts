@@ -30,6 +30,15 @@ export type Rintangan = {
   h: number;
   /** Rintangan terbang harus ditunduki, bukan dilompati. */
   terbang: boolean;
+  /**
+   * Nama ikon yang digambar di dalam kotak rintangan.
+   *
+   * Sengaja berupa teks, bukan komponen: berkas ini tidak boleh menyentuh
+   * React sama sekali supaya fisikanya tetap bisa diuji tanpa layar.
+   * Pemetaan nama ke ikon dilakukan di komponen permainannya.
+   */
+  ikon: string;
+  /** Dipakai hanya di layar kalah, bukan di dalam arena. */
   label: string;
   fakta: string;
 };
@@ -48,43 +57,43 @@ type Contoh = Omit<Rintangan, "id" | "x">;
  */
 export const KATALOG: Contoh[] = [
   {
-    w: 34, h: 42, terbang: false,
+    w: 36, h: 42, terbang: false, ikon: "persen",
     label: "Turnitin 41%",
     fakta: "Batas Turnitin skripsi 30%. Lebih dari itu, berkas munaqosyah tidak diterima.",
   },
   {
-    w: 30, h: 54, terbang: false,
-    label: "Revisi 4 bulan",
+    w: 36, h: 54, terbang: false, ikon: "kalender",
+    label: "Revisi lewat 3 bulan",
     fakta: "Masa revisi setelah munaqosyah maksimal 3 bulan. Lewat itu, skripsi diujikan kembali.",
   },
   {
-    w: 38, h: 40, terbang: false,
-    label: "Bimbingan 7 bulan",
+    w: 38, h: 40, terbang: false, ikon: "jam-pasir",
+    label: "Bimbingan lewat 6 bulan",
     fakta: "Lama bimbingan skripsi maksimal 6 bulan sejak pembimbing ditetapkan.",
   },
   {
-    w: 32, h: 48, terbang: false,
-    label: "SKS baru 95",
+    w: 36, h: 48, terbang: false, ikon: "tumpukan",
+    label: "SKS belum cukup",
     fakta: "Seminar proposal butuh minimal 100 SKS. Munaqosyah butuh minimal 138 SKS.",
   },
   {
-    w: 30, h: 44, terbang: false,
-    label: "Revisi sempro 5 minggu",
+    w: 36, h: 44, terbang: false, ikon: "berkas",
+    label: "Revisi sempro lewat 1 bulan",
     fakta: "Perbaikan setelah seminar proposal maksimal 1 bulan. Lewat itu, proposal diseminarkan ulang.",
   },
   {
-    w: 46, h: 30, terbang: true,
-    label: "Daftar pukul 16.05",
+    w: 44, h: 32, terbang: true, ikon: "weker",
+    label: "Daftar lewat pukul 16.00",
     fakta: "Pendaftaran ujian ditutup pukul 16.00 WIB. Telat semenit berarti menunggu bulan berikutnya.",
   },
   {
-    w: 42, h: 28, terbang: true,
+    w: 44, h: 32, terbang: true, ikon: "papan",
     label: "Lupa isi SKPI",
     fakta: "SKPI wajib diisi di AIS sebelum mendaftar munaqosyah.",
   },
   {
-    w: 44, h: 30, terbang: true,
-    label: "Stempel kering",
+    w: 44, h: 32, terbang: true, ikon: "stempel",
+    label: "Stempel Turnitin kering",
     fakta: "Hasil Turnitin wajib berstempel basah dari Perpustakaan Fakultas, bukan tangkapan layar.",
   },
 ];

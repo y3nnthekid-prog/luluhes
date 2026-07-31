@@ -1,9 +1,34 @@
 "use client";
 
 import * as React from "react";
-import { ArrowDown, ArrowUp, GraduationCap, RotateCcw } from "lucide-react";
+import {
+  AlarmClock,
+  ArrowDown,
+  ArrowUp,
+  CalendarX2,
+  ClipboardList,
+  FileWarning,
+  GraduationCap,
+  Hourglass,
+  Layers,
+  Percent,
+  RotateCcw,
+  Stamp,
+  Trophy,
+  type LucideIcon,
+} from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import {
+  BATAS_PAPAN,
+  MAKS_HURUF_NAMA,
+  namaPemainStore,
+  papanSkorStore,
+  peringkatUntuk,
+  rapikanNama,
+  tambahSkor,
+} from "@/lib/papan-skor";
 import {
   PEMAIN_LEBAR,
   PEMAIN_TINGGI,
@@ -18,39 +43,84 @@ import {
 } from "@/lib/runner";
 import { cn } from "@/lib/utils";
 
-/** Tinggi arena bermain, dalam piksel. */
 const ARENA = 210;
-/** Banyaknya kotak rintangan yang disiapkan; tidak pernah lebih dari ini di layar. */
 const KOLAM = 5;
+
+/** Pemetaan nama ikon dari katalog rintangan ke komponennya. */
+const IKON: Record<string, LucideIcon> = {
+  persen: Percent,
+  kalender: CalendarX2,
+  "jam-pasir": Hourglass,
+  tumpukan: Layers,
+  berkas: FileWarning,
+  weker: AlarmClock,
+  papan: ClipboardList,
+  stempel: Stamp,
+};
 
 type Status = "siap" | "main" | "selesai";
 
 export function LariWisuda() {
   const [status, setStatus] = React.useState<Status>("siap");
   const [angka, setAngka] = React.useState(0);
-  const [rekor, setRekor] = React.useState(0);
   const [penabrak, setPenabrak] = React.useState<Keadaan["penabrak"]>(null);
+  const [posisiBaru, setPosisiBaru] = React.useState<number | null>(null);
+  // Ikon tiap slot rintangan. Diperbarui hanya saat isinya benar-benar
+  // berganti — beberapa kali per detik, bukan tiap frame.
+  const [slotIkon, setSlotIkon] = React.useState<string[]>([]);
+
+  // Papan skor dan nama dibaca lewat store yang sama dengan progres checklist,
+  // supaya render di server dan klien tetap sepakat tanpa setState di effect.
+  const papan = React.useSyncExternalStore(
+    papanSkorStore.subscribe,
+    papanSkorStore.getSnapshot,
+    papanSkorStore.getServerSnapshot,
+  );
+  const namaTersimpan = React.useSyncExternalStore(
+    namaPemainStore.subscribe,
+    namaPemainStore.getSnapshot,
+    namaPemainStore.getServerSnapshot,
+  );
+
+  const [nama, setNama] = React.useState("");
+  const namaDipakai = rapikanNama(nama) || namaTersimpan;
 
   const arenaRef = React.useRef<HTMLDivElement>(null);
   const pemainRef = React.useRef<HTMLDivElement>(null);
   const kotakRef = React.useRef<(HTMLDivElement | null)[]>([]);
+  const ikonSekarangRef = React.useRef<string[]>([]);
 
   const keadaanRef = React.useRef<Keadaan>(mulai());
   const aksiRef = React.useRef<Aksi>("diam");
   const statusRef = React.useRef<Status>("siap");
+  // Nama dikunci saat permainan dimulai, bukan dibaca ulang tiap frame.
+  // Menulis ref saat render dilarang, dan gelung animasinya tidak boleh
+  // ikut dimulai ulang hanya karena huruf di kolom nama bertambah.
+  const namaMainRef = React.useRef("");
 
   const mainkan = React.useCallback(() => {
+    const bersih = rapikanNama(namaDipakai);
+    namaMainRef.current = bersih || "Tanpa nama";
+    if (bersih) namaPemainStore.set(bersih);
     keadaanRef.current = mulai();
     aksiRef.current = "diam";
     setPenabrak(null);
+    setPosisiBaru(null);
+    setSlotIkon([]);
+    ikonSekarangRef.current = [];
     setAngka(0);
     statusRef.current = "main";
     setStatus("main");
+  }, [namaDipakai]);
+
+  React.useEffect(() => {
+    const p = pemainRef.current;
+    if (!p) return;
+    p.style.width = `${PEMAIN_LEBAR}px`;
+    p.style.height = `${PEMAIN_TINGGI}px`;
+    p.style.transform = `translate3d(${PEMAIN_X}px, 0, 0)`;
   }, []);
 
-  // Satu gelung animasi untuk seluruh permainan. Posisi diperbarui langsung ke
-  // gaya elemen, bukan lewat state React — kalau tiap frame memicu render
-  // ulang, permainannya tersendat justru saat paling ramai.
   React.useEffect(() => {
     if (status !== "main") return;
 
@@ -66,39 +136,37 @@ export function LariWisuda() {
       const k = langkah(keadaanRef.current, dt, aksiRef.current, Math.random, lebar);
       keadaanRef.current = k;
 
-      // Pemain
       const p = pemainRef.current;
       if (p) {
         const menunduk = k.menunduk && k.y <= 0.5;
-        const tinggi = menunduk ? PEMAIN_TINGGI_MENUNDUK : PEMAIN_TINGGI;
-        p.style.height = `${tinggi}px`;
+        p.style.height = `${menunduk ? PEMAIN_TINGGI_MENUNDUK : PEMAIN_TINGGI}px`;
         p.style.transform = `translate3d(${PEMAIN_X}px, ${-k.y}px, 0)`;
       }
 
-      // Rintangan
+      const ikonKini: string[] = [];
       for (let i = 0; i < KOLAM; i++) {
         const el = kotakRef.current[i];
         if (!el) continue;
         const r = k.rintangan[i];
         if (!r) {
+          ikonKini.push("");
           el.style.opacity = "0";
           el.style.transform = "translate3d(-999px, 0, 0)";
           continue;
         }
+        ikonKini.push(r.ikon);
         const bawah = r.terbang ? TINGGI_TERBANG : 0;
         el.style.opacity = "1";
         el.style.width = `${r.w}px`;
         el.style.height = `${r.h}px`;
         el.style.transform = `translate3d(${r.x}px, ${-bawah}px, 0)`;
-        const label = el.firstElementChild as HTMLElement | null;
-        if (label && label.textContent !== r.label) label.textContent = r.label;
-        if (label) {
-          label.style.bottom = r.terbang ? "auto" : `${r.h + 6}px`;
-          label.style.top = r.terbang ? `${r.h + 6}px` : "auto";
-        }
       }
 
-      // Skor diperbarui lima kali per detik saja, bukan tiap frame.
+      if (ikonKini.join("|") !== ikonSekarangRef.current.join("|")) {
+        ikonSekarangRef.current = ikonKini;
+        setSlotIkon(ikonKini);
+      }
+
       hitungSkor += dt;
       if (hitungSkor > 0.2) {
         hitungSkor = 0;
@@ -108,8 +176,17 @@ export function LariWisuda() {
       if (k.selesai) {
         const nilai = skor(k);
         setAngka(nilai);
-        setRekor((r) => Math.max(r, nilai));
         setPenabrak(k.penabrak);
+        const pemain = namaMainRef.current || "Tanpa nama";
+        const sebelum = papanSkorStore.getSnapshot();
+        setPosisiBaru(peringkatUntuk(sebelum, nilai));
+        papanSkorStore.set(
+          tambahSkor(sebelum, {
+            nama: pemain,
+            skor: nilai,
+            pada: new Date().toISOString(),
+          }),
+        );
         statusRef.current = "selesai";
         setStatus("selesai");
         return;
@@ -122,12 +199,13 @@ export function LariWisuda() {
     return () => cancelAnimationFrame(raf);
   }, [status]);
 
-  // Papan ketik: spasi dan panah atas melompat, panah bawah menunduk.
   React.useEffect(() => {
     const turun = (e: KeyboardEvent) => {
+      // Jangan rebut papan ketik saat pengguna sedang mengetik namanya.
+      const t = e.target as HTMLElement | null;
+      if (t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA")) return;
+
       if (e.code === "Space" || e.code === "ArrowUp" || e.code === "KeyW") {
-        // Spasi menggulirkan halaman kalau tidak ditahan, dan itu membuat
-        // arena melompat keluar layar tepat saat pemain butuh melihatnya.
         e.preventDefault();
         if (statusRef.current !== "main") mainkan();
         else aksiRef.current = "lompat";
@@ -159,12 +237,13 @@ export function LariWisuda() {
             {angka}
           </span>
         </p>
-        {rekor > 0 && (
+        {papan[0] && (
           <p className="text-sm text-muted-foreground">
-            Terbaik{" "}
+            Rekor{" "}
             <span className="font-semibold text-foreground tabular-nums">
-              {rekor}
-            </span>
+              {papan[0].skor}
+            </span>{" "}
+            oleh {papan[0].nama}
           </p>
         )}
         {status !== "siap" && (
@@ -175,51 +254,44 @@ export function LariWisuda() {
         )}
       </div>
 
-      {/* Arena */}
       <div
         ref={arenaRef}
         className="relative mt-3 overflow-hidden rounded-2xl border bg-gradient-to-b from-blush/35 to-card"
         style={{ height: ARENA }}
       >
-        {/* Garis tanah */}
         <div className="absolute inset-x-0 bottom-8 h-px bg-brand/30" aria-hidden />
-        <div
-          className="absolute inset-x-0 bottom-0 h-8 bg-brand-soft/60"
-          aria-hidden
-        />
+        <div className="absolute inset-x-0 bottom-0 h-8 bg-brand-soft/60" aria-hidden />
 
-        {/* Pemain */}
         <div
           ref={pemainRef}
           className="absolute bottom-8 left-0 flex items-center justify-center rounded-lg bg-brand text-brand-foreground shadow-md shadow-brand/30"
-          style={{
-            width: PEMAIN_LEBAR,
-            height: PEMAIN_TINGGI,
-            transform: `translate3d(${PEMAIN_X}px, 0, 0)`,
-          }}
           aria-hidden
         >
           <GraduationCap className="size-4" />
         </div>
 
-        {/* Kolam rintangan; jumlahnya tetap supaya tidak ada elemen yang
-            dibuat dan dibuang setiap frame. */}
+        {/* Rintangan kini bergambar ikon, bukan bertulisan. Teks sekecil itu
+            mustahil dibaca begitu larinya cepat — dan membacanya justru
+            memaksa pemain berhenti memperhatikan lompatannya. */}
         {Array.from({ length: KOLAM }).map((_, i) => (
           <div
             key={i}
             ref={(el) => {
               kotakRef.current[i] = el;
             }}
-            className="absolute bottom-8 left-0 rounded-md border border-warn/40 bg-warn-muted opacity-0"
+            className="absolute bottom-8 left-0 flex items-center justify-center rounded-lg border-2 border-warn/50 bg-warn-muted text-warn opacity-0"
             aria-hidden
           >
-            <span className="absolute left-1/2 -translate-x-1/2 text-[10px] font-semibold whitespace-nowrap text-warn" />
+            {slotIkon[i] &&
+              React.createElement(IKON[slotIkon[i]] ?? FileWarning, {
+                className: "size-5",
+                "aria-hidden": true,
+              })}
           </div>
         ))}
 
-        {/* Lapisan pesan */}
         {status !== "main" && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-card/80 p-5 text-center backdrop-blur-sm">
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-card/85 p-5 text-center backdrop-blur-sm">
             {status === "siap" ? (
               <>
                 <p className="font-heading text-base font-semibold">
@@ -229,7 +301,23 @@ export function LariWisuda() {
                   Lompati tenggat yang menghadang, tunduki yang melayang. Setiap
                   rintangan adalah alasan nyata mahasiswa mengulang.
                 </p>
-                <Button onClick={mainkan}>Mulai lari</Button>
+                <div className="flex w-full max-w-xs flex-col gap-2">
+                  <label htmlFor="nama-pemain" className="sr-only">
+                    Nama kamu
+                  </label>
+                  <Input
+                    id="nama-pemain"
+                    value={nama}
+                    onChange={(e) => setNama(e.target.value)}
+                    placeholder={namaTersimpan || "Nama kamu"}
+                    maxLength={MAKS_HURUF_NAMA}
+                    autoComplete="off"
+                    className="text-center"
+                  />
+                  <Button onClick={mainkan} disabled={!namaDipakai}>
+                    {namaDipakai ? `Mulai, ${namaDipakai}` : "Isi nama dulu"}
+                  </Button>
+                </div>
               </>
             ) : (
               <>
@@ -244,6 +332,11 @@ export function LariWisuda() {
                   <span className="font-heading font-bold text-brand tabular-nums">
                     {angka}
                   </span>
+                  {posisiBaru && (
+                    <span className="ml-2 rounded-full bg-brand-soft px-2 py-0.5 text-xs font-semibold text-brand">
+                      Peringkat {posisiBaru}
+                    </span>
+                  )}
                 </p>
                 <Button onClick={mainkan}>Coba lagi</Button>
               </>
@@ -252,8 +345,6 @@ export function LariWisuda() {
         )}
       </div>
 
-      {/* Kendali sentuh. Di layar sentuh tidak ada papan ketik, jadi tombolnya
-          harus ada — dan dibuat besar supaya bisa ditekan sambil berlari. */}
       <div className="mt-3 grid grid-cols-2 gap-2 sm:hidden">
         <Button
           size="lg"
@@ -282,9 +373,57 @@ export function LariWisuda() {
         </Button>
       </div>
 
-      <p className={cn("mt-3 text-xs text-muted-foreground", "hidden sm:block")}>
+      <p className="mt-3 hidden text-xs text-muted-foreground sm:block">
         Spasi atau panah atas untuk melompat, panah bawah untuk menunduk.
       </p>
+
+      {/* Papan tujuh besar */}
+      <div className="mt-6 rounded-2xl border bg-card p-4">
+        <div className="flex items-center gap-2">
+          <Trophy className="size-4 text-brand" aria-hidden />
+          <h3 className="font-heading text-sm font-semibold">
+            Tujuh skor tertinggi
+          </h3>
+        </div>
+
+        {papan.length === 0 ? (
+          <p className="mt-3 text-sm text-muted-foreground">
+            Belum ada yang tercatat. Skor pertama jadi milik kamu.
+          </p>
+        ) : (
+          <ol className="mt-3 space-y-1">
+            {papan.map((e, i) => (
+              <li
+                key={`${e.nama}-${e.pada}-${i}`}
+                className={cn(
+                  "flex items-center gap-3 rounded-lg px-2.5 py-1.5 text-sm",
+                  i === 0 ? "bg-brand-soft font-medium" : "odd:bg-muted/40",
+                )}
+              >
+                <span
+                  className={cn(
+                    "flex size-6 shrink-0 items-center justify-center rounded-md text-xs font-bold tabular-nums",
+                    i === 0
+                      ? "bg-brand text-brand-foreground"
+                      : "bg-muted text-muted-foreground",
+                  )}
+                >
+                  {i + 1}
+                </span>
+                <span className="min-w-0 flex-1 truncate">{e.nama}</span>
+                <span className="font-heading font-semibold tabular-nums">
+                  {e.skor}
+                </span>
+              </li>
+            ))}
+          </ol>
+        )}
+
+        <p className="mt-3 text-xs text-muted-foreground">
+          Tersimpan di peramban ini saja — {BATAS_PAPAN} teratas, tidak dikirim
+          ke mana pun.
+        </p>
+      </div>
     </div>
   );
 }
