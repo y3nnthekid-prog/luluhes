@@ -161,12 +161,19 @@ Yang dipahaminya, di luar kata kunci lurus:
 | --- | --- |
 | Salah ketik | "turnitn", "yudisum", "komprehensip", "propsal" |
 | Singkatan dan bahasa gaul | "kompre", "dosbing", "ttd", "kpn sempro dibuka" |
-| Imbuhan akhir | "pendaftarannya", "ujiannya", "syaratnya" |
+| Imbuhan | "pendaftaran"↔"daftar", "perpustakaan"↔"pustaka", "diulang"↔"mengulang" |
 | Maksud pertanyaan | "kapan …" mengutamakan Jadwal, "dokumen apa …" mengutamakan Dokumen |
 | Urutan tahap | "habis sidang ngapain", "sebelum sempro harus apa" |
 | Pertanyaan sambungan | "terus?" menyambung ke topik yang barusan dijawab |
+| Satu kata | "sempro" membuka ringkasan tahapnya, bukan FAQ sempit |
+| Basa-basi | "halo kak aku mau tanya dong soal …" tetap terbaca |
 
-Enam aturan yang menjaganya tidak asal menjawab:
+Pemenggal imbuhannya dipakai **sama persis** pada pertanyaan dan pada basis
+pengetahuan. Yang dikejar simetri, bukan ketepatan linguistik: kalau sebuah kata
+terpotong keliru, ia terpotong keliru dengan cara yang sama di kedua sisi dan
+tetap bertemu.
+
+Delapan aturan yang menjaganya tidak asal menjawab:
 
 1. **Pencocokan per kata, bukan substring.** "kopi" tidak boleh cocok dengan
    "fotokopi".
@@ -177,9 +184,15 @@ Enam aturan yang menjaganya tidak asal menjawab:
    tidak boleh dianggap menjawab pertanyaan tentang SKPI.
 4. **Tebakan salah ketik tidak pernah berdiri sendiri.** Harus ada kecocokan
    lain yang bukan tebakan, atau kecocokan itu ada di judul.
-5. **Harus ada kecocokan di judul, atau minimal dua kecocokan.** Satu kata umum
-   yang kebetulan muncul di badan teks tidak cukup.
-6. **Cakupan minimal 40%** dari kelompok istilah pertanyaan.
+5. **Judul jawaban wajib menyinggung sesuatu yang ditanyakan.** Kecocokan yang
+   cuma nyempil di badan teks tidak pernah cukup.
+6. **Kata struktural saja tidak cukup** begitu ada kata asing di pertanyaan.
+   "jadwal" ada di "jadwal ujian komprehensif" dan di "jadwal sholat"; yang
+   membedakan justru kata satunya.
+7. **Kata yang asing bagi basis pengetahuan berbobot ganda** di penyebut
+   cakupan — pertanyaan yang pokok bahasannya tak dikenal memang harus lebih
+   sulit lolos.
+8. **Cakupan minimal 33%** dari kelompok istilah pertanyaan.
 
 Pembetulan salah ketik sengaja dibuat pelit — huruf pertama wajib sama, selisih
 panjang dibatasi, kata di bawah lima huruf tidak dibetulkan sama sekali.
@@ -195,21 +208,24 @@ ikut terbarui sendiri. Untuk menambah singkatan baru, isi peta `aliases`.
 npm test
 ```
 
-`src/lib/assistant.test.ts` berisi 64 pertanyaan berlabel yang ditulis meniru
-cara mahasiswa benar-benar mengetik, dibagi enam kelompok: pertanyaan langsung,
-salah ketik, singkatan, maksud tersirat, urutan tahap, dan di luar topik.
+`src/lib/assistant.test.ts` berisi 84 pertanyaan berlabel yang ditulis meniru
+cara mahasiswa benar-benar mengetik, dibagi delapan kelompok: pertanyaan
+langsung, salah ketik, singkatan, maksud tersirat, urutan tahap, satu kata,
+temuan audit, dan di luar topik.
 
-Dua kelompok terakhir yang paling penting:
+Tiga kelompok yang paling penting:
 
-- **Di luar topik tapi memakai kata pemicu** — "syarat bikin sim c", "download
-  film gratis", "jadwal kereta jakarta bandung". Memakai kata yang sama dengan
-  pertanyaan sah, tetapi wajib **ditolak**.
+- **Di luar topik tapi memakai kata pemicu** — "syarat bikin sim c", "jadwal
+  sholat hari ini", "kapan gaji karyawan cair". Memakai kata yang sama dengan
+  pertanyaan sah, tetapi wajib **ditolak**. Lima belas kasus.
 - **Uji lepas** — ditulis setelah mesinnya selesai disetel dan tidak dipakai
   menyetel, supaya ketahuan kalau perbaikannya cuma hafalan.
+- **Temuan audit** — kasus yang semula salah, ditemukan dengan menjalankan
+  sembilan puluh pertanyaan baru lalu membaca jawabannya satu per satu.
 
-Skor saat ini **64/64**. Sebelum perbaikan: 31/46. Kalau menyentuh mesinnya,
-jalankan tes ini dulu — beberapa aturan di sana dipasang justru karena satu
-perbaikan sempat merusak jawaban yang tadinya sudah benar.
+Skor saat ini **84/84**. Sebelum perbaikan: 31/46. Kalau menyentuh mesinnya,
+jalankan tes ini dulu — hampir setiap aturan di sana dipasang justru karena
+satu perbaikan sempat merusak jawaban yang tadinya sudah benar.
 
 ### Empat jalur jawaban
 

@@ -52,6 +52,9 @@ export type Answer = {
   /** Kata-kata judul dan isi, untuk pencocokan per kata. */
   titleWords: string[];
   bodyWords: string[];
+  /** Bentuk dasar kata judul dan isi, untuk pencocokan lintas imbuhan. */
+  titleStems: Set<string>;
+  bodyStems: Set<string>;
 };
 
 /**
@@ -143,6 +146,18 @@ const stopwords = new Set([
   // sehingga cakupannya jatuh di bawah ambang.
   "kalo","klo","udah","blm","gak","nggak","engga","enggak","yg","utk","dgn",
   "bgt","banget","nih","tuh","deh","emang","pas","sama","biar","supaya",
+  // Basa-basi pembuka dan kata pengisi. Semuanya kata nyata yang ada di kamus,
+  // tapi tidak satu pun menunjukkan apa yang sedang dicari — dan kalau ikut
+  // dihitung, pertanyaan sopan yang panjang justru gagal dijawab hanya karena
+  // cakupannya jatuh. "siapa" ikut ke sini karena perannya sama dengan
+  // "kapan": penunjuk maksud, bukan kata kunci.
+  "siapa","permisi","nanya","tanya","misalnya","misal","ternyata","solusinya",
+  "solusi","halo","hai","assalamualaikum","maaf","bingung","gitu","begitu",
+  "hari","sekarang","banyak","lagi","kira","seharusnya","biasanya",
+  // "buat" hampir selalu berarti "untuk" dalam percakapan — "IPK minimal buat
+  // yudisium". Dibiarkan sebagai kata kunci, ia bertemu bentuk dasar
+  // "membuat" dan meloloskan "dokumen buat bikin paspor".
+  "buat","bikin",
 ]);
 
 /**
@@ -171,6 +186,27 @@ const intentRules: { pola: RegExp; kinds: AnswerKind[] }[] = [
   },
   { pola: /\b(tips|saran|pengalaman|supaya|biar|hindari)\b/, kinds: ["Tips"] },
 ];
+
+/**
+ * Kata yang menyatakan *bentuk* jawaban, bukan pokok bahasannya.
+ *
+ * Kecocokan pada kata-kata ini saja tidak pernah cukup untuk menjawab. "jadwal
+ * sholat hari ini" dan "jadwal ujian komprehensif" sama-sama memuat "jadwal",
+ * tapi hanya satu yang benar-benar tentang website ini — pembedanya justru ada
+ * pada kata yang lain.
+ */
+const strukturalWords = new Set([
+  "jadwal", "tenggat", "deadline", "periode", "tanggal",
+  "langkah", "urutan", "alur", "prosedur", "proses",
+  "dokumen", "berkas", "syarat", "persyaratan", "lampiran",
+  "template", "contoh", "format", "unduh", "download", "formulir", "form", "file",
+  "tips", "saran", "pengalaman",
+  "daftar", "pendaftaran", "mendaftar",
+]);
+
+function struktural(group: Group): boolean {
+  return group.inti.every((w) => strukturalWords.has(w));
+}
 
 const POLA_LANJUT =
   /\b(setelah|sesudah|habis|abis|selesai|kelar|usai|lanjut|berikutnya|selanjutnya|terus|ngapain)\b/;
@@ -221,6 +257,51 @@ function lepasKlitik(word: string): string | null {
 }
 
 /**
+ * Awalan dan akhiran yang dilepas untuk mendapatkan bentuk dasar.
+ *
+ * Urutannya penting: awalan yang lebih panjang diperiksa lebih dulu, supaya
+ * "mengulang" terpotong di "meng-" dan bukan di "me-".
+ *
+ * "se-" dan "ke-" sengaja tidak ada. Keduanya merusak kata yang sering muncul
+ * di sini — "sempro" akan jadi "mpro" dan "keterangan" jadi "terangan".
+ */
+const awalan = ["meng", "meny", "peng", "peny", "mem", "men", "pem", "pen", "ber", "ter", "per", "di", "ke", "me"];
+const akhiran = ["kan", "an", "i"];
+
+/**
+ * Bentuk dasar sebuah kata, dipakai sama persis pada pertanyaan maupun pada
+ * basis pengetahuan.
+ *
+ * Kuncinya simetri, bukan ketepatan linguistik. "sempro" boleh saja terpotong
+ * keliru asal terpotong keliru dengan cara yang sama di kedua sisi — hasilnya
+ * tetap bertemu. Yang penting pasangan seperti "pendaftaran"/"daftar",
+ * "perpustakaan"/"pustaka", dan "diulang"/"mengulang" akhirnya bertemu; tanpa
+ * ini "kompre boleh diulang berapa kali" tidak terjawab sama sekali.
+ */
+function stem(word: string): string {
+  let w = lepasKlitik(word) ?? word;
+  for (const p of awalan) {
+    if (w.startsWith(p) && w.length - p.length >= 4) {
+      w = w.slice(p.length);
+      break;
+    }
+  }
+  for (const s of akhiran) {
+    if (w.endsWith(s) && w.length - s.length >= 4) {
+      w = w.slice(0, -s.length);
+      break;
+    }
+  }
+  return w;
+}
+
+function stemSet(words: string[]): Set<string> {
+  const set = new Set<string>();
+  for (const w of words) if (w.length >= 4) set.add(stem(w));
+  return set;
+}
+
+/**
  * Satu konsep dari pertanyaan, dengan tiga tingkat keyakinan.
  *
  * Dipisah karena bobotnya harus berbeda. Dulu semuanya dianggap setara,
@@ -232,12 +313,17 @@ type Group = {
   inti: string[];
   /** Bentangan singkatan; tiap frasa harus cocok seluruh katanya. */
   alias: string[][];
+  /** Bentuk dasar, untuk bertemu lintas imbuhan. */
+  stem: string[];
   /** Tebakan pembetulan salah ketik. Paling longgar. */
   fuzzy: string[];
+  /** Benar bila kata ini sama sekali asing bagi basis pengetahuan. */
+  asing: boolean;
 };
 
 const BOBOT_INTI = 1;
 const BOBOT_ALIAS = 0.6;
+const BOBOT_STEM = 0.55;
 const BOBOT_FUZZY = 0.45;
 
 /**
@@ -255,16 +341,38 @@ const BOBOT_ISI = 1;
 /* Pembetulan salah ketik                                            */
 /* ---------------------------------------------------------------- */
 
-let kosakata: { daftar: string[]; set: Set<string> } | null = null;
+let kosakata: {
+  /** Calon pembetulan ejaan; sengaja hanya kata panjang. */
+  calon: string[];
+  /** SELURUH kata di basis pengetahuan, berapa pun panjangnya. */
+  kata: Set<string>;
+  /** Bentuk dasar seluruh kata tersebut. */
+  dasar: Set<string>;
+} | null = null;
 
-/** Seluruh kata yang benar-benar ada di basis pengetahuan. */
+/**
+ * Kosakata basis pengetahuan.
+ *
+ * `calon` dan `kata` sengaja dipisah. Keduanya sempat satu daftar yang sama —
+ * daftar kata minimal lima huruf, yang memang tepat untuk mencari pembetulan
+ * ejaan — dan itu membuat setiap kata pendek seperti "lama" dan "buat"
+ * dianggap asing bagi basis pengetahuan, padahal keduanya bertebaran di sana.
+ */
 function vocab() {
   if (!kosakata) {
-    const set = new Set<string>();
+    const kata = new Set<string>();
+    const dasar = new Set<string>();
     for (const answer of knowledge) {
-      for (const word of answer.bodyWords) if (word.length >= 5) set.add(word);
+      for (const word of answer.bodyWords) {
+        kata.add(word);
+        if (word.length >= 4) dasar.add(stem(word));
+      }
     }
-    kosakata = { daftar: [...set], set };
+    kosakata = {
+      calon: [...kata].filter((w) => w.length >= 5),
+      kata,
+      dasar,
+    };
   }
   return kosakata;
 }
@@ -301,7 +409,7 @@ function tebakEjaan(word: string): string | null {
   let terbaik: string | null = null;
   let jarakTerbaik = max + 1;
 
-  for (const kandidat of vocab().daftar) {
+  for (const kandidat of vocab().calon) {
     if (kandidat[0] !== word[0]) continue;
     if (Math.abs(kandidat.length - word.length) > max) continue;
     const d = jarakSunting(word, kandidat, jarakTerbaik - 1);
@@ -339,30 +447,59 @@ function termGroups(text: string): Group[] {
       }
     }
 
+    const dikenal = [...inti].some(
+      (b) => vocab().kata.has(b) || (b.length >= 4 && vocab().dasar.has(stem(b))),
+    );
+
     // Pembetulan ejaan hanya untuk kata yang memang tidak dikenal. Kalau
     // singkatannya sudah terdaftar, ejaannya jelas tidak meleset.
     const fuzzy = new Set<string>();
-    if (alias.length === 0 && ![...inti].some((b) => vocab().set.has(b))) {
+    if (alias.length === 0 && !dikenal) {
       for (const bentuk of inti) {
         const tebakan = tebakEjaan(bentuk);
         if (tebakan) fuzzy.add(tebakan);
       }
     }
 
-    groups.push({ inti: [...inti], alias, fuzzy: [...fuzzy] });
+    // Bentuk dasar tetap disimpan walau sama dengan kata aslinya: sisi basis
+    // pengetahuan juga dibandingkan dalam bentuk dasar, jadi "daftar" perlu
+    // ada di sini supaya bertemu "pendaftaran".
+    const stems = new Set<string>();
+    for (const bentuk of inti) if (bentuk.length >= 4) stems.add(stem(bentuk));
+
+    groups.push({
+      inti: [...inti],
+      alias,
+      stem: [...stems],
+      fuzzy: [...fuzzy],
+      asing: !dikenal && alias.length === 0 && fuzzy.size === 0,
+    });
   }
   return groups;
 }
 
 function entry(
-  a: Omit<Answer, "haystack" | "titleWords" | "bodyWords"> & { haystack?: string },
+  a: Omit<
+    Answer,
+    "haystack" | "titleWords" | "bodyWords" | "titleStems" | "bodyStems"
+  > & {
+    haystack?: string;
+    /** Nama pendek yang setara judul, misalnya "Sempro" untuk Seminar Proposal. */
+    titleExtra?: string;
+  },
 ): Answer {
   const haystack = normalize(`${a.title} ${a.body} ${a.haystack ?? ""}`);
+  const titleWords = normalize(`${a.title} ${a.titleExtra ?? ""}`)
+    .split(" ")
+    .filter(Boolean);
+  const bodyWords = haystack.split(" ").filter(Boolean);
   return {
     ...a,
     haystack,
-    titleWords: normalize(a.title).split(" ").filter(Boolean),
-    bodyWords: haystack.split(" ").filter(Boolean),
+    titleWords,
+    bodyWords,
+    titleStems: stemSet(titleWords),
+    bodyStems: stemSet(bodyWords),
   };
 }
 
@@ -378,18 +515,22 @@ function matches(words: string[], variants: string[]): boolean {
       (v) =>
         word === v ||
         (v.length >= 4 && word.startsWith(v)) ||
-        (word.length >= 4 && v.startsWith(word)),
+        // Arah sebaliknya dibatasi selisih dua huruf. Tanpa batas itu
+        // "karyawan" cocok dengan "karya", dan "kapan gaji karyawan cair"
+        // ikut terjawab oleh Lembar Pernyataan Keaslian Karya.
+        (word.length >= 4 && v.length - word.length <= 2 && v.startsWith(word)),
     ),
   );
 }
 
 /** Seberapa yakin kelompok istilah ini muncul di kumpulan kata tersebut. */
-function bobotCocok(words: string[], group: Group): number {
+function bobotCocok(words: string[], stems: Set<string>, group: Group): number {
   if (matches(words, group.inti)) return BOBOT_INTI;
   // Frasa hanya dianggap cocok kalau seluruh katanya ada.
   if (group.alias.some((frasa) => frasa.every((k) => matches(words, [k])))) {
     return BOBOT_ALIAS;
   }
+  if (group.stem.some((s) => stems.has(s))) return BOBOT_STEM;
   if (matches(words, group.fuzzy)) return BOBOT_FUZZY;
   return 0;
 }
@@ -415,6 +556,9 @@ export const knowledge: Answer[] = [
       kind: "Tahapan",
       stage: stage.slug,
       title: `Tahap ${stage.order}: ${stage.title}`,
+      // Nama pendeknya diperlakukan setara judul. Orang mengetik "sempro",
+      // bukan "seminar proposal", dan halaman tahapnya harus ikut terangkat.
+      titleExtra: stage.shortTitle,
       body: `${stage.description}\n\nTujuan: ${stage.goal}\nEstimasi: ${stage.estimatedDuration}`,
       href: `/tahapan/${stage.slug}`,
       hrefLabel: "Buka tahap ini",
@@ -598,7 +742,11 @@ export const knowledge: Answer[] = [
   entry({
     id: "ringkasan-alur",
     kind: "Tahapan",
-    title: "Ringkasan seluruh alur kelulusan",
+    // Judulnya sengaja memuat "mulai" dan "tahap": dua kata yang paling sering
+    // dipakai orang yang belum tahu harus bertanya apa, dan sebelumnya
+    // pertanyaan seperti "mulai skripsi dari mana" tidak menemukan entri ini
+    // sama sekali karena judulnya tak menyinggung keduanya.
+    title: `Mulai dari mana? Ringkasan ${totalStages} tahap kelulusan`,
     body: `Ada ${totalStages} tahap:\n${stages
       .map((s) => `${s.order}. ${s.title} (${s.estimatedDuration})`)
       .join("\n")}`,
@@ -630,6 +778,23 @@ export function findAnswers(question: string, limit = 3): SearchResult[] {
   // memuat kata SKPI di judul, jadi skor kata kuncinya seri.
   const semuaKata = teks.split(" ").filter(Boolean);
 
+  // Kata asing berbobot dua kali lipat di penyebut cakupan. Kalau pokok
+  // bahasan pertanyaannya sama sekali tidak dikenal — "sholat", "paspor",
+  // "gaji" — memang seharusnya lebih sulit lolos.
+  const beban = (g: Group) => (g.asing ? 2 : 1);
+
+  // Pertanyaan yang seluruh katanya dikenal boleh dijawab hanya dari kata
+  // struktural: mengetik "form" saja memang berarti "tunjukkan formulirnya".
+  // Begitu ada kata asing, syaratnya diperketat.
+  const adaAsing = groups.some((g) => g.asing);
+  const totalBeban = groups.reduce((a, g) => a + beban(g), 0);
+
+  // Satu konsep saja, tanpa kata tanya dan tanpa penanda urutan. "setelah
+  // yudisium apa" hanya menyisakan satu konsep setelah kata umum dibuang,
+  // tapi jelas bukan permintaan ringkasan tahap.
+  const bareTopik =
+    groups.length === 1 && maksud.kinds.size === 0 && !maksud.lanjut && !maksud.balik;
+
   const results: SearchResult[] = [];
   for (const answer of knowledge) {
     // Entri bergerbang hanya ikut dinilai kalau pertanyaannya memang
@@ -637,43 +802,35 @@ export function findAnswers(question: string, limit = 3): SearchResult[] {
     if (answer.gate === "lanjut" && !maksud.lanjut) continue;
     if (answer.gate === "balik" && !maksud.balik) continue;
 
-    let hits = 0;
+    let cocok = 0;
     let titleHits = 0;
-    let kuat = 0;
+    let jangkar = 0;
     let score = 0;
 
     for (const group of groups) {
-      const diJudul = bobotCocok(answer.titleWords, group);
-      const diIsi = bobotCocok(answer.bodyWords, group);
+      const diJudul = bobotCocok(answer.titleWords, answer.titleStems, group);
+      const diIsi = bobotCocok(answer.bodyWords, answer.bodyStems, group);
       const bobot = Math.max(diJudul, diIsi);
       if (bobot === 0) continue;
-      hits++;
+      cocok += beban(group);
       if (diJudul > 0) titleHits++;
-      if (bobot >= BOBOT_ALIAS) kuat++;
+      if (!struktural(group)) jangkar++;
       score += (diJudul > 0 ? BOBOT_JUDUL : BOBOT_ISI) * bobot;
     }
 
-    if (hits === 0) continue;
+    // Judul jawaban wajib menyinggung setidaknya satu hal yang ditanyakan.
+    // Tanpa syarat ini "berapa gaji lulusan hukum" ikut terjawab: kata "lulus"
+    // dan "hukum" memang bertebaran di badan teks hampir semua entri.
+    if (titleHits === 0) continue;
 
-    // Jangan pernah menjawab hanya berdasarkan tebakan ejaan di badan teks.
-    // Tebakan boleh menolong, tapi tidak boleh jadi satu-satunya alasan.
-    if (kuat === 0 && titleHits === 0) continue;
+    // Begitu ada kata asing, kecocokan pada kata struktural saja tidak cukup —
+    // itulah yang membedakan "jadwal ujian komprehensif" dari "jadwal sholat".
+    if (adaAsing && jangkar === 0) continue;
 
-    // Satu kecocokan lemah di badan teks tidak cukup. Tanpa aturan ini,
-    // "cuaca hari ini" ikut terjawab hanya karena kata "hari" muncul di
-    // keterangan tenggat.
-    if (titleHits === 0 && hits < 2) continue;
-
-    // Cakupan menjaga agar pertanyaan panjang tidak cocok hanya karena satu kata.
-    const coverage = hits / groups.length;
-    if (coverage < 0.4) continue;
-
-    // Jawaban resmi dan tenggat sedikit diprioritaskan.
-    let bonus = answer.kind === "Tenggat" || answer.kind === "FAQ" ? 1.15 : 1;
-    // Jenis jawaban yang sesuai maksud pertanyaan diangkat.
-    if (maksud.kinds.has(answer.kind)) bonus *= 1.35;
-    // Entri urutan sudah lolos gerbang, jadi memang itu yang dicari.
-    if (answer.gate) bonus *= 1.4;
+    // Cakupan menjaga agar pertanyaan panjang tidak cocok hanya karena satu
+    // kata.
+    const coverage = cocok / totalBeban;
+    if (coverage < 0.33) continue;
 
     // Kemiripan susunan kalimat dengan judul, ditambahkan sebagai nilai kecil
     // dan bukan sebagai pengali. Sebagai pengali ia sempat menggeser jawaban
@@ -682,7 +839,27 @@ export function findAnswers(question: string, limit = 3): SearchResult[] {
       semuaKata.filter((w) => answer.titleWords.includes(w)).length /
       semuaKata.length;
 
-    results.push({ answer, score: score * coverage * bonus + rapat * 0.05 });
+    // Jawaban resmi dan tenggat sedikit diprioritaskan.
+    let bonus = answer.kind === "Tenggat" || answer.kind === "FAQ" ? 1.15 : 1;
+    // Jenis jawaban yang sesuai maksud pertanyaan diangkat.
+    if (maksud.kinds.has(answer.kind)) bonus *= 1.35;
+    // Entri urutan sudah lolos gerbang, jadi memang itu yang dicari.
+    if (answer.gate) bonus *= 1.4;
+    // Satu kata saja tanpa kata tanya — "sempro", "wisuda" — artinya "ceritakan
+    // soal ini". Halaman tahapannya yang menjawab itu, bukan satu FAQ sempit
+    // yang kebetulan menyebut kata tersebut di judulnya.
+    if (bareTopik && answer.kind === "Tahapan" && !answer.gate) bonus *= 1.5;
+
+    // Pemecah seri kedua: judul yang lebih ringkas lebih spesifik membahas
+    // kata yang dicari. "Tahap 2: Seminar Proposal" dan "Tahap 1: Persiapan
+    // Proposal" sama-sama memuat kata "sempro" lewat nama pendeknya, dan
+    // tanpa ini urutan pemenangnya cuma bergantung urutan penyusunan data.
+    const fokus = 0.02 / answer.titleWords.length;
+
+    results.push({
+      answer,
+      score: score * coverage * bonus + rapat * 0.05 + fokus,
+    });
   }
 
   return results.sort((a, b) => b.score - a.score).slice(0, limit);
@@ -705,13 +882,12 @@ function cariLonggar(question: string, limit: number): Answer[] {
     let score = 0;
     let kuat = 0;
     for (const group of groups) {
-      const bobot = Math.max(
-        bobotCocok(answer.titleWords, group),
-        bobotCocok(answer.bodyWords, group),
-      );
+      const diJudul = bobotCocok(answer.titleWords, answer.titleStems, group);
+      const diIsi = bobotCocok(answer.bodyWords, answer.bodyStems, group);
+      const bobot = Math.max(diJudul, diIsi);
       if (bobot === 0) continue;
-      if (bobot >= BOBOT_ALIAS) kuat++;
-      score += bobotCocok(answer.titleWords, group) > 0 ? bobot * 2 : bobot;
+      if (bobot >= BOBOT_STEM) kuat++;
+      score += diJudul > 0 ? bobot * 2 : bobot;
     }
     if (kuat === 0) continue;
     results.push({ answer, score });
@@ -798,3 +974,4 @@ export const starterQuestions = [
   "Cara isi SKPI di AIS",
   "Tenggat mana yang bikin mengulang?",
 ];
+

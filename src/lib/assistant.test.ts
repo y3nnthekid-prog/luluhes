@@ -92,6 +92,46 @@ const KASUS: Record<string, Kasus[]> = {
     { q: "jadwal kereta jakarta bandung", tolak: true },
     { q: "dokumen buat bikin paspor", tolak: true },
     { q: "berapa harga emas hari ini", tolak: true },
+    { q: "jadwal sholat hari ini", tolak: true },
+    { q: "kapan gaji karyawan cair", tolak: true },
+    { q: "cara bikin cv lamaran kerja", tolak: true },
+    { q: "berapa gaji lulusan hukum", tolak: true },
+    { q: "beasiswa s2 luar negeri", tolak: true },
+    { q: "cara masak mie goreng", tolak: true },
+    { q: "harga laptop murah", tolak: true },
+  ],
+
+  // Ronde kedua. Sembilan puluh pertanyaan baru dijalankan lalu jawabannya
+  // dibaca satu per satu; yang di bawah ini adalah kasus yang semula salah
+  // dan sudah diperbaiki. Dikunci di sini supaya tidak diam-diam rusak lagi.
+  "Temuan audit": [
+    { q: "kompre boleh diulang berapa kali", terima: /^faq-34$|komprehensif/ },
+    { q: "turnitin dicek siapa", terima: /^faq-8$|turnitin/ },
+    {
+      q: "permisi mau nanya kalau misalnya hasil turnitin aku ternyata di atas batas gimana ya solusinya",
+      terima: /^faq-3[67]$|turnitin/,
+    },
+    {
+      q: "aku udah selesai sidang tapi bingung banget habis ini harus ngapain lagi ya kak",
+      terima: /revisi-munaqosyah/,
+    },
+    {
+      q: "halo kak aku mau tanya dong soal syarat pendaftaran sidang munaqosyah itu apa aja ya",
+      terima: /munaqosyah/,
+    },
+    { q: "mulai skripsi dari mana", terima: /ringkasan-alur/ },
+    { q: "total berapa tahap sampai lulus", terima: /ringkasan-alur/ },
+    { q: "berapa lama proses munaqosyah", terima: /munaqosyah/ },
+  ],
+
+  // Satu kata saja berarti "ceritakan soal ini" — yang menjawab halaman
+  // tahapannya, bukan satu FAQ sempit yang kebetulan menyebut kata itu.
+  "Satu kata": [
+    { q: "sempro", terima: /^stage-sempro$/ },
+    { q: "munaqosyah", terima: /^stage-munaqosyah$/ },
+    { q: "yudisium", terima: /^stage-yudisium$/ },
+    { q: "wisuda", terima: /^stage-wisuda$/ },
+    { q: "turnitin", terima: /^faq-8$|turnitin/ },
   ],
 
   // Ditulis setelah mesinnya selesai disetel, tanpa menyesuaikan mesin lagi —
