@@ -105,7 +105,7 @@ export default function HomePage() {
             </div>
 
             <div
-              className="journey-bar shimmer relative mt-4 h-2.5 w-full overflow-hidden rounded-full"
+              className="journey-bar mt-4 h-2.5 w-full rounded-full"
               aria-hidden
             />
 
