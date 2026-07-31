@@ -14,20 +14,21 @@ import {
   Percent,
   RotateCcw,
   Stamp,
-  Trophy,
   type LucideIcon,
 } from "lucide-react";
 
+import {
+  PapanSkorPanel,
+  kirimSkor,
+} from "@/components/games/papan-skor-panel";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
-  BATAS_PAPAN,
   MAKS_HURUF_NAMA,
   namaPemainStore,
   papanSkorStore,
   peringkatUntuk,
   rapikanNama,
-  tambahSkor,
 } from "@/lib/papan-skor";
 import {
   PEMAIN_LEBAR,
@@ -41,7 +42,6 @@ import {
   type Aksi,
   type Keadaan,
 } from "@/lib/runner";
-import { cn } from "@/lib/utils";
 
 const ARENA = 210;
 const KOLAM = 5;
@@ -68,6 +68,8 @@ export function LariWisuda() {
   // Ikon tiap slot rintangan. Diperbarui hanya saat isinya benar-benar
   // berganti — beberapa kali per detik, bukan tiap frame.
   const [slotIkon, setSlotIkon] = React.useState<string[]>([]);
+  // Dinaikkan setiap skor terkirim, supaya papan mengambil data terbaru.
+  const [penyegar, setPenyegar] = React.useState(0);
 
   // Papan skor dan nama dibaca lewat store yang sama dengan progres checklist,
   // supaya render di server dan klien tetap sepakat tanpa setState di effect.
@@ -178,15 +180,12 @@ export function LariWisuda() {
         setAngka(nilai);
         setPenabrak(k.penabrak);
         const pemain = namaMainRef.current || "Tanpa nama";
-        const sebelum = papanSkorStore.getSnapshot();
-        setPosisiBaru(peringkatUntuk(sebelum, nilai));
-        papanSkorStore.set(
-          tambahSkor(sebelum, {
-            nama: pemain,
-            skor: nilai,
-            pada: new Date().toISOString(),
-          }),
-        );
+        setPosisiBaru(peringkatUntuk(papanSkorStore.getSnapshot(), nilai));
+        void kirimSkor("lari", {
+          nama: pemain,
+          skor: nilai,
+          pada: new Date().toISOString(),
+        }).then(() => setPenyegar((n) => n + 1));
         statusRef.current = "selesai";
         setStatus("selesai");
         return;
@@ -377,53 +376,7 @@ export function LariWisuda() {
         Spasi atau panah atas untuk melompat, panah bawah untuk menunduk.
       </p>
 
-      {/* Papan tujuh besar */}
-      <div className="mt-6 rounded-2xl border bg-card p-4">
-        <div className="flex items-center gap-2">
-          <Trophy className="size-4 text-brand" aria-hidden />
-          <h3 className="font-heading text-sm font-semibold">
-            Tujuh skor tertinggi
-          </h3>
-        </div>
-
-        {papan.length === 0 ? (
-          <p className="mt-3 text-sm text-muted-foreground">
-            Belum ada yang tercatat. Skor pertama jadi milik kamu.
-          </p>
-        ) : (
-          <ol className="mt-3 space-y-1">
-            {papan.map((e, i) => (
-              <li
-                key={`${e.nama}-${e.pada}-${i}`}
-                className={cn(
-                  "flex items-center gap-3 rounded-lg px-2.5 py-1.5 text-sm",
-                  i === 0 ? "bg-brand-soft font-medium" : "odd:bg-muted/40",
-                )}
-              >
-                <span
-                  className={cn(
-                    "flex size-6 shrink-0 items-center justify-center rounded-md text-xs font-bold tabular-nums",
-                    i === 0
-                      ? "bg-brand text-brand-foreground"
-                      : "bg-muted text-muted-foreground",
-                  )}
-                >
-                  {i + 1}
-                </span>
-                <span className="min-w-0 flex-1 truncate">{e.nama}</span>
-                <span className="font-heading font-semibold tabular-nums">
-                  {e.skor}
-                </span>
-              </li>
-            ))}
-          </ol>
-        )}
-
-        <p className="mt-3 text-xs text-muted-foreground">
-          Tersimpan di peramban ini saja — {BATAS_PAPAN} teratas, tidak dikirim
-          ke mana pun.
-        </p>
-      </div>
+      <PapanSkorPanel permainan="lari" penyegar={penyegar} />
     </div>
   );
 }

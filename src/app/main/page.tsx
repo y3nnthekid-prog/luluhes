@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { Footprints, Gamepad2, ListOrdered, Puzzle } from "lucide-react";
+import { Blocks, Footprints, Gamepad2, ListOrdered, Puzzle } from "lucide-react";
 
 import { Breadcrumb } from "@/components/breadcrumb";
+import { BlastPanel } from "@/components/games/blast-panel";
 import { LariWisuda } from "@/components/games/lari-wisuda";
 import { TebakTahap } from "@/components/games/tebak-tahap";
 import { UrutkanAlur } from "@/components/games/urutkan-alur";
@@ -12,7 +13,7 @@ import { totalStages } from "@/lib/data";
 export const metadata: Metadata = {
   title: "Ruang Main",
   description:
-    "Dua mini game untuk menguji hafalan alur kelulusan HES: menyusun urutan tahapan dan menebak asal sebuah syarat.",
+    "Empat mini game untuk menguji hafalan alur kelulusan HES: lari menghindari tenggat, menata berkas, menyusun urutan tahapan, dan menebak asal sebuah syarat.",
 };
 
 export default function MainPage() {
@@ -36,7 +37,7 @@ export default function MainPage() {
         </div>
 
         <p className="mt-4 max-w-2xl text-sm text-muted-foreground">
-          Kedua permainan ini merakit soalnya dari data yang sama dengan halaman
+          Keempat permainan ini merakit isinya dari data yang sama dengan halaman
           tahapan — {totalStages} tahap dan {bankSoal.length} potongan syarat,
           dokumen, serta peringatan. Jadi kalau kamu menang di sini, kamu memang
           hafal alurnya, bukan hafal soalnya.
@@ -59,6 +60,23 @@ export default function MainPage() {
         </div>
         <div className="mt-4">
           <LariWisuda />
+        </div>
+      </Reveal>
+
+      <Reveal delay={90} as="section" className="mt-12 border-t pt-10">
+        <div className="flex items-center gap-2.5">
+          <span className="flex size-9 items-center justify-center rounded-xl bg-brand text-brand-foreground">
+            <Blocks className="size-4.5" aria-hidden />
+          </span>
+          <div>
+            <h2 className="font-heading text-lg font-semibold">Blast Berkas</h2>
+            <p className="text-xs text-muted-foreground">
+              Tata potongan berkas, penuhi baris atau kolom
+            </p>
+          </div>
+        </div>
+        <div className="mt-4">
+          <BlastPanel />
         </div>
       </Reveal>
 
@@ -98,9 +116,11 @@ export default function MainPage() {
 
       <Reveal delay={120}>
         <p className="mt-10 rounded-xl border bg-muted/50 p-3 text-xs text-muted-foreground">
-          Skor di sini tidak disimpan ke mana pun dan tidak dikirim ke server.
-          Begitu halaman ditutup, hitungannya hilang — permainan ini untuk
-          latihan, bukan penilaian.
+          Papan skor Lari dan Blast dibagi ke semua pemain, jadi nama yang kamu
+          ketik beserta skornya memang dikirim dan tersimpan di server — hanya
+          itu, tidak ada data lain. Susun Alur dan Tebak Tahap sepenuhnya di
+          perangkatmu dan tidak mengirim apa pun. Skornya untuk latihan, bukan
+          penilaian.
         </p>
       </Reveal>
     </div>

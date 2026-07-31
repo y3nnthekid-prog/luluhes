@@ -1,5 +1,5 @@
 import * as React from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, MousePointerClick } from "lucide-react";
 
 import { CountUp } from "@/components/count-up";
 import { LinkButton } from "@/components/link-button";
@@ -121,8 +121,17 @@ export function Hero() {
           mengulang.
         </p>
 
-        <div className="relative z-1 mt-7 flex flex-col gap-2.5 sm:flex-row">
-          <WizardDialog className="bg-surface-accent text-white shadow-lg shadow-brand/25 transition-transform hover:scale-[1.02] hover:bg-surface-accent/85" />
+        {/* Ajakan utama. Tombolnya sempat berdiri sendiri tanpa penjelasan
+            apa pun, jadi tidak jelas apa yang didapat setelah diklik — kini
+            disertai janji yang konkret dan cincin berdenyut yang menariknya
+            keluar dari latar. */}
+        <div className="relative z-1 mt-7 flex flex-col gap-2.5 sm:flex-row sm:items-center">
+          <span className="pulse-ring relative inline-flex rounded-xl">
+            <WizardDialog
+              label="Cek, aku di tahap mana?"
+              className="bg-surface-accent text-white shadow-lg shadow-brand/30 transition-transform hover:scale-[1.03] hover:bg-surface-accent/85"
+            />
+          </span>
           <LinkButton
             href="/roadmap"
             size="lg"
@@ -133,6 +142,12 @@ export function Hero() {
             <ArrowRight aria-hidden data-icon="inline-end" />
           </LinkButton>
         </div>
+
+        <p className="relative z-1 mt-3 flex items-center gap-1.5 text-sm font-medium text-pop-foreground/75">
+          <MousePointerClick className="size-4 shrink-0" aria-hidden />
+          Klik di situ: sepuluh pertanyaan singkat, langsung ketahuan tahapmu
+          sekarang dan apa lanjutannya.
+        </p>
 
         <dl className="relative z-1 mt-8 flex flex-wrap gap-x-8 gap-y-4">
           {[

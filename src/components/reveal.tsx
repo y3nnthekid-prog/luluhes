@@ -17,12 +17,15 @@ export function Reveal({
   delay = 0,
   className,
   as: Tag = "div",
+  id,
 }: {
   children: React.ReactNode;
   /** Jeda dalam milidetik, untuk memunculkan sederet elemen bergiliran. */
   delay?: number;
   className?: string;
   as?: "div" | "section" | "li" | "article";
+  /** Supaya blok ini bisa jadi sasaran tautan jangkar. */
+  id?: string;
 }) {
   const ref = React.useRef<HTMLElement | null>(null);
 
@@ -80,6 +83,7 @@ export function Reveal({
   return (
     <Tag
       ref={pasang}
+      id={id}
       data-reveal=""
       style={
         delay

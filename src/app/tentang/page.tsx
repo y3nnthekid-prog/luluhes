@@ -3,6 +3,7 @@ import { ExternalLink, ShieldCheck } from "lucide-react";
 
 import { Breadcrumb } from "@/components/breadcrumb";
 import { Reveal } from "@/components/reveal";
+import { Dukungan } from "@/components/dukungan";
 import { ResetProgressButton } from "@/components/reset-progress-button";
 import { site } from "@/lib/data";
 
@@ -50,6 +51,16 @@ export default function TentangPage() {
             </li>
           ))}
         </ul>
+      </Reveal>
+
+      {/* Dukungan: kritik, saran, dan donasi */}
+      <Reveal as="section" delay={80} id="dukungan" className="mt-12 scroll-mt-24">
+        <h2 className="font-heading text-lg font-medium">
+          {site.dukungan.heading}
+        </h2>
+        <div className="mt-4">
+          <Dukungan />
+        </div>
       </Reveal>
 
       {/* Sumber resmi */}
@@ -117,11 +128,15 @@ export default function TentangPage() {
       <section className="mt-8">
         <h2 className="font-heading text-lg font-medium">Data & privasi</h2>
         <p className="mt-2 text-sm text-muted-foreground">
-          Website ini tidak punya akun, tidak punya server penyimpan data, dan
-          tidak mengirim apa pun ke mana pun. Seluruh checklist dan penanda
-          posisimu disimpan di Local Storage browser yang kamu pakai sekarang.
-          Kalau kamu berganti browser atau perangkat, progresmu tidak ikut
-          berpindah.
+          Website ini tidak punya akun dan tidak melacak siapa pun. Seluruh
+          checklist dan penanda posisimu disimpan di Local Storage browser yang
+          kamu pakai sekarang; kalau berganti browser atau perangkat, progresmu
+          tidak ikut berpindah.
+          {" "}
+          Satu pengecualian: papan skor mini game. Kalau kamu bermain dan
+          mengetik nama, nama dan skor itu dikirim ke server supaya pemain lain
+          bisa melihatnya. Hanya dua hal itu yang dikirim — tidak ada progres,
+          tidak ada riwayat halaman, dan tidak ada pengenal perangkat.
         </p>
         <div className="mt-4">
           <ResetProgressButton />

@@ -168,4 +168,17 @@ export type SiteConfig = {
     heading: string;
     paragraphs: string[];
   };
+  dukungan: {
+    heading: string;
+    intro: string;
+    /** Alamat tujuan kritik dan saran; tampil publik di halaman Tentang. */
+    email: string;
+    donasi: {
+      heading: string;
+      nama: string;
+      catatan: string;
+      /** Berkas gambar QRIS di folder public. */
+      qris: string;
+    };
+  };
 };

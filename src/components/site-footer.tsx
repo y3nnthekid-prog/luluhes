@@ -40,10 +40,22 @@ export function SiteFooter() {
               FAQ
             </Link>
             <Link
+              href="/main"
+              className="text-muted-foreground hover:text-foreground"
+            >
+              Ruang Main
+            </Link>
+            <Link
               href="/tentang"
               className="text-muted-foreground hover:text-foreground"
             >
               Tentang
+            </Link>
+            <Link
+              href="/tentang#dukungan"
+              className="font-medium text-brand hover:underline"
+            >
+              Dukung &amp; beri masukan
             </Link>
           </nav>
         </div>

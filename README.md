@@ -304,6 +304,55 @@ masuk ke bundel browser dan tidak pernah ditulis di repository.
 
 Variabel yang tersedia ada di `.env.example`.
 
+## Ruang Main
+
+Empat permainan di `/main`, semuanya merakit isinya dari data yang sama dengan
+halaman tahapan — jadi menang di sini berarti hafal alurnya, bukan hafal soalnya.
+
+| Permainan | Isi | Logika |
+| --- | --- | --- |
+| Lari Menuju Wisuda | Menghindari rintangan bertema tenggat | `src/lib/runner.ts` |
+| Blast Berkas | Menata potongan berkas di papan 8×8 | `src/lib/blast.ts` |
+| Susun Alur | Mengurutkan 11 tahap | `src/lib/games.ts` |
+| Tebak Tahap | Menebak asal sebuah syarat | `src/lib/games.ts` |
+
+Dua yang pertama memisahkan seluruh aturan mainnya ke berkas lib yang tidak
+menyentuh DOM, React, maupun waktu nyata: langkah waktu dan sumber acaknya
+disuntikkan dari luar. Itu disengaja supaya fisikanya bisa diuji tanpa layar —
+`requestAnimationFrame` tidak selalu tersedia di lingkungan pengembangan, dan
+menguji permainan lewat tangkapan layar tidak pernah bisa diandalkan.
+
+### Papan skor global
+
+`/api/skor` menyimpan tujuh skor tertinggi tiap permainan di Upstash Redis,
+memakai sorted set dengan `ZADD GT` sehingga satu nama hanya punya satu baris:
+skor terbaiknya. Yang tersimpan cuma nama yang diketik pemain dan angkanya.
+
+Kalau `KV_REST_API_URL` dan `KV_REST_API_TOKEN` belum diisi — atau Redis-nya
+sedang tidak bisa dihubungi — panel beralih ke papan lokal di peramban
+masing-masing dan menuliskannya terus terang lewat label **"Perangkat ini
+saja"**. Menampilkan papan lokal seolah-olah itu peringkat sedunia jauh lebih
+buruk daripada mengaku.
+
+Memasangnya: **Vercel → Storage → Upstash Redis → Create**, pilih project ini.
+Vercel memasang kedua variabelnya sendiri; setelah itu **Redeploy**.
+
+Skornya dikirim dari peramban, jadi tidak ada cara membuktikannya benar-benar
+diperoleh dengan bermain. Yang ada hanya penjaga sederhana: rate limit per IP,
+nama dibersihkan dari karakter kendali dan dipangkas 16 huruf, serta batas atas
+skor 100.000 supaya papan tetap terbaca kalau ada yang mengirim angka konyol.
+
+## Dukungan
+
+Bagian **Dukung & beri masukan** di `/tentang#dukungan` memuat dua hal:
+formulir kritik dan saran, serta QRIS donasi.
+
+Formulirnya tidak mengirim apa pun ke server mana pun — ia menyusun surel lalu
+menyerahkannya ke aplikasi surel perangkat. Konsekuensinya jujur: tidak ada
+basis data yang perlu dijaga, dan pengirim melihat persis apa yang dikirim
+sebelum menekan kirim. Alamat tujuannya di `site.json` pada `dukungan.email`;
+alamat itu tampil publik, jadi ganti di sana kalau ingin dialihkan.
+
 ## Progres pengguna
 
 Checklist dan penanda posisi disimpan di **Local Storage** browser pengguna. Tidak
