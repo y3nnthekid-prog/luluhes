@@ -104,7 +104,10 @@ export default function HomePage() {
               </LinkButton>
             </div>
 
-            <div className="journey-bar mt-4 h-2 w-full rounded-full" aria-hidden />
+            <div
+              className="journey-bar shimmer relative mt-4 h-2.5 w-full overflow-hidden rounded-full"
+              aria-hidden
+            />
 
             <ol className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
               {phases.map((phase) => {
@@ -230,7 +233,7 @@ export default function HomePage() {
 
               <Link
                 href="/main"
-                className="card-lift group flex items-center gap-3 rounded-2xl bg-white/65 p-4 ring-1 ring-white/70 sm:w-56 sm:flex-col sm:items-start"
+                className="miring group flex items-center gap-3 rounded-2xl bg-white/70 p-4 shadow-sm ring-1 ring-white/70 sm:w-56 sm:flex-col sm:items-start"
               >
                 <span className="flex size-10 items-center justify-center rounded-xl bg-surface-accent text-white">
                   <Sparkles className="size-5" aria-hidden />

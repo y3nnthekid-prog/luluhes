@@ -5,17 +5,24 @@ import { LinkButton } from "@/components/link-button";
 import { StageIcon } from "@/components/stage-icon";
 import { WizardDialog } from "@/components/wizard-dialog";
 import { downloads, site, stages, totalStages } from "@/lib/data";
+import { cn } from "@/lib/utils";
 
 const JUDUL = "Berhenti menebak-nebak alur kelulusanmu.";
 
-/** Enam ikon tahap yang mengambang di sisi kanan hero. */
+/**
+ * Ikon tahap yang mengambang di sisi kanan hero.
+ *
+ * Tiga yang pertama tampil di layar kecil sekalipun; sisanya menyusul begitu
+ * ada ruang. Versi sebelumnya menyembunyikan semuanya di bawah layar lebar,
+ * jadi sebagian besar pengunjung tidak pernah melihat gerakan apa pun.
+ */
 const ikonMengambang = [
-  { i: 0, top: "12%", right: "6%", dur: "7s", delay: "0s" },
-  { i: 2, top: "34%", right: "22%", dur: "8.5s", delay: "0.6s" },
-  { i: 4, top: "58%", right: "9%", dur: "6.4s", delay: "1.1s" },
-  { i: 5, top: "17%", right: "38%", dur: "9s", delay: "0.3s" },
-  { i: 8, top: "72%", right: "31%", dur: "7.6s", delay: "1.6s" },
-  { i: 10, top: "46%", right: "45%", dur: "8.2s", delay: "0.9s" },
+  { i: 0, top: "10%", right: "5%", dur: "5.4s", delay: "0s", kecil: true },
+  { i: 4, top: "56%", right: "8%", dur: "4.6s", delay: "0.8s", kecil: true },
+  { i: 10, top: "31%", right: "20%", dur: "6.2s", delay: "0.4s", kecil: true },
+  { i: 2, top: "76%", right: "24%", dur: "5.8s", delay: "1.2s", kecil: false },
+  { i: 5, top: "14%", right: "35%", dur: "6.6s", delay: "0.2s", kecil: false },
+  { i: 8, top: "48%", right: "43%", dur: "5.2s", delay: "1.6s", kecil: false },
 ];
 
 export function Hero() {
@@ -25,16 +32,23 @@ export function Hero() {
   return (
     <section className="px-4 pt-4">
       <div className="aurora grain surface-brand relative mx-auto max-w-5xl overflow-hidden rounded-[1.75rem] px-6 py-12 sm:px-10 sm:py-16">
+        {/* Gumpalan aurora ketiga; dua lainnya digambar sebagai pseudo-element. */}
+        <span className="aurora-3" aria-hidden />
+
         {/* Ikon tahap yang mengambang. Murni hiasan, jadi disembunyikan dari
-            pembaca layar dan dari layar sempit supaya tidak menutupi teks. */}
-        <div className="pointer-events-none absolute inset-0 hidden lg:block" aria-hidden>
+            pembaca layar. */}
+        <div className="pointer-events-none absolute inset-0" aria-hidden>
           {ikonMengambang.map((f) => {
             const stage = stages[f.i];
             if (!stage) return null;
             return (
               <span
                 key={stage.slug}
-                className="float-soft absolute flex size-11 items-center justify-center rounded-2xl bg-white/45 text-surface-accent shadow-sm ring-1 ring-white/60 backdrop-blur-sm"
+                className={cn(
+                  "float-soft absolute flex items-center justify-center rounded-2xl bg-white/50 text-surface-accent shadow-sm ring-1 ring-white/60 backdrop-blur-sm",
+                  "size-9 sm:size-11",
+                  !f.kecil && "hidden md:flex",
+                )}
                 style={
                   {
                     top: f.top,
@@ -44,7 +58,7 @@ export function Hero() {
                   } as React.CSSProperties
                 }
               >
-                <StageIcon name={stage.icon} className="size-5" />
+                <StageIcon name={stage.icon} className="size-4 sm:size-5" />
               </span>
             );
           })}
@@ -61,16 +75,19 @@ export function Hero() {
         {/* Judul muncul kata demi kata. Teks utuhnya tetap satu <h1>, jadi
             pembaca layar dan mesin pencari membacanya sebagai satu kalimat. */}
         <h1 className="relative z-1 mt-5 font-heading text-[clamp(2.1rem,6.4vw,4.75rem)] leading-[1.02] font-bold tracking-tight text-pretty">
-          {kata.map((k, i) => (
-            <span
-              key={`${k}-${i}`}
-              className="word-rise"
-              style={{ animationDelay: `${i * 70}ms` }}
-            >
-              {k}
-              {i < kata.length - 1 ? " " : ""}
-            </span>
-          ))}
+          {kata.map((k, i) => {
+            const terakhir = i === kata.length - 1;
+            return (
+              <span
+                key={`${k}-${i}`}
+                className="word-rise"
+                style={{ animationDelay: `${i * 90}ms` }}
+              >
+                {/* Kata terakhir disorot setelah seluruh kalimat naik. */}
+                {terakhir ? <span className="sorot-kata">{k}</span> : `${k} `}
+              </span>
+            );
+          })}
         </h1>
 
         {/* Garis perjalanan yang menggambar dirinya sendiri: satu tarikan dari

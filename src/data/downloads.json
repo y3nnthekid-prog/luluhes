@@ -1,5 +1,17 @@
 [
   {
+    "id": "pedoman-penulisan-skripsi",
+    "name": "Pedoman Penulisan Skripsi FSH UIN Jakarta 2017",
+    "description": "Buku resmi Fakultas, 103 halaman. Empat bab: ketentuan umum dan etika penulisan; komponen serta syarat pengajuan proposal; ketentuan, komponen, dan teknik penulisan skripsi; lalu bimbingan dan ujian. Baca ini lebih dulu — hampir semua pertanyaan format terjawab di sini.",
+    "stage": "pra-sempro",
+    "version": "2017",
+    "format": "PDF",
+    "size": "728 KB",
+    "status": "tersedia",
+    "updatedAt": "2026-07-31",
+    "url": "/template/pedoman-penulisan-skripsi-fsh-2017.pdf"
+  },
+  {
     "id": "surat-persetujuan-proposal",
     "name": "Surat Persetujuan Proposal Skripsi",
     "description": "Surat pengajuan judul proposal kepada Ketua Prodi HES, ditandatangani kamu dan Dosen Pembimbing Akademik.",
@@ -166,18 +178,6 @@
     "status": "tersedia",
     "updatedAt": "2026-07-29",
     "url": "/template/lembar-pengesahan-panitia-ujian-skripsi.docx"
-  },
-  {
-    "id": "panduan-penjilidan",
-    "name": "Panduan Penjilidan Skripsi",
-    "description": "Ketentuan sampul, warna, urutan halaman, dan jumlah eksemplar skripsi final.",
-    "stage": "revisi-munaqosyah",
-    "version": "—",
-    "format": "PDF",
-    "size": "—",
-    "status": "perlu-verifikasi",
-    "updatedAt": "2026-07-29",
-    "url": null
   },
   {
     "id": "lembar-pernyataan-keaslian",

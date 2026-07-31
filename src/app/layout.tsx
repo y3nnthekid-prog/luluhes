@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
 import { Assistant } from "@/components/assistant";
+import { CursorLucu } from "@/components/cursor-lucu";
 import { DisclaimerModal } from "@/components/disclaimer-modal";
 import { Providers } from "@/components/providers";
 import { SiteFooter } from "@/components/site-footer";
@@ -77,6 +78,7 @@ export default function RootLayout({
           <SiteFooter />
           <Assistant />
           <DisclaimerModal />
+          <CursorLucu />
         </Providers>
       </body>
     </html>

@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { Gamepad2, ListOrdered, Puzzle } from "lucide-react";
+import { Footprints, Gamepad2, ListOrdered, Puzzle } from "lucide-react";
 
 import { Breadcrumb } from "@/components/breadcrumb";
+import { LariWisuda } from "@/components/games/lari-wisuda";
 import { TebakTahap } from "@/components/games/tebak-tahap";
 import { UrutkanAlur } from "@/components/games/urutkan-alur";
 import { Reveal } from "@/components/reveal";
@@ -43,6 +44,25 @@ export default function MainPage() {
       </Reveal>
 
       <Reveal delay={90} as="section" className="mt-10">
+        <div className="flex items-center gap-2.5">
+          <span className="flex size-9 items-center justify-center rounded-xl bg-brand text-brand-foreground">
+            <Footprints className="size-4.5" aria-hidden />
+          </span>
+          <div>
+            <h2 className="font-heading text-lg font-semibold">
+              Lari Menuju Wisuda
+            </h2>
+            <p className="text-xs text-muted-foreground">
+              Lompati tenggat, tunduki yang melayang
+            </p>
+          </div>
+        </div>
+        <div className="mt-4">
+          <LariWisuda />
+        </div>
+      </Reveal>
+
+      <Reveal delay={90} as="section" className="mt-12 border-t pt-10">
         <div className="flex items-center gap-2.5">
           <span className="flex size-9 items-center justify-center rounded-xl bg-blush text-blush-foreground">
             <ListOrdered className="size-4.5" aria-hidden />
