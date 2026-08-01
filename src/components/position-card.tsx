@@ -96,7 +96,6 @@ export function PositionCard({ className }: { className?: string }) {
         <div className="flex flex-col gap-2 sm:flex-row">
           <LinkButton
             href={`/tahapan/${currentStage.slug}`}
-            size="sm"
             className="flex-1"
           >
             Buka tahap ini
@@ -105,7 +104,7 @@ export function PositionCard({ className }: { className?: string }) {
           <WizardDialog
             label="Bukan di sini?"
             variant="outline"
-            size="sm"
+            size="default"
             className="flex-1"
           />
         </div>
