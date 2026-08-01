@@ -126,16 +126,25 @@ export function Hero() {
             disertai janji yang konkret dan cincin berdenyut yang menariknya
             keluar dari latar. */}
         <div className="relative z-1 mt-7 flex flex-col gap-2.5 sm:flex-row sm:items-center">
-          <span className="pulse-ring relative inline-flex rounded-xl">
+          {/* w-full di layar sempit: induknya menumpuk tegak dan meregangkan
+              anaknya, jadi span ini melebar penuh sementara tombol di dalamnya
+              hanya selebar teksnya — cincin denyutnya terlihat menjulur ke
+              kanan melewati tombolnya. */}
+          <span className="pulse-ring relative inline-flex w-full rounded-xl sm:w-auto">
             <WizardDialog
               label="Cek, aku di tahap mana?"
-              className="bg-surface-accent text-white shadow-lg shadow-brand/30 transition-transform hover:scale-[1.03] hover:bg-surface-accent/85"
+              className="w-full bg-surface-accent text-white shadow-lg shadow-brand/30 transition-transform hover:scale-[1.03] hover:bg-surface-accent/85 sm:w-auto"
             />
           </span>
           <LinkButton
             href="/roadmap"
             size="lg"
-            className="border-black/10 bg-white/65 text-pop-foreground transition-transform hover:scale-[1.02] hover:bg-white/90"
+            /* Varian outline membawa dark:bg-input/30 dan dark:border-input.
+               Di mode gelap keduanya menimpa warna di sini, dan --input gelap
+               adalah pink tembus pandang — di atas bidang hero yang juga pink,
+               tombolnya nyaris lenyap. Bidang ini sengaja tampil sama di kedua
+               mode, jadi tombolnya pun harus begitu. */
+            className="border-black/15 bg-white/70 text-pop-foreground transition-transform hover:scale-[1.02] hover:bg-white/90 dark:border-black/15 dark:bg-white/70 dark:hover:bg-white/90"
             variant="outline"
           >
             Lihat roadmap
