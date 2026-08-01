@@ -12,7 +12,10 @@ import {
   mulai,
   nilaiLangkah,
   papanKosong,
+  petakBentuk,
+  selDariTitik,
   taruh,
+  ukuranSel,
   type Bentuk,
 } from "@/lib/blast";
 
@@ -191,5 +194,60 @@ describe("katalog bentuk", () => {
       const kunci = b.sel.map(([x, y]) => `${x},${y}`);
       expect(new Set(kunci).size, b.nama).toBe(kunci.length);
     }
+  });
+});
+
+describe("posisi penunjuk ke petak", () => {
+  // Kisi 8 kolom, tiap sel 40 piksel, gap 4 → lebar 8*40 + 7*4 = 348.
+  const geo = { kiri: 100, atas: 200, lebar: 348, gap: 4 };
+  const langkah = 44;
+
+  test("ukuran sel dihitung dari lebar kisi dan celahnya", () => {
+    expect(ukuranSel(geo.lebar, geo.gap)).toBe(40);
+  });
+
+  test("petak bentuk dihitung dari selnya", () => {
+    expect(petakBentuk(satuSel)).toEqual({ baris: 1, kolom: 1 });
+    expect(petakBentuk(duaMendatar)).toEqual({ baris: 1, kolom: 2 });
+    expect(petakBentuk(empatPersegi)).toEqual({ baris: 2, kolom: 2 });
+  });
+
+  test("penunjuk di tengah sebuah sel menunjuk sel itu untuk bentuk satu petak", () => {
+    // Titik tengah sel (0,0): kiri + 20, atas + 20
+    expect(selDariTitik(geo.kiri + 20, geo.atas + 20, geo, satuSel)).toEqual({
+      baris: 0,
+      kolom: 0,
+    });
+    // Titik tengah sel (3,5)
+    const x = geo.kiri + 5 * langkah + 20;
+    const y = geo.atas + 3 * langkah + 20;
+    expect(selDariTitik(x, y, geo, satuSel)).toEqual({ baris: 3, kolom: 5 });
+  });
+
+  test("penunjuk diperlakukan sebagai titik tengah bentuk, bukan sudut kirinya", () => {
+    // Bentuk dua petak mendatar dijatuhkan dengan penunjuk di batas antara
+    // kolom 2 dan 3 — hasilnya menempati kolom 2 dan 3, jadi sudutnya di 2.
+    const x = geo.kiri + 3 * langkah - geo.gap / 2;
+    const y = geo.atas + 20;
+    expect(selDariTitik(x, y, geo, duaMendatar)).toEqual({ baris: 0, kolom: 2 });
+  });
+
+  test("angkat menggeser sasaran ke atas, supaya tidak tertutup jari", () => {
+    const x = geo.kiri + 20;
+    const y = geo.atas + 4 * langkah + 20;
+    const tanpaAngkat = selDariTitik(x, y, geo, satuSel, 0);
+    const denganAngkat = selDariTitik(x, y, geo, satuSel, 2 * langkah);
+    expect(tanpaAngkat.baris).toBe(4);
+    expect(denganAngkat.baris).toBe(2);
+    expect(denganAngkat.kolom).toBe(tanpaAngkat.kolom);
+  });
+
+  test("titik di luar papan menghasilkan petak di luar rentang, bukan dipaksa masuk", () => {
+    // Membiarkannya di luar rentang penting: `muat` yang memutuskan sah atau
+    // tidak. Kalau dipaksa masuk, potongan akan melompat ke tepi papan
+    // padahal pemain menjatuhkannya jauh di luar.
+    const jauhKiri = selDariTitik(geo.kiri - 300, geo.atas + 20, geo, satuSel);
+    expect(jauhKiri.kolom).toBeLessThan(0);
+    expect(muat(papanKosong(), satuSel, jauhKiri.baris, jauhKiri.kolom)).toBe(false);
   });
 });

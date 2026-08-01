@@ -249,3 +249,63 @@ export function langkah(
     urut,
   };
 }
+
+/* ---------------------------------------------------------------- */
+/* Menerjemahkan posisi penunjuk menjadi petak papan                 */
+/* ---------------------------------------------------------------- */
+
+export type GeometriPapan = {
+  /** Tepi kiri dan atas kisi papan, dalam koordinat layar. */
+  kiri: number;
+  atas: number;
+  /** Lebar seluruh kisi. */
+  lebar: number;
+  /** Jarak antar sel. */
+  gap: number;
+};
+
+export function ukuranSel(lebarKisi: number, gap: number): number {
+  return (lebarKisi - gap * (UKURAN - 1)) / UKURAN;
+}
+
+/** Ukuran bentuk dalam satuan petak. */
+export function petakBentuk(bentuk: Pick<Bentuk, "sel">) {
+  return {
+    baris: Math.max(...bentuk.sel.map(([b]) => b)) + 1,
+    kolom: Math.max(...bentuk.sel.map(([, k]) => k)) + 1,
+  };
+}
+
+/**
+ * Petak mana yang dituju bila bentuk dijatuhkan di titik ini.
+ *
+ * Penunjuk diperlakukan sebagai TITIK TENGAH bentuk, bukan sudut kiri atasnya.
+ * Menyeret sambil membayangkan sudut kiri atas terasa meleset terus — yang
+ * dilihat orang saat menyeret adalah keseluruhan potongannya.
+ *
+ * `angkat` menaikkan titik acuan sekian piksel di atas penunjuk. Di layar
+ * sentuh jari menutupi petak yang sedang dituju, jadi bentuknya digeser ke
+ * atas supaya tetap terlihat.
+ */
+export function selDariTitik(
+  x: number,
+  y: number,
+  geo: GeometriPapan,
+  bentuk: Pick<Bentuk, "sel">,
+  angkat = 0,
+): { baris: number; kolom: number } {
+  const sel = ukuranSel(geo.lebar, geo.gap);
+  const langkahPx = sel + geo.gap;
+  const petak = petakBentuk(bentuk);
+
+  const lebarBentuk = petak.kolom * sel + (petak.kolom - 1) * geo.gap;
+  const tinggiBentuk = petak.baris * sel + (petak.baris - 1) * geo.gap;
+
+  const kiriAtasX = x - lebarBentuk / 2;
+  const kiriAtasY = y - angkat - tinggiBentuk / 2;
+
+  return {
+    baris: Math.round((kiriAtasY - geo.atas) / langkahPx),
+    kolom: Math.round((kiriAtasX - geo.kiri) / langkahPx),
+  };
+}

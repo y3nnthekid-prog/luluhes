@@ -312,9 +312,16 @@ halaman tahapan — jadi menang di sini berarti hafal alurnya, bukan hafal soaln
 | Permainan | Isi | Logika |
 | --- | --- | --- |
 | Lari Menuju Wisuda | Menghindari rintangan bertema tenggat | `src/lib/runner.ts` |
-| Blast Berkas | Menata potongan berkas di papan 8×8 | `src/lib/blast.ts` |
+| Blast Berkas | Menyeret potongan berkas ke papan 8×8 | `src/lib/blast.ts` |
 | Susun Alur | Mengurutkan 11 tahap | `src/lib/games.ts` |
 | Tebak Tahap | Menebak asal sebuah syarat | `src/lib/games.ts` |
+
+Blast Berkas dimainkan dengan **menyeret**, bukan mengetuk dua kali. Penunjuk
+diperlakukan sebagai titik tengah potongan — menyeret sambil membayangkan sudut
+kiri atas terasa meleset terus. Di layar sentuh potongannya diangkat 88 piksel
+di atas jari, karena jari menutupi persis petak yang sedang dituju. Perhitungan
+itu ada di `selDariTitik` dan diuji tersendiri; mengetuk potongan lalu mengetuk
+papan tetap bisa, supaya pengguna papan ketik tidak tertinggal.
 
 Dua yang pertama memisahkan seluruh aturan mainnya ke berkas lib yang tidak
 menyentuh DOM, React, maupun waktu nyata: langkah waktu dan sumber acaknya
