@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
@@ -80,6 +81,14 @@ export default function RootLayout({
           <DisclaimerModal />
           <CursorLucu />
         </Providers>
+        {/*
+          Vercel Web Analytics. Menghitung kunjungan per halaman tanpa cookie
+          dan tanpa mengikuti pengguna antar situs, jadi tidak mengubah janji
+          "tidak ada akun, tidak ada data pengguna yang disimpan". Datanya baru
+          benar-benar terkumpul kalau Analytics juga dinyalakan di dashboard
+          Vercel — komponen ini saja tidak cukup.
+        */}
+        <Analytics />
       </body>
     </html>
   );

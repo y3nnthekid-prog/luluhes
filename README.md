@@ -6,6 +6,67 @@ Syariah dan Hukum, UIN Syarif Hidayatullah Jakarta.
 > **Bukan website resmi kampus.** Inisiatif pribadi alumni. Tidak berada di bawah
 > pengelolaan Program Studi, Fakultas, maupun Universitas.
 
+Live: **https://lulushes.vercel.app** · Lisensi: [MIT](LICENSE) ·
+[English summary](#english-summary)
+
+## English summary
+
+**A graduation navigator for students of Islamic economic law (Hukum Ekonomi
+Syariah) at UIN Syarif Hidayatullah Jakarta.** Unofficial — a personal project by
+an alumnus, not run by the study program, the faculty, or the university.
+
+**The problem.** The rules for graduating are real and written down — a Dean's
+letter, No. B-252/F4/PP.01.1/01/2024 — but they are not *navigable*. Students
+reconstruct them from screenshots forwarded in group chats and from seniors who
+graduated a year earlier. People miss deadlines not because the requirements are
+hard, but because nobody has laid them end to end.
+
+**What it does.** Eleven graduation stages, each with its requirements,
+documents, steps, deadlines, tips, FAQ, and downloadable templates; a wizard that
+tells a student which stage they are actually in; a monthly exam-schedule view;
+and four practice games built from the same data. Progress lives in the browser's
+local storage — no accounts, no login, no user database.
+
+**Source labeling.** Every claim carries a badge: **Resmi** (traceable to the
+Dean's letter) or **Alumni** (community practice — confirm with the department).
+Publishing institutional information you do not officially control demands
+showing the reader which is which.
+
+**Built to be forked.** No stage text lives in a component. All content is seven
+JSON files in `src/data`; the roadmap, the wizard, the games, and the assistant's
+knowledge base (~230 entries) all build themselves from that data. Swap the JSON
+and the same application serves a different program, faculty, or university —
+no code changes.
+
+**The assistant.** An Indonesian-language retrieval engine written from scratch
+(`src/lib/assistant.ts`): affix-stripping applied symmetrically to both the query
+and the knowledge base, abbreviation expansion, deliberately stingy typo
+correction, and eight precision rules whose purpose is to make it *refuse*. On
+top sits a four-tier router (`src/lib/ai/context.ts`) — cache, direct, model,
+refuse — built on the Anthropic SDK, which answers 37% of questions with no model
+call at all and sends ~1,319 characters of retrieved context instead of the full
+~56,500-character knowledge base. The refuse path never reaches the model on
+purpose: without grounding, a model can only answer from memory, and for
+administrative deadlines that is both dangerous and useless. The assistant still
+works with no API key configured — it falls back to the same retrieval engine.
+
+**Tests.** 161 automated tests (`npm test`), of which 84 are labeled question
+cases written to imitate how students actually type — misspellings, slang,
+single-word queries, follow-ups — including 15 adversarial off-topic questions
+that share trigger words with legitimate ones ("jadwal sholat" vs. "jadwal ujian
+komprehensif") and must be rejected.
+
+**Stack.** Next.js 16 (App Router) · TypeScript · Tailwind CSS v4 · shadcn/ui
+(Base UI) · Framer Motion.
+
+```bash
+npm install && npm run dev
+```
+
+To adapt it to another program, edit the JSON in `src/data` — the table under
+[Mengisi konten](#mengisi-konten) lists what each file holds. The rest of this
+README is in Indonesian, since that is who the site is for.
+
 ## Dasar informasi
 
 Persyaratan dan tenggat berlabel **Resmi** di dalam website mengacu pada:
@@ -399,3 +460,14 @@ npm run build
 ```bash
 npm run lint
 ```
+
+## Lisensi
+
+[MIT](LICENSE). Kodenya bebas dipakai, diubah, dan disebarkan — termasuk untuk
+prodi, fakultas, atau kampus lain.
+
+Yang **tidak** ikut lisensi ini: dokumen resmi di `public/template/` yang berasal
+dari Fakultas Syariah dan Hukum UIN Syarif Hidayatullah Jakarta. Berkas-berkas itu
+milik penerbitnya dan hanya dititipkan di sini supaya mudah diunduh mahasiswa.
+Kalau kamu mem-fork proyek ini untuk kampus lain, ganti isi folder tersebut dengan
+dokumen kampusmu sendiri.
