@@ -1,0 +1,57 @@
+Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+
+Copyright (c) 2026 Fadayen Fauzan
+
+The CONTENT of this project is licensed under CC BY-SA 4.0.
+
+  Summary (human-readable, not a substitute for the license):
+  https://creativecommons.org/licenses/by-sa/4.0/
+
+  Full legal code, which is the binding text:
+  https://creativecommons.org/licenses/by-sa/4.0/legalcode
+
+You are free to share and adapt the content, including commercially, provided
+you give appropriate credit and distribute your contributions under this same
+license.
+
+
+WHAT COUNTS AS CONTENT
+
+  - The JSON knowledge base in src/data/ — stages, requirements, documents,
+    steps, deadlines, tips, FAQ, exam schedules, wizard questions, and SKPI
+    nomenclature.
+  - Explanatory prose written for this project, wherever it appears: in the
+    JSON above, in README.md, and in the pages built from them.
+  - The writing templates authored for this project:
+    public/template/template-proposal-skripsi.docx
+    public/template/template-penulisan-skripsi.docx
+
+
+WHAT IS NOT COVERED BY THIS LICENSE
+
+  1. The SOURCE CODE, which is licensed separately under the MIT License.
+     See LICENSE.
+
+  2. OFFICIAL DOCUMENTS ISSUED BY THIRD PARTIES, redistributed in
+     public/template/ for the convenience of students. These include the
+     forms, guidelines, and letters issued by Fakultas Syariah dan Hukum,
+     UIN Syarif Hidayatullah Jakarta — among them the Pedoman Penulisan
+     Skripsi FSH UIN Jakarta 2017 and the faculty's official forms.
+
+     Those files are the property of the institutions that issued them. This
+     project neither owns them nor licenses them, and hosting them here grants
+     no rights over them. If you fork this project for another campus, replace
+     the contents of public/template/ with your own institution's documents.
+
+  3. FACTUAL STATEMENTS OF INSTITUTIONAL POLICY — requirements, deadlines, and
+     procedures — are facts and are not themselves subject to copyright. The
+     particular wording, selection, and arrangement of them in this project is.
+
+
+NO WARRANTY
+
+This project is not an official publication of the study program, the faculty,
+or the university. The content is offered as a guide. Administrative policy
+changes, and readers remain responsible for confirming requirements with the
+Secretary of the Study Program or the relevant office. The content is provided
+"as is", without warranty of any kind.

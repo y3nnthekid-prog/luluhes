@@ -1,71 +1,94 @@
-# Lulus HES
+# Panduan HES — Open Study Guides for Islamic Economic Law
 
-Navigator kelulusan untuk mahasiswa Program Studi Hukum Ekonomi Syariah, Fakultas
-Syariah dan Hukum, UIN Syarif Hidayatullah Jakarta.
+Free, openly licensed learning material for *hukum ekonomi syariah*
+(Islamic economic law) in Indonesia.
+
+Live: **https://lulushes.vercel.app**
 
 > **Bukan website resmi kampus.** Inisiatif pribadi alumni. Tidak berada di bawah
 > pengelolaan Program Studi, Fakultas, maupun Universitas.
 
-Live: **https://lulushes.vercel.app** · Lisensi: [MIT](LICENSE) ·
-[English summary](#english-summary)
+## What this is
 
-## English summary
+Two layers:
 
-**A graduation navigator for students of Islamic economic law (Hukum Ekonomi
-Syariah) at UIN Syarif Hidayatullah Jakarta.** Unofficial — a personal project by
-an alumnus, not run by the study program, the faculty, or the university.
+1. **Academic administration guide** — a practical walkthrough of the
+   undergraduate thesis process at Fakultas Syariah dan Hukum,
+   UIN Syarif Hidayatullah Jakarta: workflow from proposal to defense,
+   formatting standards, citation practice, and the common failure points
+   that cost students a semester.
+2. **Islamic economic law knowledge base** *(in progress)* — sourced
+   explainers on riba, gharar, and standard contract structures
+   (murabahah, qard, wakalah bi al-ujrah), each mapped to the governing
+   OJK regulation and DSN-MUI fatwa, with a changelog when the law changes.
 
-**The problem.** The rules for graduating are real and written down — a Dean's
-letter, No. B-252/F4/PP.01.1/01/2024 — but they are not *navigable*. Students
-reconstruct them from screenshots forwarded in group chats and from seniors who
-graduated a year earlier. People miss deadlines not because the requirements are
-hard, but because nobody has laid them end to end.
+## Why it exists
 
-**What it does.** Eleven graduation stages, each with its requirements,
-documents, steps, deadlines, tips, FAQ, and downloadable templates; a wizard that
-tells a student which stage they are actually in; a monthly exam-schedule view;
-and four practice games built from the same data. Progress lives in the browser's
-local storage — no accounts, no login, no user database.
+Indonesia runs one of the world's largest Islamic finance markets, but the
+law governing it is scattered across unindexed PDFs, paywalled journals,
+and campus group chats. Nothing maintained, nothing versioned, nothing free.
 
-**Source labeling.** Every claim carries a badge: **Resmi** (traceable to the
-Dean's letter) or **Alumni** (community practice — confirm with the department).
+## Method
+
+Every legal and fiqh claim is checked against the primary text and reviewed
+under academic supervision before publication. Sources are cited on every
+page. AI is used for drafting and translation; it is never the authority.
+
+Inside the administration guide each item is badged in addition: **Resmi**,
+traceable to the Dean's letter No. B-252/F4/PP.01.1/01/2024, or **Alumni**,
+meaning community practice the reader should confirm with the department.
 Publishing institutional information you do not officially control demands
 showing the reader which is which.
 
-**Built to be forked.** No stage text lives in a component. All content is seven
-JSON files in `src/data`; the roadmap, the wizard, the games, and the assistant's
-knowledge base (~230 entries) all build themselves from that data. Swap the JSON
-and the same application serves a different program, faculty, or university —
-no code changes.
+## How it's built
 
-**The assistant.** An Indonesian-language retrieval engine written from scratch
-(`src/lib/assistant.ts`): affix-stripping applied symmetrically to both the query
-and the knowledge base, abbreviation expansion, deliberately stingy typo
-correction, and eight precision rules whose purpose is to make it *refuse*. On
-top sits a four-tier router (`src/lib/ai/context.ts`) — cache, direct, model,
-refuse — built on the Anthropic SDK, which answers 37% of questions with no model
-call at all and sends ~1,319 characters of retrieved context instead of the full
-~56,500-character knowledge base. The refuse path never reaches the model on
-purpose: without grounding, a model can only answer from memory, and for
-administrative deadlines that is both dangerous and useless. The assistant still
-works with no API key configured — it falls back to the same retrieval engine.
+Content is data, not markup. Eleven thesis stages — their requirements,
+documents, steps, deadlines, and templates — live in seven JSON files under
+`src/data`. The roadmap, the stage wizard, the practice games, and the
+assistant's ~230-entry knowledge base all build themselves from it. Swapping
+the JSON adapts the entire application to another program or university with
+no code changes, which is what makes this a guide others can fork rather than
+only read.
 
-**Tests.** 161 automated tests (`npm test`), of which 84 are labeled question
-cases written to imitate how students actually type — misspellings, slang,
-single-word queries, follow-ups — including 15 adversarial off-topic questions
-that share trigger words with legitimate ones ("jadwal sholat" vs. "jadwal ujian
-komprehensif") and must be rejected.
+The question-answering assistant is an Indonesian-language retrieval engine
+written from scratch (`src/lib/assistant.ts`): affix-stripping applied
+symmetrically to query and knowledge base, abbreviation expansion,
+deliberately stingy typo correction, and eight precision rules whose purpose
+is to make it *refuse*. A four-tier router (`src/lib/ai/context.ts`) built on
+the Anthropic SDK answers 37% of questions with no model call at all, and
+when it does call, sends ~1,300 characters of retrieved context instead of
+the full ~56,500-character knowledge base. With no retrieved grounding it
+declines rather than reaching for the model — for administrative deadlines, a
+remembered answer is both dangerous and useless.
 
-**Stack.** Next.js 16 (App Router) · TypeScript · Tailwind CSS v4 · shadcn/ui
+161 automated tests (`npm test`), of which 84 are labeled question cases
+written to imitate how students actually type, including 15 adversarial
+off-topic questions that share trigger words with legitimate ones and must be
+rejected.
+
+Stack: Next.js 16 (App Router) · TypeScript · Tailwind CSS v4 · shadcn/ui
 (Base UI) · Framer Motion.
 
 ```bash
 npm install && npm run dev
 ```
 
-To adapt it to another program, edit the JSON in `src/data` — the table under
-[Mengisi konten](#mengisi-konten) lists what each file holds. The rest of this
-README is in Indonesian, since that is who the site is for.
+## Contributing
+
+Open to students and researchers at any institution. Corrections to legal
+content are especially welcome — open an issue with the primary source.
+
+## License
+
+- Code: MIT (see [`LICENSE`](LICENSE))
+- Content: CC BY-SA 4.0 (see [`LICENSE-CONTENT`](LICENSE-CONTENT))
+
+Official faculty documents redistributed in `public/template/` fall under
+neither — they belong to their issuer. Rinciannya di [Lisensi](#lisensi).
+
+---
+
+Sisa dokumen ini dalam Bahasa Indonesia, karena itu bahasa penggunanya.
 
 ## Dasar informasi
 
@@ -463,11 +486,20 @@ npm run lint
 
 ## Lisensi
 
-[MIT](LICENSE). Kodenya bebas dipakai, diubah, dan disebarkan — termasuk untuk
-prodi, fakultas, atau kampus lain.
+Dua lisensi, karena kode dan tulisan punya kebutuhan yang berbeda.
 
-Yang **tidak** ikut lisensi ini: dokumen resmi di `public/template/` yang berasal
-dari Fakultas Syariah dan Hukum UIN Syarif Hidayatullah Jakarta. Berkas-berkas itu
-milik penerbitnya dan hanya dititipkan di sini supaya mudah diunduh mahasiswa.
-Kalau kamu mem-fork proyek ini untuk kampus lain, ganti isi folder tersebut dengan
-dokumen kampusmu sendiri.
+| Bagian | Lisensi | Berkas |
+| --- | --- | --- |
+| Kode program | MIT | [`LICENSE`](LICENSE) |
+| Isi: JSON di `src/data`, tulisan, dan dua template buatan sendiri | CC BY-SA 4.0 | [`LICENSE-CONTENT`](LICENSE-CONTENT) |
+
+MIT dipilih supaya kodenya semudah mungkin dipakai ulang. CC BY-SA dipilih
+supaya tulisannya boleh disalin dan diubah, tetapi hasil ubahannya tetap
+terbuka — panduan yang di-fork lalu ditutup kembali tidak menolong siapa pun.
+
+Yang **tidak** ikut keduanya: dokumen resmi di `public/template/` terbitan
+Fakultas Syariah dan Hukum UIN Syarif Hidayatullah Jakarta, termasuk Pedoman
+Penulisan Skripsi 2017 dan formulir-formulirnya. Berkas itu milik penerbitnya,
+cuma dititipkan di sini supaya mudah diunduh mahasiswa, dan proyek ini tidak
+punya hak untuk melisensikannya. Kalau kamu mem-fork ini untuk kampus lain,
+ganti isi folder tersebut dengan dokumen kampusmu sendiri.
