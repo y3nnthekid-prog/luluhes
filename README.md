@@ -30,15 +30,18 @@ and campus group chats. Nothing maintained, nothing versioned, nothing free.
 
 ## Method
 
-Every legal and fiqh claim is checked against the primary text and reviewed
-under academic supervision before publication. Sources are cited on every
-page. AI is used for drafting and translation; it is never the authority.
+Every legal and fiqh claim is checked against the primary text and cited on
+the page where it appears. AI is used for drafting and translation; it is
+never the authority.
 
-Inside the administration guide each item is badged in addition: **Resmi**,
-traceable to the Dean's letter No. B-252/F4/PP.01.1/01/2024, or **Alumni**,
-meaning community practice the reader should confirm with the department.
-Publishing institutional information you do not officially control demands
-showing the reader which is which.
+What has not been confirmed is labeled, not presented as settled. In the
+administration guide every item carries a badge: **Resmi**, traceable to the
+Dean's letter No. B-252/F4/PP.01.1/01/2024, or **Alumni**, meaning community
+practice the reader should confirm with the department. Publishing
+institutional information you do not officially control demands showing the
+reader which is which. The same rule governs the legal explainers as they are
+written — sourced to the governing regulation and fatwa, or marked as not yet
+verified.
 
 ## How it's built
 
