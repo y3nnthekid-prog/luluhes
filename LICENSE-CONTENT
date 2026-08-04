@@ -17,7 +17,7 @@ license.
 
 WHAT COUNTS AS CONTENT
 
-  - The JSON knowledge base in src/data/ — stages, requirements, documents,
+  - The JSON knowledge base in src/data/: stages, requirements, documents,
     steps, deadlines, tips, FAQ, exam schedules, wizard questions, and SKPI
     nomenclature.
   - Explanatory prose written for this project, wherever it appears: in the
@@ -35,7 +35,7 @@ WHAT IS NOT COVERED BY THIS LICENSE
   2. OFFICIAL DOCUMENTS ISSUED BY THIRD PARTIES, redistributed in
      public/template/ for the convenience of students. These include the
      forms, guidelines, and letters issued by Fakultas Syariah dan Hukum,
-     UIN Syarif Hidayatullah Jakarta — among them the Pedoman Penulisan
+     UIN Syarif Hidayatullah Jakarta, among them the Pedoman Penulisan
      Skripsi FSH UIN Jakarta 2017 and the faculty's official forms.
 
      Those files are the property of the institutions that issued them. This
@@ -43,9 +43,10 @@ WHAT IS NOT COVERED BY THIS LICENSE
      no rights over them. If you fork this project for another campus, replace
      the contents of public/template/ with your own institution's documents.
 
-  3. FACTUAL STATEMENTS OF INSTITUTIONAL POLICY — requirements, deadlines, and
-     procedures — are facts and are not themselves subject to copyright. The
-     particular wording, selection, and arrangement of them in this project is.
+  3. FACTUAL STATEMENTS OF INSTITUTIONAL POLICY, meaning requirements,
+     deadlines, and procedures, are facts and are not themselves subject to
+     copyright. The particular wording, selection, and arrangement of them in
+     this project is.
 
 
 NO WARRANTY

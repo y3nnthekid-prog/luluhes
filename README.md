@@ -1,4 +1,4 @@
-# Panduan HES — Open Study Guides for Islamic Economic Law
+# Panduan HES: Open Study Guides for Islamic Economic Law
 
 Free, openly licensed learning material for *hukum ekonomi syariah*
 (Islamic economic law) in Indonesia.
@@ -12,12 +12,12 @@ Live: **https://lulushes.vercel.app**
 
 Two layers:
 
-1. **Academic administration guide** — a practical walkthrough of the
+1. **Academic administration guide.** A practical walkthrough of the
    undergraduate thesis process at Fakultas Syariah dan Hukum,
    UIN Syarif Hidayatullah Jakarta: workflow from proposal to defense,
    formatting standards, citation practice, and the common failure points
    that cost students a semester.
-2. **Islamic economic law knowledge base** *(in progress)* — sourced
+2. **Islamic economic law knowledge base** *(in progress)*. Sourced
    explainers on riba, gharar, and standard contract structures
    (murabahah, qard, wakalah bi al-ujrah), each mapped to the governing
    OJK regulation and DSN-MUI fatwa, with a changelog when the law changes.
@@ -40,13 +40,13 @@ Dean's letter No. B-252/F4/PP.01.1/01/2024, or **Alumni**, meaning community
 practice the reader should confirm with the department. Publishing
 institutional information you do not officially control demands showing the
 reader which is which. The same rule governs the legal explainers as they are
-written — sourced to the governing regulation and fatwa, or marked as not yet
+written: sourced to the governing regulation and fatwa, or marked as not yet
 verified.
 
 ## How it's built
 
-Content is data, not markup. Eleven thesis stages — their requirements,
-documents, steps, deadlines, and templates — live in seven JSON files under
+Content is data, not markup. Eleven thesis stages, with their requirements,
+documents, steps, deadlines, and templates, live in seven JSON files under
 `src/data`. The roadmap, the stage wizard, the practice games, and the
 assistant's ~230-entry knowledge base all build themselves from it. Swapping
 the JSON adapts the entire application to another program or university with
@@ -61,7 +61,7 @@ is to make it *refuse*. A four-tier router (`src/lib/ai/context.ts`) built on
 the Anthropic SDK answers 37% of questions with no model call at all, and
 when it does call, sends ~1,300 characters of retrieved context instead of
 the full ~56,500-character knowledge base. With no retrieved grounding it
-declines rather than reaching for the model — for administrative deadlines, a
+declines rather than reaching for the model. For administrative deadlines, a
 remembered answer is both dangerous and useless.
 
 161 automated tests (`npm test`), of which 84 are labeled question cases
@@ -79,7 +79,7 @@ npm install && npm run dev
 ## Contributing
 
 Open to students and researchers at any institution. Corrections to legal
-content are especially welcome — open an issue with the primary source.
+content are especially welcome. Open an issue with the primary source.
 
 ## License
 
@@ -87,7 +87,7 @@ content are especially welcome — open an issue with the primary source.
 - Content: CC BY-SA 4.0 (see [`LICENSE-CONTENT`](LICENSE-CONTENT))
 
 Official faculty documents redistributed in `public/template/` fall under
-neither — they belong to their issuer. Rinciannya di [Lisensi](#lisensi).
+neither. They belong to their issuer. Rinciannya di [Lisensi](#lisensi).
 
 ---
 
