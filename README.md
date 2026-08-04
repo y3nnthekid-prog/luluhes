@@ -296,9 +296,23 @@ npm test
 ```
 
 `src/lib/assistant.test.ts` berisi 84 pertanyaan berlabel yang ditulis meniru
-cara mahasiswa benar-benar mengetik, dibagi delapan kelompok: pertanyaan
-langsung, salah ketik, singkatan, maksud tersirat, urutan tahap, satu kata,
-temuan audit, dan di luar topik.
+cara mahasiswa benar-benar mengetik, dibagi sepuluh kelompok:
+
+| Kelompok | Jumlah |
+| --- | --- |
+| Pertanyaan langsung | 16 |
+| Di luar topik tapi memakai kata pemicu | 15 |
+| Uji lepas | 10 |
+| Salah ketik | 8 |
+| Temuan audit | 8 |
+| Singkatan dan bahasa gaul | 7 |
+| Maksud tersirat | 6 |
+| Di luar topik | 5 |
+| Satu kata | 5 |
+| Langkah berikutnya | 4 |
+
+Menghitungnya dengan `grep -c "q:"` menghasilkan 85, bukan 84: ada satu kasus
+lagi di tes penyusun jawaban, di luar kesepuluh kelompok itu.
 
 Tiga kelompok yang paling penting:
 
