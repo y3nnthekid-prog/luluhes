@@ -22,6 +22,22 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  /*
+   * Tanpa ini Next.js tidak tahu alamat mana yang jadi acuan, sehingga setiap
+   * URL di metadata hanya berupa jalur relatif — dan pratinjau saat ditautkan
+   * di WhatsApp atau grup kelas jadi tidak lengkap. Diambil dari site.json,
+   * jadi pindah domain lagi cukup mengubah satu baris data.
+   */
+  metadataBase: new URL(site.url),
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    locale: "id_ID",
+    siteName: site.name,
+    title: `${site.name} — ${site.tagline}`,
+    description: site.description,
+    url: "/",
+  },
   title: {
     default: `${site.name} — ${site.tagline}`,
     template: `%s · ${site.name}`,

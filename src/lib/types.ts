@@ -149,6 +149,8 @@ export type SiteConfig = {
   program: string;
   faculty: string;
   university: string;
+  /** Alamat kanonik website, dipakai metadata dan sitemap. */
+  url: string;
   officialSource: {
     title: string;
     number: string;

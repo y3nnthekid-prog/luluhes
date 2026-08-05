@@ -476,6 +476,16 @@ Kunci penyimpanan:
 Kalau struktur datanya berubah tidak kompatibel, naikkan angka versinya supaya data
 lama tidak salah dibaca.
 
+## Alamat website
+
+Alamat kanoniknya ada di `src/data/site.json` pada kunci `url`. Satu tempat itu
+yang dipakai `metadataBase`, `robots.txt`, dan `sitemap.xml` — jadi pindah
+domain cukup mengubah satu baris data, bukan menyisir komponen.
+
+`sitemap.xml` dibangun dari `stages.json`, jadi menambah tahapan otomatis
+menambahkannya di peta situs. `robots.txt` menutup `/api/` saja: isinya bukan
+halaman, dan merayapinya hanya menghabiskan jatah panggilan model.
+
 ## Deploy ke Vercel
 
 1. Push repository ini ke GitHub.
