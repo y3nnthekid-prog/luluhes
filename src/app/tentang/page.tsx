@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: "Tentang",
   description:
     "Lulus HES adalah inisiatif pribadi alumni untuk membantu mahasiswa HES UIN Jakarta menjalani proses kelulusan. Bukan website resmi kampus.",
+  alternates: { canonical: "/tentang" },
 };
 
 export default function TentangPage() {

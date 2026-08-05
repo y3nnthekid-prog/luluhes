@@ -13,6 +13,7 @@ export const metadata: Metadata = {
   title: "Download Center",
   description:
     "Semua template, formulir, dan panduan kelulusan HES dikelompokkan berdasarkan tahapan.",
+  alternates: { canonical: "/download" },
 };
 
 export default function DownloadPage() {

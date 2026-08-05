@@ -15,6 +15,7 @@ export const metadata: Metadata = {
   title: "FAQ",
   description:
     "Pertanyaan yang paling sering muncul seputar alur kelulusan HES UIN Jakarta — dari tenggat revisi sampai batas Turnitin.",
+  alternates: { canonical: "/faq" },
 };
 
 export default function FaqPage() {

@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: "Roadmap",
   description:
     "Peta lengkap tahapan kelulusan mahasiswa Hukum Ekonomi Syariah UIN Jakarta, dari persiapan proposal sampai pengambilan ijazah.",
+  alternates: { canonical: "/roadmap" },
 };
 
 export default function RoadmapPage() {

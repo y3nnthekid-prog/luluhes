@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   title: "Tahapan",
   description:
     "Seluruh tahapan kelulusan HES UIN Jakarta dikelompokkan per fase: proposal, skripsi, ujian, dan kelulusan.",
+  alternates: { canonical: "/tahapan" },
 };
 
 export default function TahapanPage() {

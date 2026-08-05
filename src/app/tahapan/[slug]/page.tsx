@@ -53,6 +53,7 @@ export async function generateMetadata({
   return {
     title: stage.title,
     description: stage.description,
+    alternates: { canonical: `/tahapan/${stage.slug}` },
   };
 }
 

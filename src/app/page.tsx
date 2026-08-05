@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -48,6 +49,18 @@ const questions = [
     answer: "Tiap halaman menutup dengan tahap sesudahnya.",
   },
 ];
+
+/*
+ * Kanonik beranda.
+ *
+ * Sebelumnya nilai ini disetel di layout dan otomatis diwarisi SELURUH
+ * halaman — akibatnya setiap halaman mengaku duplikat beranda, dan mesin
+ * pencari diberi tahu bahwa website ini cuma punya satu halaman. Sekarang
+ * tiap halaman menyatakan alamatnya sendiri.
+ */
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default function HomePage() {
   return (

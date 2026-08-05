@@ -15,6 +15,7 @@ export const metadata: Metadata = {
   title: "Ruang Main",
   description:
     "Empat mini game untuk menguji hafalan alur kelulusan HES: lari menghindari tenggat, menata berkas, menyusun urutan tahapan, dan menebak asal sebuah syarat.",
+  alternates: { canonical: "/main" },
 };
 
 export default function MainPage() {

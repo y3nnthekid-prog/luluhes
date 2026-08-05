@@ -29,14 +29,12 @@ export const metadata: Metadata = {
    * jadi pindah domain lagi cukup mengubah satu baris data.
    */
   metadataBase: new URL(site.url),
-  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "id_ID",
     siteName: site.name,
     title: `${site.name} — ${site.tagline}`,
     description: site.description,
-    url: "/",
   },
   title: {
     default: `${site.name} — ${site.tagline}`,
