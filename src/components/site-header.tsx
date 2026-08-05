@@ -13,6 +13,7 @@ import {
   Menu,
   Sparkles,
   X,
+  type LucideIcon,
 } from "lucide-react";
 
 import { SearchDialog } from "@/components/search-dialog";
@@ -26,18 +27,31 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { site } from "@/lib/data";
+import { halaman } from "@/lib/navigasi";
 import { useProgress } from "@/lib/progress";
 import { cn } from "@/lib/utils";
 
-const navItems = [
-  { href: "/", label: "Home", icon: Compass },
-  { href: "/roadmap", label: "Roadmap", icon: Map },
-  { href: "/tahapan", label: "Tahapan", icon: ListChecks },
-  { href: "/download", label: "Download", icon: FolderDown },
-  { href: "/main", label: "Main", icon: Sparkles },
-  { href: "/faq", label: "FAQ", icon: HelpCircle },
-  { href: "/tentang", label: "Tentang", icon: Info },
-];
+/**
+ * Ikon tiap halaman.
+ *
+ * Daftar halamannya sendiri ada di `@/lib/navigasi` — satu sumber yang juga
+ * dipakai footer dan sitemap. Yang tinggal di sini hanya ikonnya, karena cuma
+ * di sinilah ikon itu digambar.
+ */
+const ikonHalaman: Record<string, LucideIcon> = {
+  "/": Compass,
+  "/roadmap": Map,
+  "/tahapan": ListChecks,
+  "/download": FolderDown,
+  "/main": Sparkles,
+  "/faq": HelpCircle,
+  "/tentang": Info,
+};
+
+const navItems = halaman.map((h) => ({
+  ...h,
+  icon: ikonHalaman[h.href] ?? Compass,
+}));
 
 function isActive(pathname: string, href: string) {
   if (href === "/") return pathname === "/";

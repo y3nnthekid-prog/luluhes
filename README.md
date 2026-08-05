@@ -3,7 +3,7 @@
 Free, openly licensed learning material for *hukum ekonomi syariah*
 (Islamic economic law) in Indonesia.
 
-Live: **https://lulushes.vercel.app**
+Live: **https://lulushes.my.id**
 
 > **Bukan website resmi kampus.** Inisiatif pribadi alumni. Tidak berada di bawah
 > pengelolaan Program Studi, Fakultas, maupun Universitas.
@@ -240,7 +240,7 @@ website ini. Ada dua lapis: mesin pencari berbasis aturan di
 Pertanyaan dipecah menjadi kelompok istilah — satu singkatan beserta bentangannya
 dihitung sebagai **satu** konsep — lalu dicocokkan ke basis pengetahuan yang
 dibangun otomatis dari seluruh JSON: FAQ, tahapan, syarat, dokumen, langkah,
-tenggat, tips, template, jadwal ujian, dan nomenklatur SKPI. Sekitar 230 entri.
+tenggat, tips, template, jadwal ujian, dan nomenklatur SKPI. 231 entri.
 
 Yang dipahaminya, di luar kata kunci lurus:
 
@@ -482,9 +482,30 @@ Alamat kanoniknya ada di `src/data/site.json` pada kunci `url`. Satu tempat itu
 yang dipakai `metadataBase`, `robots.txt`, dan `sitemap.xml` — jadi pindah
 domain cukup mengubah satu baris data, bukan menyisir komponen.
 
-`sitemap.xml` dibangun dari `stages.json`, jadi menambah tahapan otomatis
-menambahkannya di peta situs. `robots.txt` menutup `/api/` saja: isinya bukan
-halaman, dan merayapinya hanya menghabiskan jatah panggilan model.
+Alamat utamanya apex, tanpa `www`. Tiga alamat lama diarahkan ke sana dengan
+status **308** — `www.lulushes.my.id`, `lulushes.vercel.app`, dan
+`luluhes.vercel.app` dari sebelum nama projectnya dibetulkan. Status 308 dipilih
+karena ia mempertahankan metode permintaan; dengan 301 atau 302, POST ke
+`/api/` lewat alamat lama bisa berubah jadi GET dan chatbotnya rusak diam-diam.
+
+Kanonik tiap halaman menyebut alamatnya sendiri, bukan diwarisi dari layout.
+Sempat sebaliknya, dan akibatnya setiap halaman mengaku duplikat beranda —
+sitemap mendaftar delapan belas alamat sementara tag kanoniknya bilang website
+ini cuma punya satu halaman.
+
+### Satu daftar halaman
+
+Daftar halaman ada di `src/lib/navigasi.ts`, dan dibaca tiga tempat sekaligus:
+header, footer, dan `sitemap.xml`. Sebelumnya ketiganya menyimpan daftar
+sendiri-sendiri dan urutannya sudah mulai berbeda. Menambah halaman berarti
+mengingat tiga tempat, dan yang paling mudah terlupakan justru sitemap karena
+tidak terlihat saat membuka website.
+
+Halaman tahapan tidak ikut didaftar di sana — `sitemap.xml` membangunnya dari
+`stages.json`, jadi menambah tahapan otomatis menambahkannya di peta situs.
+
+`robots.txt` menutup `/api/` saja: isinya bukan halaman, dan merayapinya hanya
+menghabiskan jatah panggilan model.
 
 ## Deploy ke Vercel
 

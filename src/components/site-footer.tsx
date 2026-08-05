@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { site } from "@/lib/data";
+import { halamanSelainBeranda } from "@/lib/navigasi";
 
 export function SiteFooter() {
   return (
@@ -14,43 +15,18 @@ export function SiteFooter() {
             </p>
           </div>
 
+          {/* Urutannya dulu ditulis tangan di sini dan sudah menyimpang dari
+              header. Sekarang keduanya membaca daftar yang sama. */}
           <nav className="flex flex-col gap-2 text-sm sm:text-right">
-            <Link
-              href="/roadmap"
-              className="text-muted-foreground hover:text-foreground"
-            >
-              Roadmap
-            </Link>
-            <Link
-              href="/tahapan"
-              className="text-muted-foreground hover:text-foreground"
-            >
-              Tahapan
-            </Link>
-            <Link
-              href="/download"
-              className="text-muted-foreground hover:text-foreground"
-            >
-              Download Center
-            </Link>
-            <Link
-              href="/faq"
-              className="text-muted-foreground hover:text-foreground"
-            >
-              FAQ
-            </Link>
-            <Link
-              href="/main"
-              className="text-muted-foreground hover:text-foreground"
-            >
-              Ruang Main
-            </Link>
-            <Link
-              href="/tentang"
-              className="text-muted-foreground hover:text-foreground"
-            >
-              Tentang
-            </Link>
+            {halamanSelainBeranda.map((h) => (
+              <Link
+                key={h.href}
+                href={h.href}
+                className="text-muted-foreground hover:text-foreground"
+              >
+                {h.label}
+              </Link>
+            ))}
             <Link
               href="/tentang#dukungan"
               className="font-medium text-brand hover:underline"
