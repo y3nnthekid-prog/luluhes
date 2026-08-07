@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "motion/react";
 import { Check, ChevronRight, MapPin } from "lucide-react";
 
 import { StageIcon } from "@/components/stage-icon";
