@@ -46,8 +46,27 @@ export function Reveal({
       return;
     }
 
+    /*
+     * Jaring pengaman.
+     *
+     * Memeriksa keberadaan IntersectionObserver saja ternyata tidak cukup: ia
+     * bisa ada tetapi tidak pernah menyala, misalnya di tab yang pembaruan
+     * gambarnya dibekukan. Waktu pengujian seluruh isi halaman ini benar-benar
+     * tidak pernah muncul karena itu. Halaman kosong jauh lebih buruk daripada
+     * halaman tanpa animasi.
+     *
+     * Yang dijadikan bukti "IO menyala" adalah panggilan baliknya yang pertama,
+     * bukan isIntersecting-nya: observer yang sehat selalu memanggil balik
+     * sekali segera sesudah observe(), entah elemennya sedang terlihat atau
+     * tidak. Sebelumnya pengaman ini menyala tanpa syarat setelah dua detik,
+     * sehingga di halaman panjang semua blok yang belum tergulir ikut muncul
+     * serentak dan animasinya jadi sia-sia.
+     */
+    let pengaman = 0;
+
     const observer = new IntersectionObserver(
       (entries) => {
+        window.clearTimeout(pengaman);
         for (const entry of entries) {
           if (!entry.isIntersecting) continue;
           (entry.target as HTMLElement).dataset.shown = "true";
@@ -59,17 +78,7 @@ export function Reveal({
 
     observer.observe(el);
 
-    /*
-     * Jaring pengaman.
-     *
-     * Memeriksa keberadaan IntersectionObserver saja ternyata tidak cukup: ia
-     * bisa ada tetapi tidak pernah menyala, misalnya di tab yang pembaruan
-     * gambarnya dibekukan. Waktu pengujian seluruh isi halaman ini benar-benar
-     * tidak pernah muncul karena itu. Jadi setelah dua detik, isinya
-     * ditampilkan apa pun yang terjadi — halaman kosong jauh lebih buruk
-     * daripada halaman tanpa animasi.
-     */
-    const pengaman = window.setTimeout(() => {
+    pengaman = window.setTimeout(() => {
       el.dataset.shown = "true";
       observer.disconnect();
     }, 2000);

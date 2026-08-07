@@ -1,5 +1,6 @@
 "use client";
 
+import * as React from "react";
 import Link from "next/link";
 import { motion, useReducedMotion } from "motion/react";
 import { Check, ChevronRight, MapPin } from "lucide-react";
@@ -11,6 +12,60 @@ import { useProgress } from "@/lib/progress";
 import { cn } from "@/lib/utils";
 
 /**
+ * Jaring pengaman untuk animasi yang bergantung pada IntersectionObserver.
+ *
+ * `whileInView` hanya menyala kalau IO benar-benar bekerja. Di lingkungan yang
+ * IO-nya ada tapi tidak pernah memanggil balik, node roadmap tersangkut di
+ * `opacity: 0` selamanya — peta kelulusannya hilang sama sekali, padahal
+ * isinya sudah ada di DOM. Ini perlakuan yang sama dengan `Reveal`, yang lebih
+ * dulu kena masalah persis begitu.
+ *
+ * Buktinya adalah panggilan balik pertama, bukan `isIntersecting`: observer
+ * yang sehat selalu memanggil balik sekali segera sesudah `observe()`, entah
+ * elemennya sedang terlihat atau tidak. Jadi animasi gulirnya tetap utuh saat
+ * IO sehat, dan hanya dipaksa tampil kalau IO memang bisu.
+ *
+ * Mengembalikan `[paksaTampil, pasang]`.
+ */
+function usePengamanTampil(): [boolean, (node: HTMLOListElement | null) => void] {
+  const [paksaTampil, setPaksaTampil] = React.useState(false);
+  const ref = React.useRef<HTMLOListElement | null>(null);
+
+  const pasang = React.useCallback((node: HTMLOListElement | null) => {
+    ref.current = node;
+  }, []);
+
+  React.useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    // Peramban lama tanpa IntersectionObserver: tidak akan pernah ada yang
+    // memicu whileInView, jadi langsung tampilkan saja. Lewat timer supaya
+    // setState-nya tidak terjadi saat efek masih berjalan.
+    if (typeof IntersectionObserver === "undefined") {
+      const segera = window.setTimeout(() => setPaksaTampil(true), 0);
+      return () => window.clearTimeout(segera);
+    }
+
+    let pengaman = 0;
+    const pengintai = new IntersectionObserver(() => {
+      window.clearTimeout(pengaman);
+      pengintai.disconnect();
+    });
+    pengintai.observe(el);
+
+    pengaman = window.setTimeout(() => setPaksaTampil(true), 2000);
+
+    return () => {
+      window.clearTimeout(pengaman);
+      pengintai.disconnect();
+    };
+  }, []);
+
+  return [paksaTampil, pasang];
+}
+
+/**
  * Peta perjalanan kelulusan. Setiap node bisa diklik, node aktif disorot,
  * dan node yang checklist-nya tuntas ditandai selesai. Warna node mengikuti
  * fase, sehingga perjalanan terbaca sebagai gradasi dari kuning ke hijau tua.
@@ -18,9 +73,10 @@ import { cn } from "@/lib/utils";
 export function Roadmap({ compact = false }: { compact?: boolean }) {
   const { hydrated, currentStage, stageProgress } = useProgress();
   const reduceMotion = useReducedMotion();
+  const [paksaTampil, pasangDaftar] = usePengamanTampil();
 
   return (
-    <ol className="relative">
+    <ol ref={pasangDaftar} className="relative">
       {stages.map((stage, i) => {
         const progress = stageProgress(stage.slug);
         const isCurrent = hydrated && stage.slug === currentStage.slug;
@@ -31,9 +87,19 @@ export function Roadmap({ compact = false }: { compact?: boolean }) {
 
         return (
           <motion.li
-            key={stage.slug}
-            initial={reduceMotion ? false : { opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            /*
+             * Kuncinya ikut berubah saat pengaman menyala supaya elemennya
+             * dipasang ulang. `initial` hanya dibaca sekali waktu dipasang;
+             * kalau elemen lama dipertahankan, motion akan mencoba
+             * *menganimasikan* dari opacity 0 — dan animasi itu justru yang
+             * tidak jalan di lingkungan bermasalah. Dengan dipasang ulang
+             * memakai `initial={false}`, nilainya ditulis langsung tanpa
+             * animasi sama sekali.
+             */
+            key={paksaTampil ? `${stage.slug}-pengaman` : stage.slug}
+            initial={reduceMotion || paksaTampil ? false : { opacity: 0, y: 10 }}
+            whileInView={paksaTampil ? undefined : { opacity: 1, y: 0 }}
+            animate={paksaTampil ? { opacity: 1, y: 0 } : undefined}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.28, delay: Math.min(i * 0.03, 0.3) }}
             className="relative pl-13 sm:pl-16"
