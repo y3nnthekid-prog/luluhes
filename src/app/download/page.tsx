@@ -85,7 +85,7 @@ export default function DownloadPage() {
                 <h2 className="font-heading text-base font-medium">
                   <Link
                     href={`/tahapan/${stage.slug}`}
-                    className="hover:underline underline-offset-4"
+                    className="hover:underline underline-offset-4 pointer-coarse:inline-flex pointer-coarse:min-h-11 pointer-coarse:items-center"
                   >
                     {stage.title}
                   </Link>

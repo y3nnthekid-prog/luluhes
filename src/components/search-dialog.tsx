@@ -137,7 +137,9 @@ export function SearchDialog() {
         variant="outline"
         size="sm"
         onClick={() => setOpen(true)}
-        className="gap-2 text-muted-foreground sm:min-w-52 sm:justify-start"
+        // Di bawah sm labelnya disembunyikan, jadi tombolnya menyusut jadi
+        // ikon saja — tingginya cukup tapi lebarnya tinggal 40 piksel.
+        className="gap-2 text-muted-foreground pointer-coarse:min-w-11 sm:min-w-52 sm:justify-start"
         aria-label="Cari tahapan, template, atau FAQ"
       >
         <Search aria-hidden />

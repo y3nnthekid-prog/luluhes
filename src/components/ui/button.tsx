@@ -32,8 +32,11 @@ const buttonVariants = cva(
         icon: "size-9 pointer-coarse:size-11",
         "icon-xs":
           "size-6 rounded-[min(var(--radius-md),10px)] in-data-[slot=button-group]:rounded-lg [&_svg:not([class*='size-'])]:size-3",
+        // 40 piksel di perangkat sentuh masih di bawah ambang 44. `icon` dan
+        // `icon-lg` sudah lolos; varian ini yang tertinggal, dan dialah yang
+        // dipakai tombol ganti tema di header.
         "icon-sm":
-          "size-8 rounded-[min(var(--radius-md),12px)] pointer-coarse:size-10 in-data-[slot=button-group]:rounded-lg",
+          "size-8 rounded-[min(var(--radius-md),12px)] pointer-coarse:size-11 in-data-[slot=button-group]:rounded-lg",
         "icon-lg": "size-11 pointer-coarse:size-12",
       },
     },

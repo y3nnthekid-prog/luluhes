@@ -60,7 +60,7 @@ export default function FaqPage() {
               </h2>
               <Link
                 href={`/tahapan/${stage.slug}`}
-                className="text-xs text-muted-foreground underline underline-offset-3 hover:text-foreground"
+                className="text-xs text-muted-foreground underline underline-offset-3 hover:text-foreground pointer-coarse:inline-flex pointer-coarse:min-h-11 pointer-coarse:items-center"
               >
                 Buka tahap {stage.order}
               </Link>

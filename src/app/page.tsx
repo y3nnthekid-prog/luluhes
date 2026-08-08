@@ -188,7 +188,7 @@ export default function HomePage() {
                   href={exam.registrationUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-brand underline-offset-4 hover:underline"
+                  className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-brand underline-offset-4 hover:underline pointer-coarse:min-h-11"
                 >
                   Buka form pendaftaran
                   <ExternalLink className="size-3.5" aria-hidden />
@@ -236,7 +236,7 @@ export default function HomePage() {
                   </LinkButton>
                   <Link
                     href="/download"
-                    className="inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-sm font-medium text-pop-foreground/80 hover:text-pop-foreground"
+                    className="inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-sm font-medium text-pop-foreground/80 hover:text-pop-foreground pointer-coarse:min-h-11"
                   >
                     <FolderDown className="size-4" aria-hidden />
                     Download Center

@@ -48,7 +48,7 @@ export function ExamScheduleCard({ exam }: { exam: ExamCycle }) {
           href={exam.registrationUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex h-9 w-full items-center justify-center gap-2 rounded-lg bg-brand px-4 text-sm font-medium text-brand-foreground transition-colors hover:bg-brand/85 sm:w-auto"
+          className="inline-flex min-h-9 w-full items-center justify-center gap-2 rounded-lg bg-brand px-4 py-2 text-sm font-medium text-brand-foreground transition-colors hover:bg-brand/85 pointer-coarse:min-h-11 sm:w-auto"
         >
           Buka form pendaftaran
           <ExternalLink className="size-4" aria-hidden />

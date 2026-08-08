@@ -103,7 +103,7 @@ export function DownloadCard({
           {...(isLocalFile
             ? { download: "" }
             : { target: "_blank", rel: "noopener noreferrer" })}
-          className="inline-flex h-8 shrink-0 items-center justify-center gap-1.5 rounded-lg bg-brand px-3 text-sm font-medium text-brand-foreground transition-colors hover:bg-brand/85"
+          className="inline-flex min-h-8 shrink-0 items-center justify-center gap-1.5 rounded-lg bg-brand px-3 py-1.5 text-sm font-medium text-brand-foreground transition-colors hover:bg-brand/85 pointer-coarse:min-h-11"
         >
           {isForm ? (
             <>

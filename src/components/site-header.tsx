@@ -68,7 +68,7 @@ export function SiteHeader() {
       <div className="mx-auto flex h-16 max-w-5xl items-center gap-3 px-4">
         <Link
           href="/"
-          className="flex shrink-0 items-center gap-2 font-medium transition-transform hover:scale-[1.03]"
+          className="flex shrink-0 items-center gap-2 font-medium transition-transform hover:scale-[1.03] pointer-coarse:min-h-11"
         >
           <span className="flex size-8 items-center justify-center rounded-xl bg-brand text-brand-foreground shadow-sm shadow-brand/30">
             <Compass className="size-4.5" aria-hidden />

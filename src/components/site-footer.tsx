@@ -17,19 +17,24 @@ export function SiteFooter() {
 
           {/* Urutannya dulu ditulis tangan di sini dan sudah menyimpang dari
               header. Sekarang keduanya membaca daftar yang sama. */}
+          {/* Urutan tautannya sama dengan header, tapi di sini semuanya
+              bertumpuk vertikal. Setinggi 20 piksel dengan jarak 8 piksel,
+              sasarannya terlalu rapat untuk jempol — mudah meleset ke tautan
+              tetangga. Padding tambahan hanya untuk perangkat sentuh, supaya
+              footer di desktop tetap padat. */}
           <nav className="flex flex-col gap-2 text-sm sm:text-right">
             {halamanSelainBeranda.map((h) => (
               <Link
                 key={h.href}
                 href={h.href}
-                className="text-muted-foreground hover:text-foreground"
+                className="text-muted-foreground hover:text-foreground pointer-coarse:flex pointer-coarse:min-h-11 pointer-coarse:items-center sm:pointer-coarse:justify-end"
               >
                 {h.label}
               </Link>
             ))}
             <Link
               href="/tentang#dukungan"
-              className="font-medium text-brand hover:underline"
+              className="font-medium text-brand hover:underline pointer-coarse:flex pointer-coarse:min-h-11 pointer-coarse:items-center sm:pointer-coarse:justify-end"
             >
               Dukung &amp; beri masukan
             </Link>
