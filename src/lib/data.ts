@@ -20,6 +20,17 @@ export const site = siteJson as SiteConfig;
 
 export const schedule = scheduleJson as ScheduleConfig;
 
+/**
+ * Jam tenggat pendaftaran ujian, dicetak besar-besar di beranda.
+ *
+ * Ditulis terpisah, bukan dikorek dari kalimat `schedule.intro` lewat regex —
+ * cara itu diam-diam berhenti bekerja begitu kalimatnya diedit. Sebagai
+ * gantinya `jam-tenggat.test.ts` memastikan angka ini benar-benar dipakai
+ * intro dan setiap tenggat ujian. Kalau Prodi mengubah jamnya, tesnya gagal
+ * alih-alih beranda menampilkan dua jam berbeda di satu layar.
+ */
+export const JAM_TENGGAT = "16.00";
+
 export const skpi = skpiJson as SkpiConfig;
 
 /** Ujian bulanan yang mengurus sebuah tahapan, bila ada. */

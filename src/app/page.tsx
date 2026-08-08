@@ -18,6 +18,7 @@ import { PositionCard } from "@/components/position-card";
 import { Reveal } from "@/components/reveal";
 import { Roadmap } from "@/components/roadmap";
 import {
+  JAM_TENGGAT,
   getStagesByPhase,
   phases,
   schedule,
@@ -144,7 +145,9 @@ export default function HomePage() {
         <section className="border-t py-12">
           <Reveal>
             <div className="flex flex-wrap items-end justify-between gap-3">
-              <h2 className="font-heading text-xl font-semibold sm:text-2xl">
+              {/* Seksi inti website — dinaikkan satu tingkat supaya tidak
+                  berbunyi sama kerasnya dengan seksi pendukung di sekitarnya. */}
+              <h2 className="font-heading text-2xl font-semibold tracking-tight sm:text-3xl">
                 Perjalananmu, empat fase
               </h2>
               <LinkButton href="/roadmap" variant="outline" size="sm">
@@ -190,16 +193,50 @@ export default function HomePage() {
 
         {/* Siklus ujian bulanan */}
         <section className="border-t py-12">
+          {/*
+           * Seksi ini sengaja dibalik hierarkinya.
+           *
+           * Judulnya turun jadi label kecil, dan yang membesar adalah jam
+           * tenggatnya. Alasannya sederhana: "Siklus ujian bulanan" cuma nama
+           * seksi, sedangkan 16.00 adalah satu-satunya angka di halaman ini
+           * yang kalau terlewat bisa membuat orang mengulang satu periode.
+           * Sebelumnya angka itu terkubur di tengah paragraf abu-abu dengan
+           * ukuran yang sama dengan teks penjelas biasa.
+           *
+           * Ini juga yang memecah nada tipografi halaman: sesudah hero, semua
+           * judul seksi berukuran nyaris sama, jadi tidak ada satu pun momen
+           * yang terasa lebih penting dari yang lain.
+           */}
           <Reveal>
             <div className="flex items-center gap-2.5">
               <span className="flex size-9 items-center justify-center rounded-xl bg-blush text-blush-foreground">
                 <CalendarClock className="size-4.5" aria-hidden />
               </span>
-              <h2 className="font-heading text-xl font-semibold sm:text-2xl">
+              <h2 className="font-heading text-xs font-semibold tracking-[0.16em] text-muted-foreground uppercase">
                 {schedule.heading}
               </h2>
             </div>
-            <p className="mt-3 max-w-2xl text-sm text-muted-foreground">
+
+            {/*
+             * Batas atasnya (4rem) sengaja di bawah batas atas judul hero
+             * (4,75rem). Percobaan pertama memakai 14vw tanpa batas serendah
+             * itu, dan hasilnya angka ini justru lebih besar daripada judul
+             * halaman di layar lebar — momen besar berubah jadi hierarki yang
+             * terbalik. Di layar sempit ia tetap boleh menonjol: keduanya
+             * tidak pernah terlihat bersamaan di sana.
+             */}
+            <p className="mt-5 font-heading text-[clamp(2.75rem,8vw,4rem)] leading-[0.88] font-bold tracking-tight tabular-nums">
+              {JAM_TENGGAT}
+              <span className="ml-2.5 align-baseline text-[0.26em] font-semibold tracking-normal text-muted-foreground">
+                WIB
+              </span>
+            </p>
+            <p className="mt-3 max-w-md text-base font-medium text-balance">
+              Jam yang sama untuk setiap pendaftaran ujian — apa pun ujiannya,
+              periode ke berapa pun.
+            </p>
+
+            <p className="mt-4 max-w-2xl text-sm text-muted-foreground">
               {schedule.intro}
             </p>
           </Reveal>
