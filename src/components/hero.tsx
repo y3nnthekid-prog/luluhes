@@ -2,13 +2,23 @@ import * as React from "react";
 import { ArrowRight, MousePointerClick } from "lucide-react";
 
 import { CountUp } from "@/components/count-up";
+import { KataBerputar } from "@/components/kata-berputar";
 import { LinkButton } from "@/components/link-button";
 import { StageIcon } from "@/components/stage-icon";
 import { WizardDialog } from "@/components/wizard-dialog";
 import { downloads, site, stages, totalStages } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
-const JUDUL = "Berhenti menebak-nebak alur kelulusanmu.";
+/*
+ * Judulnya sengaja tidak selesai sendiri.
+ *
+ * Dulu berbunyi "Berhenti menebak-nebak alur kelulusanmu." — benar, tapi
+ * kalimat yang sama bisa dipakai website panduan apa pun. Sekarang bagian
+ * akhirnya diisi frasa yang berputar: syarat sempro, berkas komprehensif,
+ * jadwal munaqosyah, dan seterusnya. Pengunjung tahu cakupan website ini
+ * dalam tiga detik, dari kosakata yang memang mereka pakai.
+ */
+const JUDUL = "Berhenti menebak-nebak";
 
 /**
  * Ikon tahap yang mengambang di sisi kanan hero.
@@ -76,23 +86,25 @@ export function Hero() {
         {/* Judul muncul kata demi kata. Teks utuhnya tetap satu <h1>, jadi
             pembaca layar dan mesin pencari membacanya sebagai satu kalimat. */}
         <h1 className="relative z-1 mt-5 font-heading text-[clamp(2.1rem,6.4vw,4.75rem)] leading-[1.02] font-bold tracking-tight text-pretty">
-          {kata.map((k, i) => {
-            const terakhir = i === kata.length - 1;
-            return (
-              // Spasinya sengaja di LUAR span. Span-nya `inline-block`, dan
-              // spasi di dalam kotak inline-block dipangkas saat tata letak —
-              // itu yang membuat judulnya sempat terbaca "Berhentimenebak".
-              <React.Fragment key={`${k}-${i}`}>
-                <span
-                  className="word-rise"
-                  style={{ animationDelay: `${i * 90}ms` }}
-                >
-                  {terakhir ? <span className="sorot-kata">{k}</span> : k}
-                </span>
-                {terakhir ? null : " "}
-              </React.Fragment>
-            );
-          })}
+          {kata.map((k, i) => (
+            // Spasinya sengaja di LUAR span. Span-nya `inline-block`, dan
+            // spasi di dalam kotak inline-block dipangkas saat tata letak —
+            // itu yang membuat judulnya sempat terbaca "Berhentimenebak".
+            <React.Fragment key={`${k}-${i}`}>
+              <span
+                className="word-rise"
+                style={{ animationDelay: `${i * 90}ms` }}
+              >
+                {k}
+              </span>{" "}
+            </React.Fragment>
+          ))}
+          <span
+            className="word-rise"
+            style={{ animationDelay: `${kata.length * 90}ms` }}
+          >
+            <KataBerputar />
+          </span>
         </h1>
 
         {/* Garis perjalanan yang menggambar dirinya sendiri: satu tarikan dari
