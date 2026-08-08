@@ -11,10 +11,13 @@ import { JAM_TENGGAT, schedule } from "@/lib/data";
  * sekali, karena pembaca jadi tidak tahu mana yang benar.
  */
 describe("jam tenggat yang dicetak besar di beranda", () => {
-  it("benar-benar disebut di teks penjelasnya", () => {
-    expect(schedule.intro).toContain(JAM_TENGGAT);
-  });
-
+  /*
+   * Semula tes ini juga menuntut angkanya muncul di `schedule.intro`. Anak
+   * kalimat itu dipangkas karena mengulang angka yang sudah tercetak
+   * besar-besar tepat di atasnya. Jangkarnya sekarang `deadlinePattern` tiap
+   * ujian — dan itu memang jangkar yang lebih benar sejak awal: intro cuma
+   * merangkum, sedangkan tenggat per ujian adalah datanya sendiri.
+   */
   it("dipakai konsisten oleh setiap ujian yang tenggatnya berjam", () => {
     const berjam = schedule.exams.filter((e) =>
       /pukul\s*\d/i.test(e.deadlinePattern),
