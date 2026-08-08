@@ -64,13 +64,15 @@ the full ~56,500-character knowledge base. With no retrieved grounding it
 declines rather than reaching for the model. For administrative deadlines, a
 remembered answer is both dangerous and useless.
 
-161 automated tests (`npm test`), of which 84 are labeled question cases
+167 automated tests (`npm test`), of which 84 are labeled question cases
 written to imitate how students actually type, including 15 adversarial
 off-topic questions that share trigger words with legitimate ones and must be
-rejected.
+rejected. Most run in plain Node; the component tests declare
+`@vitest-environment jsdom` per file, so files that don't need a DOM don't pay
+for one.
 
 Stack: Next.js 16 (App Router) · TypeScript · Tailwind CSS v4 · shadcn/ui
-(Base UI) · Framer Motion.
+(Base UI) · Motion.
 
 ```bash
 npm install && npm run dev
@@ -520,7 +522,7 @@ Setiap `git push` berikutnya ter-deploy otomatis. Untuk domain sendiri, buka
 ## Stack
 
 Next.js 16 (App Router) · TypeScript · Tailwind CSS v4 · shadcn/ui (Base UI) ·
-Lucide · Framer Motion · next-themes
+Lucide · Motion · next-themes
 
 ## Perintah
 

@@ -1,69 +1,15 @@
 "use client";
 
-import * as React from "react";
 import Link from "next/link";
 import { motion, useReducedMotion } from "motion/react";
 import { Check, ChevronRight, MapPin } from "lucide-react";
 
+import { usePengamanTampil } from "@/components/pengaman-tampil";
 import { StageIcon } from "@/components/stage-icon";
 import { stages } from "@/lib/data";
 import { phaseStyle } from "@/lib/phase";
 import { useProgress } from "@/lib/progress";
 import { cn } from "@/lib/utils";
-
-/**
- * Jaring pengaman untuk animasi yang bergantung pada IntersectionObserver.
- *
- * `whileInView` hanya menyala kalau IO benar-benar bekerja. Di lingkungan yang
- * IO-nya ada tapi tidak pernah memanggil balik, node roadmap tersangkut di
- * `opacity: 0` selamanya — peta kelulusannya hilang sama sekali, padahal
- * isinya sudah ada di DOM. Ini perlakuan yang sama dengan `Reveal`, yang lebih
- * dulu kena masalah persis begitu.
- *
- * Buktinya adalah panggilan balik pertama, bukan `isIntersecting`: observer
- * yang sehat selalu memanggil balik sekali segera sesudah `observe()`, entah
- * elemennya sedang terlihat atau tidak. Jadi animasi gulirnya tetap utuh saat
- * IO sehat, dan hanya dipaksa tampil kalau IO memang bisu.
- *
- * Mengembalikan `[paksaTampil, pasang]`.
- */
-function usePengamanTampil(): [boolean, (node: HTMLOListElement | null) => void] {
-  const [paksaTampil, setPaksaTampil] = React.useState(false);
-  const ref = React.useRef<HTMLOListElement | null>(null);
-
-  const pasang = React.useCallback((node: HTMLOListElement | null) => {
-    ref.current = node;
-  }, []);
-
-  React.useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    // Peramban lama tanpa IntersectionObserver: tidak akan pernah ada yang
-    // memicu whileInView, jadi langsung tampilkan saja. Lewat timer supaya
-    // setState-nya tidak terjadi saat efek masih berjalan.
-    if (typeof IntersectionObserver === "undefined") {
-      const segera = window.setTimeout(() => setPaksaTampil(true), 0);
-      return () => window.clearTimeout(segera);
-    }
-
-    let pengaman = 0;
-    const pengintai = new IntersectionObserver(() => {
-      window.clearTimeout(pengaman);
-      pengintai.disconnect();
-    });
-    pengintai.observe(el);
-
-    pengaman = window.setTimeout(() => setPaksaTampil(true), 2000);
-
-    return () => {
-      window.clearTimeout(pengaman);
-      pengintai.disconnect();
-    };
-  }, []);
-
-  return [paksaTampil, pasang];
-}
 
 /**
  * Peta perjalanan kelulusan. Setiap node bisa diklik, node aktif disorot,
