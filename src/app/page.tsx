@@ -83,23 +83,59 @@ export default function HomePage() {
               sekaligus — tidak ada yang digantung.
             </p>
 
-            <div className="mt-5 grid gap-3 sm:grid-cols-2">
+            {/*
+             * Dulu empat kartu seragam berjajar 2x2 — ikon di kotak bulat,
+             * judul, satu baris keterangan, keempatnya persis sama. Susunan
+             * itu benar tapi tidak mengatakan apa-apa, dan justru membuang
+             * kalimat terbaik di seksi ini: "chat senior jam 11 malam".
+             *
+             * Sekarang bentuknya utas percakapan. Pertanyaan rata kanan
+             * seperti pesan yang kamu kirim, jawaban rata kiri seperti balasan
+             * yang datang. Asimetrinya lahir dari isinya sendiri, bukan
+             * ditempelkan, dan lebar tiap gelembung mengikuti panjang
+             * kalimatnya — jadi tidak ada dua baris yang sama persis.
+             *
+             * <dl> dipakai karena ini memang pasangan tanya-jawab: dt untuk
+             * pertanyaan, dd untuk jawabannya. Bentuknya menyerupai chat, tapi
+             * strukturnya tetap jujur bagi pembaca layar.
+             */}
+            <p className="mt-5 flex items-center gap-2 text-xs text-muted-foreground">
+              <span className="h-px flex-1 bg-border" aria-hidden />
+              23.47
+              <span className="h-px flex-1 bg-border" aria-hidden />
+            </p>
+
+            <dl className="mt-3 space-y-4">
               {questions.map(({ icon: Icon, question, answer }, i) => (
-                <Reveal
-                  key={question}
-                  delay={140 + i * 70}
-                  className="card-lift rounded-2xl border bg-card p-4"
-                >
-                  <span className="flex size-9 items-center justify-center rounded-xl bg-brand-soft text-brand">
-                    <Icon className="size-4.5" aria-hidden />
-                  </span>
-                  <h3 className="mt-3 font-heading text-sm font-semibold">
-                    {question}
-                  </h3>
-                  <p className="mt-1 text-sm text-muted-foreground">{answer}</p>
-                </Reveal>
+                // Reveal merender <div>. Kalau ia membungkus dt/dd, susunannya
+                // jadi dl > div > div > dt — terlalu dalam, dan pasangan
+                // tanya-jawabnya putus bagi pembaca layar. Jadi dt/dd yang
+                // membungkus Reveal, bukan sebaliknya.
+                <div key={question} className="space-y-1.5">
+                  <dt className="flex justify-end">
+                    <Reveal
+                      delay={140 + i * 110}
+                      className="max-w-[85%] rounded-2xl rounded-br-sm bg-brand px-4 py-2.5 text-sm font-medium text-brand-foreground shadow-sm"
+                    >
+                      {question}
+                    </Reveal>
+                  </dt>
+
+                  <dd className="flex justify-start pr-6">
+                    <Reveal
+                      delay={200 + i * 110}
+                      className="card-lift flex max-w-[92%] items-start gap-2.5 rounded-2xl rounded-bl-sm border bg-card px-4 py-2.5 text-sm"
+                    >
+                      <Icon
+                        className="mt-0.5 size-4 shrink-0 text-brand"
+                        aria-hidden
+                      />
+                      <span className="text-muted-foreground">{answer}</span>
+                    </Reveal>
+                  </dd>
+                </div>
               ))}
-            </div>
+            </dl>
           </Reveal>
         </section>
 
