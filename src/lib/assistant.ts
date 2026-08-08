@@ -2,6 +2,7 @@ import {
   allFaq,
   downloads,
   getStage,
+  kalender,
   schedule,
   skpi,
   stages,
@@ -364,6 +365,18 @@ function vocab() {
     const dasar = new Set<string>();
     for (const answer of knowledge) {
       for (const word of answer.bodyWords) {
+        /*
+         * Angka murni tidak dianggap kosakata.
+         *
+         * Kosakata ini dipakai untuk menilai apakah sebuah kata dalam
+         * pertanyaan "asing" — dan kata asing itulah yang membuat asisten
+         * menolak menjawab. Angka tidak membuktikan apa pun soal topik:
+         * begitu data kalender akademik masuk, "2026" dan "2027" ikut jadi
+         * kosakata, dan "cara daftar cpns 2026" mendadak terasa cukup dikenal
+         * untuk dijawab. Tahun yang sama muncul di pertanyaan CPNS, jadwal
+         * kereta, harga tiket — mengenalinya bukan tanda apa-apa.
+         */
+        if (/^\d+$/.test(word)) continue;
         kata.add(word);
         if (word.length >= 4) dasar.add(stem(word));
       }
@@ -682,6 +695,71 @@ export const knowledge: Answer[] = [
     href: "/",
     hrefLabel: "Lihat siklus ujian",
     haystack: "jadwal ujian bulanan pendaftaran google form tenggat 16.00 wib drive terkunci",
+  }),
+
+  /*
+   * Kalender akademik universitas.
+   *
+   * Tiap gelombang wisuda dapat entrinya sendiri, bukan digabung jadi satu
+   * daftar panjang. Orang bertanya "wisuda ke-143 kapan" atau "kapan
+   * pendaftaran wisuda dibuka" — entri per gelombang membuat pertanyaan
+   * seperti itu punya sasaran yang tepat, dan angka gelombangnya ikut masuk
+   * haystack supaya bisa dicari langsung.
+   */
+  ...kalender.wisuda.map((w) =>
+    entry({
+      id: `wisuda-${w.ke}`,
+      kind: "Jadwal",
+      stage: "wisuda",
+      title: `Jadwal Wisuda ke-${w.ke}`,
+      /*
+       * Judul wajib menyinggung apa yang ditanyakan — entri dengan nol
+       * kecocokan judul dibuang sebelum dinilai. Tanpa tambahan ini "kapan
+       * pendaftaran wisuda dibuka" nyasar ke FAQ pendaftaran ujian bulanan.
+       *
+       * Tapi kata "pendaftaran" TIDAK boleh ada di sini: batangnya bertemu
+       * "daftar", dan akibatnya "cara daftar cpns 2026" ikut berlabuh ke
+       * jadwal wisuda. Yang dipakai kata yang tidak punya kehidupan di luar
+       * konteks kampus — AIS dan gladi resik.
+       */
+      titleExtra: "AIS gladi resik gelombang",
+      body: `Pelaksanaan: ${w.pelaksanaan}\nPendaftaran online di AIS: ${w.pendaftaran}\nPenyerahan peserta dan skripsi terbaik: ${w.penyerahanPeserta}\nGladi resik: ${w.gladiResik}\n\nSumber: ${kalender.sumber.keputusan}, ditetapkan ${kalender.sumber.ditetapkan}, tahun akademik ${kalender.sumber.tahunAkademik}.`,
+      href: "/tahapan/wisuda",
+      hrefLabel: "Buka tahap wisuda",
+      haystack: `wisuda ke-${w.ke} ke ${w.ke} gelombang jadwal kapan tanggal pendaftaran ais gladi resik toga upacara kalender akademik`,
+    }),
+  ),
+
+  entry({
+    id: "kalender-akademik",
+    kind: "Jadwal",
+    /*
+     * Judulnya menyebut isinya satu per satu karena entri dengan nol
+     * kecocokan judul dibuang sebelum dinilai — versi "Kalender akademik
+     * 2026/2027" saja membuat "kapan pembayaran UKT" tidak terjawab.
+     *
+     * Tapi menyebutkannya harus hemat. Versi berikutnya memuat kata "jadwal"
+     * dan angka tahunnya, dan itu justru menjebol penjaga: "cara daftar cpns
+     * 2026" lolos lewat angka 2026, "jadwal kereta jakarta bandung" lolos
+     * lewat kata jadwal — dua pertanyaan yang memang harus ditolak. Judul di
+     * sini sengaja hanya memuat kata yang tidak dipakai di luar konteks
+     * kampus.
+     */
+    title:
+      "Kalender akademik UIN Jakarta: pembayaran UKT, cuti kuliah, e-RS, dan perkuliahan",
+    titleExtra: "semester ganjil genap",
+    body: `${kalender.sumber.keputusan}, ditetapkan ${kalender.sumber.ditetapkan}.\n\n${kalender.semester
+      .map(
+        (s) =>
+          `${s.nama}\n• Perkuliahan: ${s.perkuliahan}\n• Pembayaran UKT: ${s.pembayaranUkt}\n• Pengajuan cuti kuliah: ${s.pengajuanCuti}\n• Pengisian e-RS: ${s.pengisianErs}\n• Pengisian nilai oleh dosen: ${s.pengisianNilai}`,
+      )
+      .join("\n\n")}\n\nWisuda tahun akademik ini: ${kalender.wisuda
+      .map((w) => `ke-${w.ke} (${w.pelaksanaan})`)
+      .join(", ")}.`,
+    href: "/download#kalender-akademik",
+    hrefLabel: "Unduh kalender akademik",
+    haystack:
+      "kalender akademik semester ganjil genap perkuliahan ukt pembayaran cuti kuliah e-rs ers nilai dosen wisuda tahun akademik keputusan rektor",
   }),
 
   entry({

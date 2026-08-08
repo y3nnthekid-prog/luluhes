@@ -264,6 +264,18 @@
     "url": null
   },
   {
+    "id": "kalender-akademik",
+    "name": "Kalender Akademik UIN Jakarta",
+    "description": "Keputusan Rektor Nomor 28 Tahun 2026. Memuat tanggal wisuda ke-142 sampai ke-145 beserta jendela pendaftarannya di AIS, plus batas pembayaran UKT, pengajuan cuti kuliah, dan pengisian e-RS. Terbit ulang tiap tahun akademik.",
+    "stage": "wisuda",
+    "version": "2026/2027",
+    "format": "PDF",
+    "size": "776 KB",
+    "status": "tersedia",
+    "updatedAt": "2026-08-08",
+    "url": "/template/kalender-akademik-uin-jakarta-2026-2027.pdf"
+  },
+  {
     "id": "surat-kuasa-ijazah",
     "name": "Surat Kuasa Pengambilan Ijazah",
     "description": "Surat kuasa bermeterai jika pengambilan ijazah diwakilkan.",

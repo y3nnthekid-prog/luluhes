@@ -127,6 +127,47 @@ export type ScheduleConfig = {
   reminders: string[];
 };
 
+/** Satu gelombang wisuda beserta jendela pendaftarannya. */
+export type Wisuda = {
+  ke: number;
+  pendaftaran: string;
+  penyerahanPeserta: string;
+  gladiResik: string;
+  pelaksanaan: string;
+};
+
+/** Tanggal administratif satu semester yang menyangkut mahasiswa tingkat akhir. */
+export type SemesterAkademik = {
+  nama: string;
+  perkuliahan: string;
+  pembayaranUkt: string;
+  pengajuanCuti: string;
+  pengisianErs: string;
+  validasiErs: string;
+  pengisianNilai: string;
+};
+
+/**
+ * Kalender akademik universitas.
+ *
+ * Berbeda dari `schedule.json` yang mengurus siklus ujian bulanan Prodi: yang
+ * ini terbit setahun sekali lewat Keputusan Rektor dan mengatur hal-hal
+ * setingkat universitas — kapan wisuda digelar dan kapan pendaftarannya
+ * dibuka di AIS. Sengaja disimpan terpisah supaya penggantian tahunannya
+ * tidak menyentuh data Prodi.
+ */
+export type KalenderAkademik = {
+  sumber: {
+    judul: string;
+    keputusan: string;
+    ditetapkan: string;
+    tahunAkademik: string;
+    berkas: string;
+  };
+  wisuda: Wisuda[];
+  semester: SemesterAkademik[];
+};
+
 export type SkpiEntry = {
   nama: string;
   kategori: string;

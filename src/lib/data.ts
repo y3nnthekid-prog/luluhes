@@ -4,11 +4,13 @@ import faqJson from "@/data/faq.json";
 import siteJson from "@/data/site.json";
 import scheduleJson from "@/data/schedule.json";
 import skpiJson from "@/data/skpi.json";
+import kalenderJson from "@/data/kalender-akademik.json";
 
 import type {
   DownloadItem,
   ExamCycle,
   FaqItem,
+  KalenderAkademik,
   ScheduleConfig,
   SiteConfig,
   SkpiConfig,
@@ -32,6 +34,13 @@ export const schedule = scheduleJson as ScheduleConfig;
 export const JAM_TENGGAT = "16.00";
 
 export const skpi = skpiJson as SkpiConfig;
+
+/**
+ * Kalender akademik universitas, terbit tiap tahun akademik lewat Keputusan
+ * Rektor. Yang paling dicari mahasiswa tingkat akhir ada di sini: tanggal
+ * wisuda dan jendela pendaftarannya di AIS.
+ */
+export const kalender = kalenderJson as KalenderAkademik;
 
 /** Ujian bulanan yang mengurus sebuah tahapan, bila ada. */
 export function getExamForStage(slug: string): ExamCycle | undefined {

@@ -27,6 +27,7 @@ import {
 } from "@/components/ui/accordion";
 import { LinkButton } from "@/components/link-button";
 import { ExamScheduleCard } from "@/components/exam-schedule-card";
+import { JadwalWisuda } from "@/components/jadwal-wisuda";
 import {
   getExamForStage,
   getStage,
@@ -121,6 +122,9 @@ export default async function StagePage({ params }: StageParams) {
       <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_19rem] lg:items-start">
         <div className="min-w-0 space-y-12">
           {exam && <ExamScheduleCard exam={exam} />}
+
+          {/* Tanggal wisuda hanya relevan di tahapnya sendiri. */}
+          {stage.slug === "wisuda" && <JadwalWisuda />}
 
           {/* Tujuan */}
           <section aria-labelledby="tujuan">

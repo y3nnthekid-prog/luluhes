@@ -1,0 +1,59 @@
+{
+  "sumber": {
+    "judul": "Kalender Akademik UIN Syarif Hidayatullah Jakarta",
+    "keputusan": "Keputusan Rektor Nomor 28 Tahun 2026",
+    "ditetapkan": "22 Januari 2026",
+    "tahunAkademik": "2026/2027",
+    "berkas": "/template/kalender-akademik-uin-jakarta-2026-2027.pdf"
+  },
+  "wisuda": [
+    {
+      "ke": 142,
+      "pendaftaran": "1 September – 19 Oktober 2026",
+      "penyerahanPeserta": "9 November 2026",
+      "gladiResik": "26 November 2026",
+      "pelaksanaan": "28–29 November 2026"
+    },
+    {
+      "ke": 143,
+      "pendaftaran": "1 Desember 2026 – 15 Januari 2027",
+      "penyerahanPeserta": "8 Februari 2027",
+      "gladiResik": "25 Februari 2027",
+      "pelaksanaan": "27–28 Februari 2027"
+    },
+    {
+      "ke": 144,
+      "pendaftaran": "1 Maret – 16 April 2027",
+      "penyerahanPeserta": "10 Mei 2027",
+      "gladiResik": "27 Mei 2027",
+      "pelaksanaan": "29–30 Mei 2027"
+    },
+    {
+      "ke": 145,
+      "pendaftaran": "2 Juni – 16 Juli 2027",
+      "penyerahanPeserta": "9 Agustus 2027",
+      "gladiResik": "26 Agustus 2027",
+      "pelaksanaan": "28–29 Agustus 2027"
+    }
+  ],
+  "semester": [
+    {
+      "nama": "Ganjil 2026/2027",
+      "perkuliahan": "1 September 2026 – 8 Januari 2027",
+      "pembayaranUkt": "20 Juli – 19 Agustus 2026",
+      "pengajuanCuti": "20 Juli – 19 Agustus 2026",
+      "pengisianErs": "20 Juli – 20 Agustus 2026",
+      "validasiErs": "20 Juli – 21 Agustus 2026",
+      "pengisianNilai": "28 Desember 2026 – 15 Januari 2027"
+    },
+    {
+      "nama": "Genap 2026/2027",
+      "perkuliahan": "1 Maret – 27 Juli 2027",
+      "pembayaranUkt": "18 Januari – 19 Februari 2027",
+      "pengajuanCuti": "18 Januari – 19 Februari 2027",
+      "pengisianErs": "18 Januari – 21 Februari 2027",
+      "validasiErs": "18 Januari – 22 Februari 2027",
+      "pengisianNilai": "11 Juli – 30 Juli 2027"
+    }
+  ]
+}
